@@ -65,7 +65,7 @@ introduction: {
     "Research first. Advocacy that has something to stand on.",
 
   paragraphs: [
-    "ClimateWatch is a youth-led climate think tank based in Pakistan. We are the International Climate Policy and Research and Development Division of the Northern Citizens' Community Board, an organisation with consultative status at the United Nations Economic and Social Council.",
+    "ClimateWatch is a youth-led climate think tank based in Pakistan, working across international climate policy, research and development, with consultative status at the United Nations Economic and Social Council.",
 
     "We do policy research, and we do advocacy. The first is what makes the second worth listening to.",
   ],
@@ -597,7 +597,7 @@ closing: {
   },
 
   note:
-    "ClimateWatch is the International Climate Policy & Research and Development Division of the Northern Citizens' Community Board, an ECOSOC-accredited organisation.",
+    "ClimateWatch is a youth-led climate think tank working across international climate policy, research and development. An ECOSOC-accredited organisation.",
 
   image:
     "/images/home/home-closing.webp",

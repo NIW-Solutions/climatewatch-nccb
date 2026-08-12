@@ -189,7 +189,7 @@ export function SiteHeader() {
                     : "text-muted-light",
                 ].join(" ")}
               >
-                NCCB · ECOSOC-accredited
+                ECOSOC-accredited
               </p>
 
               <Link
@@ -247,7 +247,7 @@ export function SiteHeader() {
 
             <nav
               aria-label="Primary navigation"
-              className="hidden xl:flex xl:items-center xl:gap-7"
+              className="hidden xl:flex xl:items-center xl:gap-4 2xl:gap-6"
             >
               {siteConfig.navigation.map(
                 (item) => {
@@ -264,7 +264,7 @@ export function SiteHeader() {
                       href={item.href}
                       onClick={closeMenu}
                       className={[
-                        "relative py-7 text-[0.68rem] font-bold uppercase tracking-[0.08em] transition-colors",
+                        "relative whitespace-nowrap py-7 text-[0.62rem] font-bold uppercase tracking-[0.07em] transition-colors 2xl:text-[0.68rem] 2xl:tracking-[0.08em]",
 
                         transparent
                           ? active
@@ -528,8 +528,7 @@ export function SiteHeader() {
               </a>
 
               <p className="mt-6 max-w-sm text-xs leading-6 text-muted">
-                Northern Citizens&apos;
-                Community Board (NCCB)
+                ClimateWatch
                 <br />
                 ECOSOC-accredited
                 organisation

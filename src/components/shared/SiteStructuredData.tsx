@@ -25,21 +25,13 @@ export function SiteStructuredData() {
       name: siteConfig.location.country,
     },
 
-    parentOrganization: {
-      "@type": "Organization",
+    alternateName: "CLIMATEWATCH",
 
-      name:
-        siteConfig.parentOrganisation
-          .name,
-
-      alternateName:
-        siteConfig.parentOrganisation
-          .abbreviation,
-
-      description:
-        siteConfig.parentOrganisation
-          .status,
-    },
+    knowsAbout: [
+      "Climate policy",
+      "Climate research",
+      "Education for sustainable development",
+    ],
   };
 
   return (

@@ -136,7 +136,7 @@ export const resourcesContent = {
       "Use the following institutional wording when identifying ClimateWatch for the first time in an article, report, interview or formal publication.",
 
     firstReference:
-      "ClimateWatch, the International Climate Policy and Research and Development Division of the Northern Citizens' Community Board (NCCB), an ECOSOC-accredited organisation.",
+      "ClimateWatch, a youth-led climate think tank working across international climate policy, research and development, an ECOSOC-accredited organisation.",
 
     subsequentReference:
       "After the first reference, ClimateWatch may be used on its own.",

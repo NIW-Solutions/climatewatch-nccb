@@ -225,11 +225,7 @@ export default function OpenGraphImage() {
                   "rgba(255,255,255,0.62)",
               }}
             >
-              {
-                siteConfig
-                  .parentOrganisation
-                  .abbreviation
-              }
+              {siteConfig.status}
             </div>
 
             <div

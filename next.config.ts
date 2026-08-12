@@ -8,6 +8,17 @@ const nextConfig: NextConfig = {
   images: {
     formats: ["image/avif", "image/webp"],
     minimumCacheTTL: 2_592_000,
+
+    remotePatterns: [
+      // YouTube video thumbnails used by the TV Live broadcast archive.
+      {
+        protocol: "https",
+        hostname: "i.ytimg.com",
+        port: "",
+        pathname: "/vi/**",
+        search: "",
+      },
+    ],
   },
 
   async headers() {

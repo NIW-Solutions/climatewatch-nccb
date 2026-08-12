@@ -34,9 +34,19 @@ const routes = [
     priority: 0.9,
   },
   {
+    path: "/blog",
+    changeFrequency: "weekly",
+    priority: 0.9,
+  },
+  {
     path: "/news",
     changeFrequency: "weekly",
     priority: 0.9,
+  },
+  {
+    path: "/tv-live",
+    changeFrequency: "daily",
+    priority: 0.8,
   },
   {
     path: "/resources",

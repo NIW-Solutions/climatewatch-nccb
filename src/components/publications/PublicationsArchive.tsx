@@ -1,9 +1,10 @@
 "use client";
 
 import {
-  ArrowRight,
   ArrowUpRight,
   ChevronDown,
+  Download,
+  FileText,
 } from "lucide-react";
 import {
   useMemo,
@@ -11,42 +12,21 @@ import {
 } from "react";
 
 import { InView } from "@/components/motion-primitives/InView";
+import { PublicationCover } from "@/components/publications/PublicationCover";
 import {
   publicationsContent,
   type PublicationCategory,
+  type PublicationItem,
 } from "@/content/publications";
 
 type Filter =
   | "all"
   | PublicationCategory;
 
-type FilterOption = {
-  value: Filter;
-  label: string;
-};
-
-const filters: FilterOption[] = [
-  {
-    value: "all",
-    label: "All publications",
-  },
-  {
-    value: "publication",
-    label: "Publications",
-  },
-  {
-    value: "policy-report",
-    label: "Policy reports",
-  },
-  {
-    value: "blog",
-    label: "Blogs",
-  },
-];
-
 export function PublicationsArchive() {
   const {
     archive,
+    filters,
     items,
   } = publicationsContent;
 
@@ -81,7 +61,7 @@ export function PublicationsArchive() {
             ===================================== */}
 
         <InView>
-          <div className="grid gap-8 border-t border-primary pt-6 lg:grid-cols-[1fr_auto] lg:items-end">
+          <div className="grid gap-8 border-t border-primary pt-6 lg:grid-cols-[0.75fr_1.35fr_0.9fr]">
             <div>
               <p
                 id="publication-archive-heading"
@@ -89,35 +69,74 @@ export function PublicationsArchive() {
               >
                 {archive.eyebrow}
               </p>
-
-              <p className="mt-4 max-w-xl text-sm leading-7 text-muted">
-                {archive.description}
-              </p>
             </div>
 
-            <div className="lg:text-right">
-              <p className="text-[0.58rem] font-bold uppercase tracking-[0.11em] text-muted-light">
-                Archive
-              </p>
+            <div>
+              <h2 className="max-w-xl font-editorial text-[clamp(1.9rem,2.8vw,2.9rem)] font-medium leading-[1.08] tracking-[-0.035em] text-primary">
+                {archive.title}
+              </h2>
+            </div>
 
-              <p className="mt-2 text-sm font-semibold text-primary">
-                {String(items.length).padStart(
-                  2,
-                  "0",
-                )}{" "}
-                entries
+            <div>
+              <p className="text-sm leading-7 text-muted">
+                {archive.description}
               </p>
             </div>
           </div>
         </InView>
 
         {/* =====================================
-            EDITORIAL FILTER
+            FILTER
             ===================================== */}
 
         <InView className="mt-10 sm:mt-12">
           <div className="grid gap-5 border-y border-border py-5 sm:grid-cols-[auto_minmax(15rem,22rem)] sm:items-center sm:justify-between">
-            <div>
+            {/* Desktop filter tabs */}
+
+            <div className="hidden flex-wrap items-center gap-x-7 gap-y-3 lg:flex">
+              {filters.map((filter) => {
+                const active =
+                  filter.value ===
+                  activeFilter;
+
+                return (
+                  <button
+                    key={filter.value}
+                    type="button"
+                    aria-pressed={active}
+                    onClick={() =>
+                      setActiveFilter(
+                        filter.value as Filter,
+                      )
+                    }
+                    className={[
+                      "relative py-1 text-[0.68rem] font-bold uppercase tracking-[0.09em] transition-colors",
+
+                      active
+                        ? "text-primary"
+                        : "text-muted hover:text-primary",
+                    ].join(" ")}
+                  >
+                    {filter.label}
+
+                    <span
+                      aria-hidden="true"
+                      className={[
+                        "absolute inset-x-0 -bottom-0.5 h-[2px] bg-secondary transition-transform duration-300",
+
+                        active
+                          ? "scale-x-100"
+                          : "scale-x-0",
+                      ].join(" ")}
+                    />
+                  </button>
+                );
+              })}
+            </div>
+
+            {/* Mobile / tablet select */}
+
+            <div className="lg:hidden">
               <p className="text-[0.58rem] font-bold uppercase tracking-[0.11em] text-muted-light">
                 Filter archive
               </p>
@@ -127,7 +146,7 @@ export function PublicationsArchive() {
               </p>
             </div>
 
-            <div className="relative">
+            <div className="relative lg:hidden">
               <label
                 htmlFor="publication-filter"
                 className="sr-only"
@@ -166,115 +185,45 @@ export function PublicationsArchive() {
                 />
               </div>
             </div>
+
+            {/* Result count */}
+
+            <div className="hidden lg:block lg:text-right">
+              <p className="text-[0.58rem] font-bold uppercase tracking-[0.11em] text-muted-light">
+                Showing
+              </p>
+
+              <p className="mt-2 text-sm font-semibold text-primary">
+                {String(
+                  visibleItems.length,
+                ).padStart(2, "0")}{" "}
+                of{" "}
+                {String(
+                  items.length,
+                ).padStart(2, "0")}
+              </p>
+            </div>
           </div>
         </InView>
 
         {/* =====================================
-            RESULT INFORMATION
+            COVER GRID
             ===================================== */}
 
-        <div className="flex items-center justify-between gap-6 border-b border-border py-5">
-          <p className="text-[0.58rem] font-bold uppercase tracking-[0.11em] text-muted-light">
-            Showing
-          </p>
-
-          <p className="text-xs font-semibold text-primary">
-            {activeLabel}
-
-            <span className="ml-2 text-muted-light">
-              ·{" "}
-              {String(
-                visibleItems.length,
-              ).padStart(
-                2,
-                "0",
-              )}
-            </span>
-          </p>
-        </div>
-
-        {/* =====================================
-            PUBLICATION LIST
-            ===================================== */}
-
-        <div aria-live="polite">
+        <div
+          aria-live="polite"
+          className="mt-12 grid gap-x-7 gap-y-14 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4"
+        >
           {visibleItems.map(
             (item, index) => (
               <InView
                 key={item.slug}
-                delay={index * 0.02}
+                delay={index * 0.03}
                 amount={0.08}
               >
-                <article className="group border-b border-border">
-                  <div className="grid gap-y-6 py-8 sm:py-9 lg:grid-cols-[4rem_9rem_minmax(0,1fr)_3rem] lg:items-start lg:gap-x-8">
-                    {/* NUMBER */}
-
-                    <div>
-                      <span className="editorial-index">
-                        {item.number}
-                      </span>
-                    </div>
-
-                    {/* META */}
-
-                    <div>
-                      <p className="text-[0.58rem] font-bold uppercase tracking-[0.11em] text-secondary">
-                        {item.categoryLabel}
-                      </p>
-
-                      <p className="mt-2 text-xs font-semibold text-muted">
-                        {item.year}
-                      </p>
-                    </div>
-
-                    {/* CONTENT */}
-
-                    <div>
-                      <h2 className="max-w-4xl font-editorial text-[clamp(1.55rem,2.2vw,2.2rem)] font-medium leading-[1.14] tracking-[-0.03em] text-primary transition-colors duration-300 group-hover:text-secondary">
-                        {item.title}
-                      </h2>
-
-                      <p className="mt-4 max-w-3xl text-sm leading-7 text-muted">
-                        {item.description}
-                      </p>
-
-                      {/* Mobile action */}
-
-                      <a
-                        href={item.href}
-                        target="_blank"
-                        rel="noreferrer"
-                        className="group/link mt-5 inline-flex items-center gap-3 text-sm font-semibold !text-primary transition-colors hover:!text-secondary lg:hidden"
-                      >
-                        Open publication
-
-                        <ArrowUpRight
-                          aria-hidden="true"
-                          className="size-4 transition-transform duration-300 group-hover/link:-translate-y-0.5 group-hover/link:translate-x-0.5"
-                          strokeWidth={1.7}
-                        />
-                      </a>
-                    </div>
-
-                    {/* Desktop action */}
-
-                    <div className="hidden justify-end lg:flex">
-                      <a
-                        href={item.href}
-                        target="_blank"
-                        rel="noreferrer"
-                        aria-label={`Open ${item.title}`}
-                        className="group/link grid size-10 place-items-center border border-border-strong !text-primary transition-[background-color,border-color,color] duration-300 hover:!border-secondary hover:!bg-secondary hover:!text-white"
-                      >
-                        <ArrowUpRight
-                          aria-hidden="true"
-                          className="size-4 transition-transform duration-300 group-hover/link:-translate-y-0.5 group-hover/link:translate-x-0.5"
-                          strokeWidth={1.7}
-                        />
-                      </a>
-                    </div>
-                  </div>
-                </article>
+                <PublicationCard
+                  item={item}
+                />
               </InView>
             ),
           )}
@@ -287,33 +236,153 @@ export function PublicationsArchive() {
         {visibleItems.length === 0 ? (
           <div className="border-b border-border py-12">
             <p className="text-sm text-muted">
-              No publications are available
-              in this category.
+              No publications are
+              available in this
+              category.
             </p>
           </div>
         ) : null}
-
-        {/* =====================================
-            FOOTER
-            ===================================== */}
-
-        <InView className="mt-10 flex justify-end">
-          <a
-            href="https://linktr.ee/Climatewatch"
-            target="_blank"
-            rel="noreferrer"
-            className="group inline-flex items-center gap-3 text-sm font-semibold !text-primary transition-colors hover:!text-secondary"
-          >
-            View ClimateWatch resources
-
-            <ArrowRight
-              aria-hidden="true"
-              className="size-4 transition-transform duration-300 group-hover:translate-x-1"
-              strokeWidth={1.7}
-            />
-          </a>
-        </InView>
       </div>
     </section>
+  );
+}
+
+/* ==========================================
+   PUBLICATION CARD
+   ========================================== */
+
+function PublicationCard({
+  item,
+}: Readonly<{
+  item: PublicationItem;
+}>) {
+  return (
+    <article className="group flex h-full flex-col">
+      {/* =====================================
+          COVER PAGE
+          ===================================== */}
+
+      <a
+        href={item.pdf}
+        target="_blank"
+        rel="noreferrer"
+        aria-label={`Download ${item.title} as PDF`}
+        className="relative block aspect-[3/4] overflow-hidden bg-primary-dark shadow-[0_18px_40px_rgba(8,29,25,0.10)] transition-transform duration-500 ease-out group-hover:-translate-y-1"
+      >
+        <PublicationCover
+          title={item.title}
+          categoryLabel={
+            item.categoryLabel
+          }
+          year={item.year}
+          cover={item.cover}
+          coverAlt={item.coverAlt}
+        />
+
+        {/* Download affordance */}
+
+        <span
+          aria-hidden="true"
+          className="absolute inset-0 grid place-items-center bg-primary-dark/70 opacity-0 transition-opacity duration-300 group-hover:opacity-100"
+        >
+          <span className="inline-flex items-center gap-2.5 border border-white/40 bg-white/10 px-4 py-2.5 text-[0.6rem] font-bold uppercase tracking-[0.12em] text-white backdrop-blur-sm">
+            <Download
+              className="size-3.5"
+              strokeWidth={1.8}
+            />
+            Download PDF
+          </span>
+        </span>
+      </a>
+
+      {/* =====================================
+          DETAILS
+          ===================================== */}
+
+      <div className="mt-5 flex flex-1 flex-col border-t border-border pt-4">
+        <div className="flex items-center justify-between gap-4">
+          <p className="text-[0.56rem] font-bold uppercase tracking-[0.11em] text-secondary">
+            {item.categoryLabel}
+          </p>
+
+          <p className="text-[0.56rem] font-bold uppercase tracking-[0.11em] text-muted-light">
+            {item.date}
+          </p>
+        </div>
+
+        <h3 className="mt-3 font-editorial text-[1.25rem] font-medium leading-[1.16] tracking-[-0.03em] text-primary transition-colors duration-300 group-hover:text-secondary">
+          {item.title}
+        </h3>
+
+        {item.subtitle ? (
+          <p className="mt-2.5 text-xs font-semibold leading-6 text-primary/65">
+            {item.subtitle}
+          </p>
+        ) : null}
+
+        <p className="mt-3 text-xs leading-6 text-muted">
+          {item.description}
+        </p>
+
+        {/* Topics */}
+
+        <div className="mt-4 flex flex-wrap gap-x-2 gap-y-2">
+          {item.topics.map((topic) => (
+            <span
+              key={topic}
+              className="border border-border px-2.5 py-1 text-[0.52rem] font-bold uppercase tracking-[0.1em] text-muted"
+            >
+              {topic}
+            </span>
+          ))}
+        </div>
+
+        {/* File actions */}
+
+        <div className="mt-5 flex flex-wrap items-center gap-x-5 gap-y-3 border-t border-border pt-4">
+          <a
+            href={item.pdf}
+            target="_blank"
+            rel="noreferrer"
+            className="group/pdf inline-flex items-center gap-2 text-xs font-semibold !text-primary transition-colors hover:!text-secondary"
+          >
+            <FileText
+              aria-hidden="true"
+              className="size-3.5"
+              strokeWidth={1.7}
+            />
+            PDF
+            {item.pdfSize ? (
+              <span className="font-normal text-muted-light">
+                {item.pdfSize}
+              </span>
+            ) : null}
+          </a>
+
+          {item.pages ? (
+            <span className="text-[0.56rem] font-bold uppercase tracking-[0.11em] text-muted-light">
+              {item.pages}
+            </span>
+          ) : null}
+
+          {item.href ? (
+            <a
+              href={item.href}
+              target="_blank"
+              rel="noreferrer"
+              className="group/src ml-auto inline-flex items-center gap-1.5 text-[0.56rem] font-bold uppercase tracking-[0.11em] !text-muted transition-colors hover:!text-secondary"
+            >
+              Source
+
+              <ArrowUpRight
+                aria-hidden="true"
+                className="size-3 transition-transform duration-300 group-hover/src:-translate-y-0.5 group-hover/src:translate-x-0.5"
+                strokeWidth={1.8}
+              />
+            </a>
+          ) : null}
+        </div>
+      </div>
+    </article>
   );
 }

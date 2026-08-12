@@ -17,7 +17,7 @@ export const privacyContent = {
       number: "01",
       title: "About this website",
       paragraphs: [
-        "This website is operated for ClimateWatch, the International Climate Policy and Research and Development Division of the Northern Citizens' Community Board (NCCB).",
+        "This website is operated for ClimateWatch, a youth-led climate think tank working across international climate policy, research and development.",
         "This Privacy Policy applies to information provided through the ClimateWatch website and its contact channels.",
       ],
     },
@@ -123,7 +123,7 @@ export const termsContent = {
       title: "About these terms",
       paragraphs: [
         "These Terms of Use apply to your use of the ClimateWatch website.",
-        "ClimateWatch is the International Climate Policy and Research and Development Division of the Northern Citizens' Community Board (NCCB).",
+        "ClimateWatch is a youth-led climate think tank working across international climate policy, research and development.",
         "By using this website, you agree to use it lawfully and in accordance with these terms.",
       ],
     },

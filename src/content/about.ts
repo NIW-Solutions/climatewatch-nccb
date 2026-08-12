@@ -22,10 +22,10 @@ export const aboutContent = {
     eyebrow: "Who we are",
 
     lead:
-      "ClimateWatch is the International Climate Policy and Research and Development Division of the Northern Citizens' Community Board.",
+      "ClimateWatch works across international climate policy, research and development.",
 
     paragraphs: [
-      "ClimateWatch is a youth-led climate think tank based in Pakistan. We are the International Climate Policy and Research and Development Division of the Northern Citizens' Community Board, an organisation with consultative status at the United Nations Economic and Social Council.",
+      "ClimateWatch is a youth-led climate think tank based in Pakistan, working across international climate policy, research and development, with consultative status at the United Nations Economic and Social Council.",
 
       "Our work connects climate-policy analysis, primary research, education and applied development with the experiences of communities already living with climate risk.",
     ],
@@ -160,26 +160,25 @@ export const aboutContent = {
     eyebrow: "Institutional structure",
 
     title:
-      "A programme division within the Northern Citizens' Community Board.",
+      "How ClimateWatch is organised.",
 
     description:
-      "ClimateWatch operates as the International Climate Policy and Research and Development Division of the Northern Citizens' Community Board, with programme leadership and advisory input supporting its work.",
+      "ClimateWatch works across international climate policy, research and development, with programme leadership and advisory input supporting its work.",
 
     items: [
       {
-        label: "Institutional home",
-        value:
-          "Northern Citizens' Community Board",
+        label: "Organisation",
+        value: "ClimateWatch",
       },
       {
-        label: "ClimateWatch role",
+        label: "Areas of work",
         value:
-          "International Climate Policy and Research and Development Division",
+          "International Climate Policy, Research and Development",
       },
       {
         label: "Institutional status",
         value:
-          "NCCB holds consultative status at the United Nations Economic and Social Council",
+          "Consultative status at the United Nations Economic and Social Council",
       },
       {
         label: "Advisory role",

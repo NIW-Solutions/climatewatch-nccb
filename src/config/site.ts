@@ -2,7 +2,7 @@ export const siteConfig = {
   name: "ClimateWatch",
 
   fullName:
-    "ClimateWatch — International Climate Policy & Research and Development Division",
+    "ClimateWatch — International Climate Policy & Research and Development",
 
   description:
     "A youth-led climate think tank advancing evidence-based climate policy, research, education and applied innovation across Pakistan.",
@@ -11,11 +11,7 @@ export const siteConfig = {
 
   email: "info@climatewatch-nccb.org",
 
-  parentOrganisation: {
-    name: "Northern Citizens' Community Board",
-    abbreviation: "NCCB",
-    status: "ECOSOC-accredited organisation",
-  },
+  status: "ECOSOC-accredited organisation",
 
   location: {
     country: "Pakistan",
@@ -43,8 +39,16 @@ export const siteConfig = {
       href: "/publications",
     },
     {
+      label: "Blog",
+      href: "/blog",
+    },
+    {
       label: "News",
       href: "/news",
+    },
+    {
+      label: "TV Live",
+      href: "/tv-live",
     },
     {
       label: "Resources",

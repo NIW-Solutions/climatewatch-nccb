@@ -98,9 +98,9 @@ export const contactContent = {
     eyebrow: "Organisation",
 
     title:
-      "ClimateWatch operates as the International Climate Policy and Research and Development Division of NCCB.",
+      "ClimateWatch works across international climate policy, research and development.",
 
     description:
-      "Northern Citizens' Community Board (NCCB) is an ECOSOC-accredited organisation.",
+      "ClimateWatch is an ECOSOC-accredited organisation.",
   },
 } as const;

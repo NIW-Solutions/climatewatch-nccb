@@ -36,10 +36,22 @@ export const primaryNavigation: readonly NavigationItem[] = [
       "Research papers, policy briefs, reports and educational publications.",
   },
   {
+    label: "Blog",
+    href: "/blog",
+    description:
+      "Climate commentary, explainers and field notes from the ClimateWatch team.",
+  },
+  {
     label: "News",
     href: "/news",
     description:
       "Institutional updates, field activity and climate-policy developments.",
+  },
+  {
+    label: "TV Live",
+    href: "/tv-live",
+    description:
+      "Live streams, negotiation wraps, field reports and the broadcast archive.",
   },
   {
     label: "Resources",
@@ -97,8 +109,16 @@ export const footerNavigation = {
 
   information: [
     {
+      label: "Blog",
+      href: "/blog",
+    },
+    {
       label: "News",
       href: "/news",
+    },
+    {
+      label: "TV Live",
+      href: "/tv-live",
     },
     {
       label: "Resources",

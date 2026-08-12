@@ -1,10 +1,10 @@
-import Image from "next/image";
 import Link from "next/link";
 import {
   ArrowUpRight,
   Mail,
 } from "lucide-react";
 
+import { ClimateWatchLogo } from "@/components/layout/ClimateWatchLogo";
 import { siteConfig } from "@/config/site";
 
 export function SiteFooter() {
@@ -34,21 +34,15 @@ export function SiteFooter() {
               aria-label="ClimateWatch home"
               className="inline-flex"
             >
-              <Image
-                src="/images/brand/climatewatch-logo.webp"
-                alt="ClimateWatch"
-                width={240}
-                height={80}
-                className="h-auto w-[175px] object-contain brightness-0 invert sm:w-[190px] lg:w-[205px]"
-              />
+              <ClimateWatchLogo variant="light" />
             </Link>
 
             <p className="mt-8 max-w-md text-sm leading-7 text-white/65">
-              International Climate Policy
-              & Research and Development
-              Division of the Northern
-              Citizens&apos; Community Board
-              (NCCB).
+              ClimateWatch is a youth-led
+              climate think tank working on
+              international climate policy,
+              research and development
+              across Pakistan.
             </p>
 
             <p className="mt-4 max-w-md text-xs leading-6 text-white/45">
@@ -165,8 +159,7 @@ export function SiteFooter() {
               </p>
 
               <p className="mt-3 text-xs leading-6 text-white/60">
-                Northern Citizens&apos;
-                Community Board
+                ClimateWatch
                 <br />
                 ECOSOC-accredited
                 organisation

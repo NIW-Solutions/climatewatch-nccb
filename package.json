@@ -2,7 +2,7 @@
   "name": "climatewatch-nccb",
   "version": "1.0.0",
   "private": true,
-  "description": "Official website of ClimateWatch, the International Climate Policy and Research and Development Division of NCCB.",
+  "description": "Official website of ClimateWatch, a youth-led climate think tank working across international climate policy, research and development.",
   "scripts": {
     "dev": "next dev",
     "build": "next build",

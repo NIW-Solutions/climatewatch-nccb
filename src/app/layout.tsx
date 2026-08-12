@@ -48,8 +48,7 @@ export const metadata: Metadata = {
 
   creator: siteConfig.name,
 
-  publisher:
-    siteConfig.parentOrganisation.name,
+  publisher: siteConfig.name,
 
   referrer:
     "origin-when-cross-origin",
