@@ -10,8 +10,8 @@ import {
 } from "@/content/team";
 
 import {
-  TeamMonogram,
-  TeamMonogramCompact,
+  TeamAvatarRing,
+  TeamPhoto,
   TeamSocialLinks,
 } from "./team-primitives";
 
@@ -32,8 +32,9 @@ export function TeamPageContent() {
   } = teamContent;
 
   /**
-   * One block per division: the head first, then the people who work under
-   * them. Divisions with no head yet are dropped rather than rendered empty.
+   * One block per division: the head first, at full card size, then the people
+   * who work under them as circular tiles. Divisions without a head are
+   * dropped rather than rendered empty.
    */
   const divisions = departments
     .map((department) => ({
@@ -193,7 +194,7 @@ export function TeamPageContent() {
 
       {/* =====================================
           DIVISION BLOCKS
-          Head first, then their team.
+          Head on top, then their team.
           ===================================== */}
       {divisions.map(
         (group, groupIndex) => (
@@ -207,8 +208,8 @@ export function TeamPageContent() {
                 : "scroll-mt-28 bg-background"
             }
           >
-            <div className="site-container py-9 lg:py-11">
-              <div className="border-t border-border-strong pt-5">
+            <div className="site-container py-12 lg:py-14">
+              <div className="border-t border-border-strong pt-6">
                 {/* Division header */}
                 <InView>
                   <div className="flex flex-wrap items-baseline justify-between gap-x-6 gap-y-1">
@@ -220,7 +221,7 @@ export function TeamPageContent() {
                       </span>
                       <h2
                         id={`${group.department.id}-heading`}
-                        className="font-editorial text-[clamp(1.35rem,1.9vw,1.75rem)] font-medium leading-[1.1] tracking-[-0.03em] text-primary"
+                        className="font-editorial text-[clamp(1.5rem,2.1vw,2rem)] font-medium leading-[1.1] tracking-[-0.03em] text-primary"
                       >
                         {
                           group.department
@@ -239,7 +240,7 @@ export function TeamPageContent() {
                         : "members"}
                     </p>
                   </div>
-                  <p className="mt-2 max-w-3xl text-xs leading-6 text-muted">
+                  <p className="mt-2.5 max-w-3xl text-xs leading-6 text-muted">
                     {
                       group.department
                         .description
@@ -247,25 +248,31 @@ export function TeamPageContent() {
                   </p>
                 </InView>
 
-                {/* Head, then team */}
-                <div className="mt-6 grid gap-x-8 gap-y-6 lg:grid-cols-[minmax(0,19rem)_1fr]">
-                  <InView amount={0.08}>
+                {/* Division head — on top, full card */}
+                <InView
+                  delay={0.04}
+                  amount={0.08}
+                >
+                  <div className="mt-8 max-w-[17rem]">
                     {group.head ? (
                       <DivisionHead
-                        member={
-                          group.head
-                        }
+                        member={group.head}
                       />
                     ) : null}
-                  </InView>
+                  </div>
+                </InView>
 
-                  {group.team.length >
-                  0 ? (
-                    <InView
-                      delay={0.05}
-                      amount={0.08}
-                    >
-                      <div className="grid gap-x-6 gap-y-3 sm:grid-cols-2 xl:grid-cols-3">
+                {/* The team */}
+                {group.team.length > 0 ? (
+                  <InView
+                    delay={0.08}
+                    amount={0.05}
+                  >
+                    <div className="mt-10 border-t border-border pt-6">
+                      <p className="text-[0.56rem] font-bold uppercase tracking-[0.11em] text-muted-light">
+                        Division team
+                      </p>
+                      <ul className="mt-6 grid grid-cols-3 gap-x-4 gap-y-8 sm:grid-cols-4 md:grid-cols-5 xl:grid-cols-7">
                         {group.team.map(
                           (person) => (
                             <AssociateTile
@@ -278,10 +285,10 @@ export function TeamPageContent() {
                             />
                           ),
                         )}
-                      </div>
-                    </InView>
-                  ) : null}
-                </div>
+                      </ul>
+                    </div>
+                  </InView>
+                ) : null}
               </div>
             </div>
           </section>
@@ -445,8 +452,9 @@ export function TeamPageContent() {
 
 /* ==========================================
    DIVISION HEAD
-   Photograph and full detail, set beside the
-   team rather than above it.
+   Same card treatment as the advisors and the
+   board, so the head reads as the senior
+   figure in the division.
    ========================================== */
 function DivisionHead({
   member,
@@ -454,40 +462,32 @@ function DivisionHead({
   member: TeamMember;
 }>) {
   return (
-    <article className="group flex gap-4">
-      <div className="relative aspect-[4/5] w-24 shrink-0 overflow-hidden bg-surface-muted sm:w-28">
-        {member.image ? (
-          <LoadedImage
-            src={member.image}
-            alt={member.name}
-            fill
-            sizes="112px"
-            className="object-cover transition-transform duration-700 ease-out group-hover:scale-[1.03]"
-          />
-        ) : (
-          <TeamMonogram
-            name={member.name}
-          />
-        )}
+    <article className="group flex h-full flex-col">
+      <div className="relative aspect-[4/5] overflow-hidden bg-surface-muted">
+        <TeamPhoto
+          src={member.image}
+          name={member.name}
+          sizes="(max-width: 640px) 100vw, 272px"
+          className="object-cover transition-transform duration-700 ease-out group-hover:scale-[1.03]"
+        />
         <span
           aria-hidden="true"
           className="absolute inset-x-0 bottom-0 h-[3px] origin-left scale-x-0 bg-secondary transition-transform duration-500 ease-out group-hover:scale-x-100"
         />
       </div>
 
-      <div className="min-w-0 flex-1">
-        <h3 className="font-editorial text-[1.15rem] font-medium leading-[1.15] tracking-[-0.03em] text-primary transition-colors duration-300 group-hover:text-secondary">
+      <div className="mt-5 flex flex-1 flex-col border-t border-border pt-4">
+        <h3 className="font-editorial text-[1.35rem] font-medium leading-[1.15] tracking-[-0.03em] text-primary transition-colors duration-300 group-hover:text-secondary">
           {member.name}
         </h3>
-        <p className="mt-1.5 text-[0.56rem] font-bold uppercase leading-4 tracking-[0.11em] text-secondary">
+        <p className="mt-2.5 text-[0.58rem] font-bold uppercase leading-5 tracking-[0.11em] text-secondary">
           {member.designation}
         </p>
-        <p className="mt-2 text-[0.7rem] leading-5 text-muted">
+        <p className="mt-3 flex-1 text-xs leading-6 text-muted">
           {member.focus}
         </p>
 
         <TeamSocialLinks
-          compact
           name={member.name}
           email={member.email}
           linkedin={member.linkedin}
@@ -500,8 +500,9 @@ function DivisionHead({
 
 /* ==========================================
    TEAM TILE
-   Small by design — these sit many to a row
-   beside the division head.
+   Circular portrait with a half-navy,
+   half-orange ring. Small by design — these
+   sit many to a row beneath the head.
    ========================================== */
 function AssociateTile({
   person,
@@ -510,37 +511,39 @@ function AssociateTile({
 }>) {
   const body = (
     <>
-      <div className="relative size-9 shrink-0 overflow-hidden">
-        <TeamMonogramCompact
+      <TeamAvatarRing className="size-[4.5rem] transition-transform duration-500 ease-out group-hover/tile:scale-[1.04]">
+        <TeamPhoto
+          compact
+          src={person.image}
           name={person.name}
+          sizes="72px"
         />
-      </div>
-      <div className="min-w-0">
-        <p className="truncate text-[0.8rem] font-semibold leading-5 text-primary transition-colors duration-300 group-hover/tile:text-secondary">
-          {person.name}
-        </p>
-        <p className="truncate text-[0.54rem] font-bold uppercase leading-4 tracking-[0.11em] text-muted-light">
-          {person.position}
-        </p>
-      </div>
+      </TeamAvatarRing>
+
+      <p className="mt-3.5 text-[0.78rem] font-semibold leading-5 text-primary transition-colors duration-300 group-hover/tile:text-secondary">
+        {person.name}
+      </p>
+      <p className="mt-1 text-[0.54rem] font-bold uppercase leading-4 tracking-[0.11em] text-muted-light">
+        {person.position}
+      </p>
     </>
   );
 
-  if (!person.email) {
-    return (
-      <div className="flex items-center gap-3 border-b border-border/60 pb-3">
-        {body}
-      </div>
-    );
-  }
-
   return (
-    <a
-      href={`mailto:${person.email}`}
-      aria-label={`Email ${person.name}`}
-      className="group/tile flex items-center gap-3 border-b border-border/60 pb-3 !text-primary"
-    >
-      {body}
-    </a>
+    <li className="flex flex-col items-center text-center">
+      {person.email ? (
+        <a
+          href={`mailto:${person.email}`}
+          aria-label={`Email ${person.name}`}
+          className="group/tile flex flex-col items-center !text-primary"
+        >
+          {body}
+        </a>
+      ) : (
+        <div className="group/tile flex flex-col items-center">
+          {body}
+        </div>
+      )}
+    </li>
   );
 }
