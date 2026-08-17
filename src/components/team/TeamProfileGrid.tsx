@@ -15,12 +15,11 @@ import {
   useState,
 } from "react";
 
-import { LoadedImage } from "@/components/ui/LoadedImage";
 import { InView } from "@/components/motion-primitives/InView";
 import type { TeamProfile } from "@/content/team";
 
 import {
-  TeamMonogram,
+  TeamPhoto,
   TeamSocialLinks,
 } from "./team-primitives";
 
@@ -83,19 +82,12 @@ function ProfileCard({
     <article className="group flex h-full flex-col">
       {/* Portrait */}
       <div className="relative aspect-[4/5] overflow-hidden bg-surface-muted">
-        {profile.image ? (
-          <LoadedImage
-            src={profile.image}
-            alt={profile.name}
-            fill
-            sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
-            className="object-cover transition-transform duration-700 ease-out group-hover:scale-[1.03]"
-          />
-        ) : (
-          <TeamMonogram
-            name={profile.name}
-          />
-        )}
+        <TeamPhoto
+          src={profile.image}
+          name={profile.name}
+          sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+          className="object-cover transition-transform duration-700 ease-out group-hover:scale-[1.03]"
+        />
         <span
           aria-hidden="true"
           className="absolute inset-x-0 bottom-0 h-[3px] origin-left scale-x-0 bg-secondary transition-transform duration-500 ease-out group-hover:scale-x-100"
@@ -254,19 +246,11 @@ function ProfileModal({
         <div className="flex items-start justify-between gap-6 border-b border-border px-6 py-6 sm:px-10">
           <div className="flex items-start gap-5">
             <div className="relative hidden size-20 shrink-0 overflow-hidden bg-surface-muted sm:block">
-              {profile.image ? (
-                <LoadedImage
-                  src={profile.image}
-                  alt={profile.name}
-                  fill
-                  sizes="80px"
-                  className="object-cover"
-                />
-              ) : (
-                <TeamMonogram
-                  name={profile.name}
-                />
-              )}
+              <TeamPhoto
+                src={profile.image}
+                name={profile.name}
+                sizes="80px"
+              />
             </div>
             <div className="min-w-0">
               <h2
@@ -354,4 +338,3 @@ function ProfileModal({
     </div>
   );
 }
-
