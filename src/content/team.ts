@@ -56,6 +56,17 @@ export type TeamProfile = {
   instagram?: string;
 };
 
+/**
+ * Divisional team members — interns, assistants, associates and
+ * representatives who sit under a division head.
+ */
+export type TeamAssociate = {
+  name: string;
+  department: string;
+  position: string;
+  email?: string;
+};
+
 export const teamContent = {
   hero: {
     eyebrow: "Members & staff",
@@ -72,7 +83,7 @@ export const teamContent = {
   stats: [
     {
       label: "Team members",
-      value: "20",
+      value: "43",
     },
     {
       label: "Divisions",
@@ -175,7 +186,7 @@ export const teamContent = {
       focus:
         "Institutional strategy, climate policy direction and organisational representation.",
       email: "syedkiram-cw@nccb-un.org",
-      image: "/images/team/syed-kiram.webp",
+      image: "/images/team/syed-kiram.jpeg",
       linkedin: "https://www.linkedin.com/in/syed-kiram-828377193/",
       instagram: "https://www.instagram.com/syedkiram/",
     },
@@ -190,7 +201,7 @@ export const teamContent = {
       focus:
         "UNFCCC negotiation tracking, climate policy analysis and international engagement.",
       email: "pervez-cw@nccb-un.org",
-      image: "/images/team/pervez-aly.webp",
+      image: "/images/team/pervez-aly.jpg",
       linkedin: "https://www.linkedin.com/in/pervezaly/",
       instagram: "https://www.instagram.com/_aka.aly/",
     },
@@ -205,7 +216,7 @@ export const teamContent = {
       focus:
         "Research design, evidence standards and applied climate development work.",
       email: "atia@climatewatch-nccb.org",
-      image: "/images/team/atia-fehmi.webp",
+      image: "/images/team/atia-fehmi.png",
       linkedin: "https://www.linkedin.com/in/atia-f-a66553182/",
     },
 
@@ -219,7 +230,7 @@ export const teamContent = {
       focus:
         "Climate education programmes, training design and community learning.",
       email: "didar@climatewatch-nccb.org",
-      image: "/images/team/didar-ali.webp",
+      image: "/images/team/didar-ali.jpg",
       linkedin: "https://www.linkedin.com/in/didar-ali-/",
       instagram: "https://www.instagram.com/didar.aly/",
     },
@@ -234,7 +245,7 @@ export const teamContent = {
       focus:
         "Institutional partnerships, outreach strategy and stakeholder relations.",
       email: "mehtab@climatewatch-nccb.org",
-      image: "/images/team/mehtab-kamal.webp",
+      image: "/images/team/mehtab-kamal.jpg",
       linkedin: "https://www.linkedin.com/in/mehtab-kamal-a75673387/",
       instagram: "https://www.instagram.com/mehtab_kml/",
     },
@@ -249,7 +260,7 @@ export const teamContent = {
       focus:
         "Technical systems, engineering projects and applied climate technology.",
       email: "mubeen@climatewatch-nccb.org",
-      image: "/images/team/mubeen-ishfaq.webp",
+      image: "/images/team/mubeen-ishfaq.jpg",
       linkedin: "https://www.linkedin.com/in/mubeen-ishfaq/",
       instagram: "https://www.instagram.com/mubeenishfaq7/",
     },
@@ -265,7 +276,7 @@ export const teamContent = {
       focus:
         "Programme delivery, project planning and operational coordination.",
       email: "riaz@climatewatch-nccb.org",
-      image: "/images/team/riaz-ahmed.webp",
+      image: "/images/team/riaz-ahmed.png",
       linkedin: "https://www.linkedin.com/in/riaz-ahmed56",
       instagram: "https://www.instagram.com/thisisriiaz/",
     },
@@ -282,7 +293,7 @@ export const teamContent = {
       focus:
         "Editorial direction, media relations and public climate communication.",
       email: "sajjad@climatewatch-nccb.org",
-      image: "/images/team/sajjad-ali.webp",
+      image: "/images/team/sajjad-ali.jpg",
       linkedin: "https://www.linkedin.com/in/sajjadaly/",
       instagram: "https://www.instagram.com/sajjad_sharma/",
     },
@@ -299,7 +310,7 @@ export const teamContent = {
       // NEEDS CONFIRMATION: personal address; every other member is on an
       // organisational domain.
       email: "michaelmuyutu1@gmail.com",
-      image: "/images/team/michael-muyutu.webp",
+      image: "/images/team/michael-muyutu.jpeg",
       linkedin:
         "https://www.linkedin.com/in/michael-muyutu-%E2%80%93bba-aab79126a",
       instagram: "https://www.instagram.com/iam_michael003",
@@ -320,6 +331,7 @@ export const teamContent = {
   advisors: [
     {
       slug: "mehnaz-parveen",
+      image: "/images/team/mehnaz-parveen.jpeg",
       name: "Mehnaz Parveen",
       role: "External Advisor — Gender and Social Inclusion",
       summary:
@@ -337,10 +349,10 @@ export const teamContent = {
         "Strategic partnerships and multi-stakeholder engagement",
         "Policy design and analysis",
       ],
-      image: "/images/team/mehnaz-parveen.webp",
     },
     {
       slug: "tasawar-baig",
+      image: "/images/team/tasawar-baig.png",
       name: "Dr Tasawar Baig",
       role: "External Advisor — Climate and Environmental Governance",
       summary:
@@ -358,10 +370,10 @@ export const teamContent = {
         "Transnationalism, interdependence and globalisation",
         "Interdisciplinary research design in the social sciences",
       ],
-      image: "/images/team/tasawar-baig.webp",
     },
     {
       slug: "amjad-ali",
+      image: "/images/team/amjad-ali.jpeg",
       name: "Professor Amjad Ali",
       role: "External Advisor — Environmental Economics and Mountain Development",
       summary:
@@ -380,10 +392,10 @@ export const teamContent = {
         "Sustainable tourism in high-mountain regions",
         "Economic appraisal of adaptation and development interventions",
       ],
-      image: "/images/team/amjad-ali.webp",
     },
     {
       slug: "anam-rathor",
+      image: "/images/team/anam-rathor.png",
       name: "Anam Rathor",
       role: "External Technical Advisor — Climate Finance",
       summary:
@@ -402,10 +414,10 @@ export const teamContent = {
         "Anticipatory and risk-transfer instruments, including climate insurance",
         "Multi-level stakeholder engagement across government, international institutions and civil society",
       ],
-      image: "/images/team/anam-rathor.webp",
     },
     {
       slug: "ahmad-rafay-alam",
+      image: "/images/team/ahmad-rafay-alam.jpg",
       // NEEDS CONFIRMATION: spreadsheet name column reads "Mr. Rafey Alam";
       // the profile text reads "Ahmad Rafay Alam". Using the profile spelling.
       name: "Ahmad Rafay Alam",
@@ -426,7 +438,6 @@ export const teamContent = {
         "Urban infrastructure and land regulation",
         "Climate policy and environmental governance",
       ],
-      image: "/images/team/ahmad-rafay-alam.webp",
     },
   ] satisfies readonly TeamProfile[],
 
@@ -444,6 +455,7 @@ export const teamContent = {
   board: [
     {
       slug: "iqbal-badruddin",
+      image: "/images/team/iqbal-badruddin.jpeg",
       // NEEDS CONFIRMATION: spreadsheet name column reads "Iqbal Baddruddin";
       // the profile text reads "Iqbal Badruddin". Using the profile spelling.
       name: "Iqbal Badruddin",
@@ -455,10 +467,10 @@ export const teamContent = {
         "He holds a Master's in Climate Change from the University of Waterloo and is completing an MBA at the Ivey Business School, Western University, where he is founding president of Ivey's first AI in Business Club. He spent a year with the Aga Khan Development Network on a $10 million multi-country programme, and led a regional campaign turnaround at Costco.",
         "He came to the operational side of climate work from the advocacy side, on the view that advocacy moves people but not budgets, and that the gap between the two is an operating problem.",
       ],
-      image: "/images/team/iqbal-badruddin.webp",
     },
     {
       slug: "syed-kiram-board",
+      image: "/images/team/syed-kiram.jpeg",
       name: "Syed Kiram",
       // NEEDS CONFIRMATION: the board row reads "Executive Director"; the staff
       // row and the current live site read "Director".
@@ -473,12 +485,12 @@ export const teamContent = {
         "In 2023 he received the Prime Minister's Youth Innovation Award for his contribution to SDG 4 (Quality Education) through his work on Sustainable Community Libraries. His work reflects a commitment to using youth-led innovation, education, research and community engagement to address environmental and social challenges.",
         "He is currently studying Business Sustainability at FAST-NUCES Islamabad, with interests in climate finance, ESG, sustainable development, and the intersection of business and climate action.",
       ],
-      image: "/images/team/syed-kiram.webp",
       linkedin: "https://www.linkedin.com/in/syed-kiram-828377193/",
       instagram: "https://www.instagram.com/syedkiram/",
     },
     {
       slug: "kamran-ali",
+      image: "/images/team/kamran-ali.jpeg",
       name: "Kamran Ali",
       role: "Director",
       summary:
@@ -488,10 +500,10 @@ export const teamContent = {
         "His work covers nature-based solutions and carbon markets, climate adaptation and risk analysis, and corporate sustainability. He has trained government personnel on integrating nature-based solutions into policy frameworks, run more than thirty climate education sessions across Pakistan, and collaborated with organisations including WWF-Pakistan.",
         "He traces his work to 2006, when a flash flood hit his village in Yasin, Gilgit-Baltistan. What he saw there took him from local response toward institutional policy.",
       ],
-      image: "/images/team/kamran-ali.webp",
     },
     {
       slug: "sajida-jan",
+      image: "/images/team/sajida-jan.jpeg",
       // NEEDS CONFIRMATION: spreadsheet name column reads "Sajida Bibi"; the
       // profile text reads "Sajida Jan". Using the profile spelling.
       name: "Sajida Jan",
@@ -503,10 +515,10 @@ export const teamContent = {
         "She is a PhD student in neuroscience and pharmaceutical sciences at the University of Rhode Island, working in the Ross Lab, and holds a degree in behavioural neuroscience with a minor in statistics from St. Lawrence University, where she was a Davis Scholar. She studied the neuroscience of consciousness at the Danish Institute for Study Abroad in Copenhagen, and is a graduate of United World College Costa Rica.",
         "She brings quantitative research training to the board: experimental design, statistics, and primary fieldwork in Gilgit-Baltistan.",
       ],
-      image: "/images/team/sajida-jan.webp",
     },
     {
       slug: "irshad-iqbal",
+      image: "/images/team/irshad-iqbal.jpeg",
       // NEEDS CONFIRMATION: spreadsheet name column reads "Irshad Iqbal"; the
       // profile text reads "Irshad Qabool". Using the name column.
       name: "Irshad Iqbal",
@@ -519,10 +531,10 @@ export const teamContent = {
         "He graduated with a BA-LL.B (Honours) from the Lahore University of Management Sciences in 2025, with a foundation in contract, commercial, property and constitutional law, and training in legal research, case law analysis and drafting within Pakistan's constitutional and regulatory framework. He works as a Legal Associate at MOL Pakistan Oil and Gas Company B.V.",
         "His interests run to commercial and contract law, intellectual property, tax and cybersecurity law, and commercial arbitration and alternative dispute resolution. He brings legal training in contracts and constitutional law to the board.",
       ],
-      image: "/images/team/irshad-iqbal.webp",
     },
     {
       slug: "sajina-rehmat",
+      image: "/images/team/sajina-rehmat.png",
       name: "Sajina Rehmat",
       role: "Director",
       summary:
@@ -533,24 +545,10 @@ export const teamContent = {
         "Sajina Rehmat holds a Bachelor's degree in Forestry from Karakoram International University, Gilgit. Her interests are environmental sustainability, community development and leadership.",
         "She served as chapter lead of Fridays For Future Gilgit-Baltistan, and belongs to one of the communities most affected by the climate crisis in northern Pakistan.",
       ],
-      image: "/images/team/sajina-rehmat.webp",
-    },
-    {
-      slug: "nida-khan",
-      name: "Nida Khan",
-      role: "Director",
-      summary:
-        "Social Development student at Aga Khan University and a former Canada-to-Pakistan Ambassador for a Day. A youth advocate working on gender equality, women's empowerment, climate action and community engagement.",
-      profile: [
-        "Nida Khan is a second-year Social Development student at the Faculty of Arts and Sciences, Aga Khan University.",
-        "She has worked with UN Women Pakistan for a year and a half, on gender equality, women's empowerment and community engagement, and with local organisations on girls' empowerment and climate advocacy. She co-organised Chitral's first Regional Youth Climate Summit.",
-        "She is Chitral Regional Lead at Buttercups, an initiative working on youth mental well-being and public health, and is part of the Youth Climate Action Initiative run by UN Women Pakistan and the Ministry of Climate Change and Environmental Coordination. She previously served as the Canada-to-Pakistan Ambassador for a Day.",
-        "Her interests are social development, youth engagement, gender equality, community-based initiatives and climate advocacy.",
-      ],
-      image: "/images/team/nida-khan.webp",
     },
     {
       slug: "atia-fehmi-board",
+      image: "/images/team/atia-fehmi.png",
       name: "Atia Fehmi",
       role: "Director",
       note: "Also Head of Division, Research and Development",
@@ -561,7 +559,6 @@ export const teamContent = {
         "Her research experience includes assessing biomass co-firing in existing coal-fired power plants, with a focus on environmental and economic impacts, emissions reduction, and the potential application of carbon credits. She has also worked on municipal solid waste management, environmental impact assessment, glacier and snow monitoring, and field-based environmental research.",
         "She is interested in climate action, decarbonisation, carbon markets, climate resilience, and practical solutions that support a transition toward more sustainable and low-carbon systems.",
       ],
-      image: "/images/team/atia-fehmi.webp",
       linkedin: "https://www.linkedin.com/in/atia-f-a66553182/",
     },
 
@@ -580,6 +577,180 @@ export const teamContent = {
      * },
      */
   ] satisfies readonly TeamProfile[],
+
+  /* ============================================================
+     DIVISIONAL TEAMS
+     Interns, assistants, associates and representatives, listed
+     under the division they work in. Source: roster spreadsheet.
+     ============================================================ */
+
+  associates: [
+    /* ==========================================
+       RESEARCH AND DEVELOPMENT
+       ========================================== */
+    {
+      name: "Mamoona Asim",
+      department: "research-development",
+      position: "Intern",
+      email: "i234525@isb.nu.edu.pk",
+    },
+    {
+      name: "Fatimah Muneer",
+      department: "research-development",
+      position: "Intern",
+      email: "fatimah.muneer@climatewatch-nccb.org",
+    },
+    {
+      name: "Imtiaz Ali Zeb",
+      department: "research-development",
+      position: "Intern",
+      email: "imtiaz.ali@climatewatch-nccb.org",
+    },
+    {
+      name: "Bushra Ansari",
+      department: "research-development",
+      position: "Intern",
+      email: "bushra@climatewatch-nccb.org",
+    },
+    {
+      name: "Bilal Ahmed",
+      department: "research-development",
+      position: "Intern",
+      email: "bilal@climatewatch-nccb.org",
+    },
+    {
+      name: "Sania Asim",
+      department: "research-development",
+      position: "Intern",
+      email: "saniaasim26@gmail.com",
+    },
+    {
+      name: "Muhammad Ehsaan",
+      department: "research-development",
+      position: "Intern",
+      email: "muhammadehsaan9990@gmail.com",
+    },
+    /* ==========================================
+       INTERNATIONAL CLIMATE POLICY
+       ========================================== */
+    {
+      name: "Anfal Nadir",
+      department: "international-climate-policy",
+      position: "Research Associate",
+      email: "anfal.nadir@climatewatch-nccb.org",
+    },
+    {
+      name: "Mutahira Hasnain Gillani",
+      department: "international-climate-policy",
+      position: "Junior Policy Advisor",
+      email: "mutahira@climatewatch-nccb.org",
+    },
+    {
+      name: "Babar Nasir",
+      department: "international-climate-policy",
+      position: "Intern",
+      email: "n.babar@climatewatch-nccb.org",
+    },
+    {
+      name: "Mehak Mir",
+      department: "international-climate-policy",
+      position: "Intern",
+      // NEEDS CONFIRMATION: no email of any kind in the roster sheet.
+    },
+    {
+      name: "Rima Sahar",
+      department: "international-climate-policy",
+      position: "Intern",
+      email: "rimasahar786@gmail.com",
+    },
+    /* ==========================================
+       EDUCATION FOR SUSTAINABLE DEVELOPMENT
+       ========================================== */
+    {
+      name: "Rafia Imtiaz",
+      department: "education-sustainable-development",
+      position: "Student Assistant",
+      email: "rafiaimtiaz@climatewatch-nccb.org",
+    },
+    {
+      name: "Syeda Hoorain Imran",
+      department: "education-sustainable-development",
+      position: "Student Assistant",
+      email: "hoorain.imran@climatewatch-nccb.org",
+    },
+    {
+      name: "Hashma Shahzad Ahmad",
+      department: "education-sustainable-development",
+      position: "Representative",
+      email: "hashma.shahzad@climatewatch-nccb.org",
+    },
+    {
+      name: "Alishba Rauf",
+      department: "education-sustainable-development",
+      position: "Representative",
+      email: "alishba.rauf@climatewatch-nccb.org",
+    },
+    /* ==========================================
+       PARTNERSHIP AND OUTREACH
+       ========================================== */
+    {
+      name: "Alexandra Schiller",
+      department: "partnerships-outreach",
+      position: "Intern",
+      email: "alexschiller92@gmail.com",
+    },
+    {
+      name: "Ariba Khan",
+      department: "partnerships-outreach",
+      position: "Student Assistant",
+      email: "aribakw123@gmail.com",
+    },
+    /* ==========================================
+       PROJECT MANAGEMENT
+       ========================================== */
+    {
+      name: "Ahbab Ullah",
+      department: "project-management",
+      position: "Intern",
+      email: "ahbab.ullah@climatewatch-nccb.org",
+    },
+    {
+      name: "Syeda Fiza Kazmi",
+      department: "project-management",
+      position: "Intern",
+      email: "fiza.kazmi@climatewatch-nccb.org",
+    },
+    /* ==========================================
+       MEDIA AND COMMUNICATIONS
+       ========================================== */
+    {
+      name: "Aimen Tahir",
+      department: "communications-media",
+      position: "Media Host",
+      email: "aimantahirhashmi2@gmail.com",
+    },
+    {
+      name: "Ebrahim Jamali",
+      department: "communications-media",
+      position: "Media Host",
+      email: "ebrahimjamali181005@gmail.com",
+    },
+    {
+      name: "Habiba Tariq",
+      department: "communications-media",
+      position: "Intern, Blog Writer",
+      email: "habibat990@gmail.com",
+    },
+    /* ==========================================
+       HUMAN RESOURCES
+       ========================================== */
+    {
+      name: "Shahab Uddin",
+      department: "human-resources",
+      position: "Intern",
+      email: "HR@climatewatch-nccb.org",
+    },
+  ] satisfies readonly TeamAssociate[],
 
   join: {
     eyebrow: "Work with us",
