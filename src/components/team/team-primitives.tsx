@@ -1,12 +1,18 @@
+"use client";
+
+import { useState } from "react";
+import type { ReactNode } from "react";
+
+import { LoadedImage } from "@/components/ui/LoadedImage";
+
 /**
  * Shared team primitives — src/components/team/team-primitives.tsx
  *
- * Extracted from TeamPageContent so the division heads, the advisor and board
- * profile grid, and the small divisional-team tiles all render identical
- * monograms and social icons.
+ * Used by the division heads, the divisional-team tiles, and the advisor and
+ * board profile grid, so all three render identical portraits and icons.
  *
- * No "use client" here — these are pure presentational functions and work in
- * both server and client components.
+ * Marked "use client" because TeamPhoto needs an error handler. Importing it
+ * from a server component is fine; only these small pieces ship as JS.
  */
 
 export function initialsOf(name: string): string {
@@ -18,6 +24,53 @@ export function initialsOf(name: string): string {
     .map((part) => part[0])
     .join("")
     .toUpperCase();
+}
+
+/* ==========================================
+   TEAM PHOTO
+   Renders the photograph, and falls back to
+   the monogram if the file is missing or
+   fails to load.
+
+   Without this, a wrong filename leaves the
+   card stuck on the loading shimmer forever,
+   because LoadedImage waits for an onLoad
+   event that never fires. The monogram is a
+   far better failure.
+   ========================================== */
+export function TeamPhoto({
+  src,
+  name,
+  sizes,
+  className = "object-cover",
+  compact = false,
+}: Readonly<{
+  src?: string;
+  name: string;
+  sizes: string;
+  className?: string;
+  compact?: boolean;
+}>) {
+  const [failed, setFailed] = useState(false);
+
+  if (!src || failed) {
+    return compact ? (
+      <TeamMonogramCompact name={name} />
+    ) : (
+      <TeamMonogram name={name} />
+    );
+  }
+
+  return (
+    <LoadedImage
+      src={src}
+      alt={name}
+      fill
+      sizes={sizes}
+      className={className}
+      onError={() => setFailed(true)}
+    />
+  );
 }
 
 /* ==========================================
@@ -72,10 +125,9 @@ export function TeamMonogram({
 
 /* ==========================================
    COMPACT MONOGRAM
-   For the small divisional-team tiles. Same
-   gradient, but the contour texture and
-   wordmark are dropped — at 36px they read
-   as noise rather than detail.
+   For the circular team tiles. Contour
+   texture and wordmark are dropped — at this
+   size they read as noise, not detail.
    ========================================== */
 export function TeamMonogramCompact({
   name,
@@ -87,9 +139,43 @@ export function TeamMonogramCompact({
       aria-hidden="true"
       className="absolute inset-0 grid place-items-center bg-[linear-gradient(150deg,var(--primary)_0%,var(--primary-dark)_62%,#04162b_100%)]"
     >
-      <span className="font-editorial text-[0.72rem] font-medium leading-none tracking-[-0.02em] text-white/85">
+      <span className="font-editorial text-[0.95rem] font-medium leading-none tracking-[-0.02em] text-white/85">
         {initialsOf(name)}
       </span>
+    </div>
+  );
+}
+
+/* ==========================================
+   AVATAR RING
+   Circular frame for the team tiles. The ring
+   is split in half — navy from the logo on one
+   side, orange on the other.
+
+   The gradient is set inline rather than as a
+   Tailwind arbitrary value so it does not
+   depend on how the theme tokens compile. The
+   fallback hexes apply only if the CSS
+   variables are undefined.
+   ========================================== */
+export function TeamAvatarRing({
+  className = "size-[4.5rem]",
+  children,
+}: Readonly<{
+  className?: string;
+  children: ReactNode;
+}>) {
+  return (
+    <div
+      className={`relative shrink-0 rounded-full p-[2px] ${className}`}
+      style={{
+        background:
+          "conic-gradient(var(--primary, #103a6d) 0deg 180deg, var(--secondary, #e07a2f) 180deg 360deg)",
+      }}
+    >
+      <div className="relative size-full overflow-hidden rounded-full bg-surface-muted">
+        {children}
+      </div>
     </div>
   );
 }
@@ -118,10 +204,12 @@ export function TeamSocialLinks({
     ? "grid size-7 place-items-center border border-border-strong"
     : "grid size-9 place-items-center border border-border-strong";
   const icon = compact ? "size-3" : "size-3.5";
-  const gap = compact ? "mt-3 flex items-center gap-2" : "mt-5 flex items-center gap-2.5 pt-1";
+  const row = compact
+    ? "mt-3 flex items-center gap-2"
+    : "mt-5 flex items-center gap-2.5 pt-1";
 
   return (
-    <div className={gap}>
+    <div className={row}>
       {linkedin ? (
         <a
           href={linkedin}
