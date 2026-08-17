@@ -65,6 +65,7 @@ export type TeamAssociate = {
   department: string;
   position: string;
   email?: string;
+  image?: string;
 };
 
 export const teamContent = {
@@ -83,7 +84,7 @@ export const teamContent = {
   stats: [
     {
       label: "Team members",
-      value: "43",
+      value: "47",
     },
     {
       label: "Divisions",
@@ -562,6 +563,21 @@ export const teamContent = {
       linkedin: "https://www.linkedin.com/in/atia-f-a66553182/",
     },
 
+    {
+      slug: "nida-khan",
+      name: "Nida Khan",
+      role: "Director",
+      summary:
+        "Social Development student at Aga Khan University and former Canada-to-Pakistan Ambassador for a Day. Youth advocate working on gender equality, women's empowerment, climate action and community engagement.",
+      profile: [
+        "Nida Khan is a second-year Social Development student at Aga Khan University's Faculty of Arts and Sciences.",
+        "She has worked with UN Women Pakistan for a year and a half, gaining experience in gender equality, women's empowerment and community engagement. She has also worked with local organisations on girls' empowerment and climate advocacy, including co-organising Chitral's first ever Regional Youth Climate Summit.",
+        "She is currently Chitral Regional Lead at Buttercups, an initiative focused on youth mental well-being and public health, and is part of the Youth Climate Action Initiative run by UN Women Pakistan and the Ministry of Climate Change and Environmental Coordination. She previously served as Canada-to-Pakistan Ambassador for a Day.",
+        "Her interests include social development, youth engagement, gender equality, community-based initiatives and climate advocacy.",
+      ],
+      image: "/images/team/nida-khan.jpg",
+    },
+
     /*
      * NEEDS CONFIRMATION — Shahzadi Naira
      * Listed on the board in the spreadsheet with no role, no biography and
@@ -629,6 +645,12 @@ export const teamContent = {
       department: "research-development",
       position: "Intern",
       email: "muhammadehsaan9990@gmail.com",
+    },
+    {
+      name: "Nisha Irfan",
+      department: "research-development",
+      position: "Staff",
+      email: "nisha@climatewatch-nccb.org",
     },
     /* ==========================================
        INTERNATIONAL CLIMATE POLICY
@@ -734,6 +756,20 @@ export const teamContent = {
       department: "communications-media",
       position: "Media Host",
       email: "ebrahimjamali181005@gmail.com",
+    },
+    {
+      name: "Aqsa Essa",
+      department: "communications-media",
+      position: "Intern",
+      email: "aqsaessa4@gmail.com",
+    },
+    {
+      // NEEDS CONFIRMATION: possibly the same person as "Shahzadi Naira",
+      // listed on the board in the earlier sheet with no details.
+      name: "Naira Shahzadi",
+      department: "communications-media",
+      position: "Staff",
+      email: "naira@climatewatch-nccb.org",
     },
     {
       name: "Habiba Tariq",
