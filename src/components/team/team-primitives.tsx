@@ -1,8 +1,9 @@
 /**
  * Shared team primitives — src/components/team/team-primitives.tsx
  *
- * Extracted from TeamPageContent so the member grid and the advisor/board
- * profile grid render identical monograms and social icons.
+ * Extracted from TeamPageContent so the division heads, the advisor and board
+ * profile grid, and the small divisional-team tiles all render identical
+ * monograms and social icons.
  *
  * No "use client" here — these are pure presentational functions and work in
  * both server and client components.
@@ -70,6 +71,30 @@ export function TeamMonogram({
 }
 
 /* ==========================================
+   COMPACT MONOGRAM
+   For the small divisional-team tiles. Same
+   gradient, but the contour texture and
+   wordmark are dropped — at 36px they read
+   as noise rather than detail.
+   ========================================== */
+export function TeamMonogramCompact({
+  name,
+}: Readonly<{
+  name: string;
+}>) {
+  return (
+    <div
+      aria-hidden="true"
+      className="absolute inset-0 grid place-items-center bg-[linear-gradient(150deg,var(--primary)_0%,var(--primary-dark)_62%,#04162b_100%)]"
+    >
+      <span className="font-editorial text-[0.72rem] font-medium leading-none tracking-[-0.02em] text-white/85">
+        {initialsOf(name)}
+      </span>
+    </div>
+  );
+}
+
+/* ==========================================
    SOCIAL LINK ROW
    ========================================== */
 export function TeamSocialLinks({
@@ -77,27 +102,35 @@ export function TeamSocialLinks({
   email,
   linkedin,
   instagram,
+  compact = false,
 }: Readonly<{
   name: string;
   email?: string;
   linkedin?: string;
   instagram?: string;
+  compact?: boolean;
 }>) {
   if (!linkedin && !instagram && !email) {
     return null;
   }
 
+  const box = compact
+    ? "grid size-7 place-items-center border border-border-strong"
+    : "grid size-9 place-items-center border border-border-strong";
+  const icon = compact ? "size-3" : "size-3.5";
+  const gap = compact ? "mt-3 flex items-center gap-2" : "mt-5 flex items-center gap-2.5 pt-1";
+
   return (
-    <div className="mt-5 flex items-center gap-2.5 pt-1">
+    <div className={gap}>
       {linkedin ? (
         <a
           href={linkedin}
           target="_blank"
           rel="noreferrer"
           aria-label={`${name} on LinkedIn`}
-          className="grid size-9 place-items-center border border-border-strong !text-primary transition-[background-color,border-color,color] duration-300 hover:!border-primary hover:!bg-primary hover:!text-white"
+          className={`${box} !text-primary transition-[background-color,border-color,color] duration-300 hover:!border-primary hover:!bg-primary hover:!text-white`}
         >
-          <LinkedInIcon className="size-3.5" />
+          <LinkedInIcon className={icon} />
         </a>
       ) : null}
       {instagram ? (
@@ -106,18 +139,18 @@ export function TeamSocialLinks({
           target="_blank"
           rel="noreferrer"
           aria-label={`${name} on Instagram`}
-          className="grid size-9 place-items-center border border-border-strong !text-primary transition-[background-color,border-color,color] duration-300 hover:!border-secondary hover:!bg-secondary hover:!text-white"
+          className={`${box} !text-primary transition-[background-color,border-color,color] duration-300 hover:!border-secondary hover:!bg-secondary hover:!text-white`}
         >
-          <InstagramIcon className="size-3.5" />
+          <InstagramIcon className={icon} />
         </a>
       ) : null}
       {email ? (
         <a
           href={`mailto:${email}`}
           aria-label={`Email ${name}`}
-          className="grid size-9 place-items-center border border-border-strong !text-primary transition-[background-color,border-color,color] duration-300 hover:!border-primary hover:!bg-primary hover:!text-white"
+          className={`${box} !text-primary transition-[background-color,border-color,color] duration-300 hover:!border-primary hover:!bg-primary hover:!text-white`}
         >
-          <MailIcon className="size-3.5" />
+          <MailIcon className={icon} />
         </a>
       ) : null}
     </div>
@@ -190,4 +223,3 @@ export function MailIcon({
     </svg>
   );
 }
-
