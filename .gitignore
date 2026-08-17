@@ -44,3 +44,7 @@ next-env.d.ts
 # Temporary files
 *.tmp
 *.temp
+
+# Source portraits — originals only; the optimised WebP versions in
+# public/images/team are what the site serves.
+/pictures
