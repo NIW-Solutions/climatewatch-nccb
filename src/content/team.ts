@@ -120,7 +120,7 @@ export const teamContent = {
       name: "International Climate Policy",
       shortName: "Climate Policy",
       description:
-        "Policy Advisor for Anticipatory Action UNFCCC processes, negotiation tracking, climate finance and policy analysis.",
+        "UNFCCC processes, negotiation tracking, climate finance and policy analysis.",
     },
     {
       id: "research-development",
@@ -200,7 +200,7 @@ export const teamContent = {
       department: "international-climate-policy",
       designation: "Head of Division",
       focus:
-        "UNFCCC negotiation tracking, climate policy analysis and international engagement.",
+        "Policy Advisor for Anticipatory Action, UNFCCC negotiation tracking, climate policy analysis and international engagement.",
       email: "pervez-cw@nccb-un.org",
       image: "/images/team/pervez-aly.webp",
       linkedin: "https://www.linkedin.com/in/pervezaly/",
