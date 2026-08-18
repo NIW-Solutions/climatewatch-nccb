@@ -4,7 +4,7 @@ import {
   Mail,
 } from "lucide-react";
 
-import { ClimateWatchLogo } from "@/components/layout/ClimateWatchLogo";
+import { ClimateWatchLogo } from "@/src/components/layout/Climatewatchlogo.webp";
 import { siteConfig } from "@/config/site";
 
 export function SiteFooter() {
