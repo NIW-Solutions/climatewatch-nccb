@@ -174,9 +174,8 @@ export function SiteHeader() {
                   : "text-muted",
               ].join(" ")}
             >
-              International Climate Policy
-              & Research and Development
-              Division
+             Pakistan&apos;s First Youth-led
+              Climate Policy Think-tank
             </p>
 
             <div className="flex items-center gap-7">
