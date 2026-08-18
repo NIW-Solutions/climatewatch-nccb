@@ -187,7 +187,7 @@ export const teamContent = {
       focus:
         "Institutional strategy, climate policy direction and organisational representation.",
       email: "syedkiram-cw@nccb-un.org",
-      image: "/images/team/syed-kiram.jpeg",
+      image: "/images/team/syed-kiram.webp",
       linkedin: "https://www.linkedin.com/in/syed-kiram-828377193/",
       instagram: "https://www.instagram.com/syedkiram/",
     },
@@ -202,7 +202,7 @@ export const teamContent = {
       focus:
         "UNFCCC negotiation tracking, climate policy analysis and international engagement.",
       email: "pervez-cw@nccb-un.org",
-      image: "/images/team/pervez-aly.jpg",
+      image: "/images/team/pervez-aly.webp",
       linkedin: "https://www.linkedin.com/in/pervezaly/",
       instagram: "https://www.instagram.com/_aka.aly/",
     },
@@ -217,7 +217,7 @@ export const teamContent = {
       focus:
         "Research design, evidence standards and applied climate development work.",
       email: "atia@climatewatch-nccb.org",
-      image: "/images/team/atia-fehmi.png",
+      image: "/images/team/atia-fehmi.webp",
       linkedin: "https://www.linkedin.com/in/atia-f-a66553182/",
     },
 
@@ -231,7 +231,7 @@ export const teamContent = {
       focus:
         "Climate education programmes, training design and community learning.",
       email: "didar@climatewatch-nccb.org",
-      image: "/images/team/didar-ali.jpg",
+      image: "/images/team/didar-ali.webp",
       linkedin: "https://www.linkedin.com/in/didar-ali-/",
       instagram: "https://www.instagram.com/didar.aly/",
     },
@@ -246,7 +246,7 @@ export const teamContent = {
       focus:
         "Institutional partnerships, outreach strategy and stakeholder relations.",
       email: "mehtab@climatewatch-nccb.org",
-      image: "/images/team/mehtab-kamal.jpg",
+      image: "/images/team/mehtab-kamal.webp",
       linkedin: "https://www.linkedin.com/in/mehtab-kamal-a75673387/",
       instagram: "https://www.instagram.com/mehtab_kml/",
     },
@@ -261,7 +261,7 @@ export const teamContent = {
       focus:
         "Technical systems, engineering projects and applied climate technology.",
       email: "mubeen@climatewatch-nccb.org",
-      image: "/images/team/mubeen-ishfaq.jpg",
+      image: "/images/team/mubeen-ishfaq.webp",
       linkedin: "https://www.linkedin.com/in/mubeen-ishfaq/",
       instagram: "https://www.instagram.com/mubeenishfaq7/",
     },
@@ -277,7 +277,7 @@ export const teamContent = {
       focus:
         "Programme delivery, project planning and operational coordination.",
       email: "riaz@climatewatch-nccb.org",
-      image: "/images/team/riaz-ahmed.png",
+      image: "/images/team/riaz-ahmed.webp",
       linkedin: "https://www.linkedin.com/in/riaz-ahmed56",
       instagram: "https://www.instagram.com/thisisriiaz/",
     },
@@ -294,7 +294,7 @@ export const teamContent = {
       focus:
         "Editorial direction, media relations and public climate communication.",
       email: "sajjad@climatewatch-nccb.org",
-      image: "/images/team/sajjad-ali.jpg",
+      image: "/images/team/sajjad-ali.webp",
       linkedin: "https://www.linkedin.com/in/sajjadaly/",
       instagram: "https://www.instagram.com/sajjad_sharma/",
     },
@@ -311,7 +311,7 @@ export const teamContent = {
       // NEEDS CONFIRMATION: personal address; every other member is on an
       // organisational domain.
       email: "michaelmuyutu1@gmail.com",
-      image: "/images/team/michael-muyutu.jpeg",
+      image: "/images/team/michael-muyutu.webp",
       linkedin:
         "https://www.linkedin.com/in/michael-muyutu-%E2%80%93bba-aab79126a",
       instagram: "https://www.instagram.com/iam_michael003",
@@ -332,7 +332,7 @@ export const teamContent = {
   advisors: [
     {
       slug: "mehnaz-parveen",
-      image: "/images/team/mehnaz-parveen.jpeg",
+      image: "/images/team/mehnaz-parveen.webp",
       name: "Mehnaz Parveen",
       role: "External Advisor — Gender and Social Inclusion",
       summary:
@@ -353,7 +353,7 @@ export const teamContent = {
     },
     {
       slug: "tasawar-baig",
-      image: "/images/team/tasawar-baig.png",
+      image: "/images/team/tasawar-baig.webp",
       name: "Dr Tasawar Baig",
       role: "External Advisor — Climate and Environmental Governance",
       summary:
@@ -374,7 +374,7 @@ export const teamContent = {
     },
     {
       slug: "amjad-ali",
-      image: "/images/team/amjad-ali.jpeg",
+      image: "/images/team/amjad-ali.webp",
       name: "Professor Amjad Ali",
       role: "External Advisor — Environmental Economics and Mountain Development",
       summary:
@@ -396,7 +396,7 @@ export const teamContent = {
     },
     {
       slug: "anam-rathor",
-      image: "/images/team/anam-rathor.png",
+      image: "/images/team/anam-rathor.webp",
       name: "Anam Rathor",
       role: "External Technical Advisor — Climate Finance",
       summary:
@@ -418,7 +418,7 @@ export const teamContent = {
     },
     {
       slug: "ahmad-rafay-alam",
-      image: "/images/team/ahmad-rafay-alam.jpg",
+      image: "/images/team/ahmad-rafay-alam.webp",
       // NEEDS CONFIRMATION: spreadsheet name column reads "Mr. Rafey Alam";
       // the profile text reads "Ahmad Rafay Alam". Using the profile spelling.
       name: "Ahmad Rafay Alam",
@@ -456,7 +456,7 @@ export const teamContent = {
   board: [
     {
       slug: "iqbal-badruddin",
-      image: "/images/team/iqbal-badruddin.jpeg",
+      image: "/images/team/iqbal-badruddin.webp",
       // NEEDS CONFIRMATION: spreadsheet name column reads "Iqbal Baddruddin";
       // the profile text reads "Iqbal Badruddin". Using the profile spelling.
       name: "Iqbal Badruddin",
@@ -471,7 +471,7 @@ export const teamContent = {
     },
     {
       slug: "syed-kiram-board",
-      image: "/images/team/syed-kiram.jpeg",
+      image: "/images/team/syed-kiram.webp",
       name: "Syed Kiram",
       // NEEDS CONFIRMATION: the board row reads "Executive Director"; the staff
       // row and the current live site read "Director".
@@ -491,7 +491,7 @@ export const teamContent = {
     },
     {
       slug: "kamran-ali",
-      image: "/images/team/kamran-ali.jpeg",
+      image: "/images/team/kamran-ali.webp",
       name: "Kamran Ali",
       role: "Director",
       summary:
@@ -504,7 +504,7 @@ export const teamContent = {
     },
     {
       slug: "sajida-jan",
-      image: "/images/team/sajida-jan.jpeg",
+      image: "/images/team/sajida-jan.webp",
       // NEEDS CONFIRMATION: spreadsheet name column reads "Sajida Bibi"; the
       // profile text reads "Sajida Jan". Using the profile spelling.
       name: "Sajida Jan",
@@ -519,7 +519,7 @@ export const teamContent = {
     },
     {
       slug: "irshad-iqbal",
-      image: "/images/team/irshad-iqbal.jpeg",
+      image: "/images/team/irshad-iqbal.webp",
       // NEEDS CONFIRMATION: spreadsheet name column reads "Irshad Iqbal"; the
       // profile text reads "Irshad Qabool". Using the name column.
       name: "Irshad Iqbal",
@@ -535,7 +535,7 @@ export const teamContent = {
     },
     {
       slug: "sajina-rehmat",
-      image: "/images/team/sajina-rehmat.png",
+      image: "/images/team/sajina-rehmat.webp",
       name: "Sajina Rehmat",
       role: "Director",
       summary:
@@ -549,7 +549,7 @@ export const teamContent = {
     },
     {
       slug: "atia-fehmi-board",
-      image: "/images/team/atia-fehmi.png",
+      image: "/images/team/atia-fehmi.webp",
       name: "Atia Fehmi",
       role: "Director",
       note: "Also Head of Division, Research and Development",
@@ -575,7 +575,7 @@ export const teamContent = {
         "She is currently Chitral Regional Lead at Buttercups, an initiative focused on youth mental well-being and public health, and is part of the Youth Climate Action Initiative run by UN Women Pakistan and the Ministry of Climate Change and Environmental Coordination. She previously served as Canada-to-Pakistan Ambassador for a Day.",
         "Her interests include social development, youth engagement, gender equality, community-based initiatives and climate advocacy.",
       ],
-      image: "/images/team/nida-khan.jpg",
+      image: "/images/team/nida-khan.webp",
     },
 
     /*
