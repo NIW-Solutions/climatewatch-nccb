@@ -2,10 +2,11 @@
 
 import {
   ArrowUpRight,
+  BookOpen,
   ChevronDown,
-  Download,
   FileText,
 } from "lucide-react";
+import Link from "next/link";
 import {
   useMemo,
   useState,
@@ -249,6 +250,11 @@ export function PublicationsArchive() {
 
 /* ==========================================
    PUBLICATION CARD
+
+   The cover and the title both open the
+   publication's reader page, where the
+   document can be read, shared or
+   downloaded.
    ========================================== */
 
 function PublicationCard({
@@ -256,17 +262,17 @@ function PublicationCard({
 }: Readonly<{
   item: PublicationItem;
 }>) {
+  const href = `/publications/${item.slug}`;
+
   return (
     <article className="group flex h-full flex-col">
       {/* =====================================
           COVER PAGE
           ===================================== */}
 
-      <a
-        href={item.pdf}
-        target="_blank"
-        rel="noreferrer"
-        aria-label={`Download ${item.title} as PDF`}
+      <Link
+        href={href}
+        aria-label={`Read ${item.title}`}
         className="relative block aspect-[3/4] overflow-hidden bg-primary-dark shadow-[0_18px_40px_rgba(8,29,25,0.10)] transition-transform duration-500 ease-out group-hover:-translate-y-1"
       >
         <PublicationCover
@@ -279,21 +285,23 @@ function PublicationCard({
           coverAlt={item.coverAlt}
         />
 
-        {/* Download affordance */}
+        {/* Read affordance */}
 
         <span
           aria-hidden="true"
           className="absolute inset-0 grid place-items-center bg-primary-dark/70 opacity-0 transition-opacity duration-300 group-hover:opacity-100"
         >
           <span className="inline-flex items-center gap-2.5 border border-white/40 bg-white/10 px-4 py-2.5 text-[0.6rem] font-bold uppercase tracking-[0.12em] text-white backdrop-blur-sm">
-            <Download
+            <BookOpen
               className="size-3.5"
               strokeWidth={1.8}
             />
-            Download PDF
+            {item.forthcoming
+              ? "Forthcoming"
+              : "Read publication"}
           </span>
         </span>
-      </a>
+      </Link>
 
       {/* =====================================
           DETAILS
@@ -311,12 +319,23 @@ function PublicationCard({
         </div>
 
         <h3 className="mt-3 font-editorial text-[1.25rem] font-medium leading-[1.16] tracking-[-0.03em] text-primary transition-colors duration-300 group-hover:text-secondary">
-          {item.title}
+          <Link
+            href={href}
+            className="!text-inherit"
+          >
+            {item.title}
+          </Link>
         </h3>
 
         {item.subtitle ? (
           <p className="mt-2.5 text-xs font-semibold leading-6 text-primary/65">
             {item.subtitle}
+          </p>
+        ) : null}
+
+        {item.authors ? (
+          <p className="mt-2 text-[0.7rem] leading-5 text-muted-light">
+            {item.authors.join(", ")}
           </p>
         ) : null}
 
@@ -340,24 +359,29 @@ function PublicationCard({
         {/* File actions */}
 
         <div className="mt-5 flex flex-wrap items-center gap-x-5 gap-y-3 border-t border-border pt-4">
-          <a
-            href={item.pdf}
-            target="_blank"
-            rel="noreferrer"
-            className="group/pdf inline-flex items-center gap-2 text-xs font-semibold !text-primary transition-colors hover:!text-secondary"
-          >
-            <FileText
-              aria-hidden="true"
-              className="size-3.5"
-              strokeWidth={1.7}
-            />
-            PDF
-            {item.pdfSize ? (
-              <span className="font-normal text-muted-light">
-                {item.pdfSize}
-              </span>
-            ) : null}
-          </a>
+          {item.pdf ? (
+            <a
+              href={item.pdf}
+              download
+              className="group/pdf inline-flex items-center gap-2 text-xs font-semibold !text-primary transition-colors hover:!text-secondary"
+            >
+              <FileText
+                aria-hidden="true"
+                className="size-3.5"
+                strokeWidth={1.7}
+              />
+              PDF
+              {item.pdfSize ? (
+                <span className="font-normal text-muted-light">
+                  {item.pdfSize}
+                </span>
+              ) : null}
+            </a>
+          ) : (
+            <span className="text-[0.56rem] font-bold uppercase tracking-[0.11em] text-secondary">
+              Forthcoming
+            </span>
+          )}
 
           {item.pages ? (
             <span className="text-[0.56rem] font-bold uppercase tracking-[0.11em] text-muted-light">
