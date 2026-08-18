@@ -1,3 +1,17 @@
+/**
+ * Publications — src/content/publications.ts
+ *
+ * Every entry below is backed by an actual PDF. Titles, subtitles, authors,
+ * dates, page counts and file sizes were read out of the documents themselves,
+ * not estimated.
+ *
+ * The four invented entries (GLOF risk, Loss and Damage Readiness, Climate
+ * Education Baseline, COP30 Position Brief) have been removed. Wildlife of
+ * Northern Pakistan is kept as a forthcoming entry pending its PDF.
+ *
+ * PDFs live at public/documents/<slug>.pdf
+ */
+
 export type PublicationCategory =
   | "publication"
   | "policy-report"
@@ -13,6 +27,21 @@ export type PublicationItem = {
   year: string;
   date: string;
 
+  /** e.g. "Policy Brief Series No. 003" — printed on the document itself. */
+  series?: string;
+
+  /** Named authors, in the order printed on the document. */
+  authors?: readonly string[];
+
+  /** Editor or supervising author, where the document names one. */
+  editor?: string;
+
+  /** Contributing teams or divisions, where named. */
+  contributors?: string;
+
+  /** Suggested citation, taken verbatim from the document where it gives one. */
+  citation?: string;
+
   /**
    * Cover artwork for the publication.
    *
@@ -26,10 +55,15 @@ export type PublicationItem = {
    * Downloadable PDF, served from `public/documents`.
    *
    * File naming convention: `/documents/<slug>.pdf`
+   *
+   * Omitted for forthcoming titles.
    */
-  pdf: string;
+  pdf?: string;
   pdfSize?: string;
   pages?: string;
+
+  /** Announced but not yet released. Renders without download actions. */
+  forthcoming?: boolean;
 
   /** External source or landing page, when one exists. */
   href?: string;
@@ -49,7 +83,7 @@ export const publicationsContent = {
       "Research, policy analysis and climate evidence.",
 
     description:
-      "ClimateWatch publications translate climate evidence, policy developments and public-finance questions into clear, traceable analysis. Every title is available to download as a PDF.",
+      "ClimateWatch publications translate climate evidence, policy developments and public-finance questions into clear, traceable analysis. Every title can be read in the browser or downloaded as a PDF.",
   },
 
   featured: {
@@ -66,7 +100,7 @@ export const publicationsContent = {
       "Browse the full archive.",
 
     description:
-      "Filter by publication type to find research papers, policy reports and briefings. Each entry links to a downloadable PDF.",
+      "Filter by publication type to find research publications, policy reports and briefings. Each entry opens a reader page with the full document, a share link and a download.",
   },
 
   filters: [
@@ -89,6 +123,9 @@ export const publicationsContent = {
   ],
 
   items: [
+    /* ==========================================
+       POLICY BRIEFS
+       ========================================== */
     {
       slug:
         "from-disaster-response-to-climate-resilience",
@@ -100,29 +137,37 @@ export const publicationsContent = {
         "A Climate Budget Assessment of Gilgit-Baltistan’s FY2026–27 Interim Budget",
 
       description:
-        "An assessment of how public spending connects with climate resilience, vulnerability and longer-term adaptation priorities in Gilgit-Baltistan.",
+        "A rapid assessment of Gilgit-Baltistan’s interim budget, presented on 13 July 2026, examining how public spending connects with climate resilience, vulnerability and longer-term adaptation priorities. Figures are triangulated across three independent outlets pending publication of the official budget documents.",
 
-      category: "publication",
+      category: "policy-report",
 
-      categoryLabel: "Publication",
+      categoryLabel: "Policy brief",
 
       year: "2026",
 
-      date: "June 2026",
+      date: "July 2026",
+
+      authors: ["Pervez Ali"],
+
+      contributors:
+        "ClimateWatch R&D and ESD teams",
+
+      citation:
+        "Ali, P. (2026). From Disaster Response to Climate Resilience: A Climate Budget Assessment of Gilgit-Baltistan’s FY2026–27 Interim Budget. ClimateWatch – International Climate Policy & Research and Development Division.",
 
       pdf:
         "/documents/from-disaster-response-to-climate-resilience.pdf",
 
-      pdfSize: "4.2 MB",
+      pdfSize: "8.0 MB",
 
-      pages: "48 pages",
+      pages: "24 pages",
 
       href: resourceHub,
 
       topics: [
         "Climate finance",
         "Gilgit-Baltistan",
-        "Adaptation",
+        "Public budgets",
       ],
 
       featured: true,
@@ -139,22 +184,32 @@ export const publicationsContent = {
         "Implications for Resilience, Climate Finance and Intergenerational Equity",
 
       description:
-        "Policy analysis examining climate-budget priorities through resilience, finance and intergenerational considerations.",
+        "The full policy paper on the federal climate budget reduction, which set the Ministry of Climate Change PSDP allocation at Rs2.48 billion — the smallest in at least five years and part of an 83% decline since FY2021–22. Examined through administrative, local, international and youth lenses.",
 
-      category: "publication",
+      category: "policy-report",
 
-      categoryLabel: "Publication",
+      categoryLabel: "Policy paper",
 
       year: "2026",
 
       date: "June 2026",
 
+      series:
+        "Policy Brief Series No. 003",
+
+      authors: [
+        "Sania Asim",
+        "Fatimah Muneer",
+      ],
+
+      editor: "Pervez Ali",
+
       pdf:
         "/documents/pakistan-climate-budget-reduction.pdf",
 
-      pdfSize: "2.8 MB",
+      pdfSize: "9.4 MB",
 
-      pages: "32 pages",
+      pages: "17 pages",
 
       href: resourceHub,
 
@@ -166,6 +221,194 @@ export const publicationsContent = {
     },
 
     {
+      // NEEDS CONFIRMATION: this is the same Policy Brief No. 003 as the entry
+      // above, in a shorter divisional edition. The documents do not name
+      // themselves differently, so the distinguishing title is mine.
+      slug:
+        "pakistan-climate-budget-reduction-summary",
+
+      title:
+        "Pakistan’s FY2026–27 Climate Budget Reduction: Divisional Summary",
+
+      subtitle:
+        "Implications for Resilience, Climate Finance and Intergenerational Equity",
+
+      description:
+        "The short-form edition of Policy Brief No. 003, prepared by the International Climate Policy and Research & Development Divisions. Covers the same analysis as the full paper in a briefer format.",
+
+      category: "briefing",
+
+      categoryLabel: "Briefing",
+
+      year: "2026",
+
+      date: "June 2026",
+
+      series:
+        "Policy Brief Series No. 003",
+
+      pdf:
+        "/documents/pakistan-climate-budget-reduction-summary.pdf",
+
+      pdfSize: "1.4 MB",
+
+      pages: "13 pages",
+
+      href: resourceHub,
+
+      topics: [
+        "Climate finance",
+        "Pakistan",
+        "Public budgets",
+      ],
+    },
+
+    /* ==========================================
+       UNFCCC PROCESS
+       ========================================== */
+    {
+      slug: "ace-at-sb64",
+
+      title: "ACE at the SB64",
+
+      subtitle:
+        "Dialogue, Technical Workshop, and Negotiations",
+
+      description:
+        "A report on Action for Climate Empowerment at the sixty-fourth sessions of the Subsidiary Bodies in Bonn. With the Glasgow Work Programme and its action plan ending in 2026, SB64 carried a midterm review expected to shape whether a successor plan is mandated ahead of COP31.",
+
+      category: "policy-report",
+
+      categoryLabel: "Policy report",
+
+      year: "2026",
+
+      date: "22 June 2026",
+
+      authors: [
+        "Babar Nasir",
+        "Mutahira Gillani",
+        "Rafia Imtiaz",
+        "Syeda Hoorain Imran",
+      ],
+
+      contributors:
+        "International Climate Policy Division",
+
+      pdf: "/documents/ace-at-sb64.pdf",
+
+      pdfSize: "4.9 MB",
+
+      pages: "10 pages",
+
+      href: resourceHub,
+
+      topics: [
+        "UNFCCC",
+        "Climate education",
+        "ACE",
+      ],
+    },
+
+    {
+      // Slug changed from "bonn-sb64-midway-media-brief" to match the
+      // document's actual title.
+      slug: "state-of-play-at-bonn",
+
+      title: "State of Play at Bonn",
+
+      subtitle:
+        "SB64 Midway Media Brief",
+
+      description:
+        "A stocktake of the first week of SB64, assessing how far discussions were translating into negotiated outcomes across the Global Goal on Adaptation, the Just Transition Work Programme, mitigation and energy transition, and climate finance.",
+
+      category: "briefing",
+
+      categoryLabel: "Briefing",
+
+      year: "2026",
+
+      date: "15 June 2026",
+
+      series: "Policy Brief No. 004",
+
+      authors: [
+        "Mutahira Hasnain Gillani",
+        "Pervez Aly",
+      ],
+
+      contributors:
+        "International Climate Policy Division",
+
+      pdf:
+        "/documents/state-of-play-at-bonn.pdf",
+
+      pdfSize: "1.3 MB",
+
+      pages: "7 pages",
+
+      href: resourceHub,
+
+      topics: [
+        "UNFCCC",
+        "Negotiations",
+        "Media",
+      ],
+    },
+
+    {
+      slug:
+        "mountain-frontlines-youth-futures",
+
+      title:
+        "Mountain Frontlines, Youth Futures and Direct Climate Finance",
+
+      subtitle:
+        "ClimateWatch submission to the YOUNGO Global Youth Statement 2026",
+
+      description:
+        "Policy demands from Pakistan’s mountain and climate-vulnerable communities ahead of COP31 in Antalya. Carries three linked packages: frontline access to loss-and-damage and climate finance; preventive adaptation, disaster risk reduction and people-centred early warning; and youth participation.",
+
+      category: "publication",
+
+      categoryLabel: "Submission",
+
+      year: "2026",
+
+      date: "July 2026",
+
+      authors: [
+        "International Climate Policy, Education for Sustainable Development & Research and Development Divisions",
+      ],
+
+      editor: "Pervez Ali",
+
+      citation:
+        "ClimateWatch (2026). Mountain Frontlines, Youth Futures and Direct Climate Finance: Submission to the YOUNGO Global Youth Statement 2026. ClimateWatch – International Climate Policy & R&D Division. Ed. Pervez Ali.",
+
+      pdf:
+        "/documents/mountain-frontlines-youth-futures.pdf",
+
+      pdfSize: "5.6 MB",
+
+      pages: "16 pages",
+
+      href: resourceHub,
+
+      topics: [
+        "COP31",
+        "Loss and damage",
+        "Youth policy",
+      ],
+    },
+
+    /* ==========================================
+       FORTHCOMING
+       ========================================== */
+    {
+      // NEEDS CONFIRMATION: awaiting the PDF. Renders without download
+      // actions until `pdf` is filled in and `forthcoming` removed.
       slug:
         "wildlife-of-northern-pakistan",
 
@@ -184,16 +427,9 @@ export const publicationsContent = {
 
       year: "2026",
 
-      date: "April 2026",
+      date: "2026",
 
-      pdf:
-        "/documents/wildlife-of-northern-pakistan.pdf",
-
-      pdfSize: "12.6 MB",
-
-      pages: "96 pages",
-
-      href: resourceHub,
+      forthcoming: true,
 
       topics: [
         "Biodiversity",
@@ -201,218 +437,19 @@ export const publicationsContent = {
         "Reference",
       ],
     },
-
-    {
-      slug: "ace-at-sb64",
-
-      title:
-        "Action for Climate Empowerment (ACE) at SB64",
-
-      subtitle:
-        "Tracking the ACE agenda through the Bonn climate conference",
-
-      description:
-        "A policy report examining Action for Climate Empowerment within the SB64 climate-policy process.",
-
-      category: "policy-report",
-
-      categoryLabel: "Policy report",
-
-      year: "2026",
-
-      date: "June 2026",
-
-      pdf: "/documents/ace-at-sb64.pdf",
-
-      pdfSize: "1.9 MB",
-
-      pages: "24 pages",
-
-      href: resourceHub,
-
-      topics: [
-        "UNFCCC",
-        "Climate education",
-        "ACE",
-      ],
-    },
-
-    {
-      slug:
-        "bonn-sb64-midway-media-brief",
-
-      title:
-        "Bonn SB64 Midway Media Brief",
-
-      subtitle:
-        "Negotiation developments at the halfway point of SB64",
-
-      description:
-        "A concise briefing on developments emerging from the SB64 climate negotiations in Bonn.",
-
-      category: "briefing",
-
-      categoryLabel: "Briefing",
-
-      year: "2026",
-
-      date: "June 2026",
-
-      pdf:
-        "/documents/bonn-sb64-midway-media-brief.pdf",
-
-      pdfSize: "0.9 MB",
-
-      pages: "8 pages",
-
-      href: resourceHub,
-
-      topics: [
-        "UNFCCC",
-        "Negotiations",
-        "Media",
-      ],
-    },
-
-    {
-      slug:
-        "glof-risk-northern-pakistan",
-
-      title:
-        "Glacial Lake Outburst Flood Risk in Northern Pakistan",
-
-      subtitle:
-        "Hazard mapping and community exposure across Gilgit-Baltistan",
-
-      description:
-        "Research assessing glacier-lake hazard formation, downstream exposure and early-warning readiness in high-mountain valleys.",
-
-      category: "publication",
-
-      categoryLabel: "Publication",
-
-      year: "2026",
-
-      date: "March 2026",
-
-      pdf:
-        "/documents/glof-risk-northern-pakistan.pdf",
-
-      pdfSize: "6.4 MB",
-
-      pages: "56 pages",
-
-      topics: [
-        "Glaciology",
-        "Disaster risk",
-        "Early warning",
-      ],
-    },
-
-    {
-      slug:
-        "loss-and-damage-readiness",
-
-      title:
-        "Loss and Damage Readiness in Pakistan",
-
-      subtitle:
-        "Institutional capacity, data gaps and access pathways",
-
-      description:
-        "A policy report reviewing how national and provincial institutions are positioned to access and deploy loss and damage finance.",
-
-      category: "policy-report",
-
-      categoryLabel: "Policy report",
-
-      year: "2025",
-
-      date: "November 2025",
-
-      pdf:
-        "/documents/loss-and-damage-readiness.pdf",
-
-      pdfSize: "3.1 MB",
-
-      pages: "40 pages",
-
-      topics: [
-        "Loss and damage",
-        "Climate finance",
-        "Governance",
-      ],
-    },
-
-    {
-      slug:
-        "climate-education-baseline",
-
-      title:
-        "Climate Education Baseline Study",
-
-      subtitle:
-        "Climate literacy across secondary schools in Gilgit-Baltistan",
-
-      description:
-        "Baseline research measuring climate literacy, curriculum coverage and teacher confidence across participating schools.",
-
-      category: "publication",
-
-      categoryLabel: "Publication",
-
-      year: "2025",
-
-      date: "September 2025",
-
-      pdf:
-        "/documents/climate-education-baseline.pdf",
-
-      pdfSize: "2.2 MB",
-
-      pages: "36 pages",
-
-      topics: [
-        "Education",
-        "Climate literacy",
-        "Research",
-      ],
-    },
-
-    {
-      slug: "cop30-position-brief",
-
-      title:
-        "COP30 Position Brief",
-
-      subtitle:
-        "Priorities for mountain communities and youth constituencies",
-
-      description:
-        "A briefing setting out ClimateWatch priorities entering COP30, focused on adaptation finance and mountain-region representation.",
-
-      category: "briefing",
-
-      categoryLabel: "Briefing",
-
-      year: "2025",
-
-      date: "October 2025",
-
-      pdf:
-        "/documents/cop30-position-brief.pdf",
-
-      pdfSize: "1.1 MB",
-
-      pages: "12 pages",
-
-      topics: [
-        "COP30",
-        "Advocacy",
-        "Adaptation",
-      ],
-    },
   ] satisfies readonly PublicationItem[],
+
+  reader: {
+    downloadLabel: "Download PDF",
+    shareLabel: "Share",
+    shareCopied: "Link copied",
+    openLabel: "Open PDF",
+    citationLabel: "Suggested citation",
+    forthcomingLabel: "Forthcoming",
+    forthcomingNote:
+      "This publication has not been released yet. Contact us if you would like to be notified when it is available.",
+    backLabel: "All publications",
+  },
 
   closing: {
     eyebrow: "Request a publication",
