@@ -394,7 +394,7 @@ export const publicationsContent = {
         "mountain-frontlines-youth-futures",
 
       cover:
-        "/images/publications/mountain-frontlines-youth-futures.webp",
+        "images/publications/mountain-frontlines-youth-futures.webp",
 
       coverAlt:
         "Cover of Mountain Frontlines, Youth Futures and Direct Climate Finance, ClimateWatch’s submission to the YOUNGO Global Youth Statement 2026.",
