@@ -530,8 +530,7 @@ advisory: {
     {
       slug: "sajida-jan",
       image: "/images/team/sajida-jan.webp",
-      // NEEDS CONFIRMATION: spreadsheet name column reads "Sajida Bibi"; the
-      // profile text reads "Sajida Jan". Using the profile spelling.
+  
       name: "Sajida Jan",
       role: "Director",
       summary:
@@ -542,8 +541,6 @@ advisory: {
         "She brings quantitative research training to the board: experimental design, statistics, and primary fieldwork in Gilgit-Baltistan.",
       ],
    {
-      // Slug and image filename keep the earlier spelling so the photograph in
-      // public/images/team/ still resolves. Neither appears in a URL.
       slug: "irshad-iqbal",
 
       image: "/images/team/irshad-iqbal.webp",
