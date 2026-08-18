@@ -130,6 +130,12 @@ export const publicationsContent = {
       slug:
         "from-disaster-response-to-climate-resilience",
 
+      cover:
+        "/images/publications/from-disaster-response-to-climate-resilience.webp",
+
+      coverAlt:
+        "Cover of From Disaster Response to Climate Resilience, a ClimateWatch policy brief on Gilgit-Baltistan’s FY2026–27 interim budget.",
+
       title:
         "From Disaster Response to Climate Resilience",
 
@@ -176,6 +182,12 @@ export const publicationsContent = {
     {
       slug:
         "pakistan-climate-budget-reduction",
+
+      cover:
+        "/images/publications/pakistan-climate-budget-reduction.webp",
+
+      coverAlt:
+        "Cover of Pakistan’s FY2026–27 Climate Budget Reduction, ClimateWatch Policy Brief Series No. 003.",
 
       title:
         "Pakistan’s FY2026–27 Climate Budget Reduction",
@@ -227,6 +239,12 @@ export const publicationsContent = {
       slug:
         "pakistan-climate-budget-reduction-summary",
 
+      cover:
+        "/images/publications/pakistan-climate-budget-reduction-summary.webp",
+
+      coverAlt:
+        "Cover of the divisional summary edition of ClimateWatch Policy Brief Series No. 003.",
+
       title:
         "Pakistan’s FY2026–27 Climate Budget Reduction: Divisional Summary",
 
@@ -268,6 +286,12 @@ export const publicationsContent = {
        ========================================== */
     {
       slug: "ace-at-sb64",
+
+      cover:
+        "/images/publications/ace-at-sb64.webp",
+
+      coverAlt:
+        "Cover of ACE at the SB64, a ClimateWatch policy report on Action for Climate Empowerment in Bonn.",
 
       title: "ACE at the SB64",
 
@@ -315,6 +339,12 @@ export const publicationsContent = {
       // document's actual title.
       slug: "state-of-play-at-bonn",
 
+      cover:
+        "/images/publications/state-of-play-at-bonn.webp",
+
+      coverAlt:
+        "Cover of State of Play at Bonn, the ClimateWatch SB64 midway media brief.",
+
       title: "State of Play at Bonn",
 
       subtitle:
@@ -360,6 +390,12 @@ export const publicationsContent = {
     {
       slug:
         "mountain-frontlines-youth-futures",
+
+      cover:
+        "/images/publications/mountain-frontlines-youth-futures.webp",
+
+      coverAlt:
+        "Cover of Mountain Frontlines, Youth Futures and Direct Climate Finance, ClimateWatch’s submission to the YOUNGO Global Youth Statement 2026.",
 
       title:
         "Mountain Frontlines, Youth Futures and Direct Climate Finance",
@@ -409,6 +445,12 @@ export const publicationsContent = {
     {
       slug:
         "wildlife-of-northern-pakistan",
+
+      cover:
+        "/images/publications/wildlife-of-northern-pakistan.webp",
+
+      coverAlt:
+        "Cover of Wildlife of Northern Pakistan, a ClimateWatch reference publication on Gilgit-Baltistan and Chitral.",
 
       title:
         "Wildlife of Northern Pakistan",
