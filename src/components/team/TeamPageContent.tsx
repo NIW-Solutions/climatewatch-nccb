@@ -248,12 +248,13 @@ export function TeamPageContent() {
                   </p>
                 </InView>
 
-                {/* Division head — on top, full card */}
-                <InView
-                  delay={0.04}
-                  amount={0.08}
-                >
-                  <div className="mt-8 max-w-[17rem]">
+                {/* Head on the left, division team on the right */}
+                <div className="mt-8 grid gap-x-10 gap-y-10 lg:grid-cols-[17rem_minmax(0,1fr)] lg:items-start">
+                  <InView
+                    delay={0.04}
+                    amount={0.08}
+                  >
+                    <div className="max-w-[17rem]">
                     {group.head ? (
                       <DivisionHead
                         member={group.head}
@@ -268,11 +269,11 @@ export function TeamPageContent() {
                     delay={0.08}
                     amount={0.05}
                   >
-                    <div className="mt-10 border-t border-border pt-6">
+                    <div className="border-t border-border pt-6 lg:border-t-0 lg:pt-1">
                       <p className="text-[0.56rem] font-bold uppercase tracking-[0.11em] text-muted-light">
                         Division team
                       </p>
-                      <ul className="mt-6 grid grid-cols-3 gap-x-4 gap-y-8 sm:grid-cols-4 md:grid-cols-5 xl:grid-cols-7">
+                      <ul className="mt-6 grid grid-cols-2 gap-x-5 gap-y-9 sm:grid-cols-3 md:grid-cols-4 xl:grid-cols-5">
                         {group.team.map(
                           (person) => (
                             <AssociateTile
@@ -289,6 +290,7 @@ export function TeamPageContent() {
                     </div>
                   </InView>
                 ) : null}
+                </div>
               </div>
             </div>
           </section>
@@ -511,16 +513,16 @@ function AssociateTile({
 }>) {
   const body = (
     <>
-      <TeamAvatarRing className="size-[4.5rem] transition-transform duration-500 ease-out group-hover/tile:scale-[1.04]">
+      <TeamAvatarRing className="size-[7rem] transition-transform duration-500 ease-out group-hover/tile:scale-[1.04]">
         <TeamPhoto
           compact
           src={person.image}
           name={person.name}
-          sizes="72px"
+          sizes="112px"
         />
       </TeamAvatarRing>
 
-      <p className="mt-3.5 text-[0.78rem] font-semibold leading-5 text-primary transition-colors duration-300 group-hover/tile:text-secondary">
+      <p className="mt-4 text-[0.85rem] font-semibold leading-5 text-primary transition-colors duration-300 group-hover/tile:text-secondary">
         {person.name}
       </p>
       <p className="mt-1 text-[0.54rem] font-bold uppercase leading-4 tracking-[0.11em] text-muted-light">
