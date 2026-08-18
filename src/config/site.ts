@@ -55,7 +55,12 @@ export const siteConfig = {
       href: "/resources",
     },
   ],
-
+},
+    {
+      label: "Team",
+      href: "/team",
+    },
+  ],
   utilityNavigation: [
     {
       label: "Our Team",
