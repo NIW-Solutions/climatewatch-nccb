@@ -84,11 +84,11 @@ export const teamContent = {
   stats: [
     {
       label: "Team members",
-      value: "48",
+      value: "36",
     },
     {
       label: "Divisions",
-      value: "8",
+      value: "09",
     },
     {
       label: "Based in",
@@ -200,7 +200,7 @@ export const teamContent = {
       department: "international-climate-policy",
       designation: "Head of Division",
       focus:
-        "Policy Advisor for Anticipatory Action, UNFCCC negotiation tracking, climate policy analysis and international engagement.",
+        "UNFCCC negotiation tracking, climate policy analysis and international engagement.",
       email: "pervez-cw@nccb-un.org",
       image: "/images/team/pervez-aly.webp",
       linkedin: "https://www.linkedin.com/in/pervezaly/",
@@ -322,8 +322,8 @@ export const teamContent = {
      TECHNICAL ADVISORS
      ============================================================ */
 
-advisory: {
-    eyebrow: "External Advisory Board",
+  advisory: {
+    eyebrow: "Advisory",
     title: "Specialists who review the substance of our work.",
     description:
       "External advisors are consulted on the projects and publications where their expertise is required. They review technical and analytical content before it is published.",
@@ -333,8 +333,8 @@ advisory: {
     {
       slug: "mehnaz-parveen",
       image: "/images/team/mehnaz-parveen.webp",
-      name: "Ms. Mehnaz Parveen",
-      role: "Technical Advisor — Gender and Social Inclusion",
+      name: "Mehnaz Parveen",
+      role: "External Advisor — Gender and Social Inclusion",
       summary:
         "Policy, gender and climate security specialist based in Islamabad. Advised ClimateWatch on the Women and Gender Module for the Glacier School.",
       profile: [
@@ -355,7 +355,7 @@ advisory: {
       slug: "tasawar-baig",
       image: "/images/team/tasawar-baig.webp",
       name: "Dr Tasawar Baig",
-      role: "Technical Advisor — Climate and Environmental Governance",
+      role: "External Advisor — Climate and Environmental Governance",
       summary:
         "Associate Professor of Social Sciences and Humanities at the University of Central Asia, and formerly Associate Dean and Chairman of Politics and International Studies at Karakoram International University.",
       profile: [
@@ -375,8 +375,8 @@ advisory: {
     {
       slug: "amjad-ali",
       image: "/images/team/amjad-ali.webp",
-      name: "Mr Amjad Ali",
-      role: "Technical Advisor — Environmental Economics and Mountain Development",
+      name: "Professor Amjad Ali",
+      role: "External Advisor — Environmental Economics and Mountain Development",
       summary:
         "Assistant Professor and Head of the Department of Development Studies at Karakoram International University, Hunza Campus. A SANDEE-trained environmental economist working on climate vulnerability and ecosystem services.",
       profile: [
@@ -397,8 +397,8 @@ advisory: {
     {
       slug: "anam-rathor",
       image: "/images/team/anam-rathor.webp",
-      name: "Ms. Anam Rathor",
-      role: "Technical Advisor — Climate Finance",
+      name: "Anam Rathor",
+      role: "External Technical Advisor — Climate Finance",
       summary:
         "Programme Lead for Pakistan at the Climate Vulnerable Forum and V20 Finance Ministers (CVF-V20), with fifteen years in climate finance, climate policy design and multi-level stakeholder engagement.",
       profile: [
@@ -421,8 +421,8 @@ advisory: {
       image: "/images/team/ahmad-rafay-alam.webp",
       // NEEDS CONFIRMATION: spreadsheet name column reads "Mr. Rafey Alam";
       // the profile text reads "Ahmad Rafay Alam". Using the profile spelling.
-      name: "Mr. Ahmad Rafay Alam",
-      role: "Technical Advisor — Climate Litigation and Environmental Law",
+      name: "Ahmad Rafay Alam",
+      role: "External Advisor — Climate Litigation and Environmental Law",
       summary:
         "One of Pakistan's leading environmental lawyers and co-founder of Saleem, Alam & Co. He has served on the Pakistan Climate Change Council and the Punjab Environment Protection Council, and teaches at LUMS.",
       profile: [
@@ -445,14 +445,14 @@ advisory: {
 
       name: "Dr Imran Saqib Khalid",
 
-      role: "Technical Advisor — Water Governance and Environmental Policy",
+      role: "External Advisor — Water Governance and Environmental Policy",
 
       summary:
         "Water Resource Governance Technical Expert on the FCDO-funded Catalytic Fund for Water Resource Accountability in Pakistan at Oxford Policy Management, and formerly Director of Governance and Policy at WWF-Pakistan.",
 
       profile: [
         "Dr Imran Saqib Khalid is ClimateWatch's External Advisor on Water Governance and Environmental Policy.",
-        "He is a Water Resource Governance Technical Expert on the Catalytic Fund for Water Resource Accountability in Pakistan (CF-WRAP) at Oxford Policy Management. CF-WRAP forms part of WRAP, a \u00a330 million programme funded by the UK Foreign, Commonwealth and Development Office, which supports water governance reform and the scaling of water innovations across federal and provincial government and the private sector.",
+        "He is Water Resource Governance Technical Expert on the Catalytic Fund for Water Resource Accountability in Pakistan (CF-WRAP) at Oxford Policy Management. CF-WRAP forms part of WRAP, a \u00a330 million programme funded by the UK Foreign, Commonwealth and Development Office, which supports water governance reform and the scaling of water innovations across federal and provincial government and the private sector.",
         "He was previously Director of Governance and Policy at WWF-Pakistan, and before that spent close to six years as a Research Fellow at the Sustainable Development Policy Institute in Islamabad. He studied at the State University of New York College of Environmental Science and Forestry.",
         "He advises ClimateWatch on water governance and environmental policy: the institutional arrangements that determine how water is allocated and managed in Pakistan, the accountability gaps in those arrangements, and how water security connects to the cryosphere and mountain resilience work in Gilgit-Baltistan and Chitral.",
       ],
@@ -474,7 +474,7 @@ advisory: {
      ============================================================ */
 
   governance: {
-    eyebrow: "Board of Governance",
+    eyebrow: "Governance",
     title: "The board that carries institutional responsibility.",
     description:
       "The Board of Directors holds responsibility for institutional direction, oversight and accountability.",
@@ -482,11 +482,11 @@ advisory: {
 
   board: [
     {
-      slug: "iqbal-badruddin-Jamal",
+      slug: "iqbal-badruddin",
       image: "/images/team/iqbal-badruddin.webp",
       // NEEDS CONFIRMATION: spreadsheet name column reads "Iqbal Baddruddin";
       // the profile text reads "Iqbal Badruddin". Using the profile spelling.
-      name: "Iqbal Badruddin Jamal",
+      name: "Iqbal Badruddin",
       role: "Chairman",
       summary:
         "Founder of Fridays For Future Pakistan and a COP26 delegate. Holds a Master's in Climate Change from the University of Waterloo and is completing an MBA at the Ivey Business School.",
@@ -513,6 +513,8 @@ advisory: {
         "In 2023 he received the Prime Minister's Youth Innovation Award for his contribution to SDG 4 (Quality Education) through his work on Sustainable Community Libraries. His work reflects a commitment to using youth-led innovation, education, research and community engagement to address environmental and social challenges.",
         "He is currently studying Business Sustainability at FAST-NUCES Islamabad, with interests in climate finance, ESG, sustainable development, and the intersection of business and climate action.",
       ],
+      linkedin: "https://www.linkedin.com/in/syed-kiram-828377193/",
+      instagram: "https://www.instagram.com/syedkiram/",
     },
     {
       slug: "kamran-ali",
@@ -530,7 +532,8 @@ advisory: {
     {
       slug: "sajida-jan",
       image: "/images/team/sajida-jan.webp",
-  
+      // NEEDS CONFIRMATION: spreadsheet name column reads "Sajida Bibi"; the
+      // profile text reads "Sajida Jan". Using the profile spelling.
       name: "Sajida Jan",
       role: "Director",
       summary:
@@ -540,7 +543,10 @@ advisory: {
         "She is a PhD student in neuroscience and pharmaceutical sciences at the University of Rhode Island, working in the Ross Lab, and holds a degree in behavioural neuroscience with a minor in statistics from St. Lawrence University, where she was a Davis Scholar. She studied the neuroscience of consciousness at the Danish Institute for Study Abroad in Copenhagen, and is a graduate of United World College Costa Rica.",
         "She brings quantitative research training to the board: experimental design, statistics, and primary fieldwork in Gilgit-Baltistan.",
       ],
-   {
+    },
+    {
+      // Slug and image filename keep the earlier spelling so the photograph in
+      // public/images/team/ still resolves. Neither appears in a URL.
       slug: "irshad-iqbal",
 
       image: "/images/team/irshad-iqbal.webp",
@@ -578,6 +584,7 @@ advisory: {
       image: "/images/team/atia-fehmi.webp",
       name: "Atia Fehmi",
       role: "Director",
+      note: "Also Head of Division, Research and Development",
       summary:
         "Environmental researcher with a Master's from the National University of Sciences and Technology, working on emissions, carbon markets and the energy transition.",
       profile: [
@@ -585,6 +592,7 @@ advisory: {
         "Her research experience includes assessing biomass co-firing in existing coal-fired power plants, with a focus on environmental and economic impacts, emissions reduction, and the potential application of carbon credits. She has also worked on municipal solid waste management, environmental impact assessment, glacier and snow monitoring, and field-based environmental research.",
         "She is interested in climate action, decarbonisation, carbon markets, climate resilience, and practical solutions that support a transition toward more sustainable and low-carbon systems.",
       ],
+      linkedin: "https://www.linkedin.com/in/atia-f-a66553182/",
     },
 
     {
@@ -701,7 +709,6 @@ advisory: {
       name: "Mehak Mir",
       department: "international-climate-policy",
       position: "Intern",
-      email: "mehakmaqsadmir@gmail.com",
       // NEEDS CONFIRMATION: no email of any kind in the roster sheet.
     },
     {
