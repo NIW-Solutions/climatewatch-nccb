@@ -84,7 +84,7 @@ export const teamContent = {
   stats: [
     {
       label: "Team members",
-      value: "47",
+      value: "48",
     },
     {
       label: "Divisions",
@@ -440,6 +440,33 @@ export const teamContent = {
         "Climate policy and environmental governance",
       ],
     },
+    {
+      slug: "imran-saqib-khalid",
+
+      name: "Dr Imran Saqib Khalid",
+
+      role: "External Advisor — Water Governance and Environmental Policy",
+
+      summary:
+        "Water Resource Governance Technical Expert on the FCDO-funded Catalytic Fund for Water Resource Accountability in Pakistan at Oxford Policy Management, and formerly Director of Governance and Policy at WWF-Pakistan.",
+
+      profile: [
+        "Dr Imran Saqib Khalid is ClimateWatch's External Advisor on Water Governance and Environmental Policy.",
+        "He is a Water Resource Governance Technical Expert on the Catalytic Fund for Water Resource Accountability in Pakistan (CF-WRAP) at Oxford Policy Management. CF-WRAP forms part of WRAP, a \u00a330 million programme funded by the UK Foreign, Commonwealth and Development Office, which supports water governance reform and the scaling of water innovations across federal and provincial government and the private sector.",
+        "He was previously Director of Governance and Policy at WWF-Pakistan, and before that spent close to six years as a Research Fellow at the Sustainable Development Policy Institute in Islamabad. He studied at the State University of New York College of Environmental Science and Forestry.",
+        "He advises ClimateWatch on water governance and environmental policy: the institutional arrangements that determine how water is allocated and managed in Pakistan, the accountability gaps in those arrangements, and how water security connects to the cryosphere and mountain resilience work in Gilgit-Baltistan and Chitral.",
+      ],
+
+      expertise: [
+        "Water resource governance and accountability",
+        "Environmental policy and institutional reform",
+        "Climate resilience and adaptation policy",
+        "Research and evidence for policy influence",
+        "Federal and provincial governance in Pakistan",
+      ],
+
+      image: "/images/team/imran-saqib-khalid.webp",
+    },
   ] satisfies readonly TeamProfile[],
 
   /* ============================================================
@@ -486,8 +513,6 @@ export const teamContent = {
         "In 2023 he received the Prime Minister's Youth Innovation Award for his contribution to SDG 4 (Quality Education) through his work on Sustainable Community Libraries. His work reflects a commitment to using youth-led innovation, education, research and community engagement to address environmental and social challenges.",
         "He is currently studying Business Sustainability at FAST-NUCES Islamabad, with interests in climate finance, ESG, sustainable development, and the intersection of business and climate action.",
       ],
-      linkedin: "https://www.linkedin.com/in/syed-kiram-828377193/",
-      instagram: "https://www.instagram.com/syedkiram/",
     },
     {
       slug: "kamran-ali",
@@ -560,7 +585,6 @@ export const teamContent = {
         "Her research experience includes assessing biomass co-firing in existing coal-fired power plants, with a focus on environmental and economic impacts, emissions reduction, and the potential application of carbon credits. She has also worked on municipal solid waste management, environmental impact assessment, glacier and snow monitoring, and field-based environmental research.",
         "She is interested in climate action, decarbonisation, carbon markets, climate resilience, and practical solutions that support a transition toward more sustainable and low-carbon systems.",
       ],
-      linkedin: "https://www.linkedin.com/in/atia-f-a66553182/",
     },
 
     {
@@ -677,6 +701,7 @@ export const teamContent = {
       name: "Mehak Mir",
       department: "international-climate-policy",
       position: "Intern",
+      email: "mehakmaqsadmir@gmail.com",
       // NEEDS CONFIRMATION: no email of any kind in the roster sheet.
     },
     {
