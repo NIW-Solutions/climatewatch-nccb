@@ -46,10 +46,10 @@ export function SiteFooter() {
             </p>
 
             <p className="mt-4 max-w-md text-xs leading-6 text-white/45">
-              Climate policy, research,
-              education and applied
-              development work rooted in
-              evidence and community
+              International Climate policy, research,
+              education for sustainable
+              development and work ingrained in
+              evidence that comes from community
               experience.
             </p>
 
