@@ -6,7 +6,7 @@ export const aboutContent = {
       "Climate research grounded in the realities it is meant to represent.",
 
     description:
-      "ClimateWatch is a youth-led climate think tank based in Pakistan, working across climate policy, research, education and applied development.",
+      "ClimateWatch is a youth-led climate think tank based in Pakistan, working across International climate policy, research and Development, education for sustainable Development and Circular Economy.",
 
     image:
       "/images/about/about-hero.webp",
