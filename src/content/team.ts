@@ -120,7 +120,7 @@ export const teamContent = {
       name: "International Climate Policy",
       shortName: "Climate Policy",
       description:
-        "UNFCCC processes, negotiation tracking, climate finance and policy analysis.",
+        "Policy Advisor for Anticipatory Action UNFCCC processes, negotiation tracking, climate finance and policy analysis.",
     },
     {
       id: "research-development",
@@ -333,7 +333,7 @@ advisory: {
     {
       slug: "mehnaz-parveen",
       image: "/images/team/mehnaz-parveen.webp",
-      name: "Mehnaz Parveen",
+      name: "Ms. Mehnaz Parveen",
       role: "Technical Advisor — Gender and Social Inclusion",
       summary:
         "Policy, gender and climate security specialist based in Islamabad. Advised ClimateWatch on the Women and Gender Module for the Glacier School.",
@@ -397,8 +397,8 @@ advisory: {
     {
       slug: "anam-rathor",
       image: "/images/team/anam-rathor.webp",
-      name: "Anam Rathor",
-      role: "External Technical Advisor — Climate Finance",
+      name: "Ms. Anam Rathor",
+      role: "Technical Advisor — Climate Finance",
       summary:
         "Programme Lead for Pakistan at the Climate Vulnerable Forum and V20 Finance Ministers (CVF-V20), with fifteen years in climate finance, climate policy design and multi-level stakeholder engagement.",
       profile: [
@@ -421,8 +421,8 @@ advisory: {
       image: "/images/team/ahmad-rafay-alam.webp",
       // NEEDS CONFIRMATION: spreadsheet name column reads "Mr. Rafey Alam";
       // the profile text reads "Ahmad Rafay Alam". Using the profile spelling.
-      name: "Ahmad Rafay Alam",
-      role: "External Advisor — Climate Litigation and Environmental Law",
+      name: "Mr. Ahmad Rafay Alam",
+      role: "Technical Advisor — Climate Litigation and Environmental Law",
       summary:
         "One of Pakistan's leading environmental lawyers and co-founder of Saleem, Alam & Co. He has served on the Pakistan Climate Change Council and the Punjab Environment Protection Council, and teaches at LUMS.",
       profile: [
@@ -445,7 +445,7 @@ advisory: {
 
       name: "Dr Imran Saqib Khalid",
 
-      role: "External Advisor — Water Governance and Environmental Policy",
+      role: "Technical Advisor — Water Governance and Environmental Policy",
 
       summary:
         "Water Resource Governance Technical Expert on the FCDO-funded Catalytic Fund for Water Resource Accountability in Pakistan at Oxford Policy Management, and formerly Director of Governance and Policy at WWF-Pakistan.",
@@ -474,7 +474,7 @@ advisory: {
      ============================================================ */
 
   governance: {
-    eyebrow: "Governance",
+    eyebrow: "Board of Governance",
     title: "The board that carries institutional responsibility.",
     description:
       "The Board of Directors holds responsibility for institutional direction, oversight and accountability.",
@@ -482,11 +482,11 @@ advisory: {
 
   board: [
     {
-      slug: "iqbal-badruddin",
+      slug: "iqbal-badruddin-Jamal",
       image: "/images/team/iqbal-badruddin.webp",
       // NEEDS CONFIRMATION: spreadsheet name column reads "Iqbal Baddruddin";
       // the profile text reads "Iqbal Badruddin". Using the profile spelling.
-      name: "Iqbal Badruddin",
+      name: "Iqbal Badruddin Jamal",
       role: "Chairman",
       summary:
         "Founder of Fridays For Future Pakistan and a COP26 delegate. Holds a Master's in Climate Change from the University of Waterloo and is completing an MBA at the Ivey Business School.",
