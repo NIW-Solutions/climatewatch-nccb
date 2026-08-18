@@ -158,14 +158,10 @@ export function MobileNavigation({
               </div>
 
               <div className="absolute inset-x-0 bottom-0 p-5 sm:p-6">
-                <p className="text-[0.66rem] font-bold uppercase tracking-[0.13em] text-white/60">
-                  International climate policy
-                </p>
-
-                <p className="mt-2 max-w-xs text-lg font-medium leading-7 tracking-[-0.025em] text-white">
-                  Research, education and evidence
-                  grounded in communities.
-                </p>
+               <p className="mt-4 max-w-xs text-[0.56rem] font-bold uppercase leading-5 tracking-[0.11em] text-muted-light">
+              Pakistan&apos;s First Youth-led
+              Climate Policy Think-tank
+            p>
               </div>
 
               <div
