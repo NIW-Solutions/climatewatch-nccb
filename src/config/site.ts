@@ -54,10 +54,8 @@ export const siteConfig = {
       label: "Resources",
       href: "/resources",
     },
-  ],
-},
     {
-      label: "Team",
+      label: "Meet The Team",
       href: "/team",
     },
   ],
