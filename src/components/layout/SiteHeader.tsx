@@ -175,7 +175,7 @@ export function SiteHeader() {
               ].join(" ")}
             >
              Pakistan&apos;s First Youth-led
-              Climate Policy Think-tank
+              Climate Policy Think Tank
             </p>
 
             <div className="flex items-center gap-7">
