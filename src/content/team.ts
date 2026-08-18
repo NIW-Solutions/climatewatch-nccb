@@ -528,11 +528,11 @@ export const teamContent = {
       ],
     },
     {
-      slug: "Ms. sajida-jan",
+      slug: "sajida-jan",
       image: "/images/team/sajida-jan.webp",
       // NEEDS CONFIRMATION: spreadsheet name column reads "Sajida Bibi"; the
       // profile text reads "Sajida Jan". Using the profile spelling.
-      name: "Sajida Jan",
+      name: "Ms. Sajida Jan",
       role: "Director",
       summary:
         "Founder of the Cycle Care Campaign and a PhD student in neuroscience and pharmaceutical sciences at the University of Rhode Island. Her fieldwork on health in Gilgit underpins her work on climate justice.",
@@ -545,7 +545,7 @@ export const teamContent = {
     {
       // Slug and image filename keep the earlier spelling so the photograph in
       // public/images/team/ still resolves. Neither appears in a URL.
-      slug: "irshad-qabool",
+      slug: "irshad-iqbal",
 
       image: "/images/team/irshad-iqbal.webp",
 
