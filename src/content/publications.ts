@@ -6,8 +6,8 @@
  * not estimated.
  *
  * The four invented entries (GLOF risk, Loss and Damage Readiness, Climate
- * Education Baseline, COP30 Position Brief) have been removed. Wildlife of
- * Northern Pakistan is kept as a forthcoming entry pending its PDF.
+ * Education Baseline, COP30 Position Brief) have been removed. All seven
+ * remaining titles are published and downloadable; nothing is pending.
  *
  * PDFs live at public/documents/<slug>.pdf
  */
@@ -404,11 +404,9 @@ export const publicationsContent = {
     },
 
     /* ==========================================
-       FORTHCOMING
+       REFERENCE
        ========================================== */
     {
-      // NEEDS CONFIRMATION: awaiting the PDF. Renders without download
-      // actions until `pdf` is filled in and `forthcoming` removed.
       slug:
         "wildlife-of-northern-pakistan",
 
@@ -419,7 +417,7 @@ export const publicationsContent = {
         "Gilgit-Baltistan & Chitral",
 
       description:
-        "A reference publication documenting the wildlife and environmental context of northern Pakistan’s mountain systems.",
+        "A reference publication on the wildlife of northern Pakistan\u2019s mountain systems, covering biodiversity, endangered species, protected areas and the threats they face. Includes a glossary of the conservation bodies and monitoring frameworks operating across the region.",
 
       category: "publication",
 
@@ -427,14 +425,25 @@ export const publicationsContent = {
 
       year: "2026",
 
-      date: "2026",
+      date: "8 March 2026",
 
-      forthcoming: true,
+      authors: [
+        "ClimateWatch Research Team",
+      ],
+
+      pdf:
+        "/documents/wildlife-of-northern-pakistan.pdf",
+
+      pdfSize: "0.7 MB",
+
+      pages: "19 pages",
+
+      href: resourceHub,
 
       topics: [
         "Biodiversity",
         "Mountain ecosystems",
-        "Reference",
+        "Protected areas",
       ],
     },
   ] satisfies readonly PublicationItem[],
