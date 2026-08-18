@@ -1,11 +1,21 @@
+import Image from "next/image";
 import Link from "next/link";
-import {
-  ArrowUpRight,
-  Mail,
-} from "lucide-react";
+import { ArrowUpRight, Mail } from "lucide-react";
 
-import { ClimateWatchLogo } from "@/src/components/layout/Climatewatchlogo.webp";
 import { siteConfig } from "@/config/site";
+
+/**
+ * Site footer — src/components/layout/SiteFooter.tsx
+ *
+ * The identity block now shows the ClimateWatch logo itself rather than a
+ * composed lockup. It uses the same asset the header uses, filtered to white
+ * so it reads against the navy. If a proper reversed logo is added to
+ * public/images/brand/, swap the src and drop `brightness-0 invert`.
+ *
+ * The previous version imported a named export from a .webp file, which is
+ * not a module and cannot be imported that way. That single line failed the
+ * production build, which is why the site stopped updating.
+ */
 
 export function SiteFooter() {
   const year = new Date().getFullYear();
@@ -34,23 +44,25 @@ export function SiteFooter() {
               aria-label="ClimateWatch home"
               className="inline-flex"
             >
-              <ClimateWatchLogo variant="light" />
+              <Image
+                src="/images/brand/climatewatch-logo.webp"
+                alt="ClimateWatch"
+                width={220}
+                height={72}
+                className="h-auto w-[190px] object-contain brightness-0 invert"
+              />
             </Link>
 
             <p className="mt-8 max-w-md text-sm leading-7 text-white/65">
-              ClimateWatch is a youth-led
-              climate think tank working on
-              international climate policy,
-              research and development
-              across Pakistan.
+              ClimateWatch is a youth-led climate think tank working on
+              international climate policy, research and development across
+              Pakistan.
             </p>
 
             <p className="mt-4 max-w-md text-xs leading-6 text-white/45">
-              International Climate policy, research,
-              education for sustainable
-              development and work ingrained in
-              evidence that comes from community
-              experience.
+              International climate policy, research, education for
+              sustainable development and work grounded in evidence that
+              comes from community experience.
             </p>
 
             <a
@@ -62,7 +74,6 @@ export function SiteFooter() {
                 className="size-4"
                 strokeWidth={1.7}
               />
-
               {siteConfig.email}
             </a>
           </div>
@@ -73,9 +84,7 @@ export function SiteFooter() {
 
           <FooterColumn
             title="Explore"
-            links={[
-              ...siteConfig.navigation,
-            ]}
+            links={[...siteConfig.navigation]}
           />
 
           {/* =====================================
@@ -109,43 +118,29 @@ export function SiteFooter() {
               ===================================== */}
 
           <div>
-            <FooterHeading>
-              Connect
-            </FooterHeading>
+            <FooterHeading>Connect</FooterHeading>
 
             <div className="mt-6 space-y-4">
               <ExternalFooterLink
-                href={
-                  siteConfig.socialLinks
-                    .linkedin
-                }
+                href={siteConfig.socialLinks.linkedin}
               >
                 LinkedIn
               </ExternalFooterLink>
 
               <ExternalFooterLink
-                href={
-                  siteConfig.socialLinks
-                    .instagram
-                }
+                href={siteConfig.socialLinks.instagram}
               >
                 Instagram
               </ExternalFooterLink>
 
               <ExternalFooterLink
-                href={
-                  siteConfig.socialLinks
-                    .youtube
-                }
+                href={siteConfig.socialLinks.youtube}
               >
                 YouTube
               </ExternalFooterLink>
 
               <ExternalFooterLink
-                href={
-                  siteConfig.socialLinks
-                    .linktree
-                }
+                href={siteConfig.socialLinks.linktree}
               >
                 Resources
               </ExternalFooterLink>
@@ -161,8 +156,7 @@ export function SiteFooter() {
               <p className="mt-3 text-xs leading-6 text-white/60">
                 ClimateWatch
                 <br />
-                ECOSOC-accredited
-                organisation
+                ECOSOC-accredited organisation
               </p>
             </div>
           </div>
@@ -189,8 +183,7 @@ export function SiteFooter() {
               />
 
               <p className="text-[0.56rem] font-semibold uppercase tracking-[0.1em] text-white/40">
-                Climate policy · Research ·
-                Development
+                Climate policy · Research · Development
               </p>
             </div>
           </div>
@@ -216,9 +209,7 @@ function FooterColumn({
 }>) {
   return (
     <div>
-      <FooterHeading>
-        {title}
-      </FooterHeading>
+      <FooterHeading>{title}</FooterHeading>
 
       <nav
         aria-label={`${title} footer navigation`}
