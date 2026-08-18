@@ -84,7 +84,7 @@ export const teamContent = {
   stats: [
     {
       label: "Team members",
-      value: "34",
+      value: "48",
     },
     {
       label: "Divisions",
