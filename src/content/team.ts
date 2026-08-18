@@ -84,11 +84,11 @@ export const teamContent = {
   stats: [
     {
       label: "Team members",
-      value: "48",
+      value: "34",
     },
     {
       label: "Divisions",
-      value: "09",
+      value: "8",
     },
     {
       label: "Based in",
@@ -322,8 +322,8 @@ export const teamContent = {
      TECHNICAL ADVISORS
      ============================================================ */
 
-  advisory: {
-    eyebrow: "Advisory",
+advisory: {
+    eyebrow: "External Advisory Board",
     title: "Specialists who review the substance of our work.",
     description:
       "External advisors are consulted on the projects and publications where their expertise is required. They review technical and analytical content before it is published.",
@@ -334,7 +334,7 @@ export const teamContent = {
       slug: "mehnaz-parveen",
       image: "/images/team/mehnaz-parveen.webp",
       name: "Mehnaz Parveen",
-      role: "External Advisor — Gender and Social Inclusion",
+      role: "Technical Advisor — Gender and Social Inclusion",
       summary:
         "Policy, gender and climate security specialist based in Islamabad. Advised ClimateWatch on the Women and Gender Module for the Glacier School.",
       profile: [
@@ -355,7 +355,7 @@ export const teamContent = {
       slug: "tasawar-baig",
       image: "/images/team/tasawar-baig.webp",
       name: "Dr Tasawar Baig",
-      role: "External Advisor — Climate and Environmental Governance",
+      role: "Technical Advisor — Climate and Environmental Governance",
       summary:
         "Associate Professor of Social Sciences and Humanities at the University of Central Asia, and formerly Associate Dean and Chairman of Politics and International Studies at Karakoram International University.",
       profile: [
@@ -375,8 +375,8 @@ export const teamContent = {
     {
       slug: "amjad-ali",
       image: "/images/team/amjad-ali.webp",
-      name: "Professor Amjad Ali",
-      role: "External Advisor — Environmental Economics and Mountain Development",
+      name: "Mr Amjad Ali",
+      role: "Technical Advisor — Environmental Economics and Mountain Development",
       summary:
         "Assistant Professor and Head of the Department of Development Studies at Karakoram International University, Hunza Campus. A SANDEE-trained environmental economist working on climate vulnerability and ecosystem services.",
       profile: [
