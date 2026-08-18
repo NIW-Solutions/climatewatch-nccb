@@ -545,7 +545,7 @@ export const teamContent = {
     {
       // Slug and image filename keep the earlier spelling so the photograph in
       // public/images/team/ still resolves. Neither appears in a URL.
-      slug: "irshad-iqbal",
+      slug: "irshad-qabool",
 
       image: "/images/team/irshad-iqbal.webp",
 
