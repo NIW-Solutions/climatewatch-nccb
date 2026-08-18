@@ -88,7 +88,7 @@ export const teamContent = {
     },
     {
       label: "Divisions",
-      value: "09",
+      value: "8",
     },
     {
       label: "Based in",
@@ -181,7 +181,7 @@ export const teamContent = {
        DIRECTORATE
        ========================================== */
     {
-      name: "Syed Kiram",
+      name: "Mr. Syed Kiram",
       department: "directorate",
       designation: "Director",
       focus:
@@ -196,11 +196,11 @@ export const teamContent = {
        INTERNATIONAL CLIMATE POLICY
        ========================================== */
     {
-      name: "Pervez Aly",
+      name: "Mr. Pervez Aly",
       department: "international-climate-policy",
       designation: "Head of Division",
       focus:
-        "UNFCCC negotiation tracking, climate policy analysis and international engagement.",
+        "Policy Advisor Anticipatory Action, UNFCCC negotiation tracking, climate policy analysis and international engagement.",
       email: "pervez-cw@nccb-un.org",
       image: "/images/team/pervez-aly.webp",
       linkedin: "https://www.linkedin.com/in/pervezaly/",
@@ -211,7 +211,7 @@ export const teamContent = {
        RESEARCH AND DEVELOPMENT
        ========================================== */
     {
-      name: "Atia Fehmi",
+      name: "Ms. Atia Fehmi",
       department: "research-development",
       designation: "Head of Division",
       focus:
@@ -225,7 +225,7 @@ export const teamContent = {
        EDUCATION FOR SUSTAINABLE DEVELOPMENT
        ========================================== */
     {
-      name: "Didar Ali",
+      name: "Mr. Didar Ali",
       department: "education-sustainable-development",
       designation: "Head of Division",
       focus:
@@ -240,7 +240,7 @@ export const teamContent = {
        PARTNERSHIP AND OUTREACH
        ========================================== */
     {
-      name: "Mehtab Kamal",
+      name: "Mr. Mehtab Kamal",
       department: "partnerships-outreach",
       designation: "Head of Division",
       focus:
@@ -255,7 +255,7 @@ export const teamContent = {
        TECHNICAL AND ENGINEERING
        ========================================== */
     {
-      name: "Mubeen Ishfaq",
+      name: "Mr. Mubeen Ishfaq",
       department: "technical-engineering",
       designation: "Head of Division",
       focus:
@@ -270,7 +270,7 @@ export const teamContent = {
        PROJECT MANAGEMENT
        ========================================== */
     {
-      name: "Riaz Ahmed",
+      name: "Mr. Riaz Ahmed",
       department: "project-management",
       // Changed from "Head of Department" to match the spreadsheet.
       designation: "Head of Division",
@@ -286,7 +286,7 @@ export const teamContent = {
        MEDIA AND COMMUNICATIONS
        ========================================== */
     {
-      name: "Sajjad Ali",
+      name: "Mr. Sajjad Ali",
       department: "communications-media",
       designation: "Head of Division",
       // NEEDS CONFIRMATION: no description supplied in the spreadsheet.
@@ -303,7 +303,7 @@ export const teamContent = {
        HUMAN RESOURCES
        ========================================== */
     {
-      name: "Michael Muyutu",
+      name: "Mr. Michael Muyutu",
       department: "human-resources",
       designation: "Human Resource Manager",
       // NEEDS CONFIRMATION: no description supplied in the spreadsheet.
@@ -323,8 +323,8 @@ export const teamContent = {
      ============================================================ */
 
   advisory: {
-    eyebrow: "Advisory",
-    title: "Specialists who review the substance of our work.",
+    eyebrow: "External Advisory",
+    title: "Specialists who advise and review the substance of our work.",
     description:
       "External advisors are consulted on the projects and publications where their expertise is required. They review technical and analytical content before it is published.",
   },
@@ -333,14 +333,14 @@ export const teamContent = {
     {
       slug: "mehnaz-parveen",
       image: "/images/team/mehnaz-parveen.webp",
-      name: "Mehnaz Parveen",
-      role: "External Advisor — Gender and Social Inclusion",
+      name: "Ms. Mehnaz Parveen",
+      role: "Technical Advisor — Gender and Social Inclusion",
       summary:
         "Policy, gender and climate security specialist based in Islamabad. Advised ClimateWatch on the Women and Gender Module for the Glacier School.",
       profile: [
         "Mehnaz Parveen is ClimateWatch's External Advisor on Gender and Social Inclusion. Her work sits where climate policy meets gender, with strategic partnerships, inclusive technology and climate security running through it. She is based in Islamabad.",
         "For ClimateWatch, she advised on the Women and Gender Module for the Glacier School, our training programme on the cryosphere and mountain resilience in Gilgit-Baltistan and Chitral. Gender in climate training is usually handled as a paragraph in a concept note. Her contribution made it a taught component that participants had to work through, and it changed how the rest of the programme was designed.",
-        "In her advisory role she reviews the gender analysis in ClimateWatch research papers and project concepts before publication, advises on module design for future Glacier School cohorts, and guides inclusive recruitment and safeguarding for participants travelling to and within the north. She also advises on gender-responsive indicators where projects carry a monitoring and evaluation framework.",
+        "In her advisory role, she reviews the gender analysis in ClimateWatch research papers and project concepts before publication, advises on module design for future Glacier School cohorts, and guides inclusive recruitment and safeguarding for participants travelling to and within the north. She also advises on gender-responsive indicators where projects carry a monitoring and evaluation framework.",
         "Her engagement with ClimateWatch is need-based: she is consulted on specific projects and publications where her expertise is required.",
       ],
       expertise: [
@@ -355,7 +355,7 @@ export const teamContent = {
       slug: "tasawar-baig",
       image: "/images/team/tasawar-baig.webp",
       name: "Dr Tasawar Baig",
-      role: "External Advisor — Climate and Environmental Governance",
+      role: "Technical Advisor — Climate and Environmental Governance",
       summary:
         "Associate Professor of Social Sciences and Humanities at the University of Central Asia, and formerly Associate Dean and Chairman of Politics and International Studies at Karakoram International University.",
       profile: [
@@ -375,8 +375,8 @@ export const teamContent = {
     {
       slug: "amjad-ali",
       image: "/images/team/amjad-ali.webp",
-      name: "Professor Amjad Ali",
-      role: "External Advisor — Environmental Economics and Mountain Development",
+      name: "Mr. Amjad Ali",
+      role: "Technical Advisor — Environmental Economics and Mountain Development",
       summary:
         "Assistant Professor and Head of the Department of Development Studies at Karakoram International University, Hunza Campus. A SANDEE-trained environmental economist working on climate vulnerability and ecosystem services.",
       profile: [
@@ -397,8 +397,8 @@ export const teamContent = {
     {
       slug: "anam-rathor",
       image: "/images/team/anam-rathor.webp",
-      name: "Anam Rathor",
-      role: "External Technical Advisor — Climate Finance",
+      name: "Ms. Anam Rathor",
+      role: "Technical Advisor — Climate Finance",
       summary:
         "Programme Lead for Pakistan at the Climate Vulnerable Forum and V20 Finance Ministers (CVF-V20), with fifteen years in climate finance, climate policy design and multi-level stakeholder engagement.",
       profile: [
@@ -421,8 +421,8 @@ export const teamContent = {
       image: "/images/team/ahmad-rafay-alam.webp",
       // NEEDS CONFIRMATION: spreadsheet name column reads "Mr. Rafey Alam";
       // the profile text reads "Ahmad Rafay Alam". Using the profile spelling.
-      name: "Ahmad Rafay Alam",
-      role: "External Advisor — Climate Litigation and Environmental Law",
+      name: "Mr. Ahmad Rafay Alam",
+      role: "Technical Advisor — Climate Litigation and Environmental Law",
       summary:
         "One of Pakistan's leading environmental lawyers and co-founder of Saleem, Alam & Co. He has served on the Pakistan Climate Change Council and the Punjab Environment Protection Council, and teaches at LUMS.",
       profile: [
@@ -445,14 +445,14 @@ export const teamContent = {
 
       name: "Dr Imran Saqib Khalid",
 
-      role: "External Advisor — Water Governance and Environmental Policy",
+      role: "Technical Advisor — Water Governance and Environmental Policy",
 
       summary:
         "Water Resource Governance Technical Expert on the FCDO-funded Catalytic Fund for Water Resource Accountability in Pakistan at Oxford Policy Management, and formerly Director of Governance and Policy at WWF-Pakistan.",
 
       profile: [
         "Dr Imran Saqib Khalid is ClimateWatch's External Advisor on Water Governance and Environmental Policy.",
-        "He is Water Resource Governance Technical Expert on the Catalytic Fund for Water Resource Accountability in Pakistan (CF-WRAP) at Oxford Policy Management. CF-WRAP forms part of WRAP, a \u00a330 million programme funded by the UK Foreign, Commonwealth and Development Office, which supports water governance reform and the scaling of water innovations across federal and provincial government and the private sector.",
+        "He is a Water Resource Governance Technical Expert on the Catalytic Fund for Water Resource Accountability in Pakistan (CF-WRAP) at Oxford Policy Management. CF-WRAP forms part of WRAP, a \u00a330 million programme funded by the UK Foreign, Commonwealth and Development Office, which supports water governance reform and the scaling of water innovations across federal and provincial government and the private sector.",
         "He was previously Director of Governance and Policy at WWF-Pakistan, and before that spent close to six years as a Research Fellow at the Sustainable Development Policy Institute in Islamabad. He studied at the State University of New York College of Environmental Science and Forestry.",
         "He advises ClimateWatch on water governance and environmental policy: the institutional arrangements that determine how water is allocated and managed in Pakistan, the accountability gaps in those arrangements, and how water security connects to the cryosphere and mountain resilience work in Gilgit-Baltistan and Chitral.",
       ],
@@ -486,7 +486,7 @@ export const teamContent = {
       image: "/images/team/iqbal-badruddin.webp",
       // NEEDS CONFIRMATION: spreadsheet name column reads "Iqbal Baddruddin";
       // the profile text reads "Iqbal Badruddin". Using the profile spelling.
-      name: "Iqbal Badruddin",
+      name: "Mr. Iqbal Badruddin",
       role: "Chairman",
       summary:
         "Founder of Fridays For Future Pakistan and a COP26 delegate. Holds a Master's in Climate Change from the University of Waterloo and is completing an MBA at the Ivey Business School.",
@@ -499,7 +499,7 @@ export const teamContent = {
     {
       slug: "syed-kiram-board",
       image: "/images/team/syed-kiram.webp",
-      name: "Syed Kiram",
+      name: "Mr. Syed Kiram",
       // NEEDS CONFIRMATION: the board row reads "Executive Director"; the staff
       // row and the current live site read "Director".
       role: "Executive Director",
@@ -513,13 +513,11 @@ export const teamContent = {
         "In 2023 he received the Prime Minister's Youth Innovation Award for his contribution to SDG 4 (Quality Education) through his work on Sustainable Community Libraries. His work reflects a commitment to using youth-led innovation, education, research and community engagement to address environmental and social challenges.",
         "He is currently studying Business Sustainability at FAST-NUCES Islamabad, with interests in climate finance, ESG, sustainable development, and the intersection of business and climate action.",
       ],
-      linkedin: "https://www.linkedin.com/in/syed-kiram-828377193/",
-      instagram: "https://www.instagram.com/syedkiram/",
     },
     {
       slug: "kamran-ali",
       image: "/images/team/kamran-ali.webp",
-      name: "Kamran Ali",
+      name: "Mr. Kamran Ali",
       role: "Director",
       summary:
         "Co-founder of Fridays For Future Pakistan and a COP28 delegate. Cluster Head at the Plant-for-the-Planet Foundation, working on nature-based solutions, carbon markets and corporate sustainability.",
@@ -530,7 +528,7 @@ export const teamContent = {
       ],
     },
     {
-      slug: "sajida-jan",
+      slug: "Ms. sajida-jan",
       image: "/images/team/sajida-jan.webp",
       // NEEDS CONFIRMATION: spreadsheet name column reads "Sajida Bibi"; the
       // profile text reads "Sajida Jan". Using the profile spelling.
@@ -551,7 +549,7 @@ export const teamContent = {
 
       image: "/images/team/irshad-iqbal.webp",
 
-      name: "Irshad Qabool",
+      name: "Mr. Irshad Qabool",
 
       role: "Director",
 
@@ -568,7 +566,7 @@ export const teamContent = {
     {
       slug: "sajina-rehmat",
       image: "/images/team/sajina-rehmat.webp",
-      name: "Sajina Rehmat",
+      name: "Ms. Sajina Rehmat",
       role: "Director",
       summary:
         "A forester with interests in environmental sustainability and community development. Holds a BS in Forestry from Karakoram International University, Gilgit, and led the Fridays For Future Gilgit-Baltistan chapter.",
@@ -582,9 +580,9 @@ export const teamContent = {
     {
       slug: "atia-fehmi-board",
       image: "/images/team/atia-fehmi.webp",
-      name: "Atia Fehmi",
+      name: "Ms. Atia Fehmi",
       role: "Director",
-      note: "Also Head of Division, Research and Development",
+      note: "Interim Head of Division, Research and Development",
       summary:
         "Environmental researcher with a Master's from the National University of Sciences and Technology, working on emissions, carbon markets and the energy transition.",
       profile: [
@@ -597,7 +595,7 @@ export const teamContent = {
 
     {
       slug: "nida-khan",
-      name: "Nida Khan",
+      name: "Ms. Nida Khan",
       role: "Director",
       summary:
         "Social Development student at Aga Khan University and former Canada-to-Pakistan Ambassador for a Day. Youth advocate working on gender equality, women's empowerment, climate action and community engagement.",
