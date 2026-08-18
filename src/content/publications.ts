@@ -15,6 +15,8 @@
 export type PublicationCategory =
   | "publication"
   | "policy-report"
+  | "Research Publication"
+  | "Budget Analysis"
   | "briefing";
 
 export type PublicationItem = {
@@ -145,9 +147,9 @@ export const publicationsContent = {
       description:
         "A rapid assessment of Gilgit-Baltistan’s interim budget, presented on 13 July 2026, examining how public spending connects with climate resilience, vulnerability and longer-term adaptation priorities. Figures are triangulated across three independent outlets pending publication of the official budget documents.",
 
-      category: "policy-report",
+      category: "Budget Analysis",
 
-      categoryLabel: "Policy brief",
+      categoryLabel: "Budget Analysis",
 
       year: "2026",
 
@@ -156,7 +158,7 @@ export const publicationsContent = {
       authors: ["Pervez Ali"],
 
       contributors:
-        "ClimateWatch R&D and ESD teams",
+        "ClimateWatch R&D and ESD Division",
 
       citation:
         "Ali, P. (2026). From Disaster Response to Climate Resilience: A Climate Budget Assessment of Gilgit-Baltistan’s FY2026–27 Interim Budget. ClimateWatch – International Climate Policy & Research and Development Division.",
