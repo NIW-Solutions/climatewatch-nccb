@@ -541,21 +541,25 @@ advisory: {
         "She is a PhD student in neuroscience and pharmaceutical sciences at the University of Rhode Island, working in the Ross Lab, and holds a degree in behavioural neuroscience with a minor in statistics from St. Lawrence University, where she was a Davis Scholar. She studied the neuroscience of consciousness at the Danish Institute for Study Abroad in Copenhagen, and is a graduate of United World College Costa Rica.",
         "She brings quantitative research training to the board: experimental design, statistics, and primary fieldwork in Gilgit-Baltistan.",
       ],
-    },
-    {
+   {
+      // Slug and image filename keep the earlier spelling so the photograph in
+      // public/images/team/ still resolves. Neither appears in a URL.
       slug: "irshad-iqbal",
+
       image: "/images/team/irshad-iqbal.webp",
-      // NEEDS CONFIRMATION: spreadsheet name column reads "Irshad Iqbal"; the
-      // profile text reads "Irshad Qabool". Using the name column.
-      name: "Irshad Iqbal",
+
+      name: "Irshad Qabool",
+
       role: "Director",
-      // NEEDS CONFIRMATION: no card text supplied; condensed from the profile.
+
       summary:
-        "Legal Associate at MOL Pakistan Oil and Gas Company B.V. and a 2025 BA-LL.B (Honours) graduate of the Lahore University of Management Sciences, from Darkut Yasin in District Ghizer.",
+        "Legal Associate at MOL Pakistan Oil and Gas Company B.V. and a 2025 LUMS law graduate, formerly Executive Director of the Organisation for Educational Change. His interests lie at the intersection of corporate regulation, environmental law and sustainability.",
+
       profile: [
-        "Irshad Iqbal is from Darkut Yasin, a village in District Ghizer, Gilgit-Baltistan.",
-        "He graduated with a BA-LL.B (Honours) from the Lahore University of Management Sciences in 2025, with a foundation in contract, commercial, property and constitutional law, and training in legal research, case law analysis and drafting within Pakistan's constitutional and regulatory framework. He works as a Legal Associate at MOL Pakistan Oil and Gas Company B.V.",
-        "His interests run to commercial and contract law, intellectual property, tax and cybersecurity law, and commercial arbitration and alternative dispute resolution. He brings legal training in contracts and constitutional law to the board.",
+        "Irshad Qabool is from Darkut Yasin, a village in District Ghizer, Gilgit-Baltistan.",
+        "He graduated with a BA-LL.B. (Honours) from the Lahore University of Management Sciences (LUMS) in 2025. He currently works as a Legal Associate at MOL Pakistan Oil and Gas Company B.V., where his work focuses on corporate litigation and legal advisory on corporate, constitutional, environmental and other matters within Pakistan's exploration and production (E&P) sector. He aspires to build a legal career at the intersection of corporate regulation, environmental law and sustainability.",
+        "Previously, Irshad served as Executive Director of the Organisation for Educational Change, a student-led NGO working across Gilgit-Baltistan and Chitral.",
+        "He brings to the Board legal training and professional experience in contracts, corporate and constitutional law, alongside a strong interest in environmental governance and sustainability.",
       ],
     },
     {
@@ -577,7 +581,6 @@ advisory: {
       image: "/images/team/atia-fehmi.webp",
       name: "Atia Fehmi",
       role: "Director",
-      note: "Also Head of Division, Research and Development",
       summary:
         "Environmental researcher with a Master's from the National University of Sciences and Technology, working on emissions, carbon markets and the energy transition.",
       profile: [
