@@ -1,30 +1,6 @@
 /**
  * Newsletter content — src/content/newsletter.ts
- *
- * `issues` is intentionally empty. Add real issues as they are published
- * rather than shipping placeholder entries — the team page carried
- * illustrative records for months and it was not obvious which were real.
- *
- * To add an issue, drop the PDF in public/documents/newsletter/ and append:
- *
- *   {
- *     number: "01",
- *     slug: "2026-09-mountain-frontlines",
- *     title: "…",
- *     date: "September 2026",
- *     summary: "…",
- *     href: "/documents/newsletter/2026-09.pdf",
- *   }
  */
-
-export type NewsletterIssue = {
-  number: string;
-  slug: string;
-  title: string;
-  date: string;
-  summary: string;
-  href: string;
-};
 
 export const newsletterContent = {
   hero: {
@@ -84,21 +60,6 @@ export const newsletterContent = {
       },
     ],
   },
-
-  archive: {
-    eyebrow: "Archive",
-
-    title: "Past issues.",
-
-    description:
-      "Every issue stays available to read in full.",
-
-    emptyNote:
-      "The first issue is in preparation. Subscribe above and it will reach you directly.",
-  },
-
-  issues:
-    [] as readonly NewsletterIssue[],
 } as const;
 
 export type NewsletterContent =

@@ -40,12 +40,26 @@ const ITEMS_PER_SECTION = 5;
 const CLIMATEWATCH_YOUTUBE_CHANNEL =
   "UC39uvi0nzWeDZpXbpwH4lbg";
 
-/** Publisher feeds. Every one of these is on the source allowlist. */
+/**
+ * Publisher feeds. Every one of these is on the source allowlist.
+ *
+ * Regional coverage is deliberately spread across several hosts. Dawn
+ * answers from a laptop but returned nothing at all on the first Amplify
+ * build — it appears to refuse datacentre IPs — which left the frontline
+ * section filled with global stories under a Gilgit-Baltistan heading.
+ * ReliefWeb's Pakistan feed is UN-hosted and answers from AWS, so it is
+ * the dependable regional source; the newspaper feeds are a bonus when
+ * they happen to answer.
+ */
 const RSS_FEEDS = [
+  // Regional — Pakistan and the mountain districts
+  "https://reliefweb.int/country/pak/rss.xml",
   "https://www.dawn.com/feeds/home",
   "https://www.dawn.com/feeds/pakistan",
+  "https://www.thenews.com.pk/rss/1/1",
+
+  // Specialist climate desks
   "https://dialogue.earth/en/feed/",
-  "https://reliefweb.int/updates/rss.xml?view=headlines",
   "https://www.climatechangenews.com/feed/",
   "https://climatenetwork.org/feed/",
 ] as const;
@@ -81,6 +95,19 @@ const CLIMATE_TERMS = [
   "smog",
   "air quality",
   "disaster",
+  // Weather words matter here: "heavy rain lashes Rawalpindi" is exactly
+  // the flood reporting this section is for. The filler blocklist in
+  // sources.ts is what keeps the forecast desk out, not their absence.
+  "rain",
+  "rainfall",
+  "storm",
+  "cloudburst",
+  "avalanche",
+  "snowmelt",
+  "erosion",
+  "torrential",
+  "washed away",
+  "inundat",
 ] as const;
 
 const MOUNTAIN_TERMS = [
@@ -95,6 +122,32 @@ const MOUNTAIN_TERMS = [
   "hindu kush",
   "skardu",
   "shimshal",
+] as const;
+
+/**
+ * Place names, not just the country name. Regional reporting rarely says
+ * "Pakistan" in the headline — it says Rawalpindi, Sindh or the Indus.
+ * Matching the country word alone dropped most of the coverage this
+ * section exists to carry.
+ */
+const PAKISTAN_TERMS = [
+  "pakistan",
+  "sindh",
+  "punjab",
+  "balochistan",
+  "khyber",
+  "pakhtunkhwa",
+  "islamabad",
+  "karachi",
+  "lahore",
+  "rawalpindi",
+  "peshawar",
+  "quetta",
+  "multan",
+  "faisalabad",
+  "azad kashmir",
+  "swat",
+  "indus",
 ] as const;
 
 const NEGOTIATION_TERMS = [
@@ -133,6 +186,11 @@ function haystack(item: FeedItem): string {
   return `${item.title} ${item.summary}`.toLowerCase();
 }
 
+/**
+ * Substring match — intended for topic words, where partial matching is
+ * useful ("emission" catching "emissions", "inundat" catching both
+ * "inundated" and "inundation").
+ */
 function matchesAny(
   item: FeedItem,
   terms: readonly string[],
@@ -142,6 +200,51 @@ function matchesAny(
   return terms.some((term) =>
     text.includes(term),
   );
+}
+
+/**
+ * Topic match against the headline only.
+ *
+ * General-news feeds carry climate vocabulary in body text that has
+ * nothing to do with climate — "Russia ready to mediate Pakistan's issues
+ * with India" reached the regional section on a stray body-text match.
+ * A subject word in the headline is a far better signal of what a story
+ * is actually about.
+ */
+function matchesTitle(
+  item: FeedItem,
+  terms: readonly string[],
+): boolean {
+  const title = item.title.toLowerCase();
+
+  return terms.some((term) =>
+    title.includes(term),
+  );
+}
+
+/**
+ * Whole-word match, for place names.
+ *
+ * Substring matching is wrong here: "indus" is inside "industry", which
+ * pulled two global stories about advertising and AI into the regional
+ * section purely because they mentioned industrial emissions.
+ */
+function matchesPlace(
+  item: FeedItem,
+  terms: readonly string[],
+): boolean {
+  const text = haystack(item);
+
+  return terms.some((term) => {
+    const escaped = term.replace(
+      /[.*+?^${}()|[\]\\]/g,
+      "\\$&",
+    );
+
+    return new RegExp(
+      `\\b${escaped}\\b`,
+    ).test(text);
+  });
 }
 
 function normaliseKey(
@@ -167,13 +270,17 @@ function frontlineRank(
   item: FeedItem,
 ): number {
   if (
-    matchesAny(item, MOUNTAIN_TERMS)
+    matchesPlace(
+      item,
+      MOUNTAIN_TERMS,
+    )
   ) {
     return 0;
   }
 
-  return haystack(item).includes(
-    "pakistan",
+  return matchesPlace(
+    item,
+    PAKISTAN_TERMS,
   )
     ? 1
     : 2;
@@ -295,16 +402,17 @@ export async function getNewsFeed(): Promise<
 
   const frontline = take(
     (item) =>
-      matchesAny(
+      matchesTitle(
         item,
         CLIMATE_TERMS,
       ) &&
-      (matchesAny(
+      (matchesPlace(
         item,
         MOUNTAIN_TERMS,
       ) ||
-        haystack(item).includes(
-          "pakistan",
+        matchesPlace(
+          item,
+          PAKISTAN_TERMS,
         )),
     frontlineRank,
   );
@@ -336,23 +444,15 @@ export async function getNewsFeed(): Promise<
     ),
   );
 
-  /* Anything climate-related left over backfills a thin frontline list. */
-  const frontlineFilled =
-    frontline.length >=
-    ITEMS_PER_SECTION
-      ? frontline
-      : [
-          ...frontline,
-          ...take((item) =>
-            matchesAny(
-              item,
-              CLIMATE_TERMS,
-            ),
-          ),
-        ].slice(
-          0,
-          ITEMS_PER_SECTION,
-        );
+  /*
+   * No backfill. Both attempts at one made the section worse: relaxing the
+   * region filled a "Gilgit-Baltistan, Chitral and Pakistan" heading with
+   * Brazil and the UK, and relaxing the topic filled it with Pakistani
+   * cricket and counter-terrorism reporting. The section now renders only
+   * stories that are both regional and climate-related, however few that
+   * is. A short, accurate list is the point.
+   */
+  const frontlineFilled = frontline;
 
   return [
     {
