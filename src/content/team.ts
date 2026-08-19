@@ -730,6 +730,20 @@ export const teamContent = {
       position: "Intern",
       email: "rimasahar786@gmail.com",
     },
+    {
+      /*
+       * Spelling follows the supplied photo file ("Fatimah Zaheer") and the
+       * roster's existing Fatimah Muneer. The request adding her wrote
+       * "Fatima" — worth confirming which she uses.
+       */
+      name: "Fatimah Zaheer",
+      department: "international-climate-policy",
+      position: "Intern",
+      email:
+        "fatimazaheer602@gmail.com",
+      image:
+        "/images/team/fatimah-zaheer.webp",
+    },
     /* ==========================================
        EDUCATION FOR SUSTAINABLE DEVELOPMENT
        ========================================== */
