@@ -5,22 +5,35 @@ export type BlogTopic =
   | "community"
   | "technology";
 
+/**
+ * A run of body text. A plain string renders as-is; an object renders as a
+ * link. Splitting paragraphs this way keeps the prose in the content file
+ * and out of JSX, so the wording stays exactly as the author wrote it.
+ *
+ * Every href below was read out of the author's source PDF — each is a real
+ * link annotation, matched to its anchor text by rectangle position. Do not
+ * add links here that are not in the author's original.
+ */
+export type BlogSegment =
+  | string
+  | {
+      text: string;
+      href: string;
+    };
+
 export type BlogPost = {
   slug: string;
   title: string;
   excerpt: string;
   topic: BlogTopic;
   topicLabel: string;
-  date: string;
   readingTime: string;
   author: string;
-  authorRole: string;
-  href: string;
+  /** Optional thumbnail. Falls back to a gradient panel when absent. */
+  image?: string;
+  body: readonly (readonly BlogSegment[])[];
   featured?: boolean;
 };
-
-const resourceHub =
-  "https://linktr.ee/Climatewatch";
 
 export const blogContent = {
   hero: {
@@ -58,18 +71,6 @@ export const blogContent = {
       label: "Climate science",
     },
     {
-      value: "policy",
-      label: "Policy",
-    },
-    {
-      value: "energy",
-      label: "Energy",
-    },
-    {
-      value: "community",
-      label: "Community",
-    },
-    {
       value: "technology",
       label: "Technology",
     },
@@ -77,234 +78,130 @@ export const blogContent = {
 
   posts: [
     {
-      slug: "heat-stroke-in-pakistan",
+      slug: "rising-the-heat-declining-the-productivity",
 
       title:
-        "Heat Stroke in Pakistan: the emergency we keep treating as weather",
+        "Rising the Heat, Declining the Productivity",
 
       excerpt:
-        "Every summer the same headlines return, and every summer the response arrives late. Extreme heat is not a seasonal inconvenience — it is a public-health emergency that our institutions are still not structured to prevent.",
+        "Pakistan is one of the countries in the world facing the wrath of climate change every year in the form of disasters, disturbed weather patterns, and extreme heat strokes.",
 
       topic: "climate-science",
 
       topicLabel: "Climate science",
 
-      date: "July 2026",
+      readingTime: "4 min read",
 
-      readingTime: "6 min read",
-
-      author: "Atia Fehmi",
-
-      authorRole:
-        "Head of Research and Development",
-
-      href: resourceHub,
+      author: "Habiba Tariq",
 
       featured: true,
+
+      body: [
+        [
+          "Pakistan is one of the countries in the world facing the wrath of climate change every year in the form of disasters, disturbed weather patterns, and extreme heat strokes. Once again, it is recorded to be the second-warmest year in 65 years. According to the ",
+          {
+            text: "Economic Survey 2025-26",
+            href: "https://finance.gov.pk/survey_2026.html",
+          },
+          ", the national annual mean temperature in 2025 reached 23.9°C, which is 1.09°C above the long-term average of 22.8°C. On its own, these numbers are deciding and carving how people of this country will live and work. This excessive and rising heat is not just warmth but a gesture of hellfire in which Pakistan is burning for other countries' vices.",
+        ],
+        [
+          "This key unfairness is that Pakistan has barely contributed to the problem it is now living through. The country contributes to evident for less than 1% of global emissions today and just 0.4% historically. But still it continues to rank among the most climate-vulnerable nations in the world. This gap between responsibility and consequence is not new, but each hot year makes it harder to live through and ignore. The country's annual mean temperature has already climbed by about 0.5°C, and projections suggest a 3 to 5°C rise by the end of the century if nothing changes globally. That trajectory is not some far-off scenario. It is already visible in the numbers coming out of this year alone.",
+        ],
+        [
+          "The clearest evidence of this shift is already ",
+          {
+            text: "affecting the north",
+            href: "https://newlinesmag.com/reportage/pakistan-is-losing-its-glaciers-to-climate-change/",
+          },
+          ", where the glaciers of Gilgit-Baltistan and Khyber Pakhtunkhwa are retreating, and the water bodies they feed are shrinking. These glaciers are not just a single concern; in reality, they feed the Indus system that much of the country's agriculture, hydropower, and drinking water depends on. As they retreat, rainfall patterns downstream become harder to predict too, swinging between prolonged dry spells and sudden, intense flooding within the same year.",
+        ],
+        [
+          "It is this same unpredictability, along with rising heat, that is starting to show up in something more immediate: human health. Prolonged heat exposure doesn't just make people uncomfortable, it causes real damage to the human body, especially for those who cannot escape it. Heatstroke, dehydration, and cardiovascular stress rise sharply during extreme heat events, and Pakistan has already recorded deaths in Jamshoro tied directly to heatwaves. But the deeper story is in who bears this burden. It is disproportionately the poor, and specifically outdoor laborers, construction workers, farmers, and street vendors, who have no option but to keep working through the hottest hours of the day because their income depends on it. They cannot afford air conditioning, and many cannot afford to lose a day's wage either, so they keep working in conditions that are actively damaging their health and draining their energy.",
+        ],
+        [
+          "These people burning in Pakistan are its ",
+          {
+            text: "human capital",
+            href: "https://cri.org/wp-content/uploads/2025/12/Heat-does-to-our-bodies_CRI-Pakistan-Report.pdf?curius=4580",
+          },
+          ". When workers are pushed to labor through extreme heat, their productivity drops, their risk of illness and injury rises, and, over time, their capacity to work consistently declines. This is not just a personal health issue, it becomes a human capital issue for the country as a whole. A workforce that is chronically exposed to heat stress is a workforce that produces less, misses more workdays, and faces higher long-term health costs, and in an economy like Pakistan's, where a large share of labor is informal and unprotected, there is no safety net absorbing that loss. It falls directly on the individual and, in aggregate, on the economy.",
+        ],
+        [
+          "Layered on top of all this is ",
+          {
+            text: "El Niño",
+            href: "https://www.dawn.com/news/2006917",
+          },
+          ", a natural climate pattern where sea surface temperatures in the central and eastern Pacific warm periodically and disrupt weather systems worldwide. El Niño years tend to push ",
+          {
+            text: "global temperatures",
+            href: "https://www.dawn.com/news/2002230",
+          },
+          " higher, and Pakistan is not shielded from that effect. When a naturally recurring warming cycle overlaps with a steady, human-driven warming trend that is already underway, the two compound each other. Hot years are becoming more frequent, and the recovery window requires policy solutions, both for the land and for the people working on it.",
+        ],
+        [
+          "Pakistan does have climate frameworks in place, including its National Climate Change Policy and its Nationally Determined Contributions under the ",
+          {
+            text: "Paris Agreement",
+            href: "https://www.un.org/en/climatechange/paris-agreement",
+          },
+          ", both of which name adaptation in water, agriculture, and health as priorities. But the distance between what these policies promise and what reaches a daily-wage worker standing in 45-degree heat is still wide. The Economic Survey's numbers are not just a record to note and move past. They signal the condition and the reality, showing how we are treating our people and how much priority they truly have.",
+        ],
+      ],
     },
 
     {
       slug: "thirsty-ai",
 
-      title:
-        "Thirsty AI: what data centres cost a water-stressed country",
+      title: "Thirsty AI",
 
       excerpt:
-        "The conversation about artificial intelligence rarely mentions water. In a country already rationing it, the arithmetic of cooling server halls deserves far more scrutiny than it currently receives.",
+        "We are in the age of artificial intelligence that people a hundred years ago could not have imagined, and a hundred years later, it is everyone's pocket buddy.",
 
       topic: "technology",
 
       topicLabel: "Technology",
 
-      date: "June 2026",
-
-      readingTime: "8 min read",
-
-      author: "Mubeen Ishfaq",
-
-      authorRole:
-        "Head of Technical and Engineering",
-
-      href: resourceHub,
-    },
-
-    {
-      slug: "notes-from-bonn",
-
-      title:
-        "Notes from Bonn: what SB64 felt like from the back of the room",
-
-      excerpt:
-        "Between the formal plenaries and the corridor conversations, a picture emerged of where the adaptation finance conversation is actually heading — and how little of it reaches mountain regions.",
-
-      topic: "policy",
-
-      topicLabel: "Policy",
-
-      date: "June 2026",
-
-      readingTime: "7 min read",
-
-      author: "Pervez Aly",
-
-      authorRole:
-        "Head of International Climate Policy",
-
-      href: resourceHub,
-    },
-
-    {
-      slug:
-        "glacier-school-field-diary",
-
-      title:
-        "Glacier School field diary: teaching climate where it is visible",
-
-      excerpt:
-        "You can explain glacial retreat in a classroom, or you can walk students to the terminus and let them measure it. One of these produces climate scientists.",
-
-      topic: "community",
-
-      topicLabel: "Community",
-
-      date: "May 2026",
-
-      readingTime: "5 min read",
-
-      author: "Didar Ali",
-
-      authorRole:
-        "Head of Education for Sustainable Development",
-
-      href: resourceHub,
-    },
-
-    {
-      slug:
-        "solar-is-arriving-faster",
-
-      title:
-        "Solar is arriving faster than the grid can absorb it",
-
-      excerpt:
-        "Rooftop solar has scaled remarkably quickly across Pakistani cities. The distribution network, tariff structure and storage capacity have not — and that gap is becoming the story.",
-
-      topic: "energy",
-
-      topicLabel: "Energy",
-
-      date: "May 2026",
-
-      readingTime: "9 min read",
-
-      author: "Kamran Shafiq",
-
-      authorRole:
-        "GIS and Remote Sensing Engineer",
-
-      href: resourceHub,
-    },
-
-    {
-      slug:
-        "who-counts-as-climate-vulnerable",
-
-      title:
-        "Who counts as climate vulnerable, and who decides?",
-
-      excerpt:
-        "Vulnerability indices shape where money goes. When mountain districts score poorly on data availability rather than on actual risk, the classification becomes the harm.",
-
-      topic: "policy",
-
-      topicLabel: "Policy",
-
-      date: "April 2026",
-
-      readingTime: "7 min read",
-
-      author: "Nasreen Bibi",
-
-      authorRole:
-        "Senior Policy Analyst",
-
-      href: resourceHub,
-    },
-
-    {
-      slug: "the-flood-after-the-flood",
-
-      title:
-        "The flood after the flood: what recovery actually looks like",
-
-      excerpt:
-        "Media attention leaves within a fortnight. Reconstruction takes years, and the second disaster — of displacement, debt and lost schooling — unfolds entirely off camera.",
-
-      topic: "community",
-
-      topicLabel: "Community",
-
-      date: "April 2026",
-
-      readingTime: "6 min read",
-
-      author: "Sadia Rehman",
-
-      authorRole:
-        "Project Officer, Field Operations",
-
-      href: resourceHub,
-    },
-
-    {
-      slug: "reading-a-climate-budget",
-
-      title:
-        "How to read a climate budget without being misled",
-
-      excerpt:
-        "Governments increasingly tag spending as climate-relevant. A practical guide to telling genuine adaptation investment apart from relabelled business as usual.",
-
-      topic: "policy",
-
-      topicLabel: "Policy",
-
-      date: "March 2026",
-
-      readingTime: "10 min read",
-
-      author: "Ayesha Karim",
-
-      authorRole:
-        "Research Fellow, Climate Finance",
-
-      href: resourceHub,
-    },
-
-    {
-      slug:
-        "permafrost-and-infrastructure",
-
-      title:
-        "What thawing ground means for mountain infrastructure",
-
-      excerpt:
-        "Roads, bridges and irrigation channels in high-altitude Pakistan were built for ground that stayed frozen. That assumption is quietly expiring.",
-
-      topic: "climate-science",
-
-      topicLabel: "Climate science",
-
-      date: "February 2026",
-
-      readingTime: "8 min read",
-
-      author: "Zainab Shah",
-
-      authorRole:
-        "Glaciology Research Associate",
-
-      href: resourceHub,
+      readingTime: "4 min read",
+
+      author: "Habiba Tariq",
+
+      body: [
+        [
+          "We are in the age of artificial intelligence that people a hundred years ago could not have imagined, and a hundred years later, it is everyone's pocket buddy. AI first captured the public's attention when it turned into chatbots, and people have been using it like a feast ever since, unaware of the fact that their responses are turning into training data for these systems.",
+        ],
+        [
+          "For most people, AI is just a concept of chatbots, but in the real domain, these are large, enormous data centers, high-maintenance infrastructures that require billions of dollars to build. These data centers not only span acres of land and consume electricity but also require tons of water. Whenever you ask AI a pressing question, the servers run and generate an intense amount of heat. To prevent overheating, these centers need water. An immense amount of water to cool down their temperature.",
+        ],
+        [
+          "The scale of this consumption is staggering. A 2024 report from the Lawrence Berkeley National Laboratory estimated that in 2023, data centers in the US consumed over 17 billion gallons of water for cooling alone. The irony is that Trump, in 2025, announced a dedication of 500 billion dollars to build AI infrastructure through the Stargate Project, which could make these figures double or even quadruple. The same report estimated that in 2023, U.S. data centers consumed an additional 211 billion gallons (800 billion liters) of water indirectly through the electricity that powers them. But that is just an estimate, because these big tech tycoons never reveal how much water their data centers actually consume. Estimates show that a single AI conversation of around fifty responses consumes roughly half a liter of water. Microsoft's global water consumption increased by thirty-four percent due to AI expansion. In 2023, Google reported ",
+          {
+            text: "consuming over 6 billion gallons of water",
+            href: "https://www.gstatic.com/gumdrop/sustainability/google-2024-environmental-report.pdf",
+          },
+          " (nearly 23 billion liters) to cool all its data centers, and Meta's data centers consumed 776 million gallons of water in the same year.",
+        ],
+        [
+          "On one side, these big tycoons promise a big, bright future, but humans cannot have a bright future without water, which is the most essential and basic need. Humans can live without AI. In fact, we have lived without AI. Generations have lived without AI. But now the cost of Big Tech is going beyond human value and Earth's capacity. As water reserves deplete, there are direct repercussions for water-bankrupt regions, where about 3 billion people and more than ",
+          {
+            text: "half of global food production",
+            href: "https://youtu.be/2V7bBi21o9g?si=dfNis6HdSGuk8hn1",
+          },
+          " are concentrated.",
+        ],
+        [
+          "And it is not finished yet. AI is still being trained and expanding, and large AI models like GPT-4 are estimated to have consumed around 700,000 liters of water during training. These are the projects of rich countries, and ultimately, they are the ones who will benefit. It is the same situation as when big countries polluted the environment beforehand, generated millions of dollars, and named themselves among thriving economies, but the negative effects were, and still are, faced by the Global South. Pakistan, which ranks among the most climate-vulnerable countries in the world, is no exception. It also lies among water-stressed countries, and as per the International Organisation for Migration (IOM), Pakistan is ",
+          {
+            text: "predicted",
+            href: "https://dtm.iom.int/youthengagement/flooded-yet-thirsty-climate-disaster-and-water-access-pakistan-during-2022-2023",
+          },
+          " to slip into absolute water scarcity by 2035, as its large population and inability to conserve fresh water are leading it toward despair.",
+        ],
+        [
+          "Over this, countries including the US, UAE, and Saudi Arabia are building massive AI infrastructure while consuming freshwater at an industrial scale. The opportunity cost will be borne by underprivileged countries once again. Every year, nature gives us a water income in the form of rain, snow, and stored glaciers. Water is limited, as is the nature of every resource on Earth, but humanity is wasting it on machines rather than saving it for generations to come. We can indeed live without AI, but we will surely wither without water.",
+        ],
+      ],
     },
   ] satisfies readonly BlogPost[],
 

@@ -296,7 +296,7 @@ export function SiteHeader() {
                 DESKTOP ACTION
                 ===================================== */}
 
-            <div className="hidden shrink-0 xl:block">
+            <div className="hidden shrink-0 items-center gap-3 xl:flex">
               <Link
                 href="/contact"
                 onClick={closeMenu}
@@ -309,6 +309,25 @@ export function SiteHeader() {
                 ].join(" ")}
               >
                 Get in touch
+
+                <ArrowUpRight
+                  aria-hidden="true"
+                  className="size-3.5 transition-transform duration-300 group-hover:-translate-y-0.5 group-hover:translate-x-0.5"
+                  strokeWidth={1.8}
+                />
+              </Link>
+
+              {/*
+                Donate carries the secondary red so it reads as the louder
+                of the two actions on both the transparent hero header and
+                the solid scrolled one.
+              */}
+              <Link
+                href="/donate"
+                onClick={closeMenu}
+                className="group inline-flex min-h-11 items-center gap-3 bg-secondary px-5 text-xs font-bold !text-white transition-colors hover:!bg-secondary-dark hover:!text-white"
+              >
+                Donate
 
                 <ArrowUpRight
                   aria-hidden="true"
@@ -502,6 +521,23 @@ export function SiteHeader() {
               ),
             )}
           </div>
+
+          {/* The desktop header pairs Donate with Get in touch; the drawer
+              needs it too, or it is a desktop-only action. */}
+
+          <Link
+            href="/donate"
+            onClick={closeMenu}
+            className="mt-4 flex items-center justify-between gap-3 bg-secondary px-4 py-4 text-xs font-bold !text-white transition-colors hover:!bg-secondary-dark"
+          >
+            Donate
+
+            <ArrowUpRight
+              aria-hidden="true"
+              className="size-4"
+              strokeWidth={1.8}
+            />
+          </Link>
 
           {/* =====================================
               CONTACT

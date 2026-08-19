@@ -51,6 +51,11 @@ const routes = [
     priority: 0.8,
   },
   {
+    path: "/donate",
+    changeFrequency: "monthly",
+    priority: 0.8,
+  },
+  {
     // Out of the main menu, but still indexed — linked directly during
     // COPs and press conferences.
     path: "/tv-live",
