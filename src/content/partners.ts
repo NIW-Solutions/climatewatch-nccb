@@ -15,8 +15,7 @@
  * from the artwork.
  *
  * Websites were supplied by ClimateWatch and each was checked to return 200
- * before being added. Taqalum has none yet, so its entry renders as a plain
- * logo rather than a link.
+ * before being added. Every partner now has one.
  *
  * `detail` is still absent everywhere — no descriptions were supplied, and an
  * invented line about what a partnership covers is exactly the kind of claim
@@ -115,6 +114,7 @@ export const partnersContent = {
     {
       name: "Taqalum",
       logo: "/images/partners/taqalum.png",
+      href: "https://taqalum.com/",
     },
     {
       name: "The Zameek Community",
