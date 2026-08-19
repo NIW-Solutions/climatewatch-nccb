@@ -42,7 +42,11 @@ export const partnersContent = {
       name: "Herspace",
     },
     {
-      name: "SDPI",
+      name:
+        "Institute of Strategic Studies Islamabad",
+    },
+    {
+      name: "Sustainable Development Policy Institute",
     },
     {
       name:
@@ -56,11 +60,15 @@ export const partnersContent = {
     },
     {
       name:
-        "Karakuram Impact Network",
+        "Karokoram Impact Network",
     },
     {
       name:
-        "Institute of Strategic Studies Islamabad",
+        "Climate Forward Pakistan",
+    },
+    {
+      name:
+        "Progressive Climate Foundation",
     },
   ] as readonly Partner[],
 } as const;
