@@ -641,12 +641,16 @@ export const teamContent = {
       department: "research-development",
       position: "Intern",
       email: "i234525@isb.nu.edu.pk",
+      image:
+        "/images/team/mamoona-asim.webp",
     },
     {
       name: "Fatimah Muneer",
       department: "research-development",
       position: "Intern",
       email: "fatimah.muneer@climatewatch-nccb.org",
+      image:
+        "/images/team/fatimah-muneer.webp",
     },
     {
       name: "Imtiaz Ali Zeb",
@@ -665,6 +669,8 @@ export const teamContent = {
       department: "research-development",
       position: "Intern",
       email: "bilal@climatewatch-nccb.org",
+      image:
+        "/images/team/bilal-ahmed.webp",
     },
     {
       name: "Sania Asim",
@@ -698,18 +704,25 @@ export const teamContent = {
       department: "international-climate-policy",
       position: "Junior Policy Advisor",
       email: "mutahira@climatewatch-nccb.org",
+      image:
+        "/images/team/mutahira-hasnain-gillani.webp",
     },
     {
       name: "Babar Nasir",
       department: "international-climate-policy",
       position: "Intern",
       email: "n.babar@climatewatch-nccb.org",
+      image:
+        "/images/team/babar-nasir.webp",
     },
     {
       name: "Mehak Mir",
       department: "international-climate-policy",
       position: "Intern",
-      // NEEDS CONFIRMATION: no email of any kind in the roster sheet.
+      image:
+        "/images/team/mehak-mir.webp",
+      email:
+        "mehakmaqsadmir@gmail.com",
     },
     {
       name: "Rima Sahar",
@@ -731,12 +744,16 @@ export const teamContent = {
       department: "education-sustainable-development",
       position: "Student Assistant",
       email: "hoorain.imran@climatewatch-nccb.org",
+      image:
+        "/images/team/syeda-hoorain-imran.webp",
     },
     {
       name: "Hashma Shahzad Ahmad",
       department: "education-sustainable-development",
       position: "Representative",
       email: "hashma.shahzad@climatewatch-nccb.org",
+      image:
+        "/images/team/hashma-shahzad-ahmad.webp",
     },
     {
       name: "Alishba Rauf",
@@ -752,12 +769,16 @@ export const teamContent = {
       department: "partnerships-outreach",
       position: "Intern",
       email: "alexschiller92@gmail.com",
+      image:
+        "/images/team/alexandra-schiller.webp",
     },
     {
       name: "Ariba Khan",
       department: "partnerships-outreach",
       position: "Student Assistant",
       email: "aribakw123@gmail.com",
+      image:
+        "/images/team/ariba-khan.webp",
     },
     /* ==========================================
        PROJECT MANAGEMENT
@@ -773,6 +794,8 @@ export const teamContent = {
       department: "project-management",
       position: "Intern",
       email: "fiza.kazmi@climatewatch-nccb.org",
+      image:
+        "/images/team/syeda-fiza-kazmi.webp",
     },
     /* ==========================================
        MEDIA AND COMMUNICATIONS
@@ -794,6 +817,8 @@ export const teamContent = {
       department: "communications-media",
       position: "Intern",
       email: "aqsaessa4@gmail.com",
+      image:
+        "/images/team/aqsa-essa.webp",
     },
     {
       // NEEDS CONFIRMATION: possibly the same person as "Shahzadi Naira",
@@ -808,6 +833,8 @@ export const teamContent = {
       department: "communications-media",
       position: "Intern, Blog Writer",
       email: "habibat990@gmail.com",
+      image:
+        "/images/team/habiba-tariq.webp",
     },
     /* ==========================================
        HUMAN RESOURCES
