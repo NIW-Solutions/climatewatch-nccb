@@ -8,8 +8,11 @@
  *
  * The list below was supplied directly by ClimateWatch.
  *
- * All nine logos are in place. Each was identified by opening the artwork
- * and reading it rather than trusting a filename.
+ * Every partner has a logo. Each was identified by opening the artwork and
+ * reading it rather than trusting a filename — which mattered: the file
+ * named "Dastak Foundation" is in fact The Zameek Community's mark. That one
+ * carries no text at all, so it was confirmed by ClimateWatch rather than
+ * from the artwork.
  *
  * `detail` and `href` are deliberately absent for most entries. Descriptions
  * and links were not supplied and were not guessed — an invented line about
@@ -86,6 +89,23 @@ export const partnersContent = {
       name:
         "Progressive Climate Foundation",
       logo: "/images/partners/progressive-climate-foundation.png",
+    },
+    {
+      name: "GB Climate Watch",
+      logo: "/images/partners/gb-climate-watch.png",
+    },
+    {
+      name: "Ibtida",
+      logo: "/images/partners/ibtida.png",
+    },
+    {
+      name: "Taqalum",
+      logo: "/images/partners/taqalum.png",
+    },
+    {
+      name:
+        "The Zameek Community",
+      logo: "/images/partners/the-zameek-community.png",
     },
   ] as readonly Partner[],
 } as const;
