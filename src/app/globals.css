@@ -1428,3 +1428,41 @@ input[type="checkbox"] {
       none !important;
   }
 }
+/* ==========================================
+   PARTNER TICKER
+
+   The track holds two identical copies of the
+   partner list, so translating by exactly half
+   its width lands the second copy where the
+   first began — the loop has no visible seam.
+
+   Motion pauses on hover and on keyboard focus,
+   and stops altogether when the visitor has
+   asked for reduced motion.
+   ========================================== */
+
+@keyframes partner-ticker-scroll {
+  from {
+    transform: translate3d(0, 0, 0);
+  }
+
+  to {
+    transform: translate3d(-50%, 0, 0);
+  }
+}
+
+.partner-ticker-track {
+  animation: partner-ticker-scroll 46s linear infinite;
+  will-change: transform;
+}
+
+.group:hover .partner-ticker-track,
+.partner-ticker-track:focus-within {
+  animation-play-state: paused;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .partner-ticker-track {
+    animation: none;
+  }
+}
