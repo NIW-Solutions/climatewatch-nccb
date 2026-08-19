@@ -1,3 +1,4 @@
+import { PartnerLogo } from "@/components/shared/PartnerLogo";
 import {
   partnersContent,
   type Partner,
@@ -105,26 +106,16 @@ function PartnerRun({
     >
       {partners.map((partner) => {
         /*
-         * The logo slot is a fixed height whether or not a file exists yet,
-         * so adding logos later cannot shift the row or change the loop
+         * Fixed-height slot whether or not a logo file exists yet, so
+         * uploading artwork later cannot shift the row or change the loop
          * width — that width is what keeps the -50% seam invisible.
          */
         const body = (
           <span className="flex h-16 flex-col items-center justify-center">
-            {partner.logo ? (
-              // eslint-disable-next-line @next/next/no-img-element -- partner-supplied art of unknown dimensions
-              <img
-                src={partner.logo}
-                alt={partner.name}
-                loading="lazy"
-                decoding="async"
-                className="max-h-12 w-auto max-w-[13rem] object-contain"
-              />
-            ) : (
-              <span className="whitespace-nowrap font-editorial text-[clamp(1.15rem,1.9vw,1.6rem)] font-medium tracking-[-0.025em] text-primary">
-                {partner.name}
-              </span>
-            )}
+            <PartnerLogo
+              name={partner.name}
+              logo={partner.logo}
+            />
 
             {partner.detail ? (
               <span className="mt-1 block max-w-xs whitespace-normal text-center text-xs leading-5 text-muted-light">
