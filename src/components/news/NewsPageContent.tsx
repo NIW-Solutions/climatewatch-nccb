@@ -5,9 +5,15 @@ import {
 } from "lucide-react";
 
 import { InView } from "@/components/motion-primitives/InView";
+import { NewsFeedSections } from "@/components/news/NewsFeedSections";
 import { newsContent } from "@/content/news";
+import type { FeedSection } from "@/lib/news";
 
-export function NewsPageContent() {
+export function NewsPageContent({
+  feedSections,
+}: Readonly<{
+  feedSections: readonly FeedSection[];
+}>) {
   const {
     hero,
     featured,
@@ -190,6 +196,19 @@ export function NewsPageContent() {
           </div>
         </div>
       </section>
+
+      {/* =====================================
+          LIVE CLIMATE COVERAGE
+
+          Automatically sourced, restricted to
+          the publisher allowlist in
+          src/lib/news/sources.ts. Refreshed
+          hourly by the route's revalidate.
+          ===================================== */}
+
+      <NewsFeedSections
+        sections={feedSections}
+      />
 
       {/* =====================================
           NEWSROOM

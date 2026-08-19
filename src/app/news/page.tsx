@@ -1,13 +1,27 @@
 import type { Metadata } from "next";
 
 import { NewsPageContent } from "@/components/news/NewsPageContent";
+import { getNewsFeed } from "@/lib/news";
 
 export const metadata: Metadata = {
   title: "News",
   description:
-    "Read ClimateWatch policy updates, research releases, climate commentary and institutional news.",
+    "Climate coverage from Gilgit-Baltistan, Chitral and Pakistan, UNFCCC negotiations and press briefings, youth climate spaces, and updates from ClimateWatch.",
 };
 
-export default function NewsPage() {
-  return <NewsPageContent />;
+/**
+ * Rebuilt hourly. Must be a literal — Next requires the value to be
+ * statically analysable, so `60 * 60` is rejected.
+ */
+export const revalidate = 3600;
+
+export default async function NewsPage() {
+  const feedSections =
+    await getNewsFeed();
+
+  return (
+    <NewsPageContent
+      feedSections={feedSections}
+    />
+  );
 }

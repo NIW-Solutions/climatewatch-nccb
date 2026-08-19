@@ -39,19 +39,28 @@ const routes = [
     priority: 0.9,
   },
   {
+    // Rebuilt hourly from live feeds, so it changes far more often than
+    // the hand-authored pages around it.
     path: "/news",
-    changeFrequency: "weekly",
+    changeFrequency: "hourly",
     priority: 0.9,
   },
   {
+    path: "/newsletter",
+    changeFrequency: "monthly",
+    priority: 0.8,
+  },
+  {
+    // Out of the main menu, but still indexed — linked directly during
+    // COPs and press conferences.
     path: "/tv-live",
     changeFrequency: "daily",
-    priority: 0.8,
+    priority: 0.6,
   },
   {
     path: "/resources",
     changeFrequency: "monthly",
-    priority: 0.8,
+    priority: 0.5,
   },
   {
     path: "/team",

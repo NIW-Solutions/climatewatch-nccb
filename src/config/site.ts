@@ -46,13 +46,15 @@ export const siteConfig = {
       label: "News",
       href: "/news",
     },
+    // TV Live is intentionally absent from the main menu. The page stays
+    // live at /tv-live and can be linked directly during COPs and press
+    // conferences; re-add an entry here to surface it in the nav again.
+    // Resources has been replaced by Newsletter in the menu. The page is
+    // still live at /resources for anything already linking to it; delete
+    // src/app/resources/ when you are ready to retire it for good.
     {
-      label: "TV Live",
-      href: "/tv-live",
-    },
-    {
-      label: "Resources",
-      href: "/resources",
+      label: "Newsletter",
+      href: "/newsletter",
     },
     {
       label: "Meet The Team",
