@@ -175,6 +175,13 @@ export function DonatePageContent() {
                           </div>
                         ) : null}
 
+                        {/*
+                          An anchor styled as a button: it navigates to
+                          PayPal, so it stays a link for keyboard, middle
+                          click and screen-reader behaviour rather than
+                          becoming a <button>.
+                        */}
+
                         {method.href ? (
                           <a
                             href={
@@ -182,14 +189,14 @@ export function DonatePageContent() {
                             }
                             target="_blank"
                             rel="noreferrer"
-                            className="group mt-5 inline-flex items-center gap-2 text-xs font-semibold !text-primary transition-colors hover:!text-secondary"
+                            className="group mt-6 inline-flex min-h-11 items-center gap-3 bg-secondary px-6 text-xs font-bold uppercase tracking-[0.1em] !text-white transition-colors hover:!bg-secondary-dark hover:!text-white"
                           >
-                            Give via {method.name}
+                            Donate with {method.name}
 
                             <ArrowUpRight
                               aria-hidden="true"
                               className="size-3.5 transition-transform duration-300 group-hover:-translate-y-0.5 group-hover:translate-x-0.5"
-                              strokeWidth={1.7}
+                              strokeWidth={1.8}
                             />
                           </a>
                         ) : null}

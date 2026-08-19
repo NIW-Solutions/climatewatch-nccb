@@ -104,12 +104,14 @@ export const donateContent = {
       name: "PayPal",
 
       detail:
-        "Send any amount to our PayPal account. Please add a note with your name or organisation so we can acknowledge the gift.",
+        "Give any amount through PayPal. Please add a note with your name or organisation so we can acknowledge the gift.",
 
-      lines: [
-        "cliamtewatch@gmail.com",
-      ],
-
+      /*
+       * The account address is carried in the href rather than printed on
+       * the page, so donors go through PayPal's own checkout instead of
+       * copying an address by hand. `lines` stays supported for methods
+       * that genuinely need visible details, such as a bank transfer.
+       */
       href: "https://www.paypal.com/donate?business=cliamtewatch%40gmail.com",
     },
   ] as readonly DonateMethod[],
