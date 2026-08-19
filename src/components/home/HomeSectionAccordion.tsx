@@ -1,0 +1,184 @@
+"use client";
+
+import {
+  useState,
+  type ReactNode,
+} from "react";
+import { Plus } from "lucide-react";
+
+/**
+ * Home accordion — src/components/home/HomeSectionAccordion.tsx
+ *
+ * The homepage used to run every section end to end, which meant scrolling
+ * the whole organisation to reach anything. The sections now stack as rows
+ * and open in place.
+ *
+ * Panels mount the first time they are opened and stay mounted afterwards,
+ * so reopening is instant.
+ *
+ * They are NOT rendered up-front and hidden with the `hidden` attribute,
+ * which would have been better for SEO. The coverage section embeds a
+ * Leaflet map, and Leaflet measures its container on init: inside a hidden
+ * element that container is 0x0, so it computed LatLng(NaN, NaN) and threw
+ * the whole homepage into its error boundary. Deferring the mount is what
+ * makes the map work.
+ *
+ * The SEO cost is real but contained — the hero and closing sections stay
+ * in the markup, and every collapsed section has its own indexed page
+ * (/about, /programmes, /projects, /research, /publications).
+ *
+ * Sections toggle independently: opening one does not close another, which
+ * is what "click to open, click to close" implies.
+ */
+
+export type HomeSectionItem = {
+  id: string;
+  /** Row label. Short — the full heading lives inside the panel. */
+  label: string;
+  /** One line of orientation, so a closed row still says something. */
+  summary: string;
+  children: ReactNode;
+};
+
+export function HomeSectionAccordion({
+  items,
+}: Readonly<{
+  items: readonly HomeSectionItem[];
+}>) {
+  const [openIds, setOpenIds] =
+    useState<readonly string[]>([]);
+
+  /**
+   * Every section that has been opened at least once. Panels are kept
+   * mounted after their first open so reopening costs nothing and the
+   * Leaflet map is not torn down and rebuilt each time.
+   */
+  const [mountedIds, setMountedIds] =
+    useState<readonly string[]>([]);
+
+  function toggle(id: string) {
+    setMountedIds((current) =>
+      current.includes(id)
+        ? current
+        : [...current, id],
+    );
+
+    setOpenIds((current) =>
+      current.includes(id)
+        ? current.filter(
+            (value) => value !== id,
+          )
+        : [...current, id],
+    );
+  }
+
+  return (
+    <section
+      aria-label="Explore ClimateWatch"
+      className="bg-background"
+    >
+      <div className="site-container section-shell-small">
+        <div className="border-t border-border-strong">
+          {items.map((item, index) => {
+            const open =
+              openIds.includes(item.id);
+
+            const panelId = `${item.id}-panel`;
+            const buttonId = `${item.id}-trigger`;
+
+            return (
+              <div
+                key={item.id}
+                id={item.id}
+                className="border-b border-border"
+              >
+                <h2>
+                  <button
+                    id={buttonId}
+                    type="button"
+                    onClick={() =>
+                      toggle(item.id)
+                    }
+                    aria-expanded={open}
+                    aria-controls={panelId}
+                    className="group grid w-full grid-cols-[2.5rem_1fr_auto] items-center gap-4 py-7 text-left sm:py-9"
+                  >
+                    <span
+                      className={[
+                        "text-[0.62rem] font-bold tracking-[0.13em] transition-colors",
+                        open
+                          ? "text-secondary"
+                          : "text-muted-light",
+                      ].join(" ")}
+                    >
+                      {String(index + 1).padStart(
+                        2,
+                        "0",
+                      )}
+                    </span>
+
+                    <span className="min-w-0">
+                      <span
+                        className={[
+                          "block font-editorial text-[clamp(1.5rem,2.6vw,2.35rem)] font-medium leading-[1.1] tracking-[-0.035em] transition-colors",
+                          open
+                            ? "text-secondary"
+                            : "text-primary group-hover:text-secondary",
+                        ].join(" ")}
+                      >
+                        {item.label}
+                      </span>
+
+                      <span className="mt-2 block max-w-2xl text-sm leading-7 text-muted">
+                        {item.summary}
+                      </span>
+                    </span>
+
+                    <span
+                      aria-hidden="true"
+                      className={[
+                        "flex size-10 shrink-0 items-center justify-center border transition-colors",
+                        open
+                          ? "border-secondary bg-secondary text-white"
+                          : "border-border text-primary group-hover:border-secondary group-hover:text-secondary",
+                      ].join(" ")}
+                    >
+                      <Plus
+                        className={[
+                          "size-4 transition-transform duration-300",
+                          open
+                            ? "rotate-45"
+                            : "",
+                        ].join(" ")}
+                        strokeWidth={1.8}
+                      />
+                    </span>
+                  </button>
+                </h2>
+
+                {/*
+                  Negative margins pull the panel out to the full-bleed
+                  width the section components were designed for — they
+                  each bring their own site-container.
+                */}
+                <div
+                  id={panelId}
+                  role="region"
+                  aria-labelledby={buttonId}
+                  hidden={!open}
+                  className="-mx-[calc(50vw-50%)] pb-4"
+                >
+                  {mountedIds.includes(
+                    item.id,
+                  )
+                    ? item.children
+                    : null}
+                </div>
+              </div>
+            );
+          })}
+        </div>
+      </div>
+    </section>
+  );
+}
