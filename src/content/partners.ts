@@ -14,10 +14,13 @@
  * carries no text at all, so it was confirmed by ClimateWatch rather than
  * from the artwork.
  *
- * `detail` and `href` are deliberately absent for most entries. Descriptions
- * and links were not supplied and were not guessed — an invented line about
- * what a partnership covers is exactly the kind of claim that should not be
- * on a public site. Fill them in as they are confirmed.
+ * Websites were supplied by ClimateWatch and each was checked to return 200
+ * before being added. Taqalum has none yet, so its entry renders as a plain
+ * logo rather than a link.
+ *
+ * `detail` is still absent everywhere — no descriptions were supplied, and an
+ * invented line about what a partnership covers is exactly the kind of claim
+ * that should not be on a public site.
  *
  * TO ADD A LOGO: upload the image to public/images/partners/ using exactly
  * the filename already written in the `logo` line below — for example
@@ -55,57 +58,68 @@ export const partnersContent = {
     {
       name: "Herspace",
       logo: "/images/partners/herspace.png",
+      href: "https://www.instagram.com/herspace_youth/",
     },
     {
       name:
         "Institute of Strategic Studies Islamabad",
       logo: "/images/partners/institute-of-strategic-studies-islamabad.png",
+      href: "https://issi.org.pk/",
     },
     {
       name:
         "Sustainable Development Policy Institute",
       logo: "/images/partners/sustainable-development-policy-institute.png",
+      href: "https://sdpi.org/",
     },
     {
       name:
         "Fridays for Future Pakistan",
       logo: "/images/partners/fridays-for-future-pakistan.png",
+      href: "https://www.instagram.com/fridaysforfuturepk/",
     },
     {
       name: "Nutrashine",
       logo: "/images/partners/nutrashine.png",
+      href: "https://nutrashine.org/",
     },
     {
       name:
-        "Karokoram Impact Network",
-      logo: "/images/partners/karokoram-impact-network.png",
+        "Karakoram Impact Network",
+      logo: "/images/partners/karakoram-impact-network.png",
+      href: "https://www.instagram.com/karakorumimpactnetwork/",
     },
     {
       name:
         "Climate Forward Pakistan",
       logo: "/images/partners/climate-forward-pakistan.png",
+      href: "https://cfpakistan.org/",
     },
     {
       name:
         "Progressive Climate Foundation",
       logo: "/images/partners/progressive-climate-foundation.png",
+      href: "https://progressiveclimatefoundation.org/",
     },
     {
-      name: "GB Climate Watch",
-      logo: "/images/partners/gb-climate-watch.png",
+      name:
+        "Gilgit-Baltistan Climate Watch",
+      logo: "/images/partners/gilgit-baltistan-climate-watch.png",
+      href: "https://www.linkedin.com/company/gilgit-baltistan-climate-watch/",
     },
     {
       name: "Ibtida",
       logo: "/images/partners/ibtida.png",
+      href: "https://www.instagram.com/ibtada_official/",
     },
     {
       name: "Taqalum",
       logo: "/images/partners/taqalum.png",
     },
     {
-      name:
-        "The Zameek Community",
+      name: "The Zameek Community",
       logo: "/images/partners/the-zameek-community.png",
+      href: "https://www.instagram.com/thezameekcommunity/",
     },
   ] as readonly Partner[],
 } as const;
