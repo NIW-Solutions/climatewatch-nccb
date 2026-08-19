@@ -90,6 +90,9 @@ export const blogContent = {
 
       topicLabel: "Climate science",
 
+      image:
+        "/images/blog/rising-the-heat-declining-the-productivity.webp",
+
       readingTime: "4 min read",
 
       author: "Habiba Tariq",
@@ -162,6 +165,9 @@ export const blogContent = {
       topic: "technology",
 
       topicLabel: "Technology",
+
+      image:
+        "/images/blog/thirsty-ai.webp",
 
       readingTime: "4 min read",
 

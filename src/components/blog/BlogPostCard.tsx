@@ -50,15 +50,21 @@ function Segments({
 }
 
 /**
- * Thumbnail. Posts carry no artwork yet, so the fallback is a styled panel
- * rather than a broken image — set `image` on the post once a file exists
- * in public/images/blog/.
+ * Thumbnail.
+ *
+ * The frame is 16:9 to match the supplied artwork exactly. At the previous
+ * 16:10 the wider art would have been cropped on the sides, and both cards
+ * carry their title as part of the image — "Thirsty AI" sits hard left, so
+ * a side crop would have cut into it.
+ *
+ * Posts without artwork still fall back to a styled panel rather than a
+ * broken image; set `image` once a file exists in public/images/blog/.
  */
 function Thumbnail({
   post,
 }: Readonly<{ post: BlogPost }>) {
   return (
-    <div className="relative aspect-[16/10] w-full overflow-hidden bg-surface-muted">
+    <div className="relative aspect-[16/9] w-full overflow-hidden bg-surface-muted">
       {post.image ? (
         // eslint-disable-next-line @next/next/no-img-element -- optional author-supplied art, see note above
         <img
