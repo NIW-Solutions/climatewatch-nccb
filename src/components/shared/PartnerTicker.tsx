@@ -1,3 +1,6 @@
+import fs from "node:fs";
+import path from "node:path";
+
 import { PartnerLogo } from "@/components/shared/PartnerLogo";
 import {
   partnersContent,
@@ -19,7 +22,30 @@ import {
  * hover and on keyboard focus, and stops entirely under
  * prefers-reduced-motion. The duplicate copy is hidden from assistive
  * technology so names are not announced twice.
+ *
+ * Logo paths are checked against the filesystem here, on the server, so a
+ * partner whose artwork has not been uploaded yet is rendered as a wordmark
+ * from the very first byte of HTML. Relying on the client-side onError
+ * fallback alone meant a broken-image icon flashed before JavaScript ran,
+ * and showed permanently to anyone without it.
  */
+
+/** True when the referenced file actually exists in public/. */
+function logoExists(
+  logo: string | undefined,
+): boolean {
+  if (!logo) {
+    return false;
+  }
+
+  return fs.existsSync(
+    path.join(
+      process.cwd(),
+      "public",
+      logo,
+    ),
+  );
+}
 
 export function PartnerTicker() {
   const {
@@ -114,7 +140,11 @@ function PartnerRun({
           <span className="flex h-16 flex-col items-center justify-center">
             <PartnerLogo
               name={partner.name}
-              logo={partner.logo}
+              logo={
+                logoExists(partner.logo)
+                  ? partner.logo
+                  : undefined
+              }
             />
 
             {partner.detail ? (
