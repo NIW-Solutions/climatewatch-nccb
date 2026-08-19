@@ -6,6 +6,7 @@ import Link from "next/link";
 
 import { InView } from "@/components/motion-primitives/InView";
 import { LoadedImage } from "@/components/ui/LoadedImage";
+import { PakistanCoverageMap } from "@/components/shared/PakistanCoverageMap";
 import { SectionAccordion } from "@/components/shared/SectionAccordion";
 import { aboutContent } from "@/content/about";
 
@@ -474,6 +475,8 @@ export function AboutPageContent() {
           },
         ]}
       />
+
+      <PakistanCoverageMap />
 
       {/* =====================================
           CLOSING

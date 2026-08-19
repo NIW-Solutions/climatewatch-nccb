@@ -7,6 +7,7 @@ import { HomeProgrammes } from "@/components/home/HomeProgrammes";
 import { HomeProjects } from "@/components/home/HomeProjects";
 import { HomePublication } from "@/components/home/HomePublication";
 import { HomeResearch } from "@/components/home/HomeResearch";
+import { PakistanCoverageMap } from "@/components/shared/PakistanCoverageMap";
 import { SectionAccordion } from "@/components/shared/SectionAccordion";
 
 /**
@@ -81,6 +82,8 @@ export default function HomePage() {
           },
         ]}
       />
+
+      <PakistanCoverageMap />
 
       <HomeClosing />
     </main>
