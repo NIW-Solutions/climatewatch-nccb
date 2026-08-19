@@ -154,19 +154,25 @@ export function DonatePageContent() {
                           {method.detail}
                         </p>
 
+                        {/*
+                          Payment details are rendered as selectable text
+                          so they can be copied exactly rather than
+                          retyped from the screen.
+                        */}
+
                         {method.lines ? (
-                          <dl className="mt-4 space-y-1">
+                          <div className="mt-4 border border-border bg-background px-4 py-3">
                             {method.lines.map(
                               (line) => (
-                                <dd
+                                <p
                                   key={line}
-                                  className="text-sm leading-7 text-primary"
+                                  className="select-all break-all font-mono text-sm leading-7 text-primary"
                                 >
                                   {line}
-                                </dd>
+                                </p>
                               ),
                             )}
-                          </dl>
+                          </div>
                         ) : null}
 
                         {method.href ? (

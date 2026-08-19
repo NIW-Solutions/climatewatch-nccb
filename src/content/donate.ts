@@ -93,8 +93,26 @@ export const donateContent = {
       "info@climatewatch-nccb.org",
   },
 
-  methods:
-    [] as readonly DonateMethod[],
+  /*
+   * Payment destinations. Treat every value here as money-critical: a
+   * single wrong character sends donations to a stranger's account. Change
+   * these only against something written down by ClimateWatch, never from
+   * memory, and re-read the address character by character afterwards.
+   */
+  methods: [
+    {
+      name: "PayPal",
+
+      detail:
+        "Send any amount to our PayPal account. Please add a note with your name or organisation so we can acknowledge the gift.",
+
+      lines: [
+        "cliamtewatch@gmail.com",
+      ],
+
+      href: "https://www.paypal.com/donate?business=cliamtewatch%40gmail.com",
+    },
+  ] as readonly DonateMethod[],
 
   assurance: {
     eyebrow: "Accountability",
