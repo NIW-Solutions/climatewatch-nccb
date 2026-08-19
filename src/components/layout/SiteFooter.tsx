@@ -7,10 +7,11 @@ import { siteConfig } from "@/config/site";
 /**
  * Site footer — src/components/layout/SiteFooter.tsx
  *
- * The identity block now shows the ClimateWatch logo itself rather than a
- * composed lockup. It uses the same asset the header uses, filtered to white
- * so it reads against the navy. If a proper reversed logo is added to
- * public/images/brand/, swap the src and drop `brightness-0 invert`.
+ * The identity block shows the full-colour ClimateWatch logo on a white
+ * panel. The logo's wordmark is #051e47, which sits at 1.14:1 against the
+ * footer navy (#082a50) — invisible without a light backing. If a proper
+ * reversed logo is ever added to public/images/brand/, swap the src and
+ * drop the white panel.
  *
  * The previous version imported a named export from a .webp file, which is
  * not a module and cannot be imported that way. That single line failed the
@@ -42,14 +43,14 @@ export function SiteFooter() {
             <Link
               href="/"
               aria-label="ClimateWatch home"
-              className="inline-flex"
+              className="inline-flex rounded-lg bg-white px-5 py-4 transition-opacity hover:opacity-90"
             >
               <Image
                 src="/images/brand/climatewatch-logo.webp"
                 alt="ClimateWatch"
                 width={220}
-                height={72}
-                className="h-auto w-[190px] object-contain brightness-0 invert"
+                height={103}
+                className="h-auto w-[190px] object-contain"
               />
             </Link>
 

@@ -1,136 +1,25 @@
+/**
+ * Navigation — src/config/navigation.ts
+ *
+ * Derived from `siteConfig`, which is the single source of truth for the
+ * site's navigation. Previously this file kept its own hand-maintained copy
+ * of the menu, so editing src/config/site.ts changed the desktop header and
+ * footer but left the mobile menu untouched. Do not re-add literal menu
+ * entries here — edit src/config/site.ts instead.
+ */
+
+import { siteConfig } from "@/config/site";
+
 export type NavigationItem = Readonly<{
   label: string;
   href: string;
   description?: string;
 }>;
 
-export const primaryNavigation: readonly NavigationItem[] = [
-  {
-    label: "About",
-    href: "/about",
-    description:
-      "Who we are, how we work, what we believe and how ClimateWatch is governed.",
-  },
-  {
-    label: "Programmes",
-    href: "/programmes",
-    description:
-      "International climate policy, sustainable development education and research.",
-  },
-  {
-    label: "Research",
-    href: "/research",
-    description:
-      "Evidence standards, current workstreams and climate-policy analysis.",
-  },
-  {
-    label: "Projects",
-    href: "/projects",
-    description:
-      "Community education, climate monitoring and negotiation tracking.",
-  },
-  {
-    label: "Publications",
-    href: "/publications",
-    description:
-      "Research papers, policy briefs, reports and educational publications.",
-  },
-  {
-    label: "Blog",
-    href: "/blog",
-    description:
-      "Climate commentary, explainers and field notes from the ClimateWatch team.",
-  },
-  {
-    label: "News",
-    href: "/news",
-    description:
-      "Institutional updates, field activity and climate-policy developments.",
-  },
-  {
-    label: "TV Live",
-    href: "/tv-live",
-    description:
-      "Live streams, negotiation wraps, field reports and the broadcast archive.",
-  },
-  {
-    label: "Resources",
-    href: "/resources",
-    description:
-      "Planning toolkits, reference material and journalist resources.",
-  },
-] as const;
+/** Main menu. Rendered by SiteHeader (desktop) and MobileNavigation. */
+export const primaryNavigation: readonly NavigationItem[] =
+  siteConfig.navigation;
 
-export const utilityNavigation: readonly NavigationItem[] = [
-  {
-    label: "Our Team",
-    href: "/team",
-  },
-  {
-    label: "Contact",
-    href: "/contact",
-  },
-] as const;
-
-export const footerNavigation = {
-  organisation: [
-    {
-      label: "About ClimateWatch",
-      href: "/about",
-    },
-    {
-      label: "Our Team",
-      href: "/team",
-    },
-    {
-      label: "Contact",
-      href: "/contact",
-    },
-  ],
-
-  work: [
-    {
-      label: "Programmes",
-      href: "/programmes",
-    },
-    {
-      label: "Research",
-      href: "/research",
-    },
-    {
-      label: "Projects",
-      href: "/projects",
-    },
-    {
-      label: "Publications",
-      href: "/publications",
-    },
-  ],
-
-  information: [
-    {
-      label: "Blog",
-      href: "/blog",
-    },
-    {
-      label: "News",
-      href: "/news",
-    },
-    {
-      label: "TV Live",
-      href: "/tv-live",
-    },
-    {
-      label: "Resources",
-      href: "/resources",
-    },
-    {
-      label: "Privacy Policy",
-      href: "/privacy",
-    },
-    {
-      label: "Terms of Use",
-      href: "/terms",
-    },
-  ],
-} as const;
+/** Secondary links shown alongside the main menu. */
+export const utilityNavigation: readonly NavigationItem[] =
+  siteConfig.utilityNavigation;

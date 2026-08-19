@@ -130,7 +130,7 @@ export function MobileNavigation({
           >
             <div className="relative h-52 shrink-0 overflow-hidden bg-primary-dark sm:h-60">
               <Image
-                src="/images/home/hero-mountains.webp"
+                src="/images/home/home-hero.webp"
                 alt=""
                 fill
                 priority
@@ -161,7 +161,7 @@ export function MobileNavigation({
                <p className="mt-4 max-w-xs text-[0.56rem] font-bold uppercase leading-5 tracking-[0.11em] text-muted-light">
               Pakistan&apos;s First Youth-led
               Climate Policy Think-tank
-            p>
+              </p>
               </div>
 
               <div
