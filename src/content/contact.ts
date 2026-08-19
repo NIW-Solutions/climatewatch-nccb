@@ -101,6 +101,6 @@ export const contactContent = {
       "ClimateWatch works across international climate policy, research and development.",
 
     description:
-      "ClimateWatch is a programme of the Northern Citizen Community Board, which holds Special Consultative Status with UN ECOSOC.",
+      "ClimateWatch is an ECOSOC-accredited organisation.",
   },
 } as const;

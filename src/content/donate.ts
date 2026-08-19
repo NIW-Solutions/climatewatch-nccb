@@ -11,7 +11,7 @@
  *
  *   {
  *     name: "Bank transfer",
- *     detail: "ClimateWatch / NCCB",
+ *     detail: "ClimateWatch",
  *     lines: ["Bank: …", "Account title: …", "IBAN: …"],
  *   }
  *
@@ -120,10 +120,10 @@ export const donateContent = {
     eyebrow: "Accountability",
 
     title:
-      "Accredited through NCCB, and answerable for it.",
+      "ECOSOC-accredited, and answerable for it.",
 
     description:
-      "ClimateWatch is a programme of the Northern Citizen Community Board, which holds Special Consultative Status with the United Nations Economic and Social Council. We are happy to share governance and financial documentation with prospective funders on request.",
+      "ClimateWatch holds consultative status at the United Nations Economic and Social Council. We are happy to share governance and financial documentation with prospective funders on request.",
   },
 } as const;
 

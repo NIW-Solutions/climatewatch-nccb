@@ -157,11 +157,7 @@ export function SiteFooter() {
               <p className="mt-3 text-xs leading-6 text-white/60">
                 ClimateWatch
                 <br />
-                A programme of Northern Citizen
-                Community Board
-                <br />
-                UN ECOSOC Special Consultative
-                Status
+                ECOSOC-accredited organisation
               </p>
             </div>
           </div>

@@ -188,7 +188,7 @@ export function SiteHeader() {
                     : "text-muted-light",
                 ].join(" ")}
               >
-                NCCB · UN ECOSOC accredited
+                ECOSOC-accredited
               </p>
 
               <Link
