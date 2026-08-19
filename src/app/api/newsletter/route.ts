@@ -4,10 +4,16 @@
  * Provider-agnostic subscribe endpoint. Configure in the Amplify console
  * under Environment variables:
  *
- *   NEWSLETTER_PROVIDER   buttondown | mailchimp | convertkit
- *   NEWSLETTER_API_KEY    the provider's API key
- *   NEWSLETTER_LIST_ID    Mailchimp audience id / ConvertKit form id
+ *   NEWSLETTER_PROVIDER   sender | buttondown | mailchimp | convertkit
+ *   NEWSLETTER_API_KEY    the provider's API key or access token
+ *   NEWSLETTER_LIST_ID    Sender group id / Mailchimp audience id /
+ *                         ConvertKit form id
  *   NEWSLETTER_SERVER     Mailchimp datacentre prefix, e.g. "us21"
+ *
+ * ClimateWatch runs its list on Sender, so that is the provider to set. The
+ * access token comes from Sender under Settings -> API access tokens, and
+ * NEWSLETTER_LIST_ID is optional: set it to a Sender group id to drop new
+ * subscribers straight into that group.
  *
  * When nothing is configured this returns 503 rather than a cheerful 200.
  * That is deliberate: the contact form on this site silently discards every
@@ -29,6 +35,65 @@ type SubscribeResult = {
 
 const EMAIL_PATTERN =
   /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
+
+async function subscribeSender(
+  email: string,
+  apiKey: string,
+  groupId: string,
+): Promise<SubscribeResult> {
+  const response = await fetch(
+    "https://api.sender.net/v2/subscribers",
+    {
+      method: "POST",
+      headers: {
+        authorization: `Bearer ${apiKey}`,
+        "content-type":
+          "application/json",
+        accept: "application/json",
+      },
+      body: JSON.stringify({
+        email,
+        ...(groupId
+          ? { groups: [groupId] }
+          : {}),
+      }),
+    },
+  );
+
+  if (response.ok) {
+    return {
+      ok: true,
+      status: 200,
+      message:
+        "Subscribed. Check your inbox to confirm.",
+    };
+  }
+
+  /*
+   * Sender's docs do not state what it returns for an address already on
+   * the list, so only the codes that unambiguously mean "already there" are
+   * reported as success. Anything else is surfaced as a provider error
+   * rather than telling someone they are subscribed when they may not be.
+   */
+  if (
+    response.status === 409 ||
+    response.status === 422
+  ) {
+    return {
+      ok: true,
+      status: 200,
+      message:
+        "That address is already subscribed.",
+    };
+  }
+
+  return {
+    ok: false,
+    status: 502,
+    message:
+      "The newsletter provider rejected the request.",
+  };
+}
 
 async function subscribeButtondown(
   email: string,
@@ -215,6 +280,15 @@ export async function POST(
     let result: SubscribeResult;
 
     switch (provider) {
+      case "sender":
+        result = await subscribeSender(
+          email,
+          apiKey,
+          process.env
+            .NEWSLETTER_LIST_ID ?? "",
+        );
+        break;
+
       case "buttondown":
         result =
           await subscribeButtondown(
