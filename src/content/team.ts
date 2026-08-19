@@ -87,8 +87,10 @@ export const teamContent = {
       value: "36",
     },
     {
+      // Nine department entries below, and the directory copy says nine.
+      // This read "8" and was simply wrong.
       label: "Divisions",
-      value: "8",
+      value: "9",
     },
     {
       label: "Based in",
@@ -508,7 +510,7 @@ export const teamContent = {
         "A climate activist and youth leader from Chitral. Youth Ambassador and Climate Change Advisor at NCCB, and a 2023 Prime Minister's Youth Innovation Award recipient for his contribution to SDG 4.",
       profile: [
         "Syed Kiram is a Pakistani climate activist, researcher and youth leader from Chitral, Khyber Pakhtunkhwa, with a strong focus on climate action, youth participation, sustainable development and community resilience. He has been engaged in climate advocacy since his early teens and has contributed to youth-led movements and initiatives promoting climate action and sustainable development.",
-        "He serves as a Youth Ambassador and Climate Change Advisor at the Northern Citizens' Community Board (NCCB), a UN ECOSOC-accredited organisation, where he contributes to climate advocacy, research, youth engagement and sustainable development initiatives. He has also held leadership roles in youth-led organisations and student initiatives.",
+        "He serves as a Youth Ambassador and Climate Change Advisor at the Northern Citizen Community Board (NCCB), a UN ECOSOC-accredited organisation, where he contributes to climate advocacy, research, youth engagement and sustainable development initiatives. He has also held leadership roles in youth-led organisations and student initiatives.",
         "Kiram is actively involved in climate research and policy work, particularly on climate adaptation, climate justice, Indigenous and traditional knowledge, environmental education, and sustainable development in northern Pakistan. His work includes research, policy analysis, public awareness, youth capacity building and community-focused climate initiatives.",
         "In 2023 he received the Prime Minister's Youth Innovation Award for his contribution to SDG 4 (Quality Education) through his work on Sustainable Community Libraries. His work reflects a commitment to using youth-led innovation, education, research and community engagement to address environmental and social challenges.",
         "He is currently studying Business Sustainability at FAST-NUCES Islamabad, with interests in climate finance, ESG, sustainable development, and the intersection of business and climate action.",

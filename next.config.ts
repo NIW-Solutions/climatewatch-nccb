@@ -9,6 +9,13 @@ const nextConfig: NextConfig = {
     formats: ["image/avif", "image/webp"],
     minimumCacheTTL: 2_592_000,
 
+    /*
+     * Next 16 only serves quality values declared here. HomeHero asks for
+     * 92 and 95; undeclared, both were silently falling back to 75 and
+     * logging a warning on every render.
+     */
+    qualities: [75, 92, 95],
+
     remotePatterns: [
       // YouTube video thumbnails used by the TV Live broadcast archive.
       {

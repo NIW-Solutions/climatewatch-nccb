@@ -7,7 +7,7 @@ import { HomeProgrammes } from "@/components/home/HomeProgrammes";
 import { HomeProjects } from "@/components/home/HomeProjects";
 import { HomePublication } from "@/components/home/HomePublication";
 import { HomeResearch } from "@/components/home/HomeResearch";
-import { HomeSectionAccordion } from "@/components/home/HomeSectionAccordion";
+import { SectionAccordion } from "@/components/shared/SectionAccordion";
 
 /**
  * Home.
@@ -26,7 +26,8 @@ export default function HomePage() {
     <main>
       <HomeHero />
 
-      <HomeSectionAccordion
+      <SectionAccordion
+        label="Explore ClimateWatch"
         items={[
           {
             id: "who-we-are",

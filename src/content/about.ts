@@ -25,7 +25,7 @@ export const aboutContent = {
       "ClimateWatch works across international climate policy, research and development.",
 
     paragraphs: [
-      "ClimateWatch is a youth-led climate think tank based in Pakistan, working across international climate policy, research and development, with consultative status at the United Nations Economic and Social Council.",
+      "ClimateWatch is a youth-led climate think tank based in Pakistan, working across international climate policy, research and development. It is a programme of the Northern Citizen Community Board, which holds Special Consultative Status with the United Nations Economic and Social Council.",
 
       "Our work connects climate-policy analysis, primary research, education and applied development with the experiences of communities already living with climate risk.",
     ],
@@ -178,7 +178,7 @@ export const aboutContent = {
       {
         label: "Institutional status",
         value:
-          "Consultative status at the United Nations Economic and Social Council",
+          "Special Consultative Status with the United Nations Economic and Social Council, held by the Northern Citizen Community Board",
       },
       {
         label: "Advisory role",

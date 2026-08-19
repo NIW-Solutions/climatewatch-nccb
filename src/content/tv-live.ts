@@ -1,18 +1,18 @@
-export type Broadcast = {
-  /**
-   * YouTube video id.
-   *
-   * NOTE: every id below is a well-known public placeholder video.
-   * Replace each one with the real ClimateWatch broadcast id before launch.
-   */
-  videoId: string;
-
-  title: string;
-  description: string;
-  category: string;
-  date: string;
-  duration: string;
-};
+/**
+ * TV Live content — src/content/tv-live.ts
+ *
+ * There is no hard-coded broadcast list here any more, and there must not
+ * be one again. The previous version shipped seven invented broadcasts,
+ * each pointing at a famous music video: "Bonn SB64 — opening day briefing"
+ * played Rick Astley, "Glacier School 2026 — field dispatch from Passu"
+ * played Gangnam Style, and the "Live now" slot played "Me at the zoo".
+ * The page was publicly reachable and indexed the whole time.
+ *
+ * Broadcasts now come from the ClimateWatch YouTube channel feed at request
+ * time, so the page can only ever show videos that genuinely exist. Copy in
+ * this file describes formats, never a schedule or a volume the channel
+ * cannot evidence.
+ */
 
 export const tvLiveContent = {
   hero: {
@@ -22,37 +22,26 @@ export const tvLiveContent = {
       "Climate policy, live from the room.",
 
     description:
-      "Live coverage of negotiations, field reporting from mountain communities, briefings and recorded conversations — streamed on our YouTube channel.",
+      "Live coverage of negotiations, field reporting from mountain communities, briefings and recorded conversations — published on our YouTube channel.",
   },
 
-  live: {
-    eyebrow: "Now streaming",
+  channel: {
+    id: "UC39uvi0nzWeDZpXbpwH4lbg",
 
-    /**
-     * PLACEHOLDER broadcast. Swap `videoId` for the real stream id, or
-     * set `useChannelLiveStream` to true to always embed whatever is
-     * currently live on the channel below.
+    url: "https://www.youtube.com/channel/UC39uvi0nzWeDZpXbpwH4lbg",
+  },
+
+  featured: {
+    eyebrow: "Latest broadcast",
+
+    /*
+     * Deliberately not a promise of frequency. The previous copy advertised
+     * daily negotiation wraps and monthly field dispatches; the channel
+     * carries a handful of videos, so that was a claim the record did not
+     * support.
      */
-    videoId: "jNQXAC9IVRw",
-
-    title:
-      "SB64 daily wrap — adaptation finance and the mountain agenda",
-
-    description:
-      "Our negotiation team reviews the day’s developments in the adaptation finance track and what they mean for mountain regions.",
-
-    status: "Live now",
-
     scheduleNote:
-      "Streams weekdays during negotiation sessions, 18:00 PKT.",
-
-    useChannelLiveStream: false,
-
-    channelId:
-      "UC39uvi0nzWeDZpXbpwH4lbg",
-
-    channelUrl:
-      "https://www.youtube.com/channel/UC39uvi0nzWeDZpXbpwH4lbg",
+      "We stream during negotiation sessions and publication launches. Subscribe on YouTube to be notified when we go live.",
   },
 
   schedule: {
@@ -65,20 +54,21 @@ export const tvLiveContent = {
       {
         slot: "Negotiation wraps",
         detail:
-          "Daily during UNFCCC subsidiary body and COP sessions.",
+          "Reviews of developments during UNFCCC subsidiary body and COP sessions.",
       },
       {
         slot: "Field reports",
         detail:
-          "Monthly dispatches from glacier monitoring and community programmes.",
+          "Dispatches from glacier monitoring and community programmes.",
       },
       {
         slot: "Policy briefings",
         detail:
-          "Publication launches and budget analysis, streamed live with Q&A.",
+          "Publication launches and budget analysis.",
       },
       {
-        slot: "Climate conversations",
+        slot:
+          "Climate conversations",
         detail:
           "Recorded interviews with researchers, negotiators and practitioners.",
       },
@@ -86,112 +76,17 @@ export const tvLiveContent = {
   },
 
   archive: {
-    eyebrow: "Past broadcasts",
+    eyebrow: "Broadcasts",
 
     title:
-      "Watch previous streams and recordings.",
+      "Watch our streams and recordings.",
 
     description:
-      "The full back catalogue is available on the ClimateWatch YouTube channel.",
+      "Everything below is published on the ClimateWatch YouTube channel.",
+
+    emptyNote:
+      "The channel feed could not be reached just now. Visit the ClimateWatch channel on YouTube to watch our broadcasts.",
   },
-
-  broadcasts: [
-    {
-      videoId: "dQw4w9WgXcQ",
-
-      title:
-        "Bonn SB64 — opening day briefing",
-
-      description:
-        "Setting out what is on the table at the June session and the issues we are tracking.",
-
-      category: "Negotiation wrap",
-
-      date: "June 2026",
-
-      duration: "42:18",
-    },
-
-    {
-      videoId: "9bZkp7q19f0",
-
-      title:
-        "Glacier School 2026 — field dispatch from Passu",
-
-      description:
-        "Students measure glacier retreat alongside our research team in upper Hunza.",
-
-      category: "Field report",
-
-      date: "May 2026",
-
-      duration: "28:04",
-    },
-
-    {
-      videoId: "kJQP7kiw5Fk",
-
-      title:
-        "Launch: From Disaster Response to Climate Resilience",
-
-      description:
-        "Publication launch and panel discussion on the Gilgit-Baltistan climate budget assessment.",
-
-      category: "Policy briefing",
-
-      date: "June 2026",
-
-      duration: "1:06:52",
-    },
-
-    {
-      videoId: "JGwWNGJdvx8",
-
-      title:
-        "What loss and damage finance actually reaches communities",
-
-      description:
-        "A conversation on access pathways, institutional readiness and the gap between pledge and delivery.",
-
-      category: "Climate conversation",
-
-      date: "April 2026",
-
-      duration: "51:37",
-    },
-
-    {
-      videoId: "OPf0YbXqDm0",
-
-      title:
-        "GLOF early warning — how the system works",
-
-      description:
-        "Walking through hazard monitoring, alert thresholds and community response protocols.",
-
-      category: "Field report",
-
-      date: "March 2026",
-
-      duration: "34:11",
-    },
-
-    {
-      videoId: "fJ9rUzIMcZQ",
-
-      title:
-        "Reading Pakistan’s FY2026–27 climate budget",
-
-      description:
-        "Line-by-line analysis of what was cut, what was relabelled and what it means for resilience.",
-
-      category: "Policy briefing",
-
-      date: "June 2026",
-
-      duration: "58:29",
-    },
-  ] satisfies readonly Broadcast[],
 
   closing: {
     eyebrow: "Subscribe",
@@ -203,3 +98,6 @@ export const tvLiveContent = {
       "Subscribe on YouTube to be notified when we go live during negotiation sessions and publication launches.",
   },
 } as const;
+
+export type TvLiveContent =
+  typeof tvLiveContent;

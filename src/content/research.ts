@@ -110,30 +110,9 @@ export const researchContent = {
         ],
       },
 
+
       {
         number: "04",
-
-        id: "ccpi-youth-edition",
-
-        category:
-          "Youth-led research",
-
-        title:
-          "CCPI youth edition",
-
-        description:
-          "A planned youth-authored reading of climate-performance indicators intended to connect formal climate-policy assessment with emerging researchers and younger policy audiences.",
-
-        topics: [
-          "Climate performance",
-          "Youth research",
-          "Policy analysis",
-          "Indicators",
-        ],
-      },
-
-      {
-        number: "05",
 
         id: "press-monitoring",
 

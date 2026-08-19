@@ -7,11 +7,11 @@ import {
 import { Plus } from "lucide-react";
 
 /**
- * Home accordion — src/components/home/HomeSectionAccordion.tsx
+ * Section accordion — src/components/shared/SectionAccordion.tsx
  *
- * The homepage used to run every section end to end, which meant scrolling
- * the whole organisation to reach anything. The sections now stack as rows
- * and open in place.
+ * Used by the homepage and the About page, both of which previously ran
+ * every section end to end so that reaching anything meant scrolling the
+ * whole organisation. Sections now stack as rows and open in place.
  *
  * Panels mount the first time they are opened and stay mounted afterwards,
  * so reopening is instant.
@@ -31,7 +31,7 @@ import { Plus } from "lucide-react";
  * is what "click to open, click to close" implies.
  */
 
-export type HomeSectionItem = {
+export type AccordionSection = {
   id: string;
   /** Row label. Short — the full heading lives inside the panel. */
   label: string;
@@ -40,10 +40,13 @@ export type HomeSectionItem = {
   children: ReactNode;
 };
 
-export function HomeSectionAccordion({
+export function SectionAccordion({
   items,
+  label,
 }: Readonly<{
-  items: readonly HomeSectionItem[];
+  items: readonly AccordionSection[];
+  /** Accessible name for the group, e.g. "Explore ClimateWatch". */
+  label: string;
 }>) {
   const [openIds, setOpenIds] =
     useState<readonly string[]>([]);
@@ -74,7 +77,7 @@ export function HomeSectionAccordion({
 
   return (
     <section
-      aria-label="Explore ClimateWatch"
+      aria-label={label}
       className="bg-background"
     >
       <div className="site-container section-shell-small">

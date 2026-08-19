@@ -120,10 +120,10 @@ export const donateContent = {
     eyebrow: "Accountability",
 
     title:
-      "ECOSOC-accredited, and answerable for it.",
+      "Accredited through NCCB, and answerable for it.",
 
     description:
-      "ClimateWatch operates under the Northern Citizens' Community Board, an organisation accredited with the United Nations Economic and Social Council. We are happy to share governance and financial documentation with prospective funders on request.",
+      "ClimateWatch is a programme of the Northern Citizen Community Board, which holds Special Consultative Status with the United Nations Economic and Social Council. We are happy to share governance and financial documentation with prospective funders on request.",
   },
 } as const;
 
