@@ -6,11 +6,9 @@ import { TeamProfileGrid } from "@/components/team/TeamProfileGrid";
 import {
   teamContent,
   type TeamAssociate,
-  type TeamMember,
 } from "@/content/team";
 
 import {
-  TeamAvatarRing,
   TeamPhoto,
   TeamSocialLinks,
 } from "./team-primitives";
@@ -248,48 +246,66 @@ export function TeamPageContent() {
                   </p>
                 </InView>
 
-                {/* Head on the left, division team on the right */}
-                <div className="mt-8 grid gap-x-10 gap-y-10 lg:grid-cols-[17rem_minmax(0,1fr)] lg:items-start">
-                  <InView
-                    delay={0.04}
-                    amount={0.08}
-                  >
-                    <div className="max-w-[17rem]">
-                    {group.head ? (
-                      <DivisionHead
-                        member={group.head}
+                {/*
+                  One grid, one card size. The head is simply the first
+                  card. Associates used to render as small circular
+                  avatars beside a full-size head, which made the people
+                  doing the work look incidental.
+                */}
+                <div className="mt-8 grid gap-x-8 gap-y-12 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+                  {group.head ? (
+                    <InView
+                      delay={0.04}
+                      amount={0.05}
+                    >
+                      <PersonCard
+                        name={group.head.name}
+                        role={
+                          group.head.designation
+                        }
+                        focus={group.head.focus}
+                        image={group.head.image}
+                        email={group.head.email}
+                        linkedin={
+                          group.head.linkedin
+                        }
+                        instagram={
+                          group.head.instagram
+                        }
                       />
-                    ) : null}
-                  </div>
-                </InView>
+                    </InView>
+                  ) : null}
 
-                {/* The team */}
-                {group.team.length > 0 ? (
-                  <InView
-                    delay={0.08}
-                    amount={0.05}
-                  >
-                    <div className="border-t border-border pt-6 lg:border-t-0 lg:pt-1">
-                      <p className="text-[0.56rem] font-bold uppercase tracking-[0.11em] text-muted-light">
-                        Division team
-                      </p>
-                      <ul className="mt-6 grid grid-cols-2 gap-x-5 gap-y-9 sm:grid-cols-3 md:grid-cols-4 xl:grid-cols-5">
-                        {group.team.map(
-                          (person) => (
-                            <AssociateTile
-                              key={
-                                person.name
-                              }
-                              person={
-                                person
-                              }
-                            />
-                          ),
-                        )}
-                      </ul>
-                    </div>
-                  </InView>
-                ) : null}
+                  {group.team.map(
+                    (
+                      /*
+                       * Annotated because `satisfies` in team.ts keeps the
+                       * literal types, so entries without an image would
+                       * otherwise have no `image` property at all.
+                       */
+                      person: TeamAssociate,
+                      index,
+                    ) => (
+                      <InView
+                        key={person.name}
+                        delay={
+                          0.06 + index * 0.02
+                        }
+                        amount={0.05}
+                      >
+                        {/*
+                          Associates get an email link only — the content
+                          model carries no social handles for them.
+                        */}
+                        <PersonCard
+                          name={person.name}
+                          role={person.position}
+                          image={person.image}
+                          email={person.email}
+                        />
+                      </InView>
+                    ),
+                  )}
                 </div>
               </div>
             </div>
@@ -453,99 +469,83 @@ export function TeamPageContent() {
 }
 
 /* ==========================================
-   DIVISION HEAD
-   Same card treatment as the advisors and the
-   board, so the head reads as the senior
-   figure in the division.
+   PERSON CARD
+
+   One card for everyone in a division — the
+   head and the associates alike. They used to
+   be different shapes and sizes, which read as
+   a hierarchy of importance rather than of
+   role.
+
+   The portrait carries a two-tone border in
+   the brand navy and orange, the same pair the
+   circular avatar ring used, drawn as a
+   gradient behind 2px of padding.
    ========================================== */
-function DivisionHead({
-  member,
+
+const PORTRAIT_BORDER =
+  "linear-gradient(158deg, var(--color-primary) 0%, var(--color-primary) 50%, var(--color-secondary) 50%, var(--color-secondary) 100%)";
+
+function PersonCard({
+  name,
+  role,
+  focus,
+  image,
+  email,
+  linkedin,
+  instagram,
 }: Readonly<{
-  member: TeamMember;
+  name: string;
+  role: string;
+  /** Heads carry a focus line; associates do not. */
+  focus?: string;
+  image?: string;
+  email?: string;
+  linkedin?: string;
+  instagram?: string;
 }>) {
   return (
     <article className="group flex h-full flex-col">
-      <div className="relative aspect-[4/5] overflow-hidden bg-surface-muted">
-        <TeamPhoto
-          src={member.image}
-          name={member.name}
-          sizes="(max-width: 640px) 100vw, 272px"
-          className="object-cover transition-transform duration-700 ease-out group-hover:scale-[1.03]"
-        />
-        <span
-          aria-hidden="true"
-          className="absolute inset-x-0 bottom-0 h-[3px] origin-left scale-x-0 bg-secondary transition-transform duration-500 ease-out group-hover:scale-x-100"
-        />
+      <div
+        className="rounded-sm p-[2px]"
+        style={{
+          background: PORTRAIT_BORDER,
+        }}
+      >
+        <div className="relative aspect-[4/5] overflow-hidden rounded-[2px] bg-surface-muted">
+          <TeamPhoto
+            src={image}
+            name={name}
+            sizes="(max-width: 640px) 100vw, (max-width: 1280px) 33vw, 260px"
+            className="object-cover transition-transform duration-700 ease-out group-hover:scale-[1.03]"
+          />
+        </div>
       </div>
 
       <div className="mt-5 flex flex-1 flex-col border-t border-border pt-4">
         <h3 className="font-editorial text-[1.35rem] font-medium leading-[1.15] tracking-[-0.03em] text-primary transition-colors duration-300 group-hover:text-secondary">
-          {member.name}
+          {name}
         </h3>
+
         <p className="mt-2.5 text-[0.58rem] font-bold uppercase leading-5 tracking-[0.11em] text-secondary">
-          {member.designation}
-        </p>
-        <p className="mt-3 flex-1 text-xs leading-6 text-muted">
-          {member.focus}
+          {role}
         </p>
 
+        {focus ? (
+          <p className="mt-3 flex-1 text-xs leading-6 text-muted">
+            {focus}
+          </p>
+        ) : (
+          <span className="flex-1" />
+        )}
+
         <TeamSocialLinks
-          name={member.name}
-          email={member.email}
-          linkedin={member.linkedin}
-          instagram={member.instagram}
+          name={name}
+          email={email}
+          linkedin={linkedin}
+          instagram={instagram}
         />
       </div>
     </article>
-  );
-}
-
-/* ==========================================
-   TEAM TILE
-   Circular portrait with a half-navy,
-   half-orange ring. Small by design — these
-   sit many to a row beneath the head.
-   ========================================== */
-function AssociateTile({
-  person,
-}: Readonly<{
-  person: TeamAssociate;
-}>) {
-  const body = (
-    <>
-      <TeamAvatarRing className="size-[7rem] transition-transform duration-500 ease-out group-hover/tile:scale-[1.04]">
-        <TeamPhoto
-          compact
-          src={person.image}
-          name={person.name}
-          sizes="112px"
-        />
-      </TeamAvatarRing>
-
-      <p className="mt-4 text-[0.85rem] font-semibold leading-5 text-primary transition-colors duration-300 group-hover/tile:text-secondary">
-        {person.name}
-      </p>
-      <p className="mt-1 text-[0.54rem] font-bold uppercase leading-4 tracking-[0.11em] text-muted-light">
-        {person.position}
-      </p>
-    </>
-  );
-
-  return (
-    <li className="flex flex-col items-center text-center">
-      {person.email ? (
-        <a
-          href={`mailto:${person.email}`}
-          aria-label={`Email ${person.name}`}
-          className="group/tile flex flex-col items-center !text-primary"
-        >
-          {body}
-        </a>
-      ) : (
-        <div className="group/tile flex flex-col items-center">
-          {body}
-        </div>
-      )}
-    </li>
   );
 }
