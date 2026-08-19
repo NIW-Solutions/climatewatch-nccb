@@ -7,11 +7,16 @@ import { siteConfig } from "@/config/site";
 /**
  * Site footer — src/components/layout/SiteFooter.tsx
  *
- * The identity block shows the full-colour ClimateWatch logo on a white
- * panel. The logo's wordmark is #051e47, which sits at 1.14:1 against the
- * footer navy (#082a50) — invisible without a light backing. If a proper
- * reversed logo is ever added to public/images/brand/, swap the src and
- * drop the white panel.
+ * The identity block uses the red logo variant directly on the navy, with
+ * no backing panel — ClimateWatch's decision after reviewing it rendered
+ * against the real background.
+ *
+ * Worth knowing if this is revisited: the variant's CW mark reads well on
+ * navy at 7.77:1, but its wordmark is #770829 and measures 1.27:1 against
+ * #082a50, below the 3:1 usually expected of a legible graphic. Neither
+ * available variant is a reversed logo — one has a navy wordmark, this one
+ * crimson, and both are drawn for light backgrounds. A variant with a white
+ * wordmark would resolve it properly; the mark itself already works on dark.
  *
  * The previous version imported a named export from a .webp file, which is
  * not a module and cannot be imported that way. That single line failed the
@@ -43,14 +48,14 @@ export function SiteFooter() {
             <Link
               href="/"
               aria-label="ClimateWatch home"
-              className="inline-flex rounded-lg bg-white px-5 py-4 transition-opacity hover:opacity-90"
+              className="inline-flex transition-opacity hover:opacity-90"
             >
               <Image
-                src="/images/brand/climatewatch-logo.webp"
+                src="/images/brand/climatewatch-logo-red.webp"
                 alt="ClimateWatch"
-                width={220}
-                height={103}
-                className="h-auto w-[190px] object-contain"
+                width={280}
+                height={151}
+                className="h-auto w-[210px] object-contain"
               />
             </Link>
 
