@@ -263,7 +263,7 @@ export const teamContent = {
       focus:
         "Technical systems, engineering projects and applied climate technology.",
       email: "mubeen@climatewatch-nccb.org",
-      image: "/images/team/mubeen-ishfaq.webp",
+      image: "/images/team/mubeen-ishfaq-2026.webp",
       linkedin: "https://www.linkedin.com/in/mubeen-ishfaq/",
       instagram: "https://www.instagram.com/mubeenishfaq7/",
     },
@@ -657,12 +657,6 @@ export const teamContent = {
       department: "research-development",
       position: "Intern",
       email: "imtiaz.ali@climatewatch-nccb.org",
-    },
-    {
-      name: "Bushra Ansari",
-      department: "research-development",
-      position: "Intern",
-      email: "bushra@climatewatch-nccb.org",
     },
     {
       name: "Bilal Ahmed",
