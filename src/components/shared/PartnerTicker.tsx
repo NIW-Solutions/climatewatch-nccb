@@ -28,6 +28,11 @@ import {
  * from the very first byte of HTML. Relying on the client-side onError
  * fallback alone meant a broken-image icon flashed before JavaScript ran,
  * and showed permanently to anyone without it.
+ *
+ * The strip itself is white rather than the site's cream. Most partner logos
+ * arrive as opaque files on a white ground, and on cream every one of them
+ * showed as a pale rectangle. A white strip means those backgrounds simply
+ * disappear, so no logo has to be cut out to look right.
  */
 
 /** True when the referenced file actually exists in public/. */
@@ -92,16 +97,16 @@ export function PartnerTicker() {
           </p>
         </div>
       ) : (
-        <div className="group relative overflow-hidden border-t border-border py-10">
+        <div className="group relative overflow-hidden border-t border-border bg-surface py-12">
           {/* Edge fades, so names enter and leave rather than being cut. */}
           <div
             aria-hidden="true"
-            className="pointer-events-none absolute inset-y-0 left-0 z-10 w-16 bg-[linear-gradient(90deg,var(--color-background),transparent)] sm:w-28"
+            className="pointer-events-none absolute inset-y-0 left-0 z-10 w-16 bg-[linear-gradient(90deg,var(--color-surface),transparent)] sm:w-28"
           />
 
           <div
             aria-hidden="true"
-            className="pointer-events-none absolute inset-y-0 right-0 z-10 w-16 bg-[linear-gradient(270deg,var(--color-background),transparent)] sm:w-28"
+            className="pointer-events-none absolute inset-y-0 right-0 z-10 w-16 bg-[linear-gradient(270deg,var(--color-surface),transparent)] sm:w-28"
           />
 
           <div className="partner-ticker-track flex w-max items-center">

@@ -14,12 +14,14 @@ import { useState } from "react";
  * logos into public/images/partners/ one at a time, with no code change and
  * nothing broken in between.
  *
- * Logos sit on a white tile. The set is a mix — some arrive as transparent
- * PNGs, others as opaque JPEGs on a white ground — and on the cream ticker
- * background the opaque ones would otherwise show as a pale box. Knocking
- * white out globally was not an option: the ISSI mark has white landmasses
- * inside its globe, and a blanket threshold would have eaten them. A tile
- * treats every logo identically and damages none of them.
+ * No tile or panel around the logo: the ticker strip is itself white, so an
+ * opaque logo on a white ground blends into it and a transparent one sits on
+ * the same field. An earlier version drew a white tile per logo against the
+ * cream background, which read as a row of boxes rather than a row of marks.
+ *
+ * Cutting the backgrounds out of the artwork was the other option and a worse
+ * one — the ISSI globe has white landmasses inside it, so any blanket
+ * threshold would have eaten part of the logo.
  *
  * A plain <img> rather than next/image: these are partner-supplied files of
  * unknown dimensions, and next/image wants width and height up front.
@@ -43,16 +45,14 @@ export function PartnerLogo({
   }
 
   return (
-    <span className="flex h-16 items-center justify-center rounded-md bg-white px-4 py-2">
-      {/* eslint-disable-next-line @next/next/no-img-element -- partner art, unknown dimensions */}
-      <img
-        src={logo}
-        alt={name}
-        loading="lazy"
-        decoding="async"
-        onError={() => setFailed(true)}
-        className="max-h-11 w-auto max-w-[11rem] object-contain"
-      />
-    </span>
+    // eslint-disable-next-line @next/next/no-img-element -- partner art, unknown dimensions
+    <img
+      src={logo}
+      alt={name}
+      loading="lazy"
+      decoding="async"
+      onError={() => setFailed(true)}
+      className="max-h-14 w-auto max-w-[12rem] object-contain"
+    />
   );
 }

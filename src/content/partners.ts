@@ -8,10 +8,8 @@
  *
  * The list below was supplied directly by ClimateWatch.
  *
- * Two logo files are in place: Climate Forward Pakistan and Progressive
- * Climate Foundation, identified by reading the artwork itself rather than
- * guessing from filenames. The remaining seven show as wordmarks until
- * their files are uploaded.
+ * All nine logos are in place. Each was identified by opening the artwork
+ * and reading it rather than trusting a filename.
  *
  * `detail` and `href` are deliberately absent for most entries. Descriptions
  * and links were not supplied and were not guessed — an invented line about
@@ -22,10 +20,9 @@
  * the filename already written in the `logo` line below — for example
  * herspace.png. Nothing here needs editing.
  *
- * Every partner already names a logo path even though most of the files do
- * not exist yet. That is safe: PartnerLogo falls back to the partner's name
- * when a file is missing, so logos can be added one at a time and an entry
- * without artwork simply shows as a wordmark.
+ * A partner whose file is missing falls back to a wordmark — PartnerTicker
+ * checks the filesystem on the server, so a logo can be added or removed
+ * without touching code and nothing breaks in between.
  *
  * TO ADD A WEBSITE: add an `href` line, e.g.
  *   href: "https://example.org",
@@ -70,10 +67,6 @@ export const partnersContent = {
       name:
         "Fridays for Future Pakistan",
       logo: "/images/partners/fridays-for-future-pakistan.png",
-    },
-    {
-      name: "Skillistan",
-      logo: "/images/partners/skillistan.png",
     },
     {
       name: "Nutrashine",
