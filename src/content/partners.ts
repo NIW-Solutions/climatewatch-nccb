@@ -76,14 +76,20 @@ export const partnersContent = {
       },
       {
         /*
-         * Their own brand file: white on green. An earlier version inverted
-         * the white-on-black artwork to black, which was legible but was our
-         * alteration rather than their mark. The green ground shows as a
-         * coloured panel on the white strip, exactly as Herspace's purple
-         * does — that is the brand, not a background to strip.
+         * The monochrome mark, derived from Nustainable's white-on-black
+         * artwork by inverting it to black on transparent.
+         *
+         * Their full-colour brand file (white on green) was tried and
+         * rejected by ClimateWatch: on the white strip it reads as a solid
+         * green panel among otherwise unbounded marks. Keep this version.
+         *
+         * Filename carries "-mono" because the green file briefly shipped at
+         * the old path. Images are served with max-age=2592000, so anyone who
+         * loaded it would hold the green version for thirty days; a new URL is
+         * what actually forces the revert through.
          */
         name: "Nustainable",
-        logo: "/images/partners/nustainable.png",
+        logo: "/images/partners/nustainable-mono.png",
       },
       {
         /*
