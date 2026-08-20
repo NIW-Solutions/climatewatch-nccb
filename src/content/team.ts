@@ -630,7 +630,7 @@ export const teamContent = {
       name: "Mamoona Asim",
       department: "research-development",
       position: "Intern",
-      email: "i234525@isb.nu.edu.pk",
+      email: "mamoonaasim@climatewatch-nccb.org",
       image:
         "/images/team/mamoona-asim.webp",
     },
@@ -670,7 +670,7 @@ export const teamContent = {
       name: "Muhammad Ehsaan",
       department: "research-development",
       position: "Intern",
-      email: "muhammadehsaan9990@gmail.com",
+      email: "muhammadehsaan@climatewatch-nccb.org",
       image:
         "/images/team/muhammad-ehsaan.webp",
     },
