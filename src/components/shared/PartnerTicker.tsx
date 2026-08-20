@@ -1,6 +1,7 @@
 import fs from "node:fs";
 import path from "node:path";
 
+import { PartnerArc } from "@/components/shared/PartnerArc";
 import { PartnerLogo } from "@/components/shared/PartnerLogo";
 import {
   partnersContent,
@@ -89,6 +90,7 @@ export function PartnerTicker() {
         group={official}
         /* Centred and narrower than the row below, as a distinct tier. */
         narrow
+        arc
         durationClass="partner-ticker-track--slow"
       />
 
@@ -103,6 +105,7 @@ export function PartnerTicker() {
 function TickerRow({
   group,
   narrow = false,
+  arc = false,
   durationClass,
 }: Readonly<{
   group: {
@@ -111,6 +114,8 @@ function TickerRow({
     partners: readonly Partner[];
   };
   narrow?: boolean;
+  /** Rise and grow toward the centre of the strip. See PartnerArc. */
+  arc?: boolean;
   durationClass: string;
 }>) {
   if (group.partners.length === 0) {
@@ -124,11 +129,23 @@ function TickerRow({
   }
 
   return (
-    <div className="border-t border-border bg-surface pb-10 pt-8">
+    <div
+      className={[
+        "border-t border-border bg-surface",
+        /*
+         * Extra vertical room on the arc row: logos lift and scale beyond
+         * their slot, and the strip clips its overflow to hide the loop.
+         */
+        arc
+          ? "pb-12 pt-10"
+          : "pb-10 pt-8",
+      ].join(" ")}
+    >
       <p className="mb-6 text-center text-[0.56rem] font-bold uppercase tracking-[0.13em] text-muted-light">
         {group.eyebrow}
       </p>
 
+      <ArcBoundary enabled={arc}>
       <div
         className={[
           "group relative overflow-hidden",
@@ -151,23 +168,43 @@ function TickerRow({
         >
           <PartnerRun
             partners={group.partners}
+            arc={arc}
           />
 
           <PartnerRun
             partners={group.partners}
+            arc={arc}
             aria-hidden
           />
         </div>
       </div>
+      </ArcBoundary>
     </div>
+  );
+}
+
+/** Applies the arc only where asked, so the wide row stays static markup. */
+function ArcBoundary({
+  enabled,
+  children,
+}: Readonly<{
+  enabled: boolean;
+  children: React.ReactNode;
+}>) {
+  return enabled ? (
+    <PartnerArc>{children}</PartnerArc>
+  ) : (
+    <>{children}</>
   );
 }
 
 function PartnerRun({
   partners,
+  arc = false,
   "aria-hidden": ariaHidden,
 }: Readonly<{
   partners: readonly Partner[];
+  arc?: boolean;
   "aria-hidden"?: boolean;
 }>) {
   return (
@@ -182,7 +219,17 @@ function PartnerRun({
          * width — that width is what keeps the -50% seam invisible.
          */
         const body = (
-          <span className="flex h-16 flex-col items-center justify-center">
+          <span
+            data-arc-item={
+              arc ? "" : undefined
+            }
+            className={[
+              "flex h-16 flex-col items-center justify-center",
+              arc
+                ? "will-change-transform"
+                : "",
+            ].join(" ")}
+          >
             <PartnerLogo
               name={partner.name}
               logo={

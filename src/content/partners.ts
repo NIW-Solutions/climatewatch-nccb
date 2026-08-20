@@ -90,6 +90,7 @@ export const partnersContent = {
          */
         name: "Nustainable",
         logo: "/images/partners/nustainable-mono.png",
+        href: "https://www.instagram.com/nustainable/?hl=en",
       },
       {
         /*
