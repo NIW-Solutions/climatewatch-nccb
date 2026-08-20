@@ -188,7 +188,7 @@ export const teamContent = {
        DIRECTORATE
        ========================================== */
     {
-      name: "Mr. Ali Syed Kiram",
+      name: "Mr. Syed Kiram Ali",
       department: "directorate",
       designation: "Director",
       focus:
@@ -237,7 +237,7 @@ export const teamContent = {
       designation: "Head of Division",
       focus:
         "Climate education programmes, training design and community learning.",
-      email: "didar@climatewatch-nccb.org",
+      email: "didar.ali@climatewatch-nccb.org",
       image: "/images/team/didar-ali.webp",
       linkedin: "https://www.linkedin.com/in/didar-ali-/",
       instagram: "https://www.instagram.com/didar.aly/",
@@ -506,7 +506,7 @@ export const teamContent = {
     {
       slug: "syed-kiram-board",
       image: "/images/team/syed-kiram.webp",
-      name: "Mr. Ali Syed Kiram",
+      name: "Mr. Syed Kiram Ali",
       // NEEDS CONFIRMATION: the board row reads "Executive Director"; the staff
       // row and the current live site read "Director".
       role: "Executive Director",
@@ -790,7 +790,7 @@ export const teamContent = {
        PROJECT MANAGEMENT
        ========================================== */
     {
-      name: "Ahbab Ullah",
+      name: "Ahbab Ullah Qureshi",
       department: "project-management",
       position: "Intern",
       email: "ahbab.ullah@climatewatch-nccb.org",
