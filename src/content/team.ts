@@ -627,17 +627,17 @@ export const teamContent = {
        RESEARCH AND DEVELOPMENT
        ========================================== */
     {
-      name: "Mamoona Asim",
+      name: "Nisha Irfan",
       department: "research-development",
-      position: "Intern",
-      email: "mamoonaasim@climatewatch-nccb.org",
+      position: "Staff",
+      email: "nisha@climatewatch-nccb.org",
       image:
-        "/images/team/mamoona-asim.webp",
+        "/images/team/nisha-irfan.webp",
     },
     {
       name: "Fatimah Muneer",
       department: "research-development",
-      position: "Intern",
+      position: "Research Associate",
       email: "fatimah.muneer@climatewatch-nccb.org",
       image:
         "/images/team/fatimah-muneer.webp",
@@ -645,10 +645,26 @@ export const teamContent = {
     {
       name: "Imtiaz Ali Zeb",
       department: "research-development",
-      position: "Intern",
+      position: "Research Associate",
       email: "imtiaz.ali@climatewatch-nccb.org",
       image:
         "/images/team/imtiaz-ali-zeb.webp",
+    },
+    {
+      name: "Sania Asim",
+      department: "research-development",
+      position: "Research Associate",
+      email: "saniaasim26@gmail.com",
+      image:
+        "/images/team/sania-asim.webp",
+    },
+    {
+      name: "Mamoona Asim",
+      department: "research-development",
+      position: "Intern",
+      email: "mamoonaasim@climatewatch-nccb.org",
+      image:
+        "/images/team/mamoona-asim.webp",
     },
     {
       name: "Bilal Ahmed",
@@ -659,28 +675,12 @@ export const teamContent = {
         "/images/team/bilal-ahmed.webp",
     },
     {
-      name: "Sania Asim",
-      department: "research-development",
-      position: "Intern",
-      email: "saniaasim26@gmail.com",
-      image:
-        "/images/team/sania-asim.webp",
-    },
-    {
       name: "Muhammad Ehsaan",
       department: "research-development",
       position: "Intern",
       email: "muhammadehsaan@climatewatch-nccb.org",
       image:
         "/images/team/muhammad-ehsaan.webp",
-    },
-    {
-      name: "Nisha Irfan",
-      department: "research-development",
-      position: "Staff",
-      email: "nisha@climatewatch-nccb.org",
-      image:
-        "/images/team/nisha-irfan.webp",
     },
     /* ==========================================
        INTERNATIONAL CLIMATE POLICY
@@ -762,7 +762,7 @@ export const teamContent = {
     {
       name: "Hashma Shahzad Ahmad",
       department: "education-sustainable-development",
-      position: "Representative",
+      position: "Intern",
       email: "hashma.shahzad@climatewatch-nccb.org",
       image:
         "/images/team/hashma-shahzad-ahmad.webp",
@@ -771,20 +771,20 @@ export const teamContent = {
        PARTNERSHIP AND OUTREACH
        ========================================== */
     {
-      name: "Alexandra Schiller",
-      department: "partnerships-outreach",
-      position: "Intern",
-      email: "s.alexandra@climatewatch-nccb.org",
-      image:
-        "/images/team/alexandra-schiller.webp",
-    },
-    {
       name: "Ariba Khan",
       department: "partnerships-outreach",
       position: "Student Assistant",
       email: "k.ariba@climatewatch-nccb.org",
       image:
         "/images/team/ariba-khan.webp",
+    },
+    {
+      name: "Alexandra Schiller",
+      department: "partnerships-outreach",
+      position: "Intern",
+      email: "s.alexandra@climatewatch-nccb.org",
+      image:
+        "/images/team/alexandra-schiller.webp",
     },
     /* ==========================================
        TECHNICAL AND ENGINEERING
@@ -803,7 +803,7 @@ export const teamContent = {
     {
       name: "Ahbab Ullah Qureshi",
       department: "project-management",
-      position: "Intern",
+      position: "Project Coordinator",
       email: "ahbab.ullah@climatewatch-nccb.org",
       image:
         "/images/team/ahbab-ullah.webp",
@@ -811,7 +811,7 @@ export const teamContent = {
     {
       name: "Syeda Fiza Kazmi",
       department: "project-management",
-      position: "Intern",
+      position: "Project Coordinator",
       email: "fiza.kazmi@climatewatch-nccb.org",
       image:
         "/images/team/syeda-fiza-kazmi.webp",
