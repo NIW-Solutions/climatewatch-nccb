@@ -317,7 +317,7 @@ export const teamContent = {
       focus: "Recruitment, staff development and organisational policy.",
       // NEEDS CONFIRMATION: personal address; every other member is on an
       // organisational domain.
-      email: "michaelmuyutu1@gmail.com",
+      email: "michael@climatewatch-nccb.org",
       image: "/images/team/michael-muyutu.webp",
       linkedin:
         "https://www.linkedin.com/in/michael-muyutu-%E2%80%93bba-aab79126a",
