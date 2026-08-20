@@ -614,21 +614,6 @@ export const teamContent = {
       ],
       image: "/images/team/nida-khan.webp",
     },
-
-    /*
-     * NEEDS CONFIRMATION — Shahzadi Naira
-     * Listed on the board in the spreadsheet with no role, no biography and
-     * no photograph. Omitted rather than rendered as an empty card.
-     * Fill in and uncomment:
-     *
-     * {
-     *   slug: "shahzadi-naira",
-     *   name: "Shahzadi Naira",
-     *   role: "Director",
-     *   summary: "",
-     *   profile: [],
-     * },
-     */
   ] satisfies readonly TeamProfile[],
 
   /* ============================================================
