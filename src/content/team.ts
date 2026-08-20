@@ -618,8 +618,24 @@ export const teamContent = {
 
   /* ============================================================
      DIVISIONAL TEAMS
-     Interns, assistants, associates and representatives, listed
-     under the division they work in. Source: roster spreadsheet.
+     Interns, assistants, associates and specialists, listed under the
+     division they work in. Source: roster spreadsheet.
+
+     ORDER WITHIN A DIVISION is by seniority, and it is manual — nothing
+     sorts this array at runtime, so a new entry has to be inserted in the
+     right place by hand:
+
+       1. Staff
+       2. Research Associate
+       3. Student Assistant
+       4. any other specialist title
+          (Junior Policy Advisor, AI Engineer, Media Host,
+          Project Coordinator)
+       5. Interns, last
+
+     People sharing a title keep the order they are listed in. A title that
+     is not an internship belongs at step 4 rather than the bottom — a new
+     specialist role should never be filed below the interns by default.
      ============================================================ */
 
   associates: [
