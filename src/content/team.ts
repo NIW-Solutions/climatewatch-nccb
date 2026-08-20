@@ -188,7 +188,7 @@ export const teamContent = {
        DIRECTORATE
        ========================================== */
     {
-      name: "Mr. Syed Kiram",
+      name: "Mr. Ali Syed Kiram",
       department: "directorate",
       designation: "Director",
       focus:
@@ -506,7 +506,7 @@ export const teamContent = {
     {
       slug: "syed-kiram-board",
       image: "/images/team/syed-kiram.webp",
-      name: "Mr. Syed Kiram",
+      name: "Mr. Ali Syed Kiram",
       // NEEDS CONFIRMATION: the board row reads "Executive Director"; the staff
       // row and the current live site read "Director".
       role: "Executive Director",
