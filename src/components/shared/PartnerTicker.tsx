@@ -8,31 +8,31 @@ import {
 } from "@/content/partners";
 
 /**
- * Partner ticker — src/components/shared/PartnerTicker.tsx
+ * Partner tickers — src/components/shared/PartnerTicker.tsx
  *
- * A continuously scrolling row of partner organisations.
+ * Two scrolling rows: a shorter, centred "Official Partners" strip above a
+ * full-width "Collaborating Partners" one. Both share this component; only
+ * the width and speed differ.
  *
- * The list is rendered twice and the track is translated by exactly -50%,
- * which is what makes the loop seamless: at the end of the animation the
- * second copy sits precisely where the first started, so there is no jump.
- * Both copies must stay identical for that to hold.
+ * Each row renders its list twice and translates the track by exactly -50%,
+ * which is what makes the loop seamless — at the end of the animation the
+ * second copy sits precisely where the first began. Both copies must stay
+ * identical for that to hold.
  *
- * Marquees are a genuine accessibility problem — moving text is hard to
- * read and can trigger vestibular symptoms — so the animation pauses on
- * hover and on keyboard focus, and stops entirely under
- * prefers-reduced-motion. The duplicate copy is hidden from assistive
- * technology so names are not announced twice.
+ * The ends dissolve rather than being cut off. This uses mask-image, not an
+ * overlaid gradient: a mask makes the logos themselves fade to transparent,
+ * so the effect holds whatever sits behind the strip. An overlay would only
+ * work while the backdrop stayed exactly the colour of the fade.
  *
- * Logo paths are checked against the filesystem here, on the server, so a
- * partner whose artwork has not been uploaded yet is rendered as a wordmark
- * from the very first byte of HTML. Relying on the client-side onError
- * fallback alone meant a broken-image icon flashed before JavaScript ran,
- * and showed permanently to anyone without it.
+ * Marquees are a real accessibility problem — moving content is hard to read
+ * and can trigger vestibular symptoms — so both rows pause on hover and on
+ * keyboard focus, and stop entirely under prefers-reduced-motion. The
+ * duplicate run is hidden from assistive technology so names are not
+ * announced twice.
  *
- * The strip itself is white rather than the site's cream. Most partner logos
- * arrive as opaque files on a white ground, and on cream every one of them
- * showed as a pale rectangle. A white strip means those backgrounds simply
- * disappear, so no logo has to be cut out to look right.
+ * Logo paths are checked against the filesystem on the server, so a partner
+ * whose artwork is missing renders as a wordmark from the first byte of
+ * HTML rather than flashing a broken image before JavaScript runs.
  */
 
 /** True when the referenced file actually exists in public/. */
@@ -53,13 +53,8 @@ function logoExists(
 }
 
 export function PartnerTicker() {
-  const {
-    eyebrow,
-    title,
-    description,
-    emptyNote,
-    partners,
-  } = partnersContent;
+  const { official, collaborating } =
+    partnersContent;
 
   return (
     <section
@@ -74,7 +69,7 @@ export function PartnerTicker() {
           />
 
           <p className="eyebrow text-primary">
-            {eyebrow}
+            Partners
           </p>
         </div>
 
@@ -82,44 +77,89 @@ export function PartnerTicker() {
           id="partners-heading"
           className="mt-6 max-w-3xl font-editorial text-[clamp(1.7rem,3vw,2.6rem)] font-medium leading-[1.1] tracking-[-0.035em] text-primary"
         >
-          {title}
+          {collaborating.title}
         </h2>
 
         <p className="mt-4 max-w-2xl text-sm leading-7 text-muted">
-          {description}
+          {collaborating.description}
         </p>
       </div>
 
-      {partners.length === 0 ? (
-        <div className="site-container pb-14">
-          <p className="border-t border-border pt-6 text-sm leading-7 text-muted-light">
-            {emptyNote}
-          </p>
-        </div>
-      ) : (
-        <div className="group relative overflow-hidden border-t border-border bg-surface py-12">
-          {/* Edge fades, so names enter and leave rather than being cut. */}
-          <div
-            aria-hidden="true"
-            className="pointer-events-none absolute inset-y-0 left-0 z-10 w-16 bg-[linear-gradient(90deg,var(--color-surface),transparent)] sm:w-28"
-          />
+      <TickerRow
+        group={official}
+        /* Centred and narrower than the row below, as a distinct tier. */
+        narrow
+        durationClass="partner-ticker-track--slow"
+      />
 
-          <div
-            aria-hidden="true"
-            className="pointer-events-none absolute inset-y-0 right-0 z-10 w-16 bg-[linear-gradient(270deg,var(--color-surface),transparent)] sm:w-28"
-          />
-
-          <div className="partner-ticker-track flex w-max items-center">
-            <PartnerRun partners={partners} />
-
-            <PartnerRun
-              partners={partners}
-              aria-hidden
-            />
-          </div>
-        </div>
-      )}
+      <TickerRow
+        group={collaborating}
+        durationClass="partner-ticker-track--base"
+      />
     </section>
+  );
+}
+
+function TickerRow({
+  group,
+  narrow = false,
+  durationClass,
+}: Readonly<{
+  group: {
+    eyebrow: string;
+    emptyNote: string;
+    partners: readonly Partner[];
+  };
+  narrow?: boolean;
+  durationClass: string;
+}>) {
+  if (group.partners.length === 0) {
+    return (
+      <div className="site-container pb-10">
+        <p className="border-t border-border pt-6 text-sm leading-7 text-muted-light">
+          {group.emptyNote}
+        </p>
+      </div>
+    );
+  }
+
+  return (
+    <div className="border-t border-border bg-surface pb-10 pt-8">
+      <p className="mb-6 text-center text-[0.56rem] font-bold uppercase tracking-[0.13em] text-muted-light">
+        {group.eyebrow}
+      </p>
+
+      <div
+        className={[
+          "group relative overflow-hidden",
+          narrow
+            ? "mx-auto w-full max-w-3xl"
+            : "w-full",
+        ].join(" ")}
+        style={{
+          /*
+           * The dissolve. Fully transparent at each edge, solid across the
+           * middle — the narrow row fades over a longer stretch so its
+           * shorter width still reads as clouded rather than clipped.
+           */
+          maskImage: `linear-gradient(90deg, transparent 0%, rgba(0,0,0,0.35) ${narrow ? "10%" : "5%"}, #000 ${narrow ? "26%" : "14%"}, #000 ${narrow ? "74%" : "86%"}, rgba(0,0,0,0.35) ${narrow ? "90%" : "95%"}, transparent 100%)`,
+          WebkitMaskImage: `linear-gradient(90deg, transparent 0%, rgba(0,0,0,0.35) ${narrow ? "10%" : "5%"}, #000 ${narrow ? "26%" : "14%"}, #000 ${narrow ? "74%" : "86%"}, rgba(0,0,0,0.35) ${narrow ? "90%" : "95%"}, transparent 100%)`,
+        }}
+      >
+        <div
+          className={`partner-ticker-track ${durationClass} flex w-max items-center`}
+        >
+          <PartnerRun
+            partners={group.partners}
+          />
+
+          <PartnerRun
+            partners={group.partners}
+            aria-hidden
+          />
+        </div>
+      </div>
+    </div>
   );
 }
 

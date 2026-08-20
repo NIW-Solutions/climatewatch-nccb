@@ -5,32 +5,28 @@
  *
  * Claiming a partner that has not agreed to be listed is the kind of error
  * that costs a relationship, so the bar here is evidence, not plausibility.
+ * Both lists were supplied directly by ClimateWatch.
  *
- * The list below was supplied directly by ClimateWatch.
+ * There are two tiers, rendered as two separate tickers:
  *
- * Every partner has a logo. Each was identified by opening the artwork and
- * reading it rather than trusting a filename — which mattered: the file
- * named "Dastak Foundation" is in fact The Zameek Community's mark. That one
- * carries no text at all, so it was confirmed by ClimateWatch rather than
- * from the artwork.
+ *   official      — the shorter, centred ticker
+ *   collaborating — the full-width ticker beneath it
  *
- * Websites were supplied by ClimateWatch and each was checked to return 200
- * before being added. Every partner now has one.
- *
- * `detail` is still absent everywhere — no descriptions were supplied, and an
- * invented line about what a partnership covers is exactly the kind of claim
- * that should not be on a public site.
+ * Every logo was identified by opening the artwork and reading it rather
+ * than trusting a filename. That mattered at least once: the file named
+ * "Dastak Foundation" is in fact The Zameek Community's mark.
  *
  * TO ADD A LOGO: upload the image to public/images/partners/ using exactly
- * the filename already written in the `logo` line below — for example
- * herspace.png. Nothing here needs editing.
+ * the filename in the `logo` line. Nothing here needs editing. A partner
+ * whose file is missing falls back to a wordmark — PartnerTicker checks the
+ * filesystem on the server — so nothing breaks in between.
  *
- * A partner whose file is missing falls back to a wordmark — PartnerTicker
- * checks the filesystem on the server, so a logo can be added or removed
- * without touching code and nothing breaks in between.
+ * Both tickers sit on white, so a logo needs a transparent or white ground.
+ * Nustainable arrived as white artwork on solid black and had to be
+ * inverted; check any new logo against white before adding it.
  *
- * TO ADD A WEBSITE: add an `href` line, e.g.
- *   href: "https://example.org",
+ * TO ADD A WEBSITE: add an `href` line. Each URL supplied so far was checked
+ * to return 200 before being added.
  */
 
 export type Partner = {
@@ -42,86 +38,123 @@ export type Partner = {
 };
 
 export const partnersContent = {
-  eyebrow: "Partners",
+  official: {
+    eyebrow: "Official Partners",
 
-  title:
-    "We work alongside others.",
+    title:
+      "Our official partners.",
 
-  description:
-    "Research, education and advocacy delivered with partner organisations across Pakistan and internationally.",
+    description:
+      "Organisations we work with formally across research, education and climate policy.",
 
-  emptyNote:
-    "Partner organisations will be listed here.",
+    emptyNote:
+      "Official partners will be listed here.",
 
-  partners: [
-    {
-      name: "Herspace",
-      logo: "/images/partners/herspace.png",
-      href: "https://www.instagram.com/herspace_youth/",
-    },
-    {
-      name:
-        "Institute of Strategic Studies Islamabad",
-      logo: "/images/partners/institute-of-strategic-studies-islamabad.png",
-      href: "https://issi.org.pk/",
-    },
-    {
-      name:
-        "Sustainable Development Policy Institute",
-      logo: "/images/partners/sustainable-development-policy-institute.png",
-      href: "https://sdpi.org/",
-    },
-    {
-      name:
-        "Fridays for Future Pakistan",
-      logo: "/images/partners/fridays-for-future-pakistan.png",
-      href: "https://www.instagram.com/fridaysforfuturepk/",
-    },
-    {
-      name: "Nutrashine",
-      logo: "/images/partners/nutrashine.png",
-      href: "https://nutrashine.org/",
-    },
-    {
-      name:
-        "Karakoram Impact Network",
-      logo: "/images/partners/karakoram-impact-network.png",
-      href: "https://www.instagram.com/karakorumimpactnetwork/",
-    },
-    {
-      name:
-        "Climate Forward Pakistan",
-      logo: "/images/partners/climate-forward-pakistan.png",
-      href: "https://cfpakistan.org/",
-    },
-    {
-      name:
-        "Progressive Climate Foundation",
-      logo: "/images/partners/progressive-climate-foundation.png",
-      href: "https://progressiveclimatefoundation.org/",
-    },
-    {
-      name:
-        "Gilgit-Baltistan Climate Watch",
-      logo: "/images/partners/gilgit-baltistan-climate-watch.png",
-      href: "https://www.linkedin.com/company/gilgit-baltistan-climate-watch/",
-    },
-    {
-      name: "Ibtida",
-      logo: "/images/partners/ibtida.png",
-      href: "https://www.instagram.com/ibtada_official/",
-    },
-    {
-      name: "Taqalum",
-      logo: "/images/partners/taqalum.png",
-      href: "https://taqalum.com/",
-    },
-    {
-      name: "The Zameek Community",
-      logo: "/images/partners/the-zameek-community.png",
-      href: "https://www.instagram.com/thezameekcommunity/",
-    },
-  ] as readonly Partner[],
+    partners: [
+      {
+        name:
+          "Sustainable Development Policy Institute",
+        logo: "/images/partners/sustainable-development-policy-institute.png",
+        href: "https://sdpi.org/",
+      },
+      {
+        name:
+          "Institute of Strategic Studies Islamabad",
+        logo: "/images/partners/institute-of-strategic-studies-islamabad.png",
+        href: "https://issi.org.pk/",
+      },
+      {
+        name: "Herspace",
+        logo: "/images/partners/herspace.png",
+        href: "https://www.instagram.com/herspace_youth/",
+      },
+      {
+        name:
+          "Fridays for Future Pakistan",
+        logo: "/images/partners/fridays-for-future-pakistan.png",
+        href: "https://www.instagram.com/fridaysforfuturepk/",
+      },
+      {
+        /*
+         * Supplied as white artwork on solid black, which would have been a
+         * black box on the white strip. Inverted to a dark mark on a
+         * transparent ground.
+         */
+        name: "Nustainable",
+        logo: "/images/partners/nustainable.png",
+      },
+      {
+        /*
+         * Glacier School is ClimateWatch's own project — its logo reads
+         * "A Project by ClimateWatch" — rather than an outside partner.
+         * Listed here at ClimateWatch's request.
+         */
+        name: "Glacier School",
+        logo: "/images/partners/glacier-school.png",
+      },
+    ] as readonly Partner[],
+  },
+
+  collaborating: {
+    eyebrow: "Collaborating Partners",
+
+    title:
+      "We work alongside others.",
+
+    description:
+      "Research, education and advocacy delivered with partner organisations across Pakistan and internationally.",
+
+    emptyNote:
+      "Partner organisations will be listed here.",
+
+    partners: [
+      {
+        name: "Nutrashine",
+        logo: "/images/partners/nutrashine.png",
+        href: "https://nutrashine.org/",
+      },
+      {
+        name:
+          "Karakoram Impact Network",
+        logo: "/images/partners/karakoram-impact-network.png",
+        href: "https://www.instagram.com/karakorumimpactnetwork/",
+      },
+      {
+        name:
+          "Climate Forward Pakistan",
+        logo: "/images/partners/climate-forward-pakistan.png",
+        href: "https://cfpakistan.org/",
+      },
+      {
+        name:
+          "Progressive Climate Foundation",
+        logo: "/images/partners/progressive-climate-foundation.png",
+        href: "https://progressiveclimatefoundation.org/",
+      },
+      {
+        name:
+          "Gilgit-Baltistan Climate Watch",
+        logo: "/images/partners/gilgit-baltistan-climate-watch.png",
+        href: "https://www.linkedin.com/company/gilgit-baltistan-climate-watch/",
+      },
+      {
+        name: "Ibtida",
+        logo: "/images/partners/ibtida.png",
+        href: "https://www.instagram.com/ibtada_official/",
+      },
+      {
+        name: "Taqalum",
+        logo: "/images/partners/taqalum.png",
+        href: "https://taqalum.com/",
+      },
+      {
+        name:
+          "The Zameek Community",
+        logo: "/images/partners/the-zameek-community.png",
+        href: "https://www.instagram.com/thezameekcommunity/",
+      },
+    ] as readonly Partner[],
+  },
 } as const;
 
 export type PartnersContent =

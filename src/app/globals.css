@@ -1456,6 +1456,19 @@ input[type="checkbox"] {
   will-change: transform;
 }
 
+/*
+ * The official row holds fewer logos over a narrower strip, so at the same
+ * duration it would visibly race the row beneath it. Slower keeps the two
+ * reading at a similar pace on screen.
+ */
+.partner-ticker-track--slow {
+  animation-duration: 34s;
+}
+
+.partner-ticker-track--base {
+  animation-duration: 46s;
+}
+
 .group:hover .partner-ticker-track,
 .partner-ticker-track:focus-within {
   animation-play-state: paused;
