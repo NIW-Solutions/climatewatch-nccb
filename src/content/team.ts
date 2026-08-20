@@ -84,12 +84,12 @@ export const teamContent = {
   stats: [
     {
       /*
-       * Divisional leads (9) plus divisional teams (25). Recount both arrays
+       * Divisional leads (9) plus divisional teams (26). Recount both arrays
        * below when someone joins or leaves — this figure does not derive
        * itself, so a stale number here is a visible error on the page.
        */
       label: "Team members",
-      value: "34",
+      value: "35",
     },
     {
       // Nine department entries below, and the directory copy says nine.
@@ -785,6 +785,17 @@ export const teamContent = {
       email: "k.ariba@climatewatch-nccb.org",
       image:
         "/images/team/ariba-khan.webp",
+    },
+    /* ==========================================
+       TECHNICAL AND ENGINEERING
+       ========================================== */
+    {
+      name: "Amin Fahim",
+      department: "technical-engineering",
+      position: "AI Engineer",
+      email: "fahamin5149@gmail.com",
+      image:
+        "/images/team/amin-fahim.webp",
     },
     /* ==========================================
        PROJECT MANAGEMENT
