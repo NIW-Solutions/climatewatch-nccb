@@ -774,7 +774,7 @@ export const teamContent = {
       name: "Alexandra Schiller",
       department: "partnerships-outreach",
       position: "Intern",
-      email: "alexschiller92@gmail.com",
+      email: "s.alexandra@climatewatch-nccb.org",
       image:
         "/images/team/alexandra-schiller.webp",
     },
@@ -782,7 +782,7 @@ export const teamContent = {
       name: "Ariba Khan",
       department: "partnerships-outreach",
       position: "Student Assistant",
-      email: "aribakw123@gmail.com",
+      email: "k.ariba@climatewatch-nccb.org",
       image:
         "/images/team/ariba-khan.webp",
     },
