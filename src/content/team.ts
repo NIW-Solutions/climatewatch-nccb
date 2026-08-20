@@ -84,12 +84,12 @@ export const teamContent = {
   stats: [
     {
       /*
-       * Divisional leads (9) plus divisional teams (26). Recount both arrays
+       * Divisional leads (9) plus divisional teams (25). Recount both arrays
        * below when someone joins or leaves — this figure does not derive
        * itself, so a stale number here is a visible error on the page.
        */
       label: "Team members",
-      value: "35",
+      value: "34",
     },
     {
       // Nine department entries below, and the directory copy says nine.
@@ -848,14 +848,6 @@ export const teamContent = {
         "/images/team/aqsa-essa.webp",
     },
     {
-      // NEEDS CONFIRMATION: possibly the same person as "Shahzadi Naira",
-      // listed on the board in the earlier sheet with no details.
-      name: "Naira Shahzadi",
-      department: "communications-media",
-      position: "Staff",
-      email: "naira@climatewatch-nccb.org",
-    },
-    {
       name: "Habiba Tariq",
       department: "communications-media",
       position: "Intern, Blog Writer",
@@ -871,6 +863,8 @@ export const teamContent = {
       department: "human-resources",
       position: "Intern",
       email: "HR@climatewatch-nccb.org",
+      image:
+        "/images/team/shahab-uddin.webp",
     },
   ] satisfies readonly TeamAssociate[],
 
