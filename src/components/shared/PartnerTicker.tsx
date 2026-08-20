@@ -132,13 +132,7 @@ function TickerRow({
     <div
       className={[
         "border-t border-border bg-surface",
-        /*
-         * Extra vertical room on the arc row: logos lift and scale beyond
-         * their slot, and the strip clips its overflow to hide the loop.
-         */
-        arc
-          ? "pb-12 pt-10"
-          : "pb-10 pt-8",
+        arc ? "pb-6 pt-8" : "pb-10 pt-8",
       ].join(" ")}
     >
       <p className="mb-6 text-center text-[0.56rem] font-bold uppercase tracking-[0.13em] text-muted-light">
@@ -152,6 +146,14 @@ function TickerRow({
           narrow
             ? "mx-auto w-full max-w-3xl"
             : "w-full",
+          /*
+           * Headroom for the arc, and it has to be INSIDE this element:
+           * overflow-hidden clips vertically as well as horizontally, so
+           * padding on the wrapper outside does nothing. A logo at peak
+           * needs lift (20px) plus half the growth from scaling
+           * (0.32 x 64 / 2 = 10px) = 30px of clearance. py-9 gives 36px.
+           */
+          arc ? "py-9" : "",
         ].join(" ")}
         style={{
           /*
