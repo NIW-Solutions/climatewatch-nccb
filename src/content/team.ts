@@ -83,8 +83,13 @@ export const teamContent = {
 
   stats: [
     {
+      /*
+       * Divisional leads (9) plus divisional teams (26). Recount both arrays
+       * below when someone joins or leaves — this figure does not derive
+       * itself, so a stale number here is a visible error on the page.
+       */
       label: "Team members",
-      value: "36",
+      value: "35",
     },
     {
       // Nine department entries below, and the directory copy says nine.
@@ -204,7 +209,7 @@ export const teamContent = {
       focus:
         "Policy Advisor Anticipatory Action, UNFCCC negotiation tracking, climate policy analysis and international engagement.",
       email: "pervez-cw@nccb-un.org",
-      image: "/images/team/pervez-aly.webp",
+      image: "/images/team/pervez-aly-2026-08.webp",
       linkedin: "https://www.linkedin.com/in/pervezaly/",
       instagram: "https://www.instagram.com/_aka.aly/",
     },
@@ -263,7 +268,7 @@ export const teamContent = {
       focus:
         "Technical systems, engineering projects and applied climate technology.",
       email: "mubeen@climatewatch-nccb.org",
-      image: "/images/team/mubeen-ishfaq-2026.webp",
+      image: "/images/team/mubeen-ishfaq-2026-08.webp",
       linkedin: "https://www.linkedin.com/in/mubeen-ishfaq/",
       instagram: "https://www.instagram.com/mubeenishfaq7/",
     },
@@ -657,6 +662,8 @@ export const teamContent = {
       department: "research-development",
       position: "Intern",
       email: "imtiaz.ali@climatewatch-nccb.org",
+      image:
+        "/images/team/imtiaz-ali-zeb.webp",
     },
     {
       name: "Bilal Ahmed",
@@ -671,18 +678,24 @@ export const teamContent = {
       department: "research-development",
       position: "Intern",
       email: "saniaasim26@gmail.com",
+      image:
+        "/images/team/sania-asim.webp",
     },
     {
       name: "Muhammad Ehsaan",
       department: "research-development",
       position: "Intern",
       email: "muhammadehsaan9990@gmail.com",
+      image:
+        "/images/team/muhammad-ehsaan.webp",
     },
     {
       name: "Nisha Irfan",
       department: "research-development",
       position: "Staff",
       email: "nisha@climatewatch-nccb.org",
+      image:
+        "/images/team/nisha-irfan.webp",
     },
     /* ==========================================
        INTERNATIONAL CLIMATE POLICY
@@ -692,6 +705,8 @@ export const teamContent = {
       department: "international-climate-policy",
       position: "Research Associate",
       email: "anfal.nadir@climatewatch-nccb.org",
+      image:
+        "/images/team/anfal-nadir.webp",
     },
     {
       name: "Mutahira Hasnain Gillani",
@@ -723,6 +738,8 @@ export const teamContent = {
       department: "international-climate-policy",
       position: "Intern",
       email: "rimasahar786@gmail.com",
+      image:
+        "/images/team/rima-sahar.webp",
     },
     {
       /*
@@ -746,6 +763,8 @@ export const teamContent = {
       department: "education-sustainable-development",
       position: "Student Assistant",
       email: "rafiaimtiaz@climatewatch-nccb.org",
+      image:
+        "/images/team/rafia-imtiaz.webp",
     },
     {
       name: "Syeda Hoorain Imran",
@@ -762,12 +781,6 @@ export const teamContent = {
       email: "hashma.shahzad@climatewatch-nccb.org",
       image:
         "/images/team/hashma-shahzad-ahmad.webp",
-    },
-    {
-      name: "Alishba Rauf",
-      department: "education-sustainable-development",
-      position: "Representative",
-      email: "alishba.rauf@climatewatch-nccb.org",
     },
     /* ==========================================
        PARTNERSHIP AND OUTREACH
@@ -796,6 +809,8 @@ export const teamContent = {
       department: "project-management",
       position: "Intern",
       email: "ahbab.ullah@climatewatch-nccb.org",
+      image:
+        "/images/team/ahbab-ullah.webp",
     },
     {
       name: "Syeda Fiza Kazmi",
@@ -813,12 +828,16 @@ export const teamContent = {
       department: "communications-media",
       position: "Media Host",
       email: "aimantahirhashmi2@gmail.com",
+      image:
+        "/images/team/aimen-tahir.webp",
     },
     {
       name: "Ebrahim Jamali",
       department: "communications-media",
       position: "Media Host",
       email: "ebrahimjamali181005@gmail.com",
+      image:
+        "/images/team/ebrahim-jamali.webp",
     },
     {
       name: "Aqsa Essa",
@@ -842,7 +861,7 @@ export const teamContent = {
       position: "Intern, Blog Writer",
       email: "habibat990@gmail.com",
       image:
-        "/images/team/habiba-tariq.webp",
+        "/images/team/habiba-tariq-2026-08.webp",
     },
     /* ==========================================
        HUMAN RESOURCES

@@ -52,6 +52,18 @@ export const partnersContent = {
 
     partners: [
       {
+        /*
+         * Northern Citizen Community Board — the name behind the NCCB mark,
+         * per nccb-un.org. Listed here as a partner organisation with its own
+         * logo and site; this is separate from ClimateWatch descriptions,
+         * which stay free of NCCB by instruction.
+         */
+        name:
+          "Northern Citizen Community Board",
+        logo: "/images/partners/nccb.png",
+        href: "https://nccb-un.org/",
+      },
+      {
         name:
           "Sustainable Development Policy Institute",
         logo: "/images/partners/sustainable-development-policy-institute.png",
@@ -64,8 +76,17 @@ export const partnersContent = {
         href: "https://issi.org.pk/",
       },
       {
+        /*
+         * Supplied as a JPEG on a solid black square. The black was knocked
+         * out to transparency so the mark sits on the white strip rather than
+         * reading as a black box; the purple and yellow artwork is untouched.
+         *
+         * New filename because the previous white-on-purple version shipped
+         * at /images/partners/herspace.png and images are served with
+         * max-age=2592000 — same path would stay stale for thirty days.
+         */
         name: "Herspace",
-        logo: "/images/partners/herspace.png",
+        logo: "/images/partners/herspace-2026-08.png",
         href: "https://www.instagram.com/herspace_youth/",
       },
       {
