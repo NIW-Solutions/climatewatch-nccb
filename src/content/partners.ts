@@ -22,8 +22,8 @@
  * filesystem on the server — so nothing breaks in between.
  *
  * Both tickers sit on white, so a logo needs a transparent or white ground.
- * Nustainable arrived as white artwork on solid black and had to be
- * inverted; check any new logo against white before adding it.
+ * Check any new logo against white before adding it — a white-on-dark mark
+ * disappears, and a dark-on-black one becomes a box.
  *
  * TO ADD A WEBSITE: add an `href` line. Each URL supplied so far was checked
  * to return 200 before being added.
@@ -76,9 +76,11 @@ export const partnersContent = {
       },
       {
         /*
-         * Supplied as white artwork on solid black, which would have been a
-         * black box on the white strip. Inverted to a dark mark on a
-         * transparent ground.
+         * Their own brand file: white on green. An earlier version inverted
+         * the white-on-black artwork to black, which was legible but was our
+         * alteration rather than their mark. The green ground shows as a
+         * coloured panel on the white strip, exactly as Herspace's purple
+         * does — that is the brand, not a background to strip.
          */
         name: "Nustainable",
         logo: "/images/partners/nustainable.png",
@@ -91,6 +93,17 @@ export const partnersContent = {
          */
         name: "Glacier School",
         logo: "/images/partners/glacier-school.png",
+      },
+      {
+        /*
+         * The stacked lockup rather than the wide one: at 2.58:1 the
+         * horizontal version would hit the width cap and render far smaller
+         * than everything beside it.
+         */
+        name:
+          "Misbah Sports Academy",
+        logo: "/images/partners/misbah-sports-academy.png",
+        href: "https://www.instagram.com/misbahvolleyballacademy/?hl=en",
       },
     ] as readonly Partner[],
   },
