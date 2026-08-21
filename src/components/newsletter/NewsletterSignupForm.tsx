@@ -139,7 +139,10 @@ export function NewsletterSignupForm() {
           disabled={
             status === "sending"
           }
-          className="group inline-flex items-center justify-center gap-2 bg-primary px-6 py-3 text-xs font-semibold uppercase tracking-[0.1em] text-white transition-colors hover:bg-primary-dark disabled:opacity-60"
+          /* Secondary, matching the Donate button: subscribing is the one
+             action this page exists for, so it carries the louder colour
+             rather than the navy used for ordinary links. */
+          className="group inline-flex items-center justify-center gap-2 bg-secondary px-6 py-3 text-xs font-semibold uppercase tracking-[0.1em] !text-white transition-colors hover:!bg-secondary-dark hover:!text-white disabled:opacity-60"
         >
           {status === "sending"
             ? "Sending…"
