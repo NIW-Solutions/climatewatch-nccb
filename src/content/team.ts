@@ -364,16 +364,18 @@ export const teamContent = {
       name: "Dr Tasawar Baig",
       role: "Technical Advisor — Climate and Environmental Governance",
       summary:
-        "Associate Professor of Social Sciences and Humanities at the University of Central Asia, and formerly Associate Dean and Chairman of Politics and International Studies at Karakoram International University.",
+        "Associate Professor of Politics and International Studies and Director of Advanced Studies and Research at Karakoram International University, Gilgit-Baltistan. Founding faculty member since 2003 and co-editor of Mountain Studies.",
       profile: [
         "Dr Tasawar Baig is ClimateWatch's External Advisor on Climate and Environmental Governance.",
-        "He is Associate Professor in the Department of Social Sciences and Humanities at the University of Central Asia, Naryn, and previously served as Associate Dean and Chairman of the Department of Politics and International Studies at Karakoram International University, Gilgit. He holds a PhD in International Studies from Old Dominion University, completed under a Fulbright scholarship, and an International Master's in Asian Studies from Lund University. In 2008 he received the Higher Education Commission's Best University Teacher Award, and he has served on the HEC's National Curriculum Revision Committee for International Relations and Gender Studies.",
-        "His research covers comparative politics and area studies, transnationalism, globalisation and social change, social capital, and community-induced development in mountain societies. He is co-editor of Mountain Studies: Understanding and Managing the Mountains for People and Nature.",
+        "Tasawar Baig is an Associate Professor of Politics and International Studies and Director of Advanced Studies and Research at Karakoram International University (KIU), Gilgit-Baltistan. A member of KIU's founding faculty since 2003, he has contributed extensively to the university's academic and institutional development through various leadership roles, including Associate Dean, Faculty of Social Sciences (2020–2023), and Chair, Department of Politics and International Studies.",
+        "Dr. Baig earned his PhD in International Studies from Old Dominion University, USA, as a Fulbright Scholar, and holds an International Master's degree in Asian Studies from Lund University, Sweden. His teaching and research interests include comparative politics and area studies, globalization and social change, political sociology, political ecology, interdependence and transnationalism, and social capital. His work increasingly focuses on the social and political dimensions of environmental change, sustainability, and mountain communities. He is also a co-editor of Mountain Studies: Understanding and Managing the Mountains for People and Nature.",
+        "In 2008 he received the Higher Education Commission's Best University Teacher Award, and he has served on the HEC's National Curriculum Revision Committee for International Relations and Gender Studies.",
         "He advises ClimateWatch on the theoretical grounding of its work. Environmental research in Pakistan is dominated by pure-science backgrounds, and the theory that lets climate be read as a societal problem is borrowed from sociology, geography, anthropology and political science. His role is to keep that grounding present in ClimateWatch's papers and briefs, and in the Glacier School curriculum.",
       ],
       expertise: [
         "Climate and environmental governance",
         "Comparative politics and area studies",
+        "Political ecology and political sociology",
         "Social capital and community-induced development in mountain societies",
         "Transnationalism, interdependence and globalisation",
         "Interdisciplinary research design in the social sciences",
