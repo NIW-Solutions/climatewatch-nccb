@@ -89,6 +89,7 @@ export const blogContent = {
   posts: [
     {
       slug: "rising-the-heat-declining-the-productivity",
+      date: "2026-07-09",
 
       title:
         "Rising the Heat, Declining the Productivity",
@@ -166,6 +167,7 @@ export const blogContent = {
 
     {
       slug: "thirsty-ai",
+      date: "2026-07-04",
 
       title: "Thirsty AI",
 

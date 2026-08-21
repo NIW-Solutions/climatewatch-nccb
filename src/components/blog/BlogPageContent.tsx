@@ -31,16 +31,33 @@ export function BlogPageContent() {
   const [activeTopic, setActiveTopic] =
     useState<Topic>("all");
 
+  /*
+   * Newest first, by date. ClimateWatch publishes roughly twice a week, and
+   * nobody should have to remember to paste a new entry at the top of the
+   * array — getting that wrong shows the wrong post as the latest.
+   *
+   * Posts with no date sort last rather than first: an undated post is
+   * almost certainly older than one written since the field existed.
+   */
+  const orderedPosts = useMemo(() => {
+    return [...posts].sort((a, b) => {
+      if (!a.date && !b.date) return 0;
+      if (!a.date) return 1;
+      if (!b.date) return -1;
+      return b.date.localeCompare(a.date);
+    });
+  }, [posts]);
+
   const visiblePosts = useMemo(() => {
     if (activeTopic === "all") {
-      return posts;
+      return orderedPosts;
     }
 
-    return posts.filter(
+    return orderedPosts.filter(
       (post) =>
         post.topic === activeTopic,
     );
-  }, [activeTopic, posts]);
+  }, [activeTopic, orderedPosts]);
 
   return (
     <main>
