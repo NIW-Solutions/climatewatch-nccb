@@ -60,6 +60,10 @@ export const siteConfig = {
       label: "Meet The Team",
       href: "/team",
     },
+    {
+      label: "Careers",
+      href: "/careers",
+    },
   ],
   utilityNavigation: [
     {

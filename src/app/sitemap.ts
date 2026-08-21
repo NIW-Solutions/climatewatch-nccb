@@ -73,6 +73,11 @@ const routes = [
     priority: 0.7,
   },
   {
+    path: "/careers",
+    changeFrequency: "weekly",
+    priority: 0.7,
+  },
+  {
     path: "/contact",
     changeFrequency: "yearly",
     priority: 0.7,
