@@ -9,10 +9,10 @@ export const projectsContent = {
       "ClimateWatch projects translate programme priorities into practical work across climate education, community engagement, policy tracking and emerging research tools.",
 
     image:
-      "/images/projects/projects-hero-2026-08.webp",
+      "/images/projects/projects-hero-mountain-2026-08.webp",
 
     imageAlt:
-      "A river valley below snow-covered peaks in northern Pakistan.",
+      "A glacier descending from a snow-covered peak, with its meltwater stream running down the valley below, in northern Pakistan.",
 
     imageCaption:
       "Projects connect ClimateWatch research and programme priorities with practical climate contexts.",
