@@ -1,6 +1,7 @@
 import type { MetadataRoute } from "next";
 
 import { siteConfig } from "@/config/site";
+import { publicationsContent } from "@/content/publications";
 
 const routes = [
   {
@@ -97,9 +98,29 @@ const routes = [
 export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = siteConfig.url.replace(/\/$/, "");
 
-  return routes.map((route) => ({
+  const staticRoutes = routes.map((route) => ({
     url: `${baseUrl}${route.path}`,
     changeFrequency: route.changeFrequency,
     priority: route.priority,
   }));
+
+  /*
+   * Every publication has its own page at /publications/[slug], and those are
+   * the most substantial writing on the site. They were absent from the
+   * sitemap entirely — built, reachable, and never pointed at.
+   *
+   * Derived from the content rather than listed by hand, so a new
+   * publication appears here without anyone remembering to add it.
+   */
+  const publicationRoutes =
+    publicationsContent.items.map((item) => ({
+      url: `${baseUrl}/publications/${item.slug}`,
+      changeFrequency: "yearly" as const,
+      priority: 0.7,
+    }));
+
+  return [
+    ...staticRoutes,
+    ...publicationRoutes,
+  ];
 }
