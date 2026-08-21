@@ -8,11 +8,16 @@ export const programmesContent = {
     description:
       "ClimateWatch works through International Climate Policy, Education for Sustainable Development, and Research & Development.",
 
+    /*
+     * Stored at 1152x720, its native scale. The source is a 1280x720 screen
+     * export rather than a camera original, and upscaling it to the 2560px
+     * the other section images use would add no detail.
+     */
     image:
-      "/images/programmes/programmes-hero-2026-08.webp",
+      "/images/programmes/programmes-hero-debris-2026-08.webp",
 
     imageAlt:
-      "A braided stream crossing a high green valley below snow-covered peaks in northern Pakistan.",
+      "People shovelling rock and silt debris from land in northern Pakistan.",
 
     imageCaption:
       "ClimateWatch programmes connect research, education and policy with climate-vulnerable contexts.",

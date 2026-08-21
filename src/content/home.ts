@@ -171,13 +171,13 @@ howWeWork: {
   },
 
   image:
-    "/images/home/how-we-work-2026-08.webp",
+    "/images/home/how-we-work-ploughing-2026-08.webp",
 
   imageAlt:
-    "A classroom session with school students in northern Pakistan.",
+    "A farmer ploughing a field with a pair of oxen below mountains in northern Pakistan.",
 
   imageCaption:
-    "Education and community engagement come before analysis in how ClimateWatch works.",
+    "ClimateWatch research begins with listening, documentation and the realities experienced in climate-vulnerable communities.",
 },
 
 projects: {
@@ -218,10 +218,10 @@ projects: {
       "/projects#glacier-school",
 
     image:
-      "/images/projects/glacier-school.webp",
+      "/images/projects/glacier-school-classroom-2026-08.webp",
 
     imageAlt:
-      "Climate and environmental learning in a mountain community.",
+      "A young man presenting to a classroom of school students in northern Pakistan.",
 
     imageCaption:
       "Climate education connected to mountain environments, community knowledge and lived experience.",

@@ -69,10 +69,10 @@ export const projectsContent = {
       ],
 
       image:
-        "/images/projects/glacier-school.webp",
+        "/images/projects/glacier-school-classroom-2026-08.webp",
 
       imageAlt:
-        "Climate and earth-science education in a mountain community.",
+        "A young man presenting to a classroom of school students in northern Pakistan.",
 
       imageCaption:
         "Glacier School connects climate learning with mountain environments, local knowledge and practical observation.",
