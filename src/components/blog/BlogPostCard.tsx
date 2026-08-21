@@ -1,53 +1,21 @@
-"use client";
+import Link from "next/link";
+import { ArrowUpRight } from "lucide-react";
 
-import { useId, useState } from "react";
-import { ChevronDown } from "lucide-react";
-
-import type {
-  BlogPost,
-  BlogSegment,
-} from "@/content/blog";
+import type { BlogPost } from "@/content/blog";
 
 /**
  * Blog card — src/components/blog/BlogPostCard.tsx
  *
- * The full post expands in place rather than routing to a detail page:
- * there are only a handful of posts and the whole text is short enough to
- * read inline.
+ * The card links to /blog/<slug> rather than unfolding the post in place.
  *
- * Body text is stored as segments in src/content/blog.ts so the author's
- * wording is never rebuilt in JSX. Links come from the author's own source
- * document — none are added here.
+ * The unfolding version read well but cost the thing that matters more: with
+ * every post living inside /blog, twenty posts were one indexable page with
+ * one title. Nothing could be shared as itself or rank on its own subject.
+ * Serving the full prose here as well would now split the same text across
+ * two addresses, so the card carries the excerpt and the link only.
+ *
+ * A server component — there is no state left to hold.
  */
-
-function Segments({
-  segments,
-}: Readonly<{
-  segments: readonly BlogSegment[];
-}>) {
-  return (
-    <>
-      {segments.map(
-        (segment, index) =>
-          typeof segment === "string" ? (
-            <span key={index}>
-              {segment}
-            </span>
-          ) : (
-            <a
-              key={index}
-              href={segment.href}
-              target="_blank"
-              rel="noreferrer"
-              className="font-medium !text-primary underline decoration-secondary decoration-2 underline-offset-4 transition-colors hover:!text-secondary"
-            >
-              {segment.text}
-            </a>
-          ),
-      )}
-    </>
-  );
-}
 
 /**
  * Thumbnail.
@@ -57,8 +25,8 @@ function Segments({
  * carry their title as part of the image — "Thirsty AI" sits hard left, so
  * a side crop would have cut into it.
  *
- * Posts without artwork still fall back to a styled panel rather than a
- * broken image; set `image` once a file exists in public/images/blog/.
+ * Posts without artwork fall back to a styled panel rather than a broken
+ * image; set `image` once a file exists in public/images/blog/.
  */
 function Thumbnail({
   post,
@@ -91,82 +59,61 @@ function Thumbnail({
 export function BlogPostCard({
   post,
 }: Readonly<{ post: BlogPost }>) {
-  const [open, setOpen] =
-    useState(false);
-  const bodyId = useId();
-
   return (
     <article className="group flex flex-col border-t border-border pt-5">
-      <Thumbnail post={post} />
+      <Link
+        href={`/blog/${post.slug}`}
+        className="flex flex-col"
+        aria-label={post.title}
+      >
+        <Thumbnail post={post} />
 
-      <div className="mt-5 flex items-center justify-between gap-3">
-        <p className="text-[0.56rem] font-bold uppercase tracking-[0.1em] text-secondary">
-          {post.topicLabel}
-        </p>
+        <div className="mt-5 flex items-center justify-between gap-3">
+          <p className="text-[0.56rem] font-bold uppercase tracking-[0.1em] text-secondary">
+            {post.topicLabel}
+          </p>
 
-        <p className="shrink-0 text-[0.65rem] font-semibold text-muted-light">
-          {post.readingTime}
-        </p>
-      </div>
+          <p className="shrink-0 text-[0.65rem] font-semibold text-muted-light">
+            {post.readingTime}
+          </p>
+        </div>
 
-      <h3 className="mt-4 font-editorial text-2xl font-medium leading-[1.12] tracking-[-0.03em] text-primary">
-        {post.title}
-      </h3>
+        <h3 className="mt-4 font-editorial text-2xl font-medium leading-[1.12] tracking-[-0.03em] !text-primary transition-colors group-hover:!text-secondary">
+          {post.title}
+        </h3>
+      </Link>
 
       <p className="mt-3 text-[0.62rem] font-bold uppercase tracking-[0.11em] text-muted-light">
         By {post.author}
+        {post.date ? (
+          <>
+            {" · "}
+            <time dateTime={post.date}>
+              {new Intl.DateTimeFormat("en-GB", {
+                day: "numeric",
+                month: "short",
+                year: "numeric",
+              }).format(new Date(post.date))}
+            </time>
+          </>
+        ) : null}
       </p>
 
-      {!open ? (
-        <p className="mt-4 text-sm leading-7 text-muted">
-          {post.excerpt}
-        </p>
-      ) : null}
+      <p className="mt-4 text-sm leading-7 text-muted">
+        {post.excerpt}
+      </p>
 
-      {open ? (
-        <div
-          id={bodyId}
-          className="mt-6 space-y-5 border-t border-border pt-6"
-        >
-          {post.body.map(
-            (paragraph, index) => (
-              <p
-                key={index}
-                className="text-sm leading-7 text-muted"
-              >
-                <Segments
-                  segments={paragraph}
-                />
-              </p>
-            ),
-          )}
-        </div>
-      ) : null}
-
-      <button
-        type="button"
-        onClick={() =>
-          setOpen((value) => !value)
-        }
-        aria-expanded={open}
-        aria-controls={
-          open ? bodyId : undefined
-        }
-        className="mt-6 inline-flex w-fit items-center gap-2 text-xs font-semibold text-primary transition-colors hover:text-secondary"
+      <Link
+        href={`/blog/${post.slug}`}
+        className="group/link mt-6 inline-flex w-fit items-center gap-2 text-xs font-semibold text-primary transition-colors hover:text-secondary"
       >
-        {open
-          ? "Show less"
-          : "Read full post"}
-
-        <ChevronDown
+        Read full post
+        <ArrowUpRight
           aria-hidden="true"
-          className={[
-            "size-3.5 transition-transform duration-300",
-            open ? "rotate-180" : "",
-          ].join(" ")}
+          className="size-3.5 transition-transform duration-300 group-hover/link:-translate-y-0.5 group-hover/link:translate-x-0.5"
           strokeWidth={1.8}
         />
-      </button>
+      </Link>
     </article>
   );
 }

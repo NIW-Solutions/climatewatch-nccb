@@ -1,6 +1,7 @@
 import type { MetadataRoute } from "next";
 
 import { siteConfig } from "@/config/site";
+import { blogContent } from "@/content/blog";
 import { publicationsContent } from "@/content/publications";
 
 const routes = [
@@ -119,8 +120,25 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.7,
     }));
 
+  /*
+   * One entry per blog post. ClimateWatch publishes roughly twice a week, so
+   * this is the part of the sitemap that actually changes — and the reason
+   * posts have their own URLs at all.
+   */
+  const blogRoutes = blogContent.posts.map(
+    (post) => ({
+      url: `${baseUrl}/blog/${post.slug}`,
+      changeFrequency: "monthly" as const,
+      priority: 0.7,
+      ...(post.date
+        ? { lastModified: new Date(post.date) }
+        : {}),
+    }),
+  );
+
   return [
     ...staticRoutes,
     ...publicationRoutes,
+    ...blogRoutes,
   ];
 }

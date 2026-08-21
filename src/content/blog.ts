@@ -29,6 +29,16 @@ export type BlogPost = {
   topicLabel: string;
   readingTime: string;
   author: string;
+  /**
+   * Publication date as YYYY-MM-DD. Feeds datePublished in the Article
+   * structured data, orders the index, and is what search engines read as a
+   * freshness signal — the reason to set it on every new post.
+   *
+   * Optional only because the two posts written before this field existed
+   * have no recorded date, and inventing one would be a lie in schema.org
+   * markup. Set it on everything from here on.
+   */
+  date?: string;
   /** Optional thumbnail. Falls back to a gradient panel when absent. */
   image?: string;
   body: readonly (readonly BlogSegment[])[];
@@ -209,7 +219,7 @@ export const blogContent = {
         ],
       ],
     },
-  ] satisfies readonly BlogPost[],
+  ] as readonly BlogPost[],
 
   closing: {
     eyebrow: "Write with us",
