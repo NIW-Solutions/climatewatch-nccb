@@ -148,13 +148,18 @@ export const researchContent = {
     ],
 
     image:
-      "/images/research/research-fieldwork-2026-08.webp",
+      "/images/research/research-fieldwork-focus-2026-08.webp",
 
     imageAlt:
-      "Clearing rock and silt debris from land in northern Pakistan.",
+      "An aerial view of a flooded valley in Gilgit-Baltistan, with buildings and trees standing in the water.",
 
     imageCaption:
       "Primary evidence and field context help connect formal climate policy with conditions on the ground.",
+
+    /* Supplied by ClimateWatch and taken by FOCUS Pakistan, so the credit is
+       rendered on the image rather than buried in a colophon. */
+    imageCredit:
+      "Photograph: FOCUS Pakistan",
   },
 
   evidence: {

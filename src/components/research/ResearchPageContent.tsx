@@ -247,6 +247,17 @@ export function ResearchPageContent() {
                     <p className="max-w-xl border-t border-white/30 pt-4 text-xs leading-6 text-white/70">
                       {fieldwork.imageCaption}
                     </p>
+
+                    {/*
+                      Photographer credit. Sits on the image itself rather
+                      than in a page colophon, so it travels with the picture
+                      wherever the section is read.
+                    */}
+                    {fieldwork.imageCredit ? (
+                      <p className="mt-2 text-[0.6rem] font-semibold uppercase tracking-[0.1em] text-white/45">
+                        {fieldwork.imageCredit}
+                      </p>
+                    ) : null}
                   </div>
                 ) : null}
               </div>
