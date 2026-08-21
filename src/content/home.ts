@@ -45,10 +45,10 @@ hero: {
   },
 
   image:
-    "/images/home/home-hero.webp",
+    "/images/home/home-hero-2026-08.webp",
 
   imageAlt:
-    "Mountain landscape representing climate-vulnerable regions of northern Pakistan.",
+    "Autumn poplars along a river below snow-covered peaks in northern Pakistan.",
 
   imageCaption:
     "Climate-vulnerable mountain landscapes in northern Pakistan.",
@@ -82,10 +82,10 @@ introduction: {
   },
 
   image:
-    "/images/home/home-introduction.webp",
+    "/images/home/home-introduction-2026-08.webp",
 
   imageAlt:
-    "Community and landscape context representing ClimateWatch research in climate-vulnerable regions of Pakistan.",
+    "Irrigated fields and poplars below a snow-capped ridge in northern Pakistan.",
 
   imageCaption:
     "ClimateWatch research begins with the places and communities where climate impacts are experienced.",
@@ -171,13 +171,13 @@ howWeWork: {
   },
 
   image:
-    "/images/home/how-we-work.webp",
+    "/images/home/how-we-work-2026-08.webp",
 
   imageAlt:
-    "Community-centred climate research and consultation in Pakistan.",
+    "A classroom session with school students in northern Pakistan.",
 
   imageCaption:
-    "ClimateWatch research begins with listening, documentation and the realities experienced in climate-vulnerable communities.",
+    "Education and community engagement come before analysis in how ClimateWatch works.",
 },
 
 projects: {
@@ -263,10 +263,10 @@ projects: {
         "/projects#climate-bethaak",
 
       image:
-        "/images/projects/climate-bethaak.webp",
+        "/images/projects/climate-bethaak-2026-08.webp",
 
       imageAlt:
-        "Community discussion focused on climate impacts and local experience.",
+        "Participants at a Climate Bethaak gathering, photographed in front of the event backdrop.",
 
       meta: [
         {
@@ -584,10 +584,10 @@ closing: {
     "ClimateWatch is a youth-led climate think tank working across international climate policy, research and development. An ECOSOC-accredited organisation.",
 
   image:
-    "/images/home/home-closing.webp",
+    "/images/home/home-closing-2026-08.webp",
 
   imageAlt:
-    "Mountain landscape representing climate-vulnerable regions of Pakistan.",
+    "Autumn poplars in front of snow-covered peaks in northern Pakistan.",
 },
 
 programmes: {
@@ -657,10 +657,10 @@ divisions: [
       "/programmes#education-for-sustainable-development",
 
     image:
-      "/images/programmes/education-sustainable-development.webp",
+      "/images/programmes/education-sustainable-development-2026-08.webp",
 
     imageAlt:
-      "Climate and environmental education involving communities and young people.",
+      "A teacher addressing students in a classroom in northern Pakistan.",
 
     imageCaption:
       "Climate education grounded in place, experience and environmental knowledge.",
@@ -685,10 +685,10 @@ divisions: [
       "/programmes#research-and-development",
 
     image:
-      "/images/programmes/research-development.webp",
+      "/images/programmes/research-development-2026-08.webp",
 
     imageAlt:
-      "Applied climate research and environmental monitoring in Pakistan.",
+      "Water droplets held on a leaf.",
 
     imageCaption:
       "Research designed to connect evidence with practical climate resilience.",

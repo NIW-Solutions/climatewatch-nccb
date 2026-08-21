@@ -9,10 +9,10 @@ export const projectsContent = {
       "ClimateWatch projects translate programme priorities into practical work across climate education, community engagement, policy tracking and emerging research tools.",
 
     image:
-      "/images/projects/projects-hero.webp",
+      "/images/projects/projects-hero-2026-08.webp",
 
     imageAlt:
-      "Mountain landscape representing ClimateWatch project work in climate-vulnerable regions.",
+      "A river valley below snow-covered peaks in northern Pakistan.",
 
     imageCaption:
       "Projects connect ClimateWatch research and programme priorities with practical climate contexts.",
@@ -119,10 +119,10 @@ export const projectsContent = {
       ],
 
       image:
-        "/images/projects/climate-bethaak.webp",
+        "/images/projects/climate-bethaak-2026-08.webp",
 
       imageAlt:
-        "Community discussion focused on climate impacts and local experience.",
+        "Participants at a Climate Bethaak gathering, photographed in front of the event backdrop.",
 
       imageCaption:
         "Climate Bethaak places community experience at the beginning of the research process.",

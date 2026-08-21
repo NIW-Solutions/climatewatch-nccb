@@ -67,7 +67,7 @@ export function HomeHowWeWork() {
                     DESKTOP IMAGE
 
                     IMAGE REQUIRED:
-                    public/images/home/how-we-work.webp
+                    public/images/home/how-we-work-2026-08.webp
                     ===================================== */}
 
                 <div className="group relative mt-12 hidden h-[30rem] overflow-hidden bg-primary-dark lg:block xl:h-[34rem]">
@@ -169,7 +169,7 @@ export function HomeHowWeWork() {
             MOBILE / TABLET IMAGE
 
             IMAGE REQUIRED:
-            public/images/home/how-we-work.webp
+            public/images/home/how-we-work-2026-08.webp
             ===================================== */}
 
         <InView

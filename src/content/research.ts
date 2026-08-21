@@ -9,10 +9,10 @@ export const researchContent = {
       "ClimateWatch examines climate policy, public finance, vulnerability and international negotiations through research designed to be verified, questioned and used.",
 
     image:
-      "/images/research/research-hero.webp",
+      "/images/research/research-hero-2026-08.webp",
 
     imageAlt:
-      "Mountain environment representing climate research in Pakistan.",
+      "Snow in the foreground above a river valley and mountain range in northern Pakistan.",
 
     imageCaption:
       "ClimateWatch research connects policy questions with evidence from institutions, communities and climate-vulnerable environments.",
@@ -148,10 +148,10 @@ export const researchContent = {
     ],
 
     image:
-      "/images/research/research-fieldwork.webp",
+      "/images/research/research-fieldwork-2026-08.webp",
 
     imageAlt:
-      "Climate research and field observation in a climate-vulnerable environment.",
+      "Clearing rock and silt debris from land in northern Pakistan.",
 
     imageCaption:
       "Primary evidence and field context help connect formal climate policy with conditions on the ground.",

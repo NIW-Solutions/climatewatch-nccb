@@ -74,9 +74,9 @@ export const teamContent = {
     title: "The people behind ClimateWatch.",
     description:
       "ClimateWatch brings together climate policy specialists, researchers, educators, engineers and communicators working across Pakistan and international climate processes.",
-    image: "/images/team/team-hero.webp",
+    image: "/images/team/team-hero-2026-08.webp",
     imageAlt:
-      "ClimateWatch team members working with mountain communities in northern Pakistan.",
+      "Young climate campaigners holding Fridays for Future placards.",
     imageCaption:
       "Our team works between mountain communities, national policy institutions and international climate negotiations.",
   },

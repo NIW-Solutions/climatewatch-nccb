@@ -130,7 +130,7 @@ export function MobileNavigation({
           >
             <div className="relative h-52 shrink-0 overflow-hidden bg-primary-dark sm:h-60">
               <Image
-                src="/images/home/home-hero.webp"
+                src="/images/home/home-hero-2026-08.webp"
                 alt=""
                 fill
                 priority

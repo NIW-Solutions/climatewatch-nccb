@@ -74,7 +74,7 @@ export function HomeClosing() {
           BACKGROUND IMAGE
 
           IMAGE REQUIRED:
-          public/images/home/home-closing.webp
+          public/images/home/home-closing-2026-08.webp
           ===================================== */}
 
       <motion.div

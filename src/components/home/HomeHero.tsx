@@ -99,7 +99,7 @@ export function HomeHero() {
         }}
       >
         <LoadedImage
-          src="/images/home/home-hero-mobile.webp"
+          src="/images/home/home-hero-mobile-2026-08.webp"
           alt={hero.imageAlt}
           fill
           priority

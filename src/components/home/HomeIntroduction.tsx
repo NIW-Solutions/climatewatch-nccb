@@ -86,7 +86,7 @@ export function HomeIntroduction() {
         {/* =====================================
             IMAGE + MISSION
             IMAGE REQUIRED:
-            public/images/home/home-introduction.webp
+            public/images/home/home-introduction-2026-08.webp
             ===================================== */}
 
         <InView

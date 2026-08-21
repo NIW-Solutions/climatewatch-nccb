@@ -9,10 +9,10 @@ export const aboutContent = {
       "ClimateWatch is a youth-led climate think tank based in Pakistan, working across International climate policy, research and Development, education for sustainable Development and Circular Economy.",
 
     image:
-      "/images/about/about-hero.webp",
+      "/images/about/about-hero-2026-08.webp",
 
     imageAlt:
-      "Mountain landscape representing climate-vulnerable regions of Pakistan.",
+      "A wide valley of terraced fields and settlements between mountain ranges in northern Pakistan.",
 
     imageCaption:
       "ClimateWatch works from the realities of climate-vulnerable communities towards policy and institutional processes.",
@@ -44,10 +44,10 @@ export const aboutContent = {
       "Our mission is to help ensure that Pakistan’s climate-vulnerable communities — from the cryosphere regions of Gilgit-Baltistan to the flood plains of Sindh — are represented in the climate-policy decisions that affect them.",
 
     image:
-      "/images/about/mission-community.webp",
+      "/images/about/mission-community-2026-08.webp",
 
     imageAlt:
-      "Community context representing climate-vulnerable populations in Pakistan.",
+      "Residents clearing rock and mud debris from around houses in northern Pakistan.",
 
     imageCaption:
       "Climate evidence begins with the communities, landscapes and lived experience behind policy questions.",
@@ -147,10 +147,10 @@ export const aboutContent = {
     ],
 
     image:
-      "/images/about/geographic-scope.webp",
+      "/images/about/geographic-scope-2026-08.webp",
 
     imageAlt:
-      "Mountain geography representing northern Pakistan and ClimateWatch's research context.",
+      "A cultivated river valley running between high mountain ranges in northern Pakistan.",
 
     imageCaption:
       "Mountain regions provide an important frontline context for ClimateWatch research, education and applied work.",

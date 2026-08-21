@@ -9,10 +9,10 @@ export const programmesContent = {
       "ClimateWatch works through International Climate Policy, Education for Sustainable Development, and Research & Development.",
 
     image:
-      "/images/programmes/programmes-hero.webp",
+      "/images/programmes/programmes-hero-2026-08.webp",
 
     imageAlt:
-      "Mountain and environmental landscape representing ClimateWatch programme work in Pakistan.",
+      "A braided stream crossing a high green valley below snow-covered peaks in northern Pakistan.",
 
     imageCaption:
       "ClimateWatch programmes connect research, education and policy with climate-vulnerable contexts.",
@@ -106,10 +106,10 @@ export const programmesContent = {
       ],
 
       image:
-        "/images/programmes/glacier-school.webp",
+        "/images/programmes/glacier-school-2026-08.webp",
 
       imageAlt:
-        "Climate and environmental education involving students and communities.",
+        "A glacier below a snow-covered summit in northern Pakistan.",
 
       imageCaption:
         "Climate education connected to mountain environments, local knowledge and practical learning.",
@@ -150,10 +150,10 @@ export const programmesContent = {
       ],
 
       image:
-        "/images/programmes/research-development.webp",
+        "/images/programmes/research-development-2026-08.webp",
 
       imageAlt:
-        "Applied environmental research and climate monitoring in a mountain region.",
+        "Water droplets held on a leaf.",
 
       imageCaption:
         "Research connecting climate evidence with practical questions of resilience and risk.",
