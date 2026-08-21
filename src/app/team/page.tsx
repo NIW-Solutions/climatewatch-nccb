@@ -6,7 +6,7 @@ export const metadata: Metadata = {
   title: "Members, Advisors & Board",
 
   description:
-    "Meet the people behind ClimateWatch: divisional leadership across climate policy, research, education, partnerships, engineering, projects and communications, alongside our technical advisors and Board of Directors.",
+    "The people behind ClimateWatch: divisional leadership across climate policy, research and education, with our technical advisors and Board of Directors.",
 };
 
 export default function TeamPage() {
