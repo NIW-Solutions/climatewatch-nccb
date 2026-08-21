@@ -225,10 +225,10 @@ export const projectsContent = {
       ],
 
       image:
-        "/images/projects/unfccc-negotiations.webp",
+        "/images/projects/unfccc-negotiations-bonn-2026-08.webp",
 
       imageAlt:
-        "International climate-policy negotiations and institutional discussion.",
+        "The plenary hall at the United Nations Climate Change Conference in Bonn, Germany, with delegates seated in the round.",
 
       imageCaption:
         "Negotiation tracking connects international climate-policy developments with research relevant to Pakistan.",
