@@ -16,6 +16,7 @@ import { careersContent } from "@/content/careers";
 export function CareersPageContent() {
   const {
     hero,
+    terms,
     openingsSection,
     process,
     contact,
@@ -48,6 +49,49 @@ export function CareersPageContent() {
           <p className="mt-7 max-w-2xl text-base leading-8 text-white/70">
             {hero.description}
           </p>
+        </div>
+      </section>
+
+      {/* =====================================
+          TERMS
+          Deliberately above the roles. Unpaid, remote and the length of the
+          commitment are the facts most likely to change whether someone
+          applies at all, so they are not left to the bottom of the page.
+          ===================================== */}
+
+      <section className="border-b border-border bg-surface">
+        <div className="site-container section-shell-small">
+          <div className="flex items-center gap-4">
+            <span
+              aria-hidden="true"
+              className="h-px w-8 bg-secondary"
+            />
+
+            <p className="eyebrow text-primary">
+              {terms.eyebrow}
+            </p>
+          </div>
+
+          <h2 className="mt-6 max-w-3xl font-editorial text-[clamp(1.7rem,3vw,2.6rem)] font-medium leading-[1.1] tracking-[-0.035em] text-primary">
+            {terms.title}
+          </h2>
+
+          <dl className="mt-12 grid gap-px border border-border bg-border sm:grid-cols-2">
+            {terms.items.map((item) => (
+              <div
+                key={item.title}
+                className="bg-surface p-7"
+              >
+                <dt className="text-sm font-semibold text-primary">
+                  {item.title}
+                </dt>
+
+                <dd className="mt-3 text-sm leading-7 text-muted">
+                  {item.description}
+                </dd>
+              </div>
+            ))}
+          </dl>
         </div>
       </section>
 
@@ -222,6 +266,13 @@ function OpeningCard({
         <p className="text-[0.56rem] font-bold uppercase tracking-[0.12em] text-muted-light">
           {opening.location}
         </p>
+      </div>
+
+      {/* Term and time commitment, stated with the role rather than only in
+          the page-wide terms above, since they differ between them. */}
+      <div className="mt-4 flex flex-wrap gap-x-6 gap-y-1 text-xs text-muted">
+        <span>{opening.term}</span>
+        <span>{opening.hours}</span>
       </div>
 
       <h3 className="mt-5 font-editorial text-2xl font-medium leading-[1.12] tracking-[-0.03em] text-primary">
