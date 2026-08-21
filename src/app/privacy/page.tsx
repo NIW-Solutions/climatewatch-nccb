@@ -4,6 +4,10 @@ import { LegalPage } from "@/components/legal/LegalPage";
 import { privacyContent } from "@/content/legal";
 
 export const metadata: Metadata = {
+  alternates: {
+    canonical: "/privacy",
+  },
+
   title: "Privacy Policy",
   description:
     "Read the ClimateWatch Privacy Policy and learn how information submitted through the website may be handled.",

@@ -5,6 +5,10 @@ import { tvLiveContent } from "@/content/tv-live";
 import { fetchYouTube } from "@/lib/news/fetchers";
 
 export const metadata: Metadata = {
+  alternates: {
+    canonical: "/tv-live",
+  },
+
   title: "TV Live",
 
   description:

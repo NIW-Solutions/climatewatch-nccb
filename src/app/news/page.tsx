@@ -4,6 +4,10 @@ import { NewsPageContent } from "@/components/news/NewsPageContent";
 import { getNewsFeed } from "@/lib/news";
 
 export const metadata: Metadata = {
+  alternates: {
+    canonical: "/news",
+  },
+
   title: "News",
   description:
     "Climate coverage from Gilgit-Baltistan, Chitral and Pakistan, UNFCCC negotiations and press briefings, youth climate spaces, and updates from ClimateWatch.",

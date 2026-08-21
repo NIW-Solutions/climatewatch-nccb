@@ -1,3 +1,5 @@
+import type { Metadata } from "next";
+
 import { HomeClosing } from "@/components/home/HomeClosing";
 import { HomeCoverage } from "@/components/home/HomeCoverage";
 import { HomeHero } from "@/components/home/HomeHero";
@@ -23,6 +25,12 @@ import { SectionAccordion } from "@/components/shared/SectionAccordion";
  * headings — they are passed through as children, so they render on the
  * server and the accordion only shows and hides them.
  */
+export const metadata: Metadata = {
+  alternates: {
+    canonical: "/",
+  },
+};
+
 export default function HomePage() {
   return (
     <main>

@@ -3,6 +3,10 @@ import type { Metadata } from "next";
 import { TeamPageContent } from "@/components/team/TeamPageContent";
 
 export const metadata: Metadata = {
+  alternates: {
+    canonical: "/team",
+  },
+
   title: "Members, Advisors & Board",
 
   description:

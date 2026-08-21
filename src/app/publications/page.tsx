@@ -3,6 +3,10 @@ import type { Metadata } from "next";
 import { PublicationsPageContent } from "@/components/publications/PublicationsPageContent";
 
 export const metadata: Metadata = {
+  alternates: {
+    canonical: "/publications",
+  },
+
   title: "Publications",
   description:
     "Browse ClimateWatch publications, climate-policy reports, research and commentary.",

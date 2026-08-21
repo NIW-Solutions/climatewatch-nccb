@@ -3,6 +3,10 @@ import type { Metadata } from "next";
 import { BlogPageContent } from "@/components/blog/BlogPageContent";
 
 export const metadata: Metadata = {
+  alternates: {
+    canonical: "/blog",
+  },
+
   title: "Blog",
 
   description:

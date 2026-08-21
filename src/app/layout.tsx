@@ -43,10 +43,6 @@ export const metadata: Metadata = {
 
   description: siteConfig.description,
 
-  alternates: {
-    canonical: "/",
-  },
-
   creator: siteConfig.name,
 
   publisher: siteConfig.name,
@@ -64,8 +60,6 @@ export const metadata: Metadata = {
     type: "website",
 
     locale: "en_PK",
-
-    url: "/",
 
     siteName: siteConfig.name,
 

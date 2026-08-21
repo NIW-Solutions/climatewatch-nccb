@@ -3,6 +3,10 @@ import type { Metadata } from "next";
 import { DonatePageContent } from "@/components/donate/DonatePageContent";
 
 export const metadata: Metadata = {
+  alternates: {
+    canonical: "/donate",
+  },
+
   title: "Donate",
 
   description:

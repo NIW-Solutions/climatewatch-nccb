@@ -3,6 +3,10 @@ import type { Metadata } from "next";
 import { ContactPageContent } from "@/components/contact/ContactPageContent";
 
 export const metadata: Metadata = {
+  alternates: {
+    canonical: "/contact",
+  },
+
   title: "Contact",
 
   description:
