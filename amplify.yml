@@ -1,0 +1,43 @@
+# Amplify build specification
+#
+# This file exists for one reason: environment variables set in the Amplify
+# console reach the BUILD but not the Next.js SSR RUNTIME. AWS documents that
+# as intentional — it stops build-time secrets leaking into server components
+# by default. The consequence here was that /api/newsletter kept returning 503
+# "not connected yet" even with NEWSLETTER_API_KEY set in the console, because
+# process.env was empty in the running function.
+#
+# The documented remedy is to write the variables Next.js should see into
+# .env.production before the build, which is what the grep line below does.
+# https://docs.aws.amazon.com/amplify/latest/userguide/ssr-environment-variables.html
+#
+# Only the prefixes named below are exposed. Anything else set in the console
+# stays build-only, which is the safer default.
+#
+# WORTH KNOWING: values written this way end up inside the deployment
+# artifact, and anyone with access to the Amplify app can read them. That is
+# acceptable for a newsletter signup token — worst case someone adds
+# subscribers to a list. Do not use this route for anything whose misuse
+# would be serious; AWS recommends an IAM role on the SSR compute for that.
+#
+# The `|| true` matters: grep exits non-zero when nothing matches, which would
+# otherwise fail the whole build on a branch where these are not set.
+
+version: 1
+frontend:
+  phases:
+    preBuild:
+      commands:
+        - npm ci
+    build:
+      commands:
+        - env | grep -e NEWSLETTER_ -e NOTION_ >> .env.production || true
+        - npm run build
+  artifacts:
+    baseDirectory: .next
+    files:
+      - '**/*'
+  cache:
+    paths:
+      - node_modules/**/*
+      - .next/cache/**/*

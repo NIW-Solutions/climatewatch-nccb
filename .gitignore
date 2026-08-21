@@ -17,6 +17,8 @@
 .env.development.local
 .env.test.local
 .env.production.local
+# Written during the Amplify build (see amplify.yml) and can hold live tokens.
+.env.production
 
 # Debug logs
 npm-debug.log*
