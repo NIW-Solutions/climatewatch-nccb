@@ -14,7 +14,9 @@ const nextConfig: NextConfig = {
      * 92 and 95; undeclared, both were silently falling back to 75 and
      * logging a warning on every render.
      */
-    qualities: [75, 92, 95],
+    /* 80 is what the hero uses. 92 and 95 are kept only so any
+       remaining caller does not 400 while being migrated down. */
+    qualities: [75, 80, 92, 95],
 
     remotePatterns: [
       // YouTube video thumbnails used by the TV Live broadcast archive.

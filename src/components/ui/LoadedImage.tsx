@@ -19,6 +19,22 @@ export function LoadedImage({
   const [isLoaded, setIsLoaded] =
     useState(false);
 
+  /*
+   * A priority image is the one the page is judged on. Fading it in costs
+   * exactly what Largest Contentful Paint measures: the browser painted it at
+   * opacity 0, then waited for hydration, the load event, a re-render and a
+   * one-second transition before it counted as painted.
+   *
+   * So priority images skip the shimmer and appear as soon as the bytes
+   * arrive. Everything below the fold keeps the fade, where it costs nothing
+   * and reads better than a pop-in.
+   */
+  const revealImmediately = Boolean(
+    props.priority,
+  );
+  const shown =
+    isLoaded || revealImmediately;
+
   return (
     <div className="relative h-full w-full overflow-hidden">
       {/* Loader */}
@@ -29,7 +45,7 @@ export function LoadedImage({
           darkLoader
             ? "bg-primary-dark"
             : "bg-surface-muted",
-          isLoaded
+          shown
             ? "opacity-0"
             : "opacity-100",
           loaderClassName,
@@ -82,7 +98,7 @@ export function LoadedImage({
         {...props}
         className={[
           "transition-[opacity,transform,filter] duration-1000 ease-out",
-          isLoaded
+          shown
             ? "opacity-100 blur-0"
             : "opacity-0 blur-[2px]",
           className,

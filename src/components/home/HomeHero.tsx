@@ -103,7 +103,7 @@ export function HomeHero() {
           alt={hero.imageAlt}
           fill
           priority
-          quality={95}
+          quality={80}
           sizes="100vw"
           className="object-cover object-center"
           loaderClassName="bg-primary-dark"
@@ -126,7 +126,7 @@ export function HomeHero() {
           alt={hero.imageAlt}
           fill
           priority
-          quality={92}
+          quality={80}
           sizes="100vw"
           className="object-cover object-center"
           loaderClassName="bg-primary-dark"
