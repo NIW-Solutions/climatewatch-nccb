@@ -629,10 +629,10 @@ divisions: [
       "/programmes#international-climate-policy",
 
     image:
-      "/images/programmes/international-climate-policy.webp",
+      "/images/programmes/international-climate-policy-2026-08.webp",
 
     imageAlt:
-      "International climate-policy and institutional engagement.",
+      "Youth delegates seated behind a YOUTH NGOs nameplate at an international climate negotiation session.",
 
     imageCaption:
       "Following international climate-policy processes and translating their relevance for Pakistan.",

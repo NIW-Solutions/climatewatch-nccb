@@ -67,10 +67,10 @@ export const programmesContent = {
       ],
 
       image:
-        "/images/programmes/international-climate-policy.webp",
+        "/images/programmes/international-climate-policy-2026-08.webp",
 
       imageAlt:
-        "Institutional climate-policy discussion and international policy engagement.",
+        "Youth delegates seated behind a YOUTH NGOs nameplate at an international climate negotiation session.",
 
       imageCaption:
         "Connecting international climate-policy developments with their relevance for Pakistan.",
