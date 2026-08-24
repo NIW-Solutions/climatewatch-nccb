@@ -382,6 +382,28 @@ export const teamContent = {
       ],
     },
     {
+      slug: "fozia-tahir",
+      image: "/images/team/fozia-tahir.webp",
+      name: "Dr. Fozia Tahir",
+      role: "External Advisor — Climate Education and Curriculum",
+      summary:
+        "Environmental scientist and Assistant Professor at the Aga Khan University's Faculty of Arts and Sciences. A World Economic Forum Young Global Leader and a board member of WWF-Pakistan, she works on environmental education and sustainability curricula.",
+      profile: [
+        "Dr. Fozia Tahir is ClimateWatch's External Advisor on Climate Education and Curriculum.",
+        "She is Assistant Professor at the Aga Khan University's Faculty of Arts and Sciences, and works with the University's Institute for Educational Development on sustainability education and on training teachers to build environmental education into early childhood and K-12 curricula. She holds a DPhil from the University of Oxford, an MS from the National University of Sciences and Technology, and a BS from Fatima Jinnah Women University.",
+        "An environmental scientist from Gilgit-Baltistan, her research covers water and wastewater treatment, microplastic pollution, environmental education, and behaviour change toward sustainability, and she works at the meeting point of scientific and indigenous knowledge. She has authored a module on climate change and sustainability, trained more than a hundred youth educators, and, with her students and team, produced around ten free open-access resources for teachers, parents and students.",
+        "She is a World Economic Forum Young Global Leader in the class of 2025 and sits on the board of WWF-Pakistan.",
+        "She advises ClimateWatch on curriculum design and pedagogy: the structure of the Glacier School and other training programmes, what participants should be able to do afterwards, and how the education components of ClimateWatch's project work are built.",
+      ],
+      expertise: [
+        "Environmental and sustainability education",
+        "Curriculum design and teacher training",
+        "Water and wastewater treatment",
+        "Microplastic pollution",
+        "Behaviour change for sustainability",
+      ],
+    },
+    {
       slug: "amjad-ali",
       image: "/images/team/amjad-ali.webp",
       name: "Mr. Amjad Ali",
