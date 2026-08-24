@@ -6,6 +6,21 @@ import type { ReactNode } from "react";
 import { LoadedImage } from "@/components/ui/LoadedImage";
 
 /**
+ * Navy-to-orange portrait border.
+ *
+ * A hard split rather than a blend: the two stops meet at 50% with nothing
+ * between them, so it reads as two brand colours meeting rather than a muddy
+ * transition. Applied as a 2px padded background behind the photo, which
+ * gives a crisp edge at any aspect ratio without needing border-image.
+ *
+ * Lives here rather than in a page component because the division heads, the
+ * divisional teams and the advisor and board grid all use it, and a second
+ * copy of this string is a second thing to keep in step.
+ */
+export const PORTRAIT_BORDER =
+  "linear-gradient(158deg, var(--color-primary) 0%, var(--color-primary) 50%, var(--color-secondary) 50%, var(--color-secondary) 100%)";
+
+/**
  * Shared team primitives — src/components/team/team-primitives.tsx
  *
  * Used by the division heads, the divisional-team tiles, and the advisor and

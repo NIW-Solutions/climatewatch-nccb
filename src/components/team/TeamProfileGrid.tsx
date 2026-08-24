@@ -19,6 +19,7 @@ import { InView } from "@/components/motion-primitives/InView";
 import type { TeamProfile } from "@/content/team";
 
 import {
+  PORTRAIT_BORDER,
   TeamPhoto,
   TeamSocialLinks,
 } from "./team-primitives";
@@ -81,7 +82,11 @@ function ProfileCard({
   return (
     <article className="group flex h-full flex-col">
       {/* Portrait */}
-      <div className="relative aspect-[4/5] overflow-hidden bg-surface-muted">
+      <div
+        className="rounded-sm p-[2px]"
+        style={{ background: PORTRAIT_BORDER }}
+      >
+      <div className="relative aspect-[4/5] overflow-hidden rounded-[2px] bg-surface-muted">
         <TeamPhoto
           src={profile.image}
           name={profile.name}
@@ -92,6 +97,7 @@ function ProfileCard({
           aria-hidden="true"
           className="absolute inset-x-0 bottom-0 h-[3px] origin-left scale-x-0 bg-secondary transition-transform duration-500 ease-out group-hover:scale-x-100"
         />
+      </div>
       </div>
 
       {/* Identity */}

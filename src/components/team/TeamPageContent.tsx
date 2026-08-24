@@ -9,6 +9,7 @@ import {
 } from "@/content/team";
 
 import {
+  PORTRAIT_BORDER,
   TeamPhoto,
   TeamSocialLinks,
 } from "./team-primitives";
@@ -482,9 +483,6 @@ export function TeamPageContent() {
    circular avatar ring used, drawn as a
    gradient behind 2px of padding.
    ========================================== */
-
-const PORTRAIT_BORDER =
-  "linear-gradient(158deg, var(--color-primary) 0%, var(--color-primary) 50%, var(--color-secondary) 50%, var(--color-secondary) 100%)";
 
 function PersonCard({
   name,
