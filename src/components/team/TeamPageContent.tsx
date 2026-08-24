@@ -1,4 +1,4 @@
-import { Mail } from "lucide-react";
+import { ArrowDown, Mail } from "lucide-react";
 
 import { CountUp } from "@/components/motion-primitives/CountUp";
 import { InView } from "@/components/motion-primitives/InView";
@@ -188,6 +188,47 @@ export function TeamPageContent() {
                 ),
               )}
             </nav>
+          </InView>
+
+          {/*
+            The nine divisions above are the operational team. These two groups
+            sit outside that structure and further down the page, so the index
+            needs to point at them or they are only found by scrolling.
+          
+            Same-page anchors rather than routes — both sections live here. Each
+            target carries scroll-mt-28 already, so the sticky header does not
+            cover the heading on arrival.
+          */}
+          <InView delay={0.1}>
+            <div className="mt-8 flex flex-col gap-3 sm:flex-row">
+              <a
+                href="#advisors"
+                className="group inline-flex min-h-11 flex-1 items-center justify-between gap-4 bg-primary px-5 !text-white transition-colors hover:!bg-primary-dark hover:!text-white"
+              >
+                <span className="text-[0.62rem] font-bold uppercase tracking-[0.11em]">
+                  {advisory.eyebrow}
+                </span>
+                <ArrowDown
+                  aria-hidden="true"
+                  className="size-3.5 shrink-0 transition-transform duration-300 group-hover:translate-y-0.5"
+                  strokeWidth={1.8}
+                />
+              </a>
+          
+              <a
+                href="#board"
+                className="group inline-flex min-h-11 flex-1 items-center justify-between gap-4 bg-secondary px-5 !text-white transition-colors hover:!bg-secondary-dark hover:!text-white"
+              >
+                <span className="text-[0.62rem] font-bold uppercase tracking-[0.11em]">
+                  Board of Directors
+                </span>
+                <ArrowDown
+                  aria-hidden="true"
+                  className="size-3.5 shrink-0 transition-transform duration-300 group-hover:translate-y-0.5"
+                  strokeWidth={1.8}
+                />
+              </a>
+            </div>
           </InView>
         </div>
       </section>
