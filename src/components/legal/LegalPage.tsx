@@ -136,7 +136,7 @@ export function LegalPage({
                 (section, index) => (
                   <InView
                     key={section.number}
-                    delay={index * 0.015}
+                    delay={Math.min(index, 5) * 0.07}
                     amount={0.04}
                   >
                     <section

@@ -1501,3 +1501,41 @@ input[type="checkbox"] {
   from { opacity: 0; transform: translateY(14px); }
   to   { opacity: 1; transform: translateY(0); }
 }
+
+
+/* ==========================================
+   HERO DRIFT
+   ==========================================
+
+   A slow ambient push on the hero photograph, so the page is not completely
+   still before a visitor scrolls. Twenty-four seconds for a 4% scale, which
+   is below the threshold of noticing it move and above the threshold of the
+   page feeling dead.
+
+   It animates transform on the image itself. The wrapper is a Framer
+   motion.div carrying a scroll-linked scale and y; putting this on the same
+   element would have the two overwrite each other every frame.
+
+   Transform-only, so it never triggers layout and costs nothing in Largest
+   Contentful Paint — which is why the hero can have this and still paint
+   immediately.
+   ========================================== */
+
+@keyframes hero-drift {
+  from {
+    transform: scale(1);
+  }
+  to {
+    transform: scale(1.04);
+  }
+}
+
+.hero-drift {
+  animation: hero-drift 24s ease-in-out infinite alternate;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-drift {
+    animation: none;
+  }
+}

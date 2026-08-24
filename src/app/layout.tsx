@@ -10,7 +10,6 @@ import {
 import "./globals.css";
 import "leaflet/dist/leaflet.css";
 
-import { FirstVisitAnnouncements } from "@/components/shared/FirstVisitAnnouncements";
 import { SiteFooter } from "@/components/layout/SiteFooter";
 import { SiteHeader } from "@/components/layout/SiteHeader";
 import { SiteStructuredData } from "@/components/shared/SiteStructuredData";
@@ -130,7 +129,6 @@ export default function RootLayout({
           server or the first client pass, so it cannot affect hydration or
           what a crawler sees.
         */}
-        <FirstVisitAnnouncements />
       </body>
     </html>
   );

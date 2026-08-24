@@ -160,7 +160,7 @@ export function ProjectsPageContent() {
               (project, index) => (
                 <InView
                   key={project.id}
-                  delay={index * 0.025}
+                  delay={Math.min(index, 5) * 0.07}
                   amount={0.08}
                 >
                   <article

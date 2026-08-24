@@ -79,7 +79,7 @@ export function ResourcesPageContent() {
               (item, index) => (
                 <InView
                   key={item.number}
-                  delay={index * 0.025}
+                  delay={Math.min(index, 5) * 0.07}
                   amount={0.08}
                 >
                   <article className="group border-b border-border">
@@ -173,7 +173,7 @@ export function ResourcesPageContent() {
               (item, index) => (
                 <InView
                   key={item.number}
-                  delay={index * 0.02}
+                  delay={Math.min(index, 5) * 0.07}
                   amount={0.08}
                 >
                   <article className="border-b border-border">

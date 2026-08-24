@@ -193,7 +193,7 @@ export function HomeProjects() {
             {projectItems.map((project, index) => (
               <InView
                 key={project.slug}
-                delay={index * 0.04}
+                delay={Math.min(index, 5) * 0.07}
                 amount={0.08}
               >
                 <article className="group grid gap-y-7 border-b border-border py-9 sm:py-11 lg:grid-cols-[0.75fr_1.35fr_2.1fr_0.5fr] lg:items-center lg:gap-x-8">

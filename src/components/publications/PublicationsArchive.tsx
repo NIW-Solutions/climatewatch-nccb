@@ -219,7 +219,7 @@ export function PublicationsArchive() {
             (item, index) => (
               <InView
                 key={item.slug}
-                delay={index * 0.03}
+                delay={Math.min(index, 5) * 0.07}
                 amount={0.08}
               >
                 <PublicationCard

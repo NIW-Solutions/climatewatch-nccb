@@ -168,7 +168,7 @@ export function HomeResearch() {
               (workstream, index) => (
                 <InView
                   key={workstream.number}
-                  delay={index * 0.035}
+                  delay={Math.min(index, 5) * 0.07}
                   amount={0.12}
                 >
                   <article className="group grid gap-y-5 border-b border-border py-8 sm:py-10 lg:grid-cols-[0.7fr_1.3fr_2.6fr_0.4fr] lg:items-start lg:gap-x-8">

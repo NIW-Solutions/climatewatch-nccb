@@ -105,7 +105,7 @@ export function HomeHero() {
           priority
           quality={80}
           sizes="100vw"
-          className="object-cover object-center"
+          className="hero-drift object-cover object-center"
           loaderClassName="bg-primary-dark"
         />
       </motion.div>
@@ -128,7 +128,7 @@ export function HomeHero() {
           priority
           quality={80}
           sizes="100vw"
-          className="object-cover object-center"
+          className="hero-drift object-cover object-center"
           loaderClassName="bg-primary-dark"
         />
       </motion.div>

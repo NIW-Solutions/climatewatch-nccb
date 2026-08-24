@@ -11,6 +11,7 @@ import { HomePublication } from "@/components/home/HomePublication";
 import { HomeResearch } from "@/components/home/HomeResearch";
 import { PakistanCoverageMap } from "@/components/shared/PakistanCoverageMap";
 import { PartnerTicker } from "@/components/shared/PartnerTicker";
+import { FirstVisitAnnouncements } from "@/components/shared/FirstVisitAnnouncements";
 import { SectionAccordion } from "@/components/shared/SectionAccordion";
 
 /**
@@ -34,6 +35,14 @@ export const metadata: Metadata = {
 export default function HomePage() {
   return (
     <main>
+      {/*
+        Home page only. This used to sit in the root layout, which meant the
+        hiring dialog interrupted all nineteen pages and locked scroll until
+        someone dismissed it — including for a visitor arriving on a blog
+        post from a search result. An announcement belongs on the front door.
+      */}
+      <FirstVisitAnnouncements />
+
       <HomeHero />
 
       <SectionAccordion

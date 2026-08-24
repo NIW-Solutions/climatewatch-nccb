@@ -160,7 +160,7 @@ export function ResearchPageContent() {
               (workstream, index) => (
                 <InView
                   key={workstream.id}
-                  delay={index * 0.03}
+                  delay={Math.min(index, 5) * 0.07}
                   amount={0.1}
                 >
                   <article
@@ -333,7 +333,7 @@ export function ResearchPageContent() {
               (level, index) => (
                 <InView
                   key={level.number}
-                  delay={index * 0.025}
+                  delay={Math.min(index, 5) * 0.07}
                 >
                   <div className="grid gap-y-5 border-b border-border py-7 sm:py-8 lg:grid-cols-[0.6fr_1.25fr_2.15fr] lg:gap-x-8">
                     <span className="editorial-index">
@@ -374,7 +374,7 @@ export function ResearchPageContent() {
               (item, index) => (
                 <InView
                   key={item.number}
-                  delay={index * 0.03}
+                  delay={Math.min(index, 5) * 0.07}
                 >
                   <article
                     className={[

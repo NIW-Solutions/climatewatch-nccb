@@ -248,7 +248,7 @@ export function AboutPageContent() {
                             (item, index) => (
                               <InView
                                 key={item.number}
-                                delay={index * 0.03}
+                                delay={Math.min(index, 5) * 0.07}
                                 amount={0.12}
                               >
                                 <article className="group grid gap-y-5 border-b border-border py-8 sm:py-9 lg:grid-cols-[0.7fr_1.4fr_2.4fr] lg:gap-x-8">
@@ -305,7 +305,7 @@ export function AboutPageContent() {
                             (step, index) => (
                               <InView
                                 key={step.number}
-                                delay={index * 0.025}
+                                delay={Math.min(index, 5) * 0.07}
                               >
                                 <div
                                   className={[

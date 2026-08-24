@@ -118,7 +118,7 @@ export function HomeHowWeWork() {
               {howWeWork.steps.map((step, index) => (
                 <InView
                   key={step.number}
-                  delay={index * 0.035}
+                  delay={Math.min(index, 5) * 0.07}
                   amount={0.14}
                 >
                   <article className="group relative grid grid-cols-[3rem_minmax(0,1fr)] gap-5 border-b border-border py-7 sm:grid-cols-[4.5rem_minmax(0,1fr)_auto] sm:gap-7 sm:py-9">

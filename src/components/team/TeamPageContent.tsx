@@ -1,5 +1,6 @@
 import { Mail } from "lucide-react";
 
+import { CountUp } from "@/components/motion-primitives/CountUp";
 import { InView } from "@/components/motion-primitives/InView";
 import { LoadedImage } from "@/components/ui/LoadedImage";
 import { TeamProfileGrid } from "@/components/team/TeamProfileGrid";
@@ -111,7 +112,7 @@ export function TeamPageContent() {
                     {stat.label}
                   </dt>
                   <dd className="mt-3 font-editorial text-[clamp(1.9rem,2.6vw,2.6rem)] font-medium leading-none tracking-[-0.035em] text-white">
-                    {stat.value}
+                    <CountUp value={stat.value} />
                   </dd>
                 </div>
               ))}
