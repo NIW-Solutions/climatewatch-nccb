@@ -222,7 +222,7 @@ export function SiteHeader() {
               href="/"
               onClick={closeMenu}
               aria-label="ClimateWatch home"
-              className="relative z-10 flex shrink-0 items-center"
+              className="header-logo-in relative z-10 flex shrink-0 items-center"
             >
               <Image
                 src="/images/brand/climatewatch-logo.webp"
@@ -249,7 +249,7 @@ export function SiteHeader() {
               className="hidden xl:flex xl:items-center xl:gap-4 2xl:gap-6"
             >
               {siteConfig.navigation.map(
-                (item) => {
+                (item, index) => {
                   const active =
                     pathname ===
                       item.href ||
@@ -262,8 +262,13 @@ export function SiteHeader() {
                       key={item.href}
                       href={item.href}
                       onClick={closeMenu}
+                      /* Each item follows the one before it. The logo runs first, so the
+                         nav starts after it rather than alongside. */
+                      style={{
+                        animationDelay: `${180 + index * 55}ms`,
+                      }}
                       className={[
-                        "relative whitespace-nowrap py-7 text-[0.62rem] font-bold uppercase tracking-[0.07em] transition-colors 2xl:text-[0.68rem] 2xl:tracking-[0.08em]",
+                        "header-item-in relative whitespace-nowrap py-7 text-[0.62rem] font-bold uppercase tracking-[0.07em] transition-colors 2xl:text-[0.68rem] 2xl:tracking-[0.08em]",
 
                         transparent
                           ? active

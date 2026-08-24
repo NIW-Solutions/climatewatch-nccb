@@ -13,7 +13,8 @@
     "check": "npm run typecheck && npm run lint",
     "clean": "node -e \"const fs=require('fs');['.next','out'].forEach((dir)=>fs.rmSync(dir,{recursive:true,force:true}))\"",
     "build:clean": "npm run clean && npm run build",
-    "prebuild": "npm run check"
+    "prebuild": "npm run check",
+    "blur": "node scripts/generate-image-blur.mjs"
   },
   "engines": {
     "node": ">=20.9.0"

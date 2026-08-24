@@ -289,9 +289,19 @@ function PublicationCard({
 
         <span
           aria-hidden="true"
-          className="absolute inset-0 grid place-items-center bg-primary-dark/70 opacity-0 transition-opacity duration-300 group-hover:opacity-100"
+          className="absolute inset-0 grid place-items-center overflow-hidden"
         >
-          <span className="inline-flex items-center gap-2.5 border border-white/40 bg-white/10 px-4 py-2.5 text-[0.6rem] font-bold uppercase tracking-[0.12em] text-white backdrop-blur-sm">
+          {/*
+            The panel wipes up from the bottom edge; the label rises into it a
+            beat later. Two movements at slightly different speeds read as one
+            gesture, where the same two fading together reads as a toggle.
+        
+            translate-y rather than height: transforms are composited, so a grid
+            of a dozen cards never triggers layout on hover.
+          */}
+          <span className="absolute inset-0 translate-y-full bg-primary-dark/75 transition-transform duration-[420ms] ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:translate-y-0 motion-reduce:transition-none" />
+        
+          <span className="relative inline-flex translate-y-3 items-center gap-2.5 border border-white/40 bg-white/10 px-4 py-2.5 text-[0.6rem] font-bold uppercase tracking-[0.12em] text-white opacity-0 backdrop-blur-sm transition-[transform,opacity] delay-100 duration-300 ease-out group-hover:translate-y-0 group-hover:opacity-100 motion-reduce:transition-none">
             <BookOpen
               className="size-3.5"
               strokeWidth={1.8}

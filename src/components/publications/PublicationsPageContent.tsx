@@ -116,9 +116,12 @@ export function PublicationsPageContent() {
 
                   <span
                     aria-hidden="true"
-                    className="absolute inset-0 grid place-items-center bg-primary-dark/70 opacity-0 transition-opacity duration-300 group-hover:opacity-100"
+                    className="absolute inset-0 grid place-items-center overflow-hidden"
                   >
-                    <span className="inline-flex items-center gap-2.5 border border-white/40 bg-white/10 px-4 py-2.5 text-[0.6rem] font-bold uppercase tracking-[0.12em] text-white backdrop-blur-sm">
+                    {/* Wipes up from the bottom, matching the archive cards. */}
+                    <span className="absolute inset-0 translate-y-full bg-primary-dark/75 transition-transform duration-[420ms] ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:translate-y-0 motion-reduce:transition-none" />
+                  
+                    <span className="relative translate-y-3 opacity-0 transition-[transform,opacity] delay-100 duration-300 ease-out group-hover:translate-y-0 group-hover:opacity-100 motion-reduce:transition-none inline-flex items-center gap-2.5 border border-white/40 bg-white/10 px-4 py-2.5 text-[0.6rem] font-bold uppercase tracking-[0.12em] text-white backdrop-blur-sm">
                       <Download
                         className="size-3.5"
                         strokeWidth={1.8}
