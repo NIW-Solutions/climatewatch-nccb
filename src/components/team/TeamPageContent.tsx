@@ -254,12 +254,19 @@ export function TeamPageContent() {
                   avatars beside a full-size head, which made the people
                   doing the work look incidental.
                 */}
-                <div className="mt-8 grid gap-x-8 gap-y-12 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
-                  {group.head ? (
-                    <InView
-                      delay={0.04}
-                      amount={0.05}
-                    >
+                {/*
+                  The head sits centred above the division rather than as the first
+                  cell of the grid. Same card, same size — the max-width below is one
+                  grid column at each breakpoint, gaps subtracted, so nothing about the
+                  card itself changes.
+                */}
+                {group.head ? (
+                  <div className="mt-8 flex justify-center">
+                    <div className="w-full sm:max-w-[calc((100%-2rem)/2)] lg:max-w-[calc((100%-4rem)/3)] xl:max-w-[calc((100%-6rem)/4)]">
+                      <InView
+                        from="right"
+                        amount={0.05}
+                      >
                       <PersonCard
                         name={group.head.name}
                         role={
@@ -275,8 +282,13 @@ export function TeamPageContent() {
                           group.head.instagram
                         }
                       />
-                    </InView>
-                  ) : null}
+                      </InView>
+                    </div>
+                  </div>
+                ) : null}
+                
+                {/* The division team, below its head. */}
+                <div className="mt-12 grid gap-x-8 gap-y-12 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
 
                   {group.team.map(
                     (
