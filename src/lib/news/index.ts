@@ -53,7 +53,7 @@ const CLIMATEWATCH_YOUTUBE_CHANNEL =
  */
 const RSS_FEEDS = [
   // Regional — Pakistan and the mountain districts
-  "https://reliefweb.int/country/pak/rss.xml",
+  "https://reliefweb.int/updates/rss.xml?legacy-river=country/pak",
   "https://www.dawn.com/feeds/home",
   "https://www.dawn.com/feeds/pakistan",
   "https://www.thenews.com.pk/rss/1/1",
