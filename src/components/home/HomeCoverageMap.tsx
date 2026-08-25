@@ -146,7 +146,7 @@ export function HomeCoverageMap() {
       <div className="pointer-events-none absolute inset-y-0 left-0 z-[500] hidden w-[22rem] lg:flex lg:items-end">
         <div className="pointer-events-auto m-6 w-full border border-white/20 bg-primary-dark/95 text-white shadow-[0_24px_70px_rgba(8,29,25,0.22)] backdrop-blur-md xl:m-8">
           <div className="border-b border-white/15 px-6 py-5">
-            <p className="text-[0.55rem] font-bold uppercase tracking-[0.12em] text-white/45">
+            <p className="text-[0.6875rem] font-bold uppercase tracking-[0.12em] text-white/45">
               Geographic lens
             </p>
 
@@ -180,7 +180,7 @@ export function HomeCoverageMap() {
                   >
                     <span
                       className={[
-                        "pt-0.5 text-[0.55rem] font-bold tracking-[0.1em]",
+                        "pt-0.5 text-[0.6875rem] font-bold tracking-[0.1em]",
                         active
                           ? "text-secondary"
                           : "text-white/35",
@@ -203,7 +203,7 @@ export function HomeCoverageMap() {
 
                       <span
                         className={[
-                          "mt-2 block text-[0.57rem] font-bold uppercase leading-5 tracking-[0.1em]",
+                          "mt-2 block text-[0.6875rem] font-bold uppercase leading-5 tracking-[0.1em]",
                           active
                             ? "text-primary/50"
                             : "text-white/40",
@@ -227,11 +227,11 @@ export function HomeCoverageMap() {
 
       <div className="pointer-events-none absolute right-6 top-6 z-[500] hidden max-w-[19rem] border border-border bg-surface/95 px-6 py-5 shadow-[0_18px_60px_rgba(8,29,25,0.12)] backdrop-blur-md md:block lg:right-8 lg:top-8">
         <div className="flex items-start justify-between gap-6">
-          <p className="text-[0.53rem] font-bold uppercase tracking-[0.11em] text-muted-light">
+          <p className="text-[0.6875rem] font-bold uppercase tracking-[0.11em] text-muted-light">
             Current lens
           </p>
 
-          <span className="text-[0.53rem] font-bold tracking-[0.1em] text-secondary">
+          <span className="text-[0.6875rem] font-bold tracking-[0.1em] text-secondary">
             {selected.number}
           </span>
         </div>
@@ -290,7 +290,7 @@ export function HomeCoverageMap() {
                 >
                   <span
                     className={[
-                      "block text-[0.52rem] font-bold tracking-[0.1em]",
+                      "block text-[0.6875rem] font-bold tracking-[0.1em]",
                       active
                         ? "text-white/50"
                         : "text-muted-light",
@@ -301,7 +301,7 @@ export function HomeCoverageMap() {
 
                   <span
                     className={[
-                      "mt-2 block truncate text-[0.68rem] font-semibold",
+                      "mt-2 block truncate text-[0.6875rem] font-semibold",
                       active
                         ? "!text-white"
                         : "!text-primary",

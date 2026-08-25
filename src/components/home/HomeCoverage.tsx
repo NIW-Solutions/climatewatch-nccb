@@ -64,7 +64,7 @@ export function HomeCoverage() {
                 </p>
               </div>
 
-              <p className="mt-5 hidden max-w-[11rem] text-[0.58rem] font-bold uppercase leading-5 tracking-[0.11em] text-muted-light lg:block">
+              <p className="mt-5 hidden max-w-[11rem] text-[0.6875rem] font-bold uppercase leading-5 tracking-[0.11em] text-muted-light lg:block">
                 Pakistan
                 <br />
                 Climate vulnerability
@@ -137,7 +137,7 @@ export function HomeCoverage() {
                 />
 
                 <div>
-                  <p className="text-[0.55rem] font-bold uppercase tracking-[0.12em] text-muted-light">
+                  <p className="text-[0.6875rem] font-bold uppercase tracking-[0.12em] text-muted-light">
                     Climate geography
                   </p>
 
@@ -148,7 +148,7 @@ export function HomeCoverage() {
               </div>
 
               <div className="border-t border-border px-5 py-4 md:border-l md:border-t-0 sm:px-7 lg:px-8">
-                <p className="text-[0.56rem] font-bold uppercase tracking-[0.11em] text-muted-light">
+                <p className="text-[0.6875rem] font-bold uppercase tracking-[0.11em] text-muted-light">
                   Cryosphere
                   <span className="mx-3 text-secondary">
                     →
@@ -186,7 +186,7 @@ export function HomeCoverage() {
               </div>
 
               <div className="border-t border-border px-5 py-5 lg:border-l lg:border-t-0 lg:px-8">
-                <p className="text-[0.55rem] font-bold uppercase tracking-[0.11em] text-muted-light">
+                <p className="text-[0.6875rem] font-bold uppercase tracking-[0.11em] text-muted-light">
                   Interactive climate atlas
                 </p>
               </div>
@@ -239,7 +239,7 @@ function MapLoadingState() {
               <span className="absolute inset-0 animate-ping bg-secondary/40" />
             </span>
 
-            <span className="text-[0.58rem] font-bold uppercase tracking-[0.12em] text-primary">
+            <span className="text-[0.6875rem] font-bold uppercase tracking-[0.12em] text-primary">
               Loading climate map
             </span>
           </div>

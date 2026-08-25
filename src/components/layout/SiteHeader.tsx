@@ -167,7 +167,7 @@ export function SiteHeader() {
           <div className="site-container flex min-h-9 items-center justify-between gap-8">
             <p
               className={[
-                "text-[0.55rem] font-bold uppercase tracking-[0.11em]",
+                "text-[0.6875rem] font-bold uppercase tracking-[0.11em]",
 
                 transparent
                   ? "text-white/60"
@@ -181,7 +181,7 @@ export function SiteHeader() {
             <div className="flex items-center gap-7">
               <p
                 className={[
-                  "text-[0.55rem] font-bold uppercase tracking-[0.11em]",
+                  "text-[0.6875rem] font-bold uppercase tracking-[0.11em]",
 
                   transparent
                     ? "text-white/55"
@@ -195,7 +195,7 @@ export function SiteHeader() {
                 href="/contact"
                 onClick={closeMenu}
                 className={[
-                  "text-[0.58rem] font-bold uppercase tracking-[0.11em] transition-colors",
+                  "text-[0.6875rem] font-bold uppercase tracking-[0.11em] transition-colors",
 
                   transparent
                     ? "!text-white hover:!text-secondary"
@@ -268,7 +268,7 @@ export function SiteHeader() {
                         animationDelay: `${180 + index * 55}ms`,
                       }}
                       className={[
-                        "header-item-in relative whitespace-nowrap py-7 text-[0.62rem] font-bold uppercase tracking-[0.07em] transition-colors 2xl:text-[0.68rem] 2xl:tracking-[0.08em]",
+                        "header-item-in relative whitespace-nowrap py-7 text-[0.6875rem] font-bold uppercase tracking-[0.07em] transition-colors 2xl:text-[0.6875rem] 2xl:tracking-[0.08em]",
 
                         transparent
                           ? active
@@ -431,12 +431,12 @@ export function SiteHeader() {
                 className="h-px w-7 bg-secondary"
               />
 
-              <p className="text-[0.54rem] font-bold uppercase tracking-[0.11em] text-primary">
+              <p className="text-[0.6875rem] font-bold uppercase tracking-[0.11em] text-primary">
                 ClimateWatch
               </p>
             </div>
 
-            <p className="mt-4 max-w-xs text-[0.56rem] font-bold uppercase leading-5 tracking-[0.11em] text-muted-light">
+            <p className="mt-4 max-w-xs text-[0.6875rem] font-bold uppercase leading-5 tracking-[0.11em] text-muted-light">
               International Climate Policy
               & Research and Development
               Division
@@ -470,7 +470,7 @@ export function SiteHeader() {
                     onClick={closeMenu}
                     className="group grid grid-cols-[2.5rem_minmax(0,1fr)_1rem] items-center gap-4 border-b border-border py-5"
                   >
-                    <span className="text-[0.56rem] font-bold tracking-[0.1em] text-muted-light">
+                    <span className="text-[0.6875rem] font-bold tracking-[0.1em] text-muted-light">
                       {String(
                         index + 1,
                       ).padStart(
@@ -550,7 +550,7 @@ export function SiteHeader() {
 
           <div className="mt-auto pt-10">
             <div className="border-t border-border pt-6">
-              <p className="text-[0.55rem] font-bold uppercase tracking-[0.11em] text-muted-light">
+              <p className="text-[0.6875rem] font-bold uppercase tracking-[0.11em] text-muted-light">
                 Direct contact
               </p>
 

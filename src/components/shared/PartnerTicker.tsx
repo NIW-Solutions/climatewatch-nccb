@@ -135,7 +135,7 @@ function TickerRow({
         arc ? "pb-6 pt-8" : "pb-10 pt-8",
       ].join(" ")}
     >
-      <p className="mb-6 text-center text-[0.56rem] font-bold uppercase tracking-[0.13em] text-muted-light">
+      <p className="mb-6 text-center text-[0.6875rem] font-bold uppercase tracking-[0.13em] text-muted-light">
         {group.eyebrow}
       </p>
 

@@ -131,7 +131,7 @@ export function TeamMonogram({
       <span className="relative font-editorial text-[2.6rem] font-medium leading-none tracking-[-0.04em] text-white/85">
         {initials}
       </span>
-      <span className="absolute bottom-4 left-4 text-[0.5rem] font-bold uppercase tracking-[0.12em] text-white/35">
+      <span className="absolute bottom-4 left-4 text-[0.6875rem] font-bold uppercase tracking-[0.12em] text-white/35">
         ClimateWatch
       </span>
     </div>

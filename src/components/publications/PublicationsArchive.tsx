@@ -111,7 +111,7 @@ export function PublicationsArchive() {
                       )
                     }
                     className={[
-                      "relative py-1 text-[0.68rem] font-bold uppercase tracking-[0.09em] transition-colors",
+                      "relative py-1 text-[0.6875rem] font-bold uppercase tracking-[0.09em] transition-colors",
 
                       active
                         ? "text-primary"
@@ -138,7 +138,7 @@ export function PublicationsArchive() {
             {/* Mobile / tablet select */}
 
             <div className="lg:hidden">
-              <p className="text-[0.58rem] font-bold uppercase tracking-[0.11em] text-muted-light">
+              <p className="text-[0.6875rem] font-bold uppercase tracking-[0.11em] text-muted-light">
                 Filter archive
               </p>
 
@@ -190,7 +190,7 @@ export function PublicationsArchive() {
             {/* Result count */}
 
             <div className="hidden lg:block lg:text-right">
-              <p className="text-[0.58rem] font-bold uppercase tracking-[0.11em] text-muted-light">
+              <p className="text-[0.6875rem] font-bold uppercase tracking-[0.11em] text-muted-light">
                 Showing
               </p>
 
@@ -301,7 +301,7 @@ function PublicationCard({
           */}
           <span className="absolute inset-0 translate-y-full bg-primary-dark/75 transition-transform duration-[420ms] ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:translate-y-0 motion-reduce:transition-none" />
         
-          <span className="relative inline-flex translate-y-3 items-center gap-2.5 border border-white/40 bg-white/10 px-4 py-2.5 text-[0.6rem] font-bold uppercase tracking-[0.12em] text-white opacity-0 backdrop-blur-sm transition-[transform,opacity] delay-100 duration-300 ease-out group-hover:translate-y-0 group-hover:opacity-100 motion-reduce:transition-none">
+          <span className="relative inline-flex translate-y-3 items-center gap-2.5 border border-white/40 bg-white/10 px-4 py-2.5 text-[0.6875rem] font-bold uppercase tracking-[0.12em] text-white opacity-0 backdrop-blur-sm transition-[transform,opacity] delay-100 duration-300 ease-out group-hover:translate-y-0 group-hover:opacity-100 motion-reduce:transition-none">
             <BookOpen
               className="size-3.5"
               strokeWidth={1.8}
@@ -319,11 +319,11 @@ function PublicationCard({
 
       <div className="mt-5 flex flex-1 flex-col border-t border-border pt-4">
         <div className="flex items-center justify-between gap-4">
-          <p className="text-[0.56rem] font-bold uppercase tracking-[0.11em] text-secondary">
+          <p className="text-[0.6875rem] font-bold uppercase tracking-[0.11em] text-secondary">
             {item.categoryLabel}
           </p>
 
-          <p className="text-[0.56rem] font-bold uppercase tracking-[0.11em] text-muted-light">
+          <p className="text-[0.6875rem] font-bold uppercase tracking-[0.11em] text-muted-light">
             {item.date}
           </p>
         </div>
@@ -359,7 +359,7 @@ function PublicationCard({
           {item.topics.map((topic) => (
             <span
               key={topic}
-              className="border border-border px-2.5 py-1 text-[0.52rem] font-bold uppercase tracking-[0.1em] text-muted"
+              className="border border-border px-2.5 py-1 text-[0.6875rem] font-bold uppercase tracking-[0.1em] text-muted"
             >
               {topic}
             </span>
@@ -388,13 +388,13 @@ function PublicationCard({
               ) : null}
             </a>
           ) : (
-            <span className="text-[0.56rem] font-bold uppercase tracking-[0.11em] text-secondary">
+            <span className="text-[0.6875rem] font-bold uppercase tracking-[0.11em] text-secondary">
               Forthcoming
             </span>
           )}
 
           {item.pages ? (
-            <span className="text-[0.56rem] font-bold uppercase tracking-[0.11em] text-muted-light">
+            <span className="text-[0.6875rem] font-bold uppercase tracking-[0.11em] text-muted-light">
               {item.pages}
             </span>
           ) : null}
@@ -404,7 +404,7 @@ function PublicationCard({
               href={item.href}
               target="_blank"
               rel="noreferrer"
-              className="group/src ml-auto inline-flex items-center gap-1.5 text-[0.56rem] font-bold uppercase tracking-[0.11em] !text-muted transition-colors hover:!text-secondary"
+              className="group/src ml-auto inline-flex items-center gap-1.5 text-[0.6875rem] font-bold uppercase tracking-[0.11em] !text-muted transition-colors hover:!text-secondary"
             >
               Source
 

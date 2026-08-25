@@ -242,7 +242,7 @@ export function PakistanCoverageMap({
               )}
             </svg>
 
-            <p className="mt-5 text-[0.54rem] font-bold uppercase tracking-[0.11em] text-muted-light">
+            <p className="mt-5 text-[0.6875rem] font-bold uppercase tracking-[0.11em] text-muted-light">
               Boundaries: geoBoundaries
               (CC BY 4.0)
             </p>
@@ -259,7 +259,7 @@ export function PakistanCoverageMap({
                 className="size-3 shrink-0 bg-secondary"
               />
 
-              <p className="text-[0.56rem] font-bold uppercase tracking-[0.11em] text-muted-light">
+              <p className="text-[0.6875rem] font-bold uppercase tracking-[0.11em] text-muted-light">
                 {active
                   ? "Focus area"
                   : "Focus areas — hover the map"}
@@ -291,7 +291,7 @@ export function PakistanCoverageMap({
               ))}
             </dl>
 
-            <p className="mt-4 border-t border-border pt-4 text-[0.58rem] font-bold uppercase tracking-[0.1em] text-muted-light">
+            <p className="mt-4 border-t border-border pt-4 text-[0.6875rem] font-bold uppercase tracking-[0.1em] text-muted-light">
               Source: {area.source}
             </p>
 
@@ -308,7 +308,7 @@ export function PakistanCoverageMap({
                     shown === name
                   }
                   className={[
-                    "border px-4 py-2 text-[0.58rem] font-bold uppercase tracking-[0.1em] transition-colors",
+                    "border px-4 py-2 text-[0.6875rem] font-bold uppercase tracking-[0.1em] transition-colors",
 
                     shown === name
                       ? "border-secondary bg-secondary text-white"

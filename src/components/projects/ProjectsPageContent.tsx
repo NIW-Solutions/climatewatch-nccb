@@ -145,7 +145,7 @@ export function ProjectsPageContent() {
                 </p>
               </div>
 
-              <p className="hidden text-[0.6rem] font-bold uppercase tracking-[0.11em] text-muted-light sm:block">
+              <p className="hidden text-[0.6875rem] font-bold uppercase tracking-[0.11em] text-muted-light sm:block">
                 {String(projects.length).padStart(2, "0")} projects
               </p>
             </div>
@@ -178,7 +178,7 @@ export function ProjectsPageContent() {
                         {project.name}
                       </p>
 
-                      <p className="text-[0.58rem] font-bold uppercase tracking-[0.11em] text-secondary">
+                      <p className="text-[0.6875rem] font-bold uppercase tracking-[0.11em] text-secondary">
                         {project.status}
                       </p>
                     </div>
@@ -254,7 +254,7 @@ export function ProjectsPageContent() {
                       {/* CONTENT */}
 
                       <div className="flex flex-col">
-                        <p className="text-[0.61rem] font-bold uppercase tracking-[0.11em] text-muted-light">
+                        <p className="text-[0.6875rem] font-bold uppercase tracking-[0.11em] text-muted-light">
                           {project.division}
                         </p>
 
@@ -346,7 +346,7 @@ export function ProjectsPageContent() {
                             {/* FOCUS */}
 
                             <div className="mt-8 border-t border-border pt-6">
-                              <p className="text-[0.57rem] font-bold uppercase tracking-[0.11em] text-muted-light">
+                              <p className="text-[0.6875rem] font-bold uppercase tracking-[0.11em] text-muted-light">
                                 Areas of focus
                               </p>
 
@@ -456,7 +456,7 @@ function ProjectMeta({
 }>) {
   return (
     <div>
-      <p className="text-[0.54rem] font-bold uppercase tracking-[0.1em] text-muted-light">
+      <p className="text-[0.6875rem] font-bold uppercase tracking-[0.1em] text-muted-light">
         {label}
       </p>
 

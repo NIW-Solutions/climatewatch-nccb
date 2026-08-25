@@ -169,7 +169,7 @@ export default async function BlogPostPage({
           </Link>
 
           <div className="mt-10 flex flex-wrap items-center gap-x-3 gap-y-2">
-            <p className="text-[0.56rem] font-bold uppercase tracking-[0.12em] text-secondary">
+            <p className="text-[0.6875rem] font-bold uppercase tracking-[0.12em] text-secondary">
               {post.topicLabel}
             </p>
 
@@ -178,7 +178,7 @@ export default async function BlogPostPage({
               className="size-1 bg-border"
             />
 
-            <p className="text-[0.56rem] font-bold uppercase tracking-[0.12em] text-muted-light">
+            <p className="text-[0.6875rem] font-bold uppercase tracking-[0.12em] text-muted-light">
               {post.readingTime}
             </p>
 
@@ -191,7 +191,7 @@ export default async function BlogPostPage({
 
                 <time
                   dateTime={post.date}
-                  className="text-[0.56rem] font-bold uppercase tracking-[0.12em] text-muted-light"
+                  className="text-[0.6875rem] font-bold uppercase tracking-[0.12em] text-muted-light"
                 >
                   {new Intl.DateTimeFormat(
                     "en-GB",
@@ -212,7 +212,7 @@ export default async function BlogPostPage({
             {post.title}
           </h1>
 
-          <p className="mt-6 text-[0.62rem] font-bold uppercase tracking-[0.11em] text-muted-light">
+          <p className="mt-6 text-[0.6875rem] font-bold uppercase tracking-[0.11em] text-muted-light">
             By {post.author}
           </p>
 

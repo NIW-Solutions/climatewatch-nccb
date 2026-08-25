@@ -121,7 +121,7 @@ export function PublicationsPageContent() {
                     {/* Wipes up from the bottom, matching the archive cards. */}
                     <span className="absolute inset-0 translate-y-full bg-primary-dark/75 transition-transform duration-[420ms] ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:translate-y-0 motion-reduce:transition-none" />
                   
-                    <span className="relative translate-y-3 opacity-0 transition-[transform,opacity] delay-100 duration-300 ease-out group-hover:translate-y-0 group-hover:opacity-100 motion-reduce:transition-none inline-flex items-center gap-2.5 border border-white/40 bg-white/10 px-4 py-2.5 text-[0.6rem] font-bold uppercase tracking-[0.12em] text-white backdrop-blur-sm">
+                    <span className="relative translate-y-3 opacity-0 transition-[transform,opacity] delay-100 duration-300 ease-out group-hover:translate-y-0 group-hover:opacity-100 motion-reduce:transition-none inline-flex items-center gap-2.5 border border-white/40 bg-white/10 px-4 py-2.5 text-[0.6875rem] font-bold uppercase tracking-[0.12em] text-white backdrop-blur-sm">
                       <Download
                         className="size-3.5"
                         strokeWidth={1.8}
@@ -137,7 +137,7 @@ export function PublicationsPageContent() {
                   ===================================== */}
 
               <div className="flex flex-col justify-center">
-                <p className="text-[0.6rem] font-bold uppercase tracking-[0.12em] text-secondary">
+                <p className="text-[0.6875rem] font-bold uppercase tracking-[0.12em] text-secondary">
                   {featured.eyebrow}
                 </p>
 
@@ -294,7 +294,7 @@ function FeaturedMeta({
 }>) {
   return (
     <div>
-      <dt className="text-[0.54rem] font-bold uppercase tracking-[0.1em] text-muted-light">
+      <dt className="text-[0.6875rem] font-bold uppercase tracking-[0.1em] text-muted-light">
         {label}
       </dt>
 

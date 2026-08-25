@@ -110,7 +110,7 @@ export function NewsletterSignupForm() {
     >
       <label
         htmlFor="newsletter-email"
-        className="block text-[0.56rem] font-bold uppercase tracking-[0.11em] text-muted-light"
+        className="block text-[0.6875rem] font-bold uppercase tracking-[0.11em] text-muted-light"
       >
         {signup.label}
       </label>

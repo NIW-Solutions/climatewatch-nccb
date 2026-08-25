@@ -179,7 +179,7 @@ export function ResearchPageContent() {
                       {/* CATEGORY */}
 
                       <div>
-                        <p className="text-[0.61rem] font-bold uppercase tracking-[0.11em] text-muted-light">
+                        <p className="text-[0.6875rem] font-bold uppercase tracking-[0.11em] text-muted-light">
                           {workstream.category}
                         </p>
                       </div>
@@ -254,7 +254,7 @@ export function ResearchPageContent() {
                       wherever the section is read.
                     */}
                     {fieldwork.imageCredit ? (
-                      <p className="mt-2 text-[0.6rem] font-semibold uppercase tracking-[0.1em] text-white/45">
+                      <p className="mt-2 text-[0.6875rem] font-semibold uppercase tracking-[0.1em] text-white/45">
                         {fieldwork.imageCredit}
                       </p>
                     ) : null}

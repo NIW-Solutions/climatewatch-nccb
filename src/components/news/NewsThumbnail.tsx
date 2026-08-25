@@ -49,7 +49,7 @@ export function NewsThumbnail({
           className="size-full bg-[linear-gradient(135deg,var(--color-primary)_0%,var(--color-primary-dark)_100%)]"
         >
           <div className="flex size-full items-center justify-center">
-            <span className="text-[0.54rem] font-bold uppercase tracking-[0.12em] text-white/50">
+            <span className="text-[0.6875rem] font-bold uppercase tracking-[0.12em] text-white/50">
               ClimateWatch
             </span>
           </div>

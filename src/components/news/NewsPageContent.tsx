@@ -89,7 +89,7 @@ export function NewsPageContent({
             <InView>
               <article className="border-t border-border-strong pt-5">
                 <div className="flex flex-wrap items-center justify-between gap-4">
-                  <p className="text-[0.6rem] font-bold uppercase tracking-[0.12em] text-secondary">
+                  <p className="text-[0.6875rem] font-bold uppercase tracking-[0.12em] text-secondary">
                     {featured.eyebrow}
                   </p>
 
@@ -98,7 +98,7 @@ export function NewsPageContent({
                   </p>
                 </div>
 
-                <p className="mt-8 text-[0.6rem] font-bold uppercase tracking-[0.11em] text-muted-light">
+                <p className="mt-8 text-[0.6875rem] font-bold uppercase tracking-[0.11em] text-muted-light">
                   {featured.category}
                 </p>
 
@@ -142,7 +142,7 @@ export function NewsPageContent({
                   In brief
                 </p>
 
-                <span className="text-[0.58rem] font-bold uppercase tracking-[0.11em] text-muted-light">
+                <span className="text-[0.6875rem] font-bold uppercase tracking-[0.11em] text-muted-light">
                   {String(highlights.length).padStart(
                     2,
                     "0",
@@ -157,11 +157,11 @@ export function NewsPageContent({
                   className="group border-t border-border py-6"
                 >
                   <div className="flex items-center justify-between gap-4">
-                    <p className="text-[0.56rem] font-bold uppercase tracking-[0.1em] text-secondary">
+                    <p className="text-[0.6875rem] font-bold uppercase tracking-[0.1em] text-secondary">
                       {item.categoryLabel}
                     </p>
 
-                    <p className="text-[0.65rem] font-semibold text-muted-light">
+                    <p className="text-[0.6875rem] font-semibold text-muted-light">
                       {item.date}
                     </p>
                   </div>

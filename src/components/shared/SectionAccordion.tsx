@@ -157,7 +157,7 @@ export function SectionAccordion({
                   >
                     <span
                       className={[
-                        "text-[0.62rem] font-bold tracking-[0.13em] transition-colors",
+                        "text-[0.6875rem] font-bold tracking-[0.13em] transition-colors",
                         open
                           ? "text-secondary"
                           : "text-muted-light",

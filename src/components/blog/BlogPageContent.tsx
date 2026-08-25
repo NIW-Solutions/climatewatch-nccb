@@ -133,7 +133,7 @@ export function BlogPageContent() {
                     }
                     aria-pressed={active}
                     className={[
-                      "border px-4 py-2 text-[0.6rem] font-bold uppercase tracking-[0.11em] transition-colors",
+                      "border px-4 py-2 text-[0.6875rem] font-bold uppercase tracking-[0.11em] transition-colors",
 
                       active
                         ? "border-primary bg-primary text-white"

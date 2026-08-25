@@ -59,12 +59,12 @@ function FeedCard({
       />
 
       <div className="mt-4 flex items-center justify-between gap-3">
-        <p className="truncate text-[0.56rem] font-bold uppercase tracking-[0.1em] text-secondary">
+        <p className="truncate text-[0.6875rem] font-bold uppercase tracking-[0.1em] text-secondary">
           {item.source}
         </p>
 
         {date ? (
-          <p className="shrink-0 text-[0.65rem] font-semibold text-muted-light">
+          <p className="shrink-0 text-[0.6875rem] font-semibold text-muted-light">
             {date}
           </p>
         ) : null}

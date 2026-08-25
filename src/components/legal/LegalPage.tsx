@@ -72,7 +72,7 @@ export function LegalPage({
                   {description}
                 </p>
 
-                <p className="mt-6 text-[0.57rem] font-bold uppercase tracking-[0.11em] text-muted-light">
+                <p className="mt-6 text-[0.6875rem] font-bold uppercase tracking-[0.11em] text-muted-light">
                   Last updated
                 </p>
 
@@ -100,7 +100,7 @@ export function LegalPage({
 
             <InView>
               <aside className="lg:sticky lg:top-32 lg:self-start">
-                <p className="text-[0.58rem] font-bold uppercase tracking-[0.12em] text-primary">
+                <p className="text-[0.6875rem] font-bold uppercase tracking-[0.12em] text-primary">
                   Contents
                 </p>
 
@@ -148,7 +148,7 @@ export function LegalPage({
 
                         <p
                           aria-hidden="true"
-                          className="text-[0.6rem] font-bold tracking-[0.12em] text-secondary"
+                          className="text-[0.6875rem] font-bold tracking-[0.12em] text-secondary"
                         >
                           {section.number}
                         </p>

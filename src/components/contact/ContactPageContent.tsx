@@ -128,7 +128,7 @@ export function ContactPageContent() {
                         {item.number}
                       </span>
 
-                      <p className="text-[0.58rem] font-bold uppercase tracking-[0.11em] text-secondary">
+                      <p className="text-[0.6875rem] font-bold uppercase tracking-[0.11em] text-secondary">
                         {item.label}
                       </p>
 

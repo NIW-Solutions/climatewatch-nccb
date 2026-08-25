@@ -158,7 +158,7 @@ export function MobileNavigation({
               </div>
 
               <div className="absolute inset-x-0 bottom-0 p-5 sm:p-6">
-               <p className="mt-4 max-w-xs text-[0.56rem] font-bold uppercase leading-5 tracking-[0.11em] text-muted-light">
+               <p className="mt-4 max-w-xs text-[0.6875rem] font-bold uppercase leading-5 tracking-[0.11em] text-muted-light">
               Pakistan&apos;s First Youth-led
               Climate Policy Think-tank
               </p>
@@ -240,7 +240,7 @@ export function MobileNavigation({
 
                             <span
                               className={[
-                                "text-[0.64rem] font-bold tracking-[0.13em]",
+                                "text-[0.6875rem] font-bold tracking-[0.13em]",
                                 active
                                   ? "text-secondary"
                                   : "text-muted-light",
@@ -319,7 +319,7 @@ export function MobileNavigation({
                   />
                 </a>
 
-                <p className="mt-3 truncate text-center text-[0.68rem] text-muted">
+                <p className="mt-3 truncate text-center text-[0.6875rem] text-muted">
                   {siteConfig.email}
                 </p>
               </div>

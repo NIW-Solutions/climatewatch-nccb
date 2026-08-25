@@ -65,7 +65,7 @@ export function PublicationReader({
         <a
           href={pdf}
           download
-          className="inline-flex items-center gap-2.5 border border-primary bg-primary px-5 py-3 text-[0.6rem] font-bold uppercase tracking-[0.12em] !text-white transition-colors duration-300 hover:!bg-primary-dark"
+          className="inline-flex items-center gap-2.5 border border-primary bg-primary px-5 py-3 text-[0.6875rem] font-bold uppercase tracking-[0.12em] !text-white transition-colors duration-300 hover:!bg-primary-dark"
         >
           <Download
             aria-hidden="true"
@@ -83,7 +83,7 @@ export function PublicationReader({
         <button
           type="button"
           onClick={onShare}
-          className="inline-flex items-center gap-2.5 border border-border-strong px-5 py-3 text-[0.6rem] font-bold uppercase tracking-[0.12em] text-primary transition-[background-color,border-color,color] duration-300 hover:border-primary hover:bg-primary hover:text-white focus:outline-none focus-visible:ring-2 focus-visible:ring-secondary focus-visible:ring-offset-2"
+          className="inline-flex items-center gap-2.5 border border-border-strong px-5 py-3 text-[0.6875rem] font-bold uppercase tracking-[0.12em] text-primary transition-[background-color,border-color,color] duration-300 hover:border-primary hover:bg-primary hover:text-white focus:outline-none focus-visible:ring-2 focus-visible:ring-secondary focus-visible:ring-offset-2"
         >
           {copied ? (
             <Check
@@ -107,7 +107,7 @@ export function PublicationReader({
           href={pdf}
           target="_blank"
           rel="noreferrer"
-          className="inline-flex items-center gap-2.5 border border-border-strong px-5 py-3 text-[0.6rem] font-bold uppercase tracking-[0.12em] !text-primary transition-[background-color,border-color,color] duration-300 hover:!border-primary hover:!bg-primary hover:!text-white lg:hidden"
+          className="inline-flex items-center gap-2.5 border border-border-strong px-5 py-3 text-[0.6875rem] font-bold uppercase tracking-[0.12em] !text-primary transition-[background-color,border-color,color] duration-300 hover:!border-primary hover:!bg-primary hover:!text-white lg:hidden"
         >
           <ExternalLink
             aria-hidden="true"
@@ -137,7 +137,7 @@ export function PublicationReader({
                   href={pdf}
                   target="_blank"
                   rel="noreferrer"
-                  className="mt-4 inline-flex items-center gap-2.5 border border-border-strong px-5 py-3 text-[0.6rem] font-bold uppercase tracking-[0.12em] !text-primary transition-colors hover:!border-primary"
+                  className="mt-4 inline-flex items-center gap-2.5 border border-border-strong px-5 py-3 text-[0.6875rem] font-bold uppercase tracking-[0.12em] !text-primary transition-colors hover:!border-primary"
                 >
                   <ExternalLink
                     aria-hidden="true"

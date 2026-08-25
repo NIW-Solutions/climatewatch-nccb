@@ -117,7 +117,7 @@ export function HomeProgrammes() {
 
                           <div className="pointer-events-none absolute inset-x-0 bottom-0 z-20 flex items-end justify-between gap-6 p-5 sm:p-7 lg:p-8">
                             <div>
-                              <p className="text-[0.6rem] font-bold uppercase tracking-[0.12em] text-white/50">
+                              <p className="text-[0.6875rem] font-bold uppercase tracking-[0.12em] text-white/50">
                                 Programme division
                               </p>
 
@@ -156,7 +156,7 @@ export function HomeProgrammes() {
                             {division.number}
                           </span>
 
-                          <p className="text-[0.61rem] font-bold uppercase tracking-[0.11em] text-muted-light">
+                          <p className="text-[0.6875rem] font-bold uppercase tracking-[0.11em] text-muted-light">
                             ClimateWatch
                           </p>
                         </div>
@@ -171,7 +171,7 @@ export function HomeProgrammes() {
 
                         {division.focus ? (
                           <div className="mt-7 border-l-2 border-secondary pl-5">
-                            <p className="text-[0.61rem] font-bold uppercase tracking-[0.11em] text-muted-light">
+                            <p className="text-[0.6875rem] font-bold uppercase tracking-[0.11em] text-muted-light">
                               Focus
                             </p>
 

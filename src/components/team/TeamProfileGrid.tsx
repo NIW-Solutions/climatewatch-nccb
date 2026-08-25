@@ -105,11 +105,11 @@ function ProfileCard({
         <h3 className="font-editorial text-[1.35rem] font-medium leading-[1.15] tracking-[-0.03em] text-primary transition-colors duration-300 group-hover:text-secondary">
           {profile.name}
         </h3>
-        <p className="mt-2.5 text-[0.58rem] font-bold uppercase leading-5 tracking-[0.11em] text-secondary">
+        <p className="mt-2.5 text-[0.6875rem] font-bold uppercase leading-5 tracking-[0.11em] text-secondary">
           {profile.role}
         </p>
         {profile.note ? (
-          <p className="mt-1.5 text-[0.56rem] font-bold uppercase leading-5 tracking-[0.11em] text-muted-light">
+          <p className="mt-1.5 text-[0.6875rem] font-bold uppercase leading-5 tracking-[0.11em] text-muted-light">
             {profile.note}
           </p>
         ) : null}
@@ -123,7 +123,7 @@ function ProfileCard({
             onClick={() =>
               onOpen(profile)
             }
-            className="mt-5 inline-flex w-fit items-center gap-2 border border-border-strong px-4 py-2.5 text-[0.56rem] font-bold uppercase tracking-[0.11em] text-primary transition-[background-color,border-color,color] duration-300 hover:border-primary hover:bg-primary hover:text-white focus:outline-none focus-visible:ring-2 focus-visible:ring-secondary focus-visible:ring-offset-2"
+            className="mt-5 inline-flex w-fit items-center gap-2 border border-border-strong px-4 py-2.5 text-[0.6875rem] font-bold uppercase tracking-[0.11em] text-primary transition-[background-color,border-color,color] duration-300 hover:border-primary hover:bg-primary hover:text-white focus:outline-none focus-visible:ring-2 focus-visible:ring-secondary focus-visible:ring-offset-2"
           >
             Read full profile
             <span aria-hidden="true">
@@ -265,11 +265,11 @@ function ProfileModal({
               >
                 {profile.name}
               </h2>
-              <p className="mt-2.5 text-[0.58rem] font-bold uppercase leading-5 tracking-[0.11em] text-secondary">
+              <p className="mt-2.5 text-[0.6875rem] font-bold uppercase leading-5 tracking-[0.11em] text-secondary">
                 {profile.role}
               </p>
               {profile.note ? (
-                <p className="mt-1.5 text-[0.56rem] font-bold uppercase leading-5 tracking-[0.11em] text-muted-light">
+                <p className="mt-1.5 text-[0.6875rem] font-bold uppercase leading-5 tracking-[0.11em] text-muted-light">
                   {profile.note}
                 </p>
               ) : null}

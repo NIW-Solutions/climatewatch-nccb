@@ -247,7 +247,7 @@ export function ResourcesPageContent() {
 
             <div className="grid border-t border-white/20 lg:grid-cols-[14rem_minmax(0,1fr)]">
               <div className="border-b border-white/20 py-7 lg:border-b-0 lg:border-r lg:py-9 lg:pr-8">
-                <p className="text-[0.56rem] font-bold uppercase tracking-[0.11em] text-white/50">
+                <p className="text-[0.6875rem] font-bold uppercase tracking-[0.11em] text-white/50">
                   First reference
                 </p>
               </div>
@@ -263,7 +263,7 @@ export function ResourcesPageContent() {
 
             <div className="grid lg:grid-cols-[14rem_minmax(0,1fr)]">
               <div className="border-b border-white/20 py-7 lg:border-r lg:py-8 lg:pr-8">
-                <p className="text-[0.56rem] font-bold uppercase tracking-[0.11em] text-white/50">
+                <p className="text-[0.6875rem] font-bold uppercase tracking-[0.11em] text-white/50">
                   Thereafter
                 </p>
               </div>
@@ -279,7 +279,7 @@ export function ResourcesPageContent() {
 
             <div className="grid lg:grid-cols-[14rem_minmax(0,1fr)]">
               <div className="border-b border-white/20 py-7 lg:border-r lg:py-8 lg:pr-8">
-                <p className="text-[0.56rem] font-bold uppercase tracking-[0.11em] text-white/50">
+                <p className="text-[0.6875rem] font-bold uppercase tracking-[0.11em] text-white/50">
                   Logo files
                 </p>
               </div>

@@ -71,7 +71,7 @@ export function HomePublication() {
               {/* META */}
 
               <aside className="border-b border-border py-7 lg:border-b-0 lg:border-r lg:py-10 lg:pr-8">
-                <p className="text-[0.6rem] font-bold uppercase tracking-[0.12em] text-secondary">
+                <p className="text-[0.6875rem] font-bold uppercase tracking-[0.12em] text-secondary">
                   Featured
                 </p>
 
@@ -99,7 +99,7 @@ export function HomePublication() {
               {/* CONTENT */}
 
               <div className="py-8 lg:py-10 lg:pl-10 xl:pl-12">
-                <p className="text-[0.62rem] font-bold uppercase tracking-[0.12em] text-muted-light">
+                <p className="text-[0.6875rem] font-bold uppercase tracking-[0.12em] text-muted-light">
                   {publication.type}
                 </p>
 
@@ -169,7 +169,7 @@ function PublicationMeta({
 }>) {
   return (
     <div>
-      <p className="text-[0.56rem] font-bold uppercase tracking-[0.11em] text-muted-light">
+      <p className="text-[0.6875rem] font-bold uppercase tracking-[0.11em] text-muted-light">
         {label}
       </p>
 

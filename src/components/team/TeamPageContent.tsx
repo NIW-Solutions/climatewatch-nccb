@@ -108,7 +108,7 @@ export function TeamPageContent() {
             <dl className="grid gap-8 sm:grid-cols-3 sm:gap-6">
               {stats.map((stat) => (
                 <div key={stat.label}>
-                  <dt className="text-[0.56rem] font-bold uppercase tracking-[0.11em] text-white/45">
+                  <dt className="text-[0.6875rem] font-bold uppercase tracking-[0.11em] text-white/45">
                     {stat.label}
                   </dt>
                   <dd className="mt-3 font-editorial text-[clamp(1.9rem,2.6vw,2.6rem)] font-medium leading-none tracking-[-0.035em] text-white">
@@ -178,7 +178,7 @@ export function TeamPageContent() {
                         }
                       </span>
                     </span>
-                    <span className="text-[0.58rem] font-bold tracking-[0.11em] text-muted-light">
+                    <span className="text-[0.6875rem] font-bold tracking-[0.11em] text-muted-light">
                       {String(
                         group.team.length +
                           1,
@@ -205,7 +205,7 @@ export function TeamPageContent() {
                 href="#advisors"
                 className="group inline-flex min-h-11 flex-1 items-center justify-between gap-4 bg-primary px-5 !text-white transition-colors hover:!bg-primary-dark hover:!text-white"
               >
-                <span className="text-[0.62rem] font-bold uppercase tracking-[0.11em]">
+                <span className="text-[0.6875rem] font-bold uppercase tracking-[0.11em]">
                   {advisory.eyebrow}
                 </span>
                 <ArrowDown
@@ -219,7 +219,7 @@ export function TeamPageContent() {
                 href="#board"
                 className="group inline-flex min-h-11 flex-1 items-center justify-between gap-4 bg-secondary px-5 !text-white transition-colors hover:!bg-secondary-dark hover:!text-white"
               >
-                <span className="text-[0.62rem] font-bold uppercase tracking-[0.11em]">
+                <span className="text-[0.6875rem] font-bold uppercase tracking-[0.11em]">
                   Board of Directors
                 </span>
                 <ArrowDown
@@ -270,7 +270,7 @@ export function TeamPageContent() {
                         }
                       </h2>
                     </div>
-                    <p className="text-[0.56rem] font-bold uppercase tracking-[0.11em] text-muted-light">
+                    <p className="text-[0.6875rem] font-bold uppercase tracking-[0.11em] text-muted-light">
                       {String(
                         group.team.length +
                           1,
@@ -396,7 +396,7 @@ export function TeamPageContent() {
                 <p className="text-sm leading-7 text-muted">
                   {advisory.description}
                 </p>
-                <p className="mt-4 text-[0.56rem] font-bold uppercase tracking-[0.11em] text-muted-light">
+                <p className="mt-4 text-[0.6875rem] font-bold uppercase tracking-[0.11em] text-muted-light">
                   {String(
                     advisors.length,
                   ).padStart(2, "0")}{" "}
@@ -442,7 +442,7 @@ export function TeamPageContent() {
                     governance.description
                   }
                 </p>
-                <p className="mt-4 text-[0.56rem] font-bold uppercase tracking-[0.11em] text-muted-light">
+                <p className="mt-4 text-[0.6875rem] font-bold uppercase tracking-[0.11em] text-muted-light">
                   {String(
                     board.length,
                   ).padStart(2, "0")}{" "}
@@ -579,7 +579,7 @@ function PersonCard({
           {name}
         </h3>
 
-        <p className="mt-2.5 text-[0.58rem] font-bold uppercase leading-5 tracking-[0.11em] text-secondary">
+        <p className="mt-2.5 text-[0.6875rem] font-bold uppercase leading-5 tracking-[0.11em] text-secondary">
           {role}
         </p>
 

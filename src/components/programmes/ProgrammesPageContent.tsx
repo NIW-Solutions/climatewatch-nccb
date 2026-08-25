@@ -197,7 +197,7 @@ export function ProgrammesPageContent() {
                               {division.number}
                             </span>
 
-                            <p className="text-[0.6rem] font-bold uppercase tracking-[0.11em] text-muted-light">
+                            <p className="text-[0.6875rem] font-bold uppercase tracking-[0.11em] text-muted-light">
                               ClimateWatch
                             </p>
                           </div>
@@ -230,7 +230,7 @@ export function ProgrammesPageContent() {
                           {/* FOCUS */}
 
                           <div className="mt-9 border-t border-border pt-6">
-                            <p className="text-[0.6rem] font-bold uppercase tracking-[0.12em] text-muted-light">
+                            <p className="text-[0.6875rem] font-bold uppercase tracking-[0.12em] text-muted-light">
                               Areas of focus
                             </p>
 

@@ -124,7 +124,7 @@ function NotFoundLink({
       href={href}
       className="group border-b border-white/15 py-5 sm:border-b-0 sm:border-r sm:px-6 sm:first:pl-0"
     >
-      <span className="text-[0.62rem] font-bold uppercase tracking-[0.12em] text-secondary">
+      <span className="text-[0.6875rem] font-bold uppercase tracking-[0.12em] text-secondary">
         {number}
       </span>
 

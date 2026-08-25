@@ -126,7 +126,7 @@ export function SiteFooter() {
           <div>
             <FooterHeading>Connect</FooterHeading>
 
-            <div className="mt-6 space-y-4">
+            <div className="mt-6 space-y-1">
               <ExternalFooterLink
                 href={siteConfig.socialLinks.linkedin}
               >
@@ -155,7 +155,7 @@ export function SiteFooter() {
             {/* Institutional status */}
 
             <div className="mt-9 border-t border-white/15 pt-6">
-              <p className="text-[0.54rem] font-bold uppercase tracking-[0.11em] text-white/40">
+              <p className="text-[0.6875rem] font-bold uppercase tracking-[0.11em] text-white/40">
                 Institutional status
               </p>
 
@@ -174,12 +174,12 @@ export function SiteFooter() {
 
         <div className="border-t border-white/15">
           <div className="flex flex-col gap-5 py-6 sm:flex-row sm:items-center sm:justify-between">
-            <p className="text-[0.56rem] font-semibold uppercase tracking-[0.1em] text-white/40">
+            <p className="text-[0.6875rem] font-semibold uppercase tracking-[0.1em] text-white/40">
               © {year} ClimateWatch
             </p>
 
             <div className="flex flex-wrap items-center gap-x-6 gap-y-3">
-              <p className="text-[0.56rem] font-semibold uppercase tracking-[0.1em] text-white/40">
+              <p className="text-[0.6875rem] font-semibold uppercase tracking-[0.1em] text-white/40">
                 Pakistan
               </p>
 
@@ -188,7 +188,7 @@ export function SiteFooter() {
                 className="hidden size-1 bg-secondary sm:block"
               />
 
-              <p className="text-[0.56rem] font-semibold uppercase tracking-[0.1em] text-white/40">
+              <p className="text-[0.6875rem] font-semibold uppercase tracking-[0.1em] text-white/40">
                 Climate policy · Research · Development
               </p>
             </div>
@@ -219,13 +219,13 @@ function FooterColumn({
 
       <nav
         aria-label={`${title} footer navigation`}
-        className="mt-6 space-y-4"
+        className="mt-6 space-y-1"
       >
         {links.map((item) => (
           <Link
             key={item.href}
             href={item.href}
-            className="block w-fit text-sm !text-white/65 transition-colors hover:!text-white"
+            className="flex min-h-11 w-fit items-center text-sm !text-white/65 transition-colors hover:!text-white"
           >
             {item.label}
           </Link>
@@ -245,7 +245,7 @@ function FooterHeading({
   children: React.ReactNode;
 }>) {
   return (
-    <p className="text-[0.57rem] font-bold uppercase tracking-[0.12em] text-white/40">
+    <p className="text-[0.6875rem] font-bold uppercase tracking-[0.12em] text-white/40">
       {children}
     </p>
   );
@@ -267,7 +267,7 @@ function ExternalFooterLink({
       href={href}
       target="_blank"
       rel="noreferrer"
-      className="group flex w-fit items-center gap-2 text-sm !text-white/65 transition-colors hover:!text-white"
+      className="group flex min-h-11 w-fit items-center gap-2 text-sm !text-white/65 transition-colors hover:!text-white"
     >
       {children}
 

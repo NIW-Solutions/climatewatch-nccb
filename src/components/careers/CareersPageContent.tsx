@@ -245,7 +245,7 @@ function OpeningCard({
   return (
     <article className="border border-border bg-surface p-7 sm:p-9">
       <div className="flex flex-wrap items-center gap-x-3 gap-y-2">
-        <p className="text-[0.56rem] font-bold uppercase tracking-[0.12em] text-secondary">
+        <p className="text-[0.6875rem] font-bold uppercase tracking-[0.12em] text-secondary">
           {opening.commitment}
         </p>
 
@@ -254,7 +254,7 @@ function OpeningCard({
           className="size-1 bg-border"
         />
 
-        <p className="text-[0.56rem] font-bold uppercase tracking-[0.12em] text-muted-light">
+        <p className="text-[0.6875rem] font-bold uppercase tracking-[0.12em] text-muted-light">
           {opening.division}
         </p>
 
@@ -263,7 +263,7 @@ function OpeningCard({
           className="size-1 bg-border"
         />
 
-        <p className="text-[0.56rem] font-bold uppercase tracking-[0.12em] text-muted-light">
+        <p className="text-[0.6875rem] font-bold uppercase tracking-[0.12em] text-muted-light">
           {opening.location}
         </p>
       </div>
@@ -308,7 +308,7 @@ function OpeningCard({
           />
         </a>
 
-        <p className="text-[0.62rem] font-semibold uppercase tracking-[0.1em] text-muted-light">
+        <p className="text-[0.6875rem] font-semibold uppercase tracking-[0.1em] text-muted-light">
           Posted {opening.posted}
           {opening.closes
             ? ` · Closes ${opening.closes}`
@@ -332,7 +332,7 @@ function DetailList({
 
   return (
     <div>
-      <p className="text-[0.56rem] font-bold uppercase tracking-[0.12em] text-muted-light">
+      <p className="text-[0.6875rem] font-bold uppercase tracking-[0.12em] text-muted-light">
         {title}
       </p>
 

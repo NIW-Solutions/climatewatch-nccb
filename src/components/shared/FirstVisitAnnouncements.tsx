@@ -297,7 +297,7 @@ function RolesDialog({
           />
         </button>
 
-        <p className="text-[0.56rem] font-bold uppercase tracking-[0.13em] text-secondary">
+        <p className="text-[0.6875rem] font-bold uppercase tracking-[0.13em] text-secondary">
           We are hiring
         </p>
 
@@ -320,7 +320,7 @@ function RolesDialog({
                 {opening.title}
               </span>
 
-              <span className="text-[0.56rem] font-bold uppercase tracking-[0.11em] text-muted-light">
+              <span className="text-[0.6875rem] font-bold uppercase tracking-[0.11em] text-muted-light">
                 {opening.commitment} · {opening.division}
               </span>
             </li>
@@ -395,7 +395,7 @@ function PublicationNotice({
           />
         </button>
 
-        <p className="text-[0.56rem] font-bold uppercase tracking-[0.13em] text-secondary">
+        <p className="text-[0.6875rem] font-bold uppercase tracking-[0.13em] text-secondary">
           New publication · {date}
         </p>
 

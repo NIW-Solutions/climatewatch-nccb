@@ -280,7 +280,7 @@ function ContactField({
         className,
       ].join(" ")}
     >
-      <span className="mb-3 block text-[0.58rem] font-bold uppercase tracking-[0.11em] text-primary">
+      <span className="mb-3 block text-[0.6875rem] font-bold uppercase tracking-[0.11em] text-primary">
         {label}
 
         {required ? (

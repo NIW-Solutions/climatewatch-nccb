@@ -201,7 +201,7 @@ export function ClimateWatchLogo({
         {!compact ? (
           <span
             className={[
-              "mt-1.5 block text-[0.56rem] font-semibold uppercase leading-[1.35] tracking-[0.11em]",
+              "mt-1.5 block text-[0.6875rem] font-semibold uppercase leading-[1.35] tracking-[0.11em]",
 
               isLight
                 ? "text-white/60"

@@ -47,7 +47,7 @@ function Thumbnail({
           aria-hidden="true"
           className="flex size-full items-center justify-center bg-[linear-gradient(135deg,var(--color-primary)_0%,var(--color-primary-dark)_100%)] p-6"
         >
-          <p className="text-center text-[0.56rem] font-bold uppercase leading-5 tracking-[0.12em] text-white/55">
+          <p className="text-center text-[0.6875rem] font-bold uppercase leading-5 tracking-[0.12em] text-white/55">
             {post.topicLabel}
           </p>
         </div>
@@ -69,11 +69,11 @@ export function BlogPostCard({
         <Thumbnail post={post} />
 
         <div className="mt-5 flex items-center justify-between gap-3">
-          <p className="text-[0.56rem] font-bold uppercase tracking-[0.1em] text-secondary">
+          <p className="text-[0.6875rem] font-bold uppercase tracking-[0.1em] text-secondary">
             {post.topicLabel}
           </p>
 
-          <p className="shrink-0 text-[0.65rem] font-semibold text-muted-light">
+          <p className="shrink-0 text-[0.6875rem] font-semibold text-muted-light">
             {post.readingTime}
           </p>
         </div>
@@ -83,7 +83,7 @@ export function BlogPostCard({
         </h3>
       </Link>
 
-      <p className="mt-3 text-[0.62rem] font-bold uppercase tracking-[0.11em] text-muted-light">
+      <p className="mt-3 text-[0.6875rem] font-bold uppercase tracking-[0.11em] text-muted-light">
         By {post.author}
         {post.date ? (
           <>

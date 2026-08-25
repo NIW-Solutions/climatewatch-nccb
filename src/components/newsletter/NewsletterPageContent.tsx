@@ -116,7 +116,7 @@ export function NewsletterPageContent() {
                     key={item.number}
                     className="border-t border-border pt-6"
                   >
-                    <p className="text-[0.56rem] font-bold uppercase tracking-[0.11em] text-secondary">
+                    <p className="text-[0.6875rem] font-bold uppercase tracking-[0.11em] text-secondary">
                       {item.number}
                     </p>
 

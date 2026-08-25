@@ -318,13 +318,13 @@ export function HomeHero() {
                         : "",
                     ].join(" ")}
                   >
-                    <p className="text-[0.48rem] font-bold uppercase leading-4 tracking-[0.08em] text-white/42 sm:text-[0.61rem] sm:tracking-[0.12em]">
+                    <p className="text-[0.6875rem] font-bold uppercase leading-4 tracking-[0.08em] text-white/42 sm:text-[0.6875rem] sm:tracking-[0.12em]">
                       {
                         fact.label
                       }
                     </p>
 
-                    <p className="mt-2 max-w-[14rem] text-[0.68rem] font-semibold leading-5 text-white sm:mt-2.5 sm:text-[0.95rem] sm:leading-6">
+                    <p className="mt-2 max-w-[14rem] text-[0.6875rem] font-semibold leading-5 text-white sm:mt-2.5 sm:text-[0.95rem] sm:leading-6">
                       {
                         fact.value
                       }
@@ -359,7 +359,7 @@ export function HomeHero() {
 
       {hero.imageCaption ? (
         <div className="absolute right-[var(--page-gutter)] top-[8.5rem] z-20 hidden max-w-[15rem] text-right xl:block">
-          <p className="text-[0.65rem] leading-5 text-white/40">
+          <p className="text-[0.6875rem] leading-5 text-white/40">
             {
               hero.imageCaption
             }

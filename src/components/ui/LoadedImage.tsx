@@ -101,7 +101,7 @@ export function LoadedImage({
 
           <span
             className={[
-              "text-[0.6rem] font-bold uppercase tracking-[0.12em]",
+              "text-[0.6875rem] font-bold uppercase tracking-[0.12em]",
               darkLoader
                 ? "text-white/60"
                 : "text-primary/55",

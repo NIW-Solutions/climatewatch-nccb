@@ -454,7 +454,7 @@ export function AboutPageContent() {
                                   key={item.label}
                                   className="grid gap-3 border-b border-border py-6 last:border-b-0 sm:grid-cols-[14rem_minmax(0,1fr)] sm:gap-8"
                                 >
-                                  <p className="text-[0.62rem] font-bold uppercase tracking-[0.11em] text-muted-light">
+                                  <p className="text-[0.6875rem] font-bold uppercase tracking-[0.11em] text-muted-light">
                                     {item.label}
                                   </p>
 

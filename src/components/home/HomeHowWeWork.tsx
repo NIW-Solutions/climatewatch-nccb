@@ -104,11 +104,11 @@ export function HomeHowWeWork() {
           <div className="col-span-12 lg:col-span-6 lg:col-start-7">
             <InView>
               <div className="flex items-center justify-between gap-5 border-t border-primary pt-5">
-                <p className="text-[0.62rem] font-bold uppercase tracking-[0.12em] text-secondary">
+                <p className="text-[0.6875rem] font-bold uppercase tracking-[0.12em] text-secondary">
                   Evidence pipeline
                 </p>
 
-                <p className="text-[0.62rem] font-semibold uppercase tracking-[0.1em] text-muted-light">
+                <p className="text-[0.6875rem] font-semibold uppercase tracking-[0.1em] text-muted-light">
                   {String(howWeWork.steps.length).padStart(2, "0")} stages
                 </p>
               </div>

@@ -145,7 +145,7 @@ export function TvLivePageContent({
                   {latest.title}
                 </h2>
 
-                <p className="mt-4 text-[0.65rem] font-semibold uppercase tracking-[0.1em] text-muted-light">
+                <p className="mt-4 text-[0.6875rem] font-semibold uppercase tracking-[0.1em] text-muted-light">
                   {formatDate(
                     latest.publishedAt,
                   )}
@@ -285,7 +285,7 @@ export function TvLivePageContent({
                       />
 
                       {date ? (
-                        <p className="mt-4 text-[0.65rem] font-semibold text-muted-light">
+                        <p className="mt-4 text-[0.6875rem] font-semibold text-muted-light">
                           {date}
                         </p>
                       ) : null}

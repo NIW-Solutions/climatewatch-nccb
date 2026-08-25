@@ -87,7 +87,7 @@ export default async function PublicationPage({
         <InView>
           <Link
             href="/publications"
-            className="inline-flex items-center gap-2 text-[0.56rem] font-bold uppercase tracking-[0.11em] !text-muted transition-colors hover:!text-secondary"
+            className="inline-flex items-center gap-2 text-[0.6875rem] font-bold uppercase tracking-[0.11em] !text-muted transition-colors hover:!text-secondary"
           >
             <ArrowLeft
               aria-hidden="true"
@@ -117,14 +117,14 @@ export default async function PublicationPage({
             {/* Meta */}
             <div className="min-w-0">
               <div className="flex flex-wrap items-center gap-x-5 gap-y-2">
-                <p className="text-[0.56rem] font-bold uppercase tracking-[0.11em] text-secondary">
+                <p className="text-[0.6875rem] font-bold uppercase tracking-[0.11em] text-secondary">
                   {item.categoryLabel}
                 </p>
-                <p className="text-[0.56rem] font-bold uppercase tracking-[0.11em] text-muted-light">
+                <p className="text-[0.6875rem] font-bold uppercase tracking-[0.11em] text-muted-light">
                   {item.date}
                 </p>
                 {item.series ? (
-                  <p className="text-[0.56rem] font-bold uppercase tracking-[0.11em] text-muted-light">
+                  <p className="text-[0.6875rem] font-bold uppercase tracking-[0.11em] text-muted-light">
                     {item.series}
                   </p>
                 ) : null}
@@ -162,7 +162,7 @@ export default async function PublicationPage({
                   (topic) => (
                     <span
                       key={topic}
-                      className="border border-border px-2.5 py-1 text-[0.52rem] font-bold uppercase tracking-[0.1em] text-muted"
+                      className="border border-border px-2.5 py-1 text-[0.6875rem] font-bold uppercase tracking-[0.1em] text-muted"
                     >
                       {topic}
                     </span>
@@ -180,7 +180,7 @@ export default async function PublicationPage({
                   />
                 ) : (
                   <div className="border-l-2 border-secondary bg-surface px-5 py-4">
-                    <p className="text-[0.56rem] font-bold uppercase tracking-[0.11em] text-secondary">
+                    <p className="text-[0.6875rem] font-bold uppercase tracking-[0.11em] text-secondary">
                       {reader.forthcomingLabel}
                     </p>
                     <p className="mt-2 max-w-xl text-sm leading-7 text-muted">
@@ -198,7 +198,7 @@ export default async function PublicationPage({
 
               {/* Page count */}
               {item.pages ? (
-                <p className="mt-5 text-[0.56rem] font-bold uppercase tracking-[0.11em] text-muted-light">
+                <p className="mt-5 text-[0.6875rem] font-bold uppercase tracking-[0.11em] text-muted-light">
                   {item.pages}
                 </p>
               ) : null}
@@ -210,7 +210,7 @@ export default async function PublicationPage({
         {item.citation ? (
           <InView delay={0.08}>
             <div className="mt-16 border-t border-border pt-6">
-              <p className="text-[0.56rem] font-bold uppercase tracking-[0.11em] text-muted-light">
+              <p className="text-[0.6875rem] font-bold uppercase tracking-[0.11em] text-muted-light">
                 {reader.citationLabel}
               </p>
               <p className="mt-3 max-w-3xl text-sm leading-7 text-muted">

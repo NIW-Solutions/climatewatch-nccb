@@ -131,11 +131,11 @@ export function HomeProjects() {
 
               <div className="relative z-10">
                 <div className="flex flex-wrap items-center gap-3">
-                  <span className="bg-secondary px-3 py-1.5 text-[0.58rem] font-bold uppercase tracking-[0.11em] text-white">
+                  <span className="bg-secondary px-3 py-1.5 text-[0.6875rem] font-bold uppercase tracking-[0.11em] text-white">
                     Featured project
                   </span>
 
-                  <span className="text-[0.6rem] font-bold uppercase tracking-[0.11em] text-white/48">
+                  <span className="text-[0.6875rem] font-bold uppercase tracking-[0.11em] text-white/48">
                     {featured.status}
                   </span>
                 </div>
@@ -183,7 +183,7 @@ export function HomeProjects() {
                 More current work
               </p>
 
-              <p className="hidden text-[0.62rem] font-bold uppercase tracking-[0.11em] text-muted-light sm:block">
+              <p className="hidden text-[0.6875rem] font-bold uppercase tracking-[0.11em] text-muted-light sm:block">
                 ClimateWatch projects
               </p>
             </div>
@@ -204,7 +204,7 @@ export function HomeProjects() {
                       {project.number}
                     </span>
 
-                    <p className="text-[0.59rem] font-bold uppercase tracking-[0.11em] text-muted-light lg:mt-4">
+                    <p className="text-[0.6875rem] font-bold uppercase tracking-[0.11em] text-muted-light lg:mt-4">
                       {project.status}
                     </p>
                   </div>
@@ -320,7 +320,7 @@ function ProjectMeta({
         >
           <p
             className={[
-              "text-[0.56rem] font-bold uppercase tracking-[0.11em]",
+              "text-[0.6875rem] font-bold uppercase tracking-[0.11em]",
               light
                 ? "text-white/40"
                 : "text-muted-light",

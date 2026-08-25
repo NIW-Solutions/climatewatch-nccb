@@ -65,7 +65,7 @@ export default function ErrorPage({
           </div>
 
           <div className="lg:text-right">
-            <p className="text-[0.58rem] font-bold uppercase tracking-[0.11em] text-muted-light">
+            <p className="text-[0.6875rem] font-bold uppercase tracking-[0.11em] text-muted-light">
               ClimateWatch
             </p>
           </div>

@@ -83,7 +83,7 @@ export function PublicationCover({
       <div className="relative">
         <span className="block h-[3px] w-9 bg-secondary" />
 
-        <p className="mt-4 text-[0.5rem] font-bold uppercase leading-4 tracking-[0.13em] text-white/60">
+        <p className="mt-4 text-[0.6875rem] font-bold uppercase leading-4 tracking-[0.13em] text-white/60">
           {categoryLabel}
         </p>
       </div>
@@ -97,11 +97,11 @@ export function PublicationCover({
       {/* Foot */}
 
       <div className="relative flex items-end justify-between gap-3 border-t border-white/20 pt-3">
-        <p className="text-[0.5rem] font-bold uppercase tracking-[0.13em] text-white/70">
+        <p className="text-[0.6875rem] font-bold uppercase tracking-[0.13em] text-white/70">
           ClimateWatch
         </p>
 
-        <p className="text-[0.5rem] font-bold uppercase tracking-[0.13em] text-white/45">
+        <p className="text-[0.6875rem] font-bold uppercase tracking-[0.13em] text-white/45">
           {year}
         </p>
       </div>

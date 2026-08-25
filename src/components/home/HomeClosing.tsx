@@ -131,7 +131,7 @@ export function HomeClosing() {
               </p>
             </div>
 
-            <p className="hidden text-[0.6rem] font-bold uppercase tracking-[0.11em] text-white/35 sm:block">
+            <p className="hidden text-[0.6875rem] font-bold uppercase tracking-[0.11em] text-white/35 sm:block">
               ClimateWatch · Pakistan
             </p>
           </div>
