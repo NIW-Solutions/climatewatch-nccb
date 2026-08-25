@@ -1,6 +1,8 @@
 "use client";
 
 import {
+  useCallback,
+  useEffect,
   useState,
   type ReactNode,
 } from "react";
@@ -58,6 +60,53 @@ export function SectionAccordion({
    */
   const [mountedIds, setMountedIds] =
     useState<readonly string[]>([]);
+
+  /**
+   * Open whatever section the URL names.
+   *
+   * Two things depended on this and neither worked. The hero's scroll
+   * indicator pointed at #introduction — an id that lives inside a panel, so
+   * it did not exist in the document until that panel had been opened, and
+   * clicking the arrow did nothing at all. And a link to a specific section
+   * could not be shared, because arriving with a hash left everything shut.
+   *
+   * Each row carries its own id whether open or closed, so the browser
+   * handles the scrolling; this only has to open the right panel once it
+   * lands. Listening for hashchange as well as mount matters because
+   * clicking the indicator while already on the page is not a navigation.
+   */
+  const openFromHash = useCallback(() => {
+    const id = window.location.hash.replace("#", "");
+
+    if (!id || !items.some((item) => item.id === id)) {
+      return;
+    }
+
+    setMountedIds((current) =>
+      current.includes(id) ? current : [...current, id],
+    );
+
+    setOpenIds((current) =>
+      current.includes(id) ? current : [...current, id],
+    );
+  }, [items]);
+
+  useEffect(() => {
+    /*
+     * Deferred by a frame rather than called straight away. Setting state
+     * synchronously inside an effect cascades an extra render, and waiting
+     * also lets the browser finish its own jump to the anchor before the
+     * panel expands underneath it.
+     */
+    const frame = window.requestAnimationFrame(openFromHash);
+
+    window.addEventListener("hashchange", openFromHash);
+
+    return () => {
+      window.cancelAnimationFrame(frame);
+      window.removeEventListener("hashchange", openFromHash);
+    };
+  }, [openFromHash]);
 
   function toggle(id: string) {
     setMountedIds((current) =>

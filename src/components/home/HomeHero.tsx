@@ -342,7 +342,7 @@ export function HomeHero() {
           ===================================== */}
 
       <a
-        href="#introduction"
+        href="#who-we-are"
         aria-label="Continue to introduction"
         className="group absolute right-[var(--page-gutter)] top-1/2 z-20 hidden size-11 -translate-y-1/2 place-items-center border border-white/30 bg-white/[0.07] !text-white backdrop-blur-sm transition-[background-color,border-color,color] duration-300 hover:border-white hover:bg-white hover:!text-primary xl:grid"
       >
