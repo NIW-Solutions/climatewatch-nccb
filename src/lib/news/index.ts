@@ -64,6 +64,25 @@ const RSS_FEEDS = [
   "https://climatenetwork.org/feed/",
 ] as const;
 
+/*
+  Youth climate, as dedicated sources rather than a filter over general
+  news — which is why the section was empty.
+
+  Almost no youth climate organisation publishes a working feed: Fridays
+  for Future's has not updated since February 2024, and UNICEF's,
+  Climate Cardinals' and Youth Climate Lab's all return 404. These are
+  Google News queries instead, which name the real publisher in
+  <source url> and so are checked against the allowlist like any other
+  item — an aggregator is the transport, not the source.
+
+  The Pakistan query runs first so regional coverage is preferred.
+*/
+const YOUTH_FEEDS = [
+  "https://news.google.com/rss/search?q=youth%20climate%20Pakistan&hl=en&gl=PK&ceid=PK:en",
+  "https://news.google.com/rss/search?q=%22youth%20climate%22&hl=en&gl=US&ceid=US:en",
+  "https://news.google.com/rss/search?q=%22young%20people%22%20climate%20activists&hl=en&gl=US&ceid=US:en",
+] as const;
+
 /* ==========================================
    TOPIC MATCHING
 
@@ -291,6 +310,7 @@ export async function getNewsFeed(): Promise<
 > {
   const [
     rssResults,
+    youthResults,
     videos,
   ] = await Promise.all([
     Promise.all(
@@ -298,6 +318,18 @@ export async function getNewsFeed(): Promise<
         fetchRss(url, 30),
       ),
     ),
+
+    /*
+      Fetched alongside the publisher feeds rather than after GDELT, so the
+      youth section no longer depends on a rate-limited service to have
+      anything in it at all.
+    */
+    Promise.all(
+      YOUTH_FEEDS.map((url) =>
+        fetchRss(url, 30),
+      ),
+    ),
+
     fetchYouTube(
       CLIMATEWATCH_YOUTUBE_CHANNEL,
       ITEMS_PER_SECTION,
@@ -331,6 +363,7 @@ export async function getNewsFeed(): Promise<
   const pool = [
     ...supplementary,
     ...youthSupplementary,
+      ...youthResults.flat(),
     ...rssResults.flat(),
   ].filter(
     (item) =>

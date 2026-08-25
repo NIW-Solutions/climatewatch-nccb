@@ -192,7 +192,7 @@ function parseFeed(
   const items: FeedItem[] = [];
 
   for (const block of blocks) {
-    const title = decodeEntities(
+    let title = decodeEntities(
       firstMatch(block, [
         /<title[^>]*>([\s\S]*?)<\/title>/,
       ]),
@@ -208,9 +208,48 @@ function parseFeed(
       continue;
     }
 
+    /*
+     * Aggregated feeds — Google News among them — put an opaque redirect in
+     * <link> and name the real publisher in <source url="...">. Checking
+     * the allowlist against the redirect rejects every such item as coming
+     * from the aggregator, so the publisher is what gets checked, and what
+     * gets shown.
+     */
+    const aggregatorUrl = firstMatch(block, [
+      /<source[^>]*url=["']([^"']+)["']/,
+    ]).trim();
+
+    const aggregatorName = decodeEntities(
+      firstMatch(block, [
+        /<source[^>]*>([\s\S]*?)<\/source>/,
+      ]),
+    ).trim();
+
+    const attributedTo = aggregatorUrl || href;
+
+    /*
+      Google News appends " - Publisher" to every headline, sometimes with a
+      stray pipe. The publisher is already shown beside the item, so the
+      suffix is duplication that eats the width a headline has to work in.
+    */
+    if (aggregatorName) {
+      title = title
+        .replace(
+          new RegExp(
+            `\\s*-\\s*\\|?\\s*${aggregatorName.replace(
+              /[.*+?^${}()|[\]\\]/g,
+              "\\$&",
+            )}\\s*$`,
+            "i",
+          ),
+          "",
+        )
+        .trim();
+    }
+
     if (
       options.requireAllowedSource &&
-      !isAllowedSource(href)
+      !isAllowedSource(attributedTo)
     ) {
       continue;
     }
@@ -237,7 +276,8 @@ function parseFeed(
       image,
       source:
         options.fallbackSource ??
-        sourceLabel(href),
+        (aggregatorName ||
+          sourceLabel(attributedTo)),
       summary: decodeEntities(
         firstMatch(block, [
           /<description[^>]*>([\s\S]*?)<\/description>/,

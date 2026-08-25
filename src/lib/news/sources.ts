@@ -44,6 +44,13 @@ export const ALLOWED_SOURCES: Readonly<
   "unfccc.int": "international",
   "un.org": "international",
   "unep.org": "international",
+
+  // UN agencies publish most of the credible youth climate coverage, and
+  // dominate the youth feeds below. Without these the section stays empty.
+  "undp.org": "international",
+  "unicef.org": "international",
+  "unesco.org": "international",
+  "weforum.org": "international",
   "wmo.int": "international",
   "theguardian.com": "international",
   "bbc.com": "international",
