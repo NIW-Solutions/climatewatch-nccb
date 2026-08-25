@@ -33,6 +33,20 @@ function findPost(
   );
 }
 
+/**
+ * Only the slugs generateStaticParams returns exist. Anything else is a 404
+ * at the routing layer, not a page that renders and then calls notFound().
+ *
+ * Without this, an unknown slug was answering 200 with a not-found page —
+ * a soft 404, which tells a crawler the URL is real and worth keeping in the
+ * index. Ordinary missing paths like /totally-fake-page already 404
+ * correctly; it was only these dynamic routes that did not.
+ *
+ * The full set is known at build time, so nothing is lost by refusing to
+ * render on demand.
+ */
+export const dynamicParams = false;
+
 export function generateStaticParams() {
   return posts.map((post) => ({
     slug: post.slug,
