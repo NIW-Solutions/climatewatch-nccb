@@ -15,6 +15,7 @@ import {
   useState,
 } from "react";
 
+import { CountryFlag } from "@/components/team/CountryFlag";
 import { InView } from "@/components/motion-primitives/InView";
 import type { TeamProfile } from "@/content/team";
 
@@ -104,6 +105,12 @@ function ProfileCard({
       <div className="mt-5 flex flex-1 flex-col border-t border-border pt-4">
         <h3 className="font-editorial text-[1.35rem] font-medium leading-[1.15] tracking-[-0.03em] text-primary transition-colors duration-300 group-hover:text-secondary">
           {profile.name}
+        {profile.country ? (
+          <CountryFlag
+            code={profile.country}
+            className="ml-2"
+          />
+        ) : null}
         </h3>
         <p className="mt-2.5 text-[0.6875rem] font-bold uppercase leading-5 tracking-[0.11em] text-secondary">
           {profile.role}
@@ -264,6 +271,12 @@ function ProfileModal({
                 className="font-editorial text-[clamp(1.6rem,2.2vw,2.1rem)] font-medium leading-[1.1] tracking-[-0.035em] text-primary"
               >
                 {profile.name}
+        {profile.country ? (
+          <CountryFlag
+            code={profile.country}
+            className="ml-2"
+          />
+        ) : null}
               </h2>
               <p className="mt-2.5 text-[0.6875rem] font-bold uppercase leading-5 tracking-[0.11em] text-secondary">
                 {profile.role}

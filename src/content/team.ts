@@ -52,6 +52,12 @@ export type TeamProfile = {
   /** Small line under the role, e.g. for people holding two roles. */
   note?: string;
   image?: string;
+  /**
+   * ISO 3166-1 alpha-2 code, e.g. "PL". Renders a flag beside the name.
+   * Set only on international advisors — a flag beside every name on a
+   * page of Pakistan-based staff would say nothing.
+   */
+  country?: string;
   linkedin?: string;
   instagram?: string;
 };
@@ -336,6 +342,13 @@ export const teamContent = {
       "External advisors are consulted on the projects and publications where their expertise is required. They review technical and analytical content before it is published.",
   },
 
+  internationalAdvisory: {
+    eyebrow: "International Advisory",
+    title: "Advisors working on climate policy beyond Pakistan.",
+    description:
+      "Specialists based outside Pakistan who advise on the international rules and standards ClimateWatch's work has to sit inside. Consulted on the projects and publications where that expertise is required.",
+  },
+
   advisors: [
     {
       slug: "mehnaz-parveen",
@@ -356,33 +369,6 @@ export const teamContent = {
         "Inclusive technology and digital access",
         "Strategic partnerships and multi-stakeholder engagement",
         "Policy design and analysis",
-      ],
-    },
-    {
-      /*
-       * Written from the Terms of Reference ClimateWatch supplied, which
-       * describes the advisory role in detail but carries no biography — no
-       * employer, education or career history. Everything below is what that
-       * document supports. A fuller profile needs material from him.
-       */
-      slug: "tomasz-kowalczewski",
-      image: "/images/team/tomasz-kowalczewski.webp",
-      name: "Mr. Tomasz Kowalczewski",
-      role: "External Advisor — Carbon Market Methodologies and GHG Standards",
-      summary:
-        "Carbon market and greenhouse gas standards specialist holding an active UNFCCC Article 6.4 Expert Reviewer mandate for 2026–2028. Advises ClimateWatch on crediting methodologies, monitoring standards and the assessment of carbon crediting claims.",
-      profile: [
-        "Tomasz Kowalczewski is ClimateWatch's External Advisor on Carbon Market Methodologies and GHG Standards.",
-        "He holds an active UNFCCC Article 6.4 Expert Reviewer mandate for 2026–2028, and brings experience from within a national negotiating team to the question of how negotiating dynamics shape the rules that carbon markets end up working under.",
-        "His advisory input covers technical review of carbon methodology and greenhouse gas monitoring content in ClimateWatch publications, guidance on the Article 6.4 mechanism and its supervisory and review architecture, advice on standards for carbon farming and land-sector crediting, and review of ClimateWatch assessments of carbon crediting claims before they are published.",
-        "The engagement is need-based rather than standing. ClimateWatch approaches him when a specific project, publication or decision requires this expertise — usually a written review, a call, or comments on a draft — rather than on a routine schedule. His Article 6.4 Expert Reviewer mandate takes precedence over any request, and advice he gives is his own professional view rather than a position held by any employer or other organisation.",
-      ],
-      expertise: [
-        "Carbon market methodologies",
-        "Greenhouse gas monitoring standards",
-        "The Article 6.4 mechanism and its review architecture",
-        "Carbon farming and land-sector crediting standards",
-        "Assessment of carbon crediting claims",
       ],
     },
     {
@@ -524,6 +510,41 @@ export const teamContent = {
       ],
 
       image: "/images/team/imran-saqib-khalid.webp",
+    },
+  ] satisfies readonly TeamProfile[],
+
+  /* ============================================================
+     INTERNATIONAL ADVISORY
+     Advisors based outside Pakistan. Separate from the advisory
+     board above so the international bench is visible as such,
+     and each entry carries a country code that renders a flag
+     beside the name.
+     ============================================================ */
+
+  internationalAdvisors: [
+    {
+      slug: "tomasz-kowalczewski",
+      image: "/images/team/tomasz-kowalczewski.webp",
+      name: "Mr. Tomasz Kowalczewski",
+      country: "PL",
+      role: "External Advisor — Carbon Market Methodologies and GHG Standards",
+      summary:
+        "Climate Policy Director at Green Alchemy and a UNFCCC Article 6.4 Expert Reviewer for 2026–2028, with seventeen years in climate policy and carbon markets.",
+      profile: [
+        "Tomasz Kowalczewski is ClimateWatch's External Advisor on Carbon Market Methodologies and GHG Standards.",
+        "He has seventeen years in climate policy and carbon markets, and is currently Climate Policy Director at Green Alchemy. He holds an active UNFCCC Article 6.4 Expert Reviewer mandate for 2026–2028. Earlier he built carbon farming standards at Agreena, and negotiated on Poland's official UNFCCC team at COP19.",
+        "That combination is the reason for the appointment. Carbon market rules are written in negotiating rooms and then applied through methodologies and monitoring standards, and he has worked on both sides of that line — inside a national delegation, and inside the standards that crediting claims are later measured against.",
+        "His advisory input covers technical review of carbon methodology and greenhouse gas monitoring content in ClimateWatch publications, guidance on the Article 6.4 mechanism and its supervisory and review architecture, advice on standards for carbon farming and land-sector crediting, and review of ClimateWatch assessments of carbon crediting claims before they are published.",
+        "The engagement is need-based rather than standing. ClimateWatch approaches him when a specific project, publication or decision requires this expertise — usually a written review, a call, or comments on a draft. His Article 6.4 Expert Reviewer mandate takes precedence over any request, and advice he gives is his own professional view rather than a position held by Green Alchemy or any other organisation.",
+      ],
+      expertise: [
+        "Carbon market methodologies",
+        "Greenhouse gas monitoring standards",
+        "The Article 6.4 mechanism and its review architecture",
+        "Carbon farming and land-sector crediting standards",
+        "Assessment of carbon crediting claims",
+        "UNFCCC negotiation dynamics",
+      ],
     },
   ] satisfies readonly TeamProfile[],
 

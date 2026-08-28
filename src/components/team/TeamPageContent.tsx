@@ -25,6 +25,8 @@ export function TeamPageContent() {
     associates,
     advisory,
     advisors,
+    internationalAdvisors,
+    internationalAdvisory,
     governance,
     board,
     join,
@@ -411,6 +413,56 @@ export function TeamPageContent() {
           />
         </div>
       </section>
+
+      {/* =====================================
+          INTERNATIONAL ADVISORY
+          Advisors based outside Pakistan. Its own section so the
+          international bench reads as one, and each name carries a flag.
+          ===================================== */}
+      {internationalAdvisors.length > 0 ? (
+        <section
+          id="international-advisors"
+          aria-labelledby="international-advisors-heading"
+          className="scroll-mt-28 border-t border-border bg-surface"
+        >
+          <div className="site-container section-shell-small">
+            <InView>
+              <div className="grid gap-8 border-t border-primary pt-6 lg:grid-cols-[0.75fr_1.35fr_0.9fr]">
+                <div>
+                  <p className="eyebrow text-primary">
+                    {internationalAdvisory.eyebrow}
+                  </p>
+                </div>
+                <div>
+                  <h2
+                    id="international-advisors-heading"
+                    className="max-w-xl font-editorial text-[clamp(1.9rem,2.8vw,2.9rem)] font-medium leading-[1.08] tracking-[-0.035em] text-primary"
+                  >
+                    {internationalAdvisory.title}
+                  </h2>
+                </div>
+                <div>
+                  <p className="text-sm leading-7 text-muted">
+                    {internationalAdvisory.description}
+                  </p>
+                  <p className="mt-4 text-[0.6875rem] font-bold uppercase tracking-[0.11em] text-muted-light">
+                    {String(
+                      internationalAdvisors.length,
+                    ).padStart(2, "0")}{" "}
+                    {internationalAdvisors.length === 1
+                      ? "advisor"
+                      : "advisors"}
+                  </p>
+                </div>
+              </div>
+            </InView>
+
+            <TeamProfileGrid
+              profiles={internationalAdvisors}
+            />
+          </div>
+        </section>
+      ) : null}
 
       {/* =====================================
           BOARD OF DIRECTORS
