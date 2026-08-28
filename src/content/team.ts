@@ -336,10 +336,10 @@ export const teamContent = {
      ============================================================ */
 
   advisory: {
-    eyebrow: "External Advisory",
+    eyebrow: "National Advisory",
     title: "Specialists who advise and review the substance of our work.",
     description:
-      "External advisors are consulted on the projects and publications where their expertise is required. They review technical and analytical content before it is published.",
+      "Pakistan-based advisors, consulted on the projects and publications where their expertise is required. They review technical and analytical content before it is published.",
   },
 
   internationalAdvisory: {
