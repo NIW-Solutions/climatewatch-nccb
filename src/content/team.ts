@@ -359,26 +359,30 @@ export const teamContent = {
       ],
     },
     {
-      slug: "tasawar-baig",
-      image: "/images/team/tasawar-baig.webp",
-      name: "Dr Tasawar Baig",
-      role: "Technical Advisor — Climate and Environmental Governance",
+      /*
+       * Written from the Terms of Reference ClimateWatch supplied, which
+       * describes the advisory role in detail but carries no biography — no
+       * employer, education or career history. Everything below is what that
+       * document supports. A fuller profile needs material from him.
+       */
+      slug: "tomasz-kowalczewski",
+      image: "/images/team/tomasz-kowalczewski.webp",
+      name: "Mr. Tomasz Kowalczewski",
+      role: "External Advisor — Carbon Market Methodologies and GHG Standards",
       summary:
-        "Associate Professor of Politics and International Studies and Director of Advanced Studies and Research at Karakoram International University, Gilgit-Baltistan. Founding faculty member since 2003 and co-editor of Mountain Studies.",
+        "Carbon market and greenhouse gas standards specialist holding an active UNFCCC Article 6.4 Expert Reviewer mandate for 2026–2028. Advises ClimateWatch on crediting methodologies, monitoring standards and the assessment of carbon crediting claims.",
       profile: [
-        "Dr Tasawar Baig is ClimateWatch's External Advisor on Climate and Environmental Governance.",
-        "Tasawar Baig is an Associate Professor of Politics and International Studies and Director of Advanced Studies and Research at Karakoram International University (KIU), Gilgit-Baltistan. A member of KIU's founding faculty since 2003, he has contributed extensively to the university's academic and institutional development through various leadership roles, including Associate Dean, Faculty of Social Sciences (2020–2023), and Chair, Department of Politics and International Studies.",
-        "Dr. Baig earned his PhD in International Studies from Old Dominion University, USA, as a Fulbright Scholar, and holds an International Master's degree in Asian Studies from Lund University, Sweden. His teaching and research interests include comparative politics and area studies, globalization and social change, political sociology, political ecology, interdependence and transnationalism, and social capital. His work increasingly focuses on the social and political dimensions of environmental change, sustainability, and mountain communities. He is also a co-editor of Mountain Studies: Understanding and Managing the Mountains for People and Nature.",
-        "In 2008 he received the Higher Education Commission's Best University Teacher Award, and he has served on the HEC's National Curriculum Revision Committee for International Relations and Gender Studies.",
-        "He advises ClimateWatch on the theoretical grounding of its work. Environmental research in Pakistan is dominated by pure-science backgrounds, and the theory that lets climate be read as a societal problem is borrowed from sociology, geography, anthropology and political science. His role is to keep that grounding present in ClimateWatch's papers and briefs, and in the Glacier School curriculum.",
+        "Tomasz Kowalczewski is ClimateWatch's External Advisor on Carbon Market Methodologies and GHG Standards.",
+        "He holds an active UNFCCC Article 6.4 Expert Reviewer mandate for 2026–2028, and brings experience from within a national negotiating team to the question of how negotiating dynamics shape the rules that carbon markets end up working under.",
+        "His advisory input covers technical review of carbon methodology and greenhouse gas monitoring content in ClimateWatch publications, guidance on the Article 6.4 mechanism and its supervisory and review architecture, advice on standards for carbon farming and land-sector crediting, and review of ClimateWatch assessments of carbon crediting claims before they are published.",
+        "The engagement is need-based rather than standing. ClimateWatch approaches him when a specific project, publication or decision requires this expertise — usually a written review, a call, or comments on a draft — rather than on a routine schedule. His Article 6.4 Expert Reviewer mandate takes precedence over any request, and advice he gives is his own professional view rather than a position held by any employer or other organisation.",
       ],
       expertise: [
-        "Climate and environmental governance",
-        "Comparative politics and area studies",
-        "Political ecology and political sociology",
-        "Social capital and community-induced development in mountain societies",
-        "Transnationalism, interdependence and globalisation",
-        "Interdisciplinary research design in the social sciences",
+        "Carbon market methodologies",
+        "Greenhouse gas monitoring standards",
+        "The Article 6.4 mechanism and its review architecture",
+        "Carbon farming and land-sector crediting standards",
+        "Assessment of carbon crediting claims",
       ],
     },
     {
@@ -423,6 +427,29 @@ export const teamContent = {
         "Climate vulnerability assessment in mountain communities",
         "Sustainable tourism in high-mountain regions",
         "Economic appraisal of adaptation and development interventions",
+      ],
+    },
+    {
+      slug: "tasawar-baig",
+      image: "/images/team/tasawar-baig.webp",
+      name: "Dr Tasawar Baig",
+      role: "Technical Advisor — Climate and Environmental Governance",
+      summary:
+        "Associate Professor of Politics and International Studies and Director of Advanced Studies and Research at Karakoram International University, Gilgit-Baltistan. Founding faculty member since 2003 and co-editor of Mountain Studies.",
+      profile: [
+        "Dr Tasawar Baig is ClimateWatch's External Advisor on Climate and Environmental Governance.",
+        "Tasawar Baig is an Associate Professor of Politics and International Studies and Director of Advanced Studies and Research at Karakoram International University (KIU), Gilgit-Baltistan. A member of KIU's founding faculty since 2003, he has contributed extensively to the university's academic and institutional development through various leadership roles, including Associate Dean, Faculty of Social Sciences (2020–2023), and Chair, Department of Politics and International Studies.",
+        "Dr. Baig earned his PhD in International Studies from Old Dominion University, USA, as a Fulbright Scholar, and holds an International Master's degree in Asian Studies from Lund University, Sweden. His teaching and research interests include comparative politics and area studies, globalization and social change, political sociology, political ecology, interdependence and transnationalism, and social capital. His work increasingly focuses on the social and political dimensions of environmental change, sustainability, and mountain communities. He is also a co-editor of Mountain Studies: Understanding and Managing the Mountains for People and Nature.",
+        "In 2008 he received the Higher Education Commission's Best University Teacher Award, and he has served on the HEC's National Curriculum Revision Committee for International Relations and Gender Studies.",
+        "He advises ClimateWatch on the theoretical grounding of its work. Environmental research in Pakistan is dominated by pure-science backgrounds, and the theory that lets climate be read as a societal problem is borrowed from sociology, geography, anthropology and political science. His role is to keep that grounding present in ClimateWatch's papers and briefs, and in the Glacier School curriculum.",
+      ],
+      expertise: [
+        "Climate and environmental governance",
+        "Comparative politics and area studies",
+        "Political ecology and political sociology",
+        "Social capital and community-induced development in mountain societies",
+        "Transnationalism, interdependence and globalisation",
+        "Interdisciplinary research design in the social sciences",
       ],
     },
     {
