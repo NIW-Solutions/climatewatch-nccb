@@ -231,6 +231,33 @@ export function TeamPageContent() {
                 />
               </a>
             </div>
+
+            {/*
+              Below the other two rather than beside them: the international bench
+              is one person today, and a third equal-width button would promise a
+              section the same size as the other two.
+            
+              Outlined rather than a third filled colour — navy and red are already
+              spoken for, and inventing a third would read as a new category.
+            
+              Hidden entirely when nobody is in the section, matching the section
+              itself, so the button can never point at nothing.
+            */}
+            {internationalAdvisors.length > 0 ? (
+              <a
+                href="#international-advisors"
+                className="group mt-3 inline-flex min-h-11 w-full items-center justify-between gap-4 border border-primary px-5 !text-primary transition-colors hover:!bg-primary hover:!text-white"
+              >
+                <span className="text-[0.6875rem] font-bold uppercase tracking-[0.11em]">
+                  {internationalAdvisory.eyebrow}
+                </span>
+                <ArrowDown
+                  aria-hidden="true"
+                  className="size-3.5 shrink-0 transition-transform duration-300 group-hover:translate-y-0.5"
+                  strokeWidth={1.8}
+                />
+              </a>
+            ) : null}
           </InView>
         </div>
       </section>
