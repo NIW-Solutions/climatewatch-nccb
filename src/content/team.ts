@@ -523,6 +523,29 @@ export const teamContent = {
 
   internationalAdvisors: [
     {
+      slug: "eman-ahmad",
+      image: "/images/team/eman-ahmad.webp",
+      name: "Dr. Eman Ahmad",
+      country: "EG",
+      role: "External Advisor — MRV and Greenhouse Gas Accounting",
+      summary:
+        "IPCC AR7 Lead Author and UNFCCC expert with over twenty years in urban climate work. She has built greenhouse gas inventories and MRV systems for the World Health Organization and Egypt's Ministry of Housing.",
+      profile: [
+        "Dr. Eman Ahmad is ClimateWatch's External Advisor on MRV and Greenhouse Gas Accounting.",
+        "She holds a doctorate from Cairo University and has more than twenty years in urban climate work. She is a Lead Author on the IPCC's Seventh Assessment Report, a UNFCCC expert, and Co-Chair of the World Climate Research Programme's Africa Task Team.",
+        "She has built greenhouse gas inventories and measurement, reporting and verification systems for the World Health Organization and for Egypt's Ministry of Housing, and works fluently in the reporting frameworks that govern how countries account for their emissions.",
+        "She advises ClimateWatch on greenhouse gas accounting and MRV: the technical accuracy of emissions analysis in its publications, how inventories are built and assessed at national and city level, and Pakistan's obligations under the Paris Agreement transparency framework.",
+      ],
+      expertise: [
+        "Measurement, reporting and verification (MRV)",
+        "Greenhouse gas inventories at national and city level",
+        "Paris Agreement transparency framework",
+        "Urban climate and heat",
+        "Carbon accounting",
+      ],
+    },
+
+    {
       slug: "tomasz-kowalczewski",
       image: "/images/team/tomasz-kowalczewski.webp",
       name: "Mr. Tomasz Kowalczewski",

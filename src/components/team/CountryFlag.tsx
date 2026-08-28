@@ -46,6 +46,11 @@ type Shape =
       kind: "polygon";
       fill: string;
       points: string;
+    }
+  | {
+      kind: "path";
+      fill: string;
+      d: string;
     };
 
 type FlagDrawing = Readonly<{
@@ -62,6 +67,32 @@ type FlagDrawing = Readonly<{
 const FLAGS: Readonly<
   Record<string, FlagDrawing>
 > = {
+  EG: {
+    name: "Egypt",
+    viewBox: "0 0 900 600",
+    /* Tinted from the gold of the eagle rather than the red band, so the
+       badge does not read as a second Poland at a glance. */
+    tint: "#fbf5e6",
+    edge: "#ddcb9e",
+    shapes: [
+      { kind: "rect", fill: "#ce1126", x: 0, y: 0, w: 900, h: 200 },
+      { kind: "rect", fill: "#ffffff", x: 0, y: 200, w: 900, h: 200 },
+      { kind: "rect", fill: "#000000", x: 0, y: 400, w: 900, h: 200 },
+      /*
+       * The Eagle of Saladin, simplified: head, two spread wings, breast
+       * shield and tail. Without an emblem this flag is indistinguishable
+       * from Yemen's, so leaving it out was not an option — but the real
+       * eagle carries a striped shield and an Arabic scroll that cannot be
+       * drawn honestly at the sizes used here.
+       */
+      { kind: "path", fill: "#c09300", d: "M450 236 q-14 0 -19 10 l-30 -8 26 17 q7 6 23 5 z" },
+      { kind: "path", fill: "#c09300", d: "M450 258 q-70 0 -108 22 q-20 12 -22 24 q30 -14 62 -16 q-22 12 -30 26 q34 -14 58 -14 q-14 12 -18 24 q30 -14 58 -16 z" },
+      { kind: "path", fill: "#c09300", d: "M450 258 q70 0 108 22 q20 12 22 24 q-30 -14 -62 -16 q22 12 30 26 q-34 -14 -58 -14 q14 12 18 24 q-30 -14 -58 -16 z" },
+      { kind: "path", fill: "#c09300", d: "M426 292 h48 v30 q0 20 -24 30 q-24 -10 -24 -30 z" },
+      { kind: "path", fill: "#c09300", d: "M434 354 h32 l-5 24 h-22 z" },
+    ],
+  },
+
   PK: {
     name: "Pakistan",
     viewBox: "0 0 900 600",
@@ -127,10 +158,20 @@ function Shapes({
           );
         }
 
+        if (s.kind === "polygon") {
+          return (
+            <polygon
+              key={i}
+              points={s.points}
+              fill={s.fill}
+            />
+          );
+        }
+
         return (
-          <polygon
+          <path
             key={i}
-            points={s.points}
+            d={s.d}
             fill={s.fill}
           />
         );
