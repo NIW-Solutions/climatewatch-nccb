@@ -1,6 +1,7 @@
 import { ArrowDown, Mail } from "lucide-react";
 
 import { CountUp } from "@/components/motion-primitives/CountUp";
+import { CountryFlag } from "@/components/team/CountryFlag";
 import { InView } from "@/components/motion-primitives/InView";
 import { LoadedImage } from "@/components/ui/LoadedImage";
 import { TeamProfileGrid } from "@/components/team/TeamProfileGrid";
@@ -409,6 +410,18 @@ export function TeamPageContent() {
           <InView>
             <div className="grid gap-8 border-t border-primary pt-6 lg:grid-cols-[0.75fr_1.35fr_0.9fr]">
               <div>
+                {/*
+                  These advisors are all Pakistan-based, so the flag labels the group
+                  once at the top rather than repeating beside every name — which is
+                  what the international section does, where the country differs per
+                  person and so carries information.
+                */}
+                <CountryFlag
+                  code="PK"
+                  variant="banner"
+                  className="mb-5 w-28 sm:w-32"
+                />
+
                 <p className="eyebrow text-primary">
                   {advisory.eyebrow}
                 </p>
