@@ -439,6 +439,27 @@ export const teamContent = {
       ],
     },
     {
+      slug: "sitara-parveen",
+      image: "/images/team/sitara-parveen.webp",
+      name: "Dr. Sitara Parveen",
+      role: "External Advisor — Cryosphere and Socio-Hydrology",
+      summary:
+        "Associate Professor at Fatima Jinnah Degree College for Women, Gilgit, with a Heidelberg doctorate on glacier change and irrigation in Gilgit-Baltistan. She works on cryosphere dynamics and water security across the Karakoram, Hindu Kush and Himalaya.",
+      profile: [
+        "Dr. Sitara Parveen is ClimateWatch's External Advisor on Cryosphere and Socio-Hydrology.",
+        "She is Associate Professor at Fatima Jinnah Degree College for Women in Gilgit, where she has taught geography since 2000, with more than twenty-five years of teaching and research experience. She earned her doctorate at the University of Heidelberg with research on glacier change and its effects on local irrigation systems in Gilgit-Baltistan, and is currently a postdoctoral researcher at the University of Oregon studying the region's traditional glacier grafting practices.",
+        "Her work covers cryosphere dynamics, snow and glacier-fed irrigation in the Karakoram and Himalaya, climate vulnerability and adaptation, and GIS and remote sensing. She has published on cryosphere-fed irrigation networks in Mountain Research and Development and on socio-hydrological change in Upper Hunza in Erdkunde, and contributed to the Earth's Future horizon-scanning exercise that identified the top hundred research questions on climate and water in the Upper Indus Basin.",
+        "She advises ClimateWatch on the cryosphere and mountain water systems: the technical accuracy of its glacier and water analysis, and the design of the Glacier School curriculum.",
+      ],
+      expertise: [
+        "Cryosphere dynamics in the Karakoram, Hindu Kush and Himalaya",
+        "Glacier- and snow-fed irrigation systems",
+        "Socio-hydrology and human-environment interaction",
+        "Climate vulnerability and community adaptation",
+        "GIS and remote sensing",
+      ],
+    },
+    {
       slug: "anam-rathor",
       image: "/images/team/anam-rathor.webp",
       name: "Ms. Anam Rathor",
