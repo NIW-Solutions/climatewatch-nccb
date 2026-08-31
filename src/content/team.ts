@@ -90,12 +90,15 @@ export const teamContent = {
   stats: [
     {
       /*
-       * Divisional leads (9) plus divisional teams (26). Recount both arrays
+       * Divisional leads (8) plus divisional teams (25). Recount both arrays
        * below when someone joins or leaves — this figure does not derive
        * itself, so a stale number here is a visible error on the page.
+       *
+       * Eight leads, not nine: Partnership and Outreach has no head at
+       * present and the role is advertised on the careers page.
        */
       label: "Team members",
-      value: "35",
+      value: "33",
     },
     {
       // Nine department entries below, and the directory copy says nine.
@@ -224,14 +227,13 @@ export const teamContent = {
        RESEARCH AND DEVELOPMENT
        ========================================== */
     {
-      name: "Ms. Atia Fehmi",
+      name: "Imtiaz Ali Zeb",
       department: "research-development",
       designation: "Head of Division",
       focus:
         "Research design, evidence standards and applied climate development work.",
-      email: "atia@climatewatch-nccb.org",
-      image: "/images/team/atia-fehmi.webp",
-      linkedin: "https://www.linkedin.com/in/atia-f-a66553182/",
+      email: "imtiaz.ali@climatewatch-nccb.org",
+      image: "/images/team/imtiaz-ali-zeb.webp",
     },
 
     /* ==========================================
@@ -251,18 +253,10 @@ export const teamContent = {
 
     /* ==========================================
        PARTNERSHIP AND OUTREACH
+       No entry: the division has no head at present. The team page renders
+       the division and its members without a head card, and the role is
+       advertised on the careers page.
        ========================================== */
-    {
-      name: "Mr. Mehtab Kamal",
-      department: "partnerships-outreach",
-      designation: "Head of Division",
-      focus:
-        "Institutional partnerships, outreach strategy and stakeholder relations.",
-      email: "mehtab@climatewatch-nccb.org",
-      image: "/images/team/mehtab-kamal.webp",
-      linkedin: "https://www.linkedin.com/in/mehtab-kamal-a75673387/",
-      instagram: "https://www.instagram.com/mehtab_kml/",
-    },
 
     /* ==========================================
        TECHNICAL AND ENGINEERING
@@ -773,14 +767,6 @@ export const teamContent = {
       email: "fatimah.muneer@climatewatch-nccb.org",
       image:
         "/images/team/fatimah-muneer.webp",
-    },
-    {
-      name: "Imtiaz Ali Zeb",
-      department: "research-development",
-      position: "Research Associate",
-      email: "imtiaz.ali@climatewatch-nccb.org",
-      image:
-        "/images/team/imtiaz-ali-zeb.webp",
     },
     {
       name: "Sania Asim",

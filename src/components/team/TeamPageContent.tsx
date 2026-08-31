@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { ArrowDown, Mail } from "lucide-react";
 
 import { CountUp } from "@/components/motion-primitives/CountUp";
@@ -36,8 +37,14 @@ export function TeamPageContent() {
 
   /**
    * One block per division: the head first, at full card size, then the people
-   * who work under them as circular tiles. Divisions without a head are
-   * dropped rather than rendered empty.
+   * who work under them.
+   *
+   * A division with no head still renders, provided it has people in it. Heads
+   * come and go and the post can sit vacant for months; dropping the block
+   * would take that division's whole team off the page with it, and leave the
+   * page showing eight divisions while the copy beside it says nine.
+   *
+   * Only a division that is genuinely empty — no head, no team — is dropped.
    */
   const divisions = departments
     .map((department) => ({
@@ -51,7 +58,11 @@ export function TeamPageContent() {
           person.department === department.id,
       ),
     }))
-    .filter((group) => group.head);
+    .filter(
+      (group) =>
+        group.head ||
+        group.team.length > 0,
+    );
 
   return (
     <main>
@@ -303,10 +314,13 @@ export function TeamPageContent() {
                     <p className="text-[0.6875rem] font-bold uppercase tracking-[0.11em] text-muted-light">
                       {String(
                         group.team.length +
-                          1,
+                          (group.head ? 1 : 0),
                       ).padStart(2, "0")}{" "}
-                      {group.team.length ===
-                      0
+                      {group.team.length +
+                        (group.head
+                          ? 1
+                          : 0) ===
+                      1
                         ? "member"
                         : "members"}
                     </p>
@@ -356,7 +370,27 @@ export function TeamPageContent() {
                       </InView>
                     </div>
                   </div>
-                ) : null}
+                ) : (
+                  /*
+                    A vacant headship, said plainly. The alternative is a
+                    division that quietly appears without a lead, which reads
+                    as an oversight rather than a post being open.
+                  */
+                  <div className="mt-8 flex justify-center">
+                    <InView amount={0.05}>
+                      <p className="max-w-md border border-border bg-surface px-6 py-5 text-center text-xs leading-6 text-muted">
+                        This division is between heads.{" "}
+                        <Link
+                          href="/careers"
+                          className="font-semibold text-primary underline-offset-4 transition-colors hover:text-secondary hover:underline"
+                        >
+                          The role is open
+                        </Link>
+                        .
+                      </p>
+                    </InView>
+                  </div>
+                )}
                 
                 {/* The division team, below its head. */}
                 <div className="mt-12 grid gap-x-8 gap-y-12 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
