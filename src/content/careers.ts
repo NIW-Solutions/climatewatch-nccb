@@ -80,7 +80,7 @@ export const careersContent = {
       {
         title: "Unpaid",
         description:
-          "ClimateWatch is a youth-led organisation, and every position here — including the divisional leads — is voluntary and unpaid. Better that you know now than at the interview.",
+          "ClimateWatch is a youth-led organisation, and every position we advertise — up to and including divisional leads — is voluntary and unpaid. Better that you know now than at the interview.",
       },
       {
         title: "Remote",
@@ -90,7 +90,7 @@ export const careersContent = {
       {
         title: "Internships run three months",
         description:
-          "Extendable to six depending on performance. Divisional lead positions are a minimum of one year, at roughly two hours a day, Monday to Friday.",
+          "Extendable to six depending on performance. Divisional lead positions, when we advertise them, run a minimum of one year at roughly two hours a day, Monday to Friday.",
       },
       {
         title: "Mandatory institutional internships accepted",
@@ -209,70 +209,6 @@ export const careersContent = {
         "Comfortable handling personal information with discretion.",
         "Working knowledge of spreadsheets and shared documents.",
         "Interest in climate action, sustainability or the nonprofit sector is an added advantage.",
-      ],
-    },
-
-    {
-      slug: "head-of-division-research-development",
-      title: "Head of Division — Research and Development",
-      division: "Research and Development",
-      commitment: "Divisional lead",
-      location: "Remote",
-      term: "Minimum 1 year",
-      hours: "Around 2 hours a day, Monday to Friday",
-      posted: "August 2026",
-
-      summary:
-        "Lead the division that produces ClimateWatch's research: policy analysis on climate finance and adaptation, evidence from Gilgit-Baltistan, Chitral and Sindh, and the standards that keep every claim traceable to its source.",
-
-      responsibilities: [
-        "Set the division's research agenda and decide which questions ClimateWatch takes on.",
-        "Supervise research associates and interns, review their work, and give a small team the direction it needs.",
-        "Hold the line on evidence: every published figure traceable to a primary document or named source, and nothing asserted beyond what that evidence supports.",
-        "Take publications from draft through review to release, working with the Media and Communications division.",
-        "Connect research questions to community evidence gathered through Climate Bethaak and fieldwork.",
-        "Represent the division's work to partner institutions and in policy discussions.",
-      ],
-
-      requirements: [
-        "A degree in Environmental Science, Climate Studies, Public Policy, Economics, Development Studies or a related field. A postgraduate qualification or published research is an advantage.",
-        "Demonstrated research experience — a thesis, published paper, policy brief or comparable body of work you can point to.",
-        "A sound grasp of research methods, and of what a given piece of evidence can and cannot be used to claim.",
-        "Experience supervising or mentoring others, formally or otherwise.",
-        "Familiarity with Pakistan's climate policy landscape, and ideally with the UNFCCC process.",
-        "The consistency to commit around two hours a day for at least a year. This is the part most applicants underestimate.",
-      ],
-    },
-
-    {
-      slug: "head-of-division-partnership-outreach",
-      title: "Head of Division — Partnership and Outreach",
-      division: "Partnership and Outreach",
-      commitment: "Divisional lead",
-      location: "Remote",
-      term: "Minimum 1 year",
-      hours: "Around 2 hours a day, Monday to Friday",
-      posted: "August 2026",
-
-      summary:
-        "Lead the division that builds and holds ClimateWatch's relationships — with research institutes, youth movements, community organisations and international bodies — and turns them into work that actually happens.",
-
-      responsibilities: [
-        "Maintain the organisation's existing partnerships, making sure each one has a live point of contact rather than a logo on a page.",
-        "Identify and open conversations with new partner organisations where the work genuinely overlaps.",
-        "Negotiate and document memoranda of understanding and collaboration agreements.",
-        "Coordinate joint activities across divisions, so that a partnership produces research, an event or a programme rather than an announcement.",
-        "Represent ClimateWatch at convenings, and prepare others on the team to do the same.",
-        "Supervise the associates and interns in the division, and give them real work to lead.",
-      ],
-
-      requirements: [
-        "A degree in International Relations, Development Studies, Communications, Public Policy, Business or a related field.",
-        "Experience building working relationships with organisations — partnerships, outreach, community organising, student societies or comparable.",
-        "Confident written and spoken communication in English. Urdu is an advantage, and a regional language of Gilgit-Baltistan or Chitral more so.",
-        "Organised follow-through. Partnerships are lost to unanswered emails far more often than to disagreement.",
-        "An understanding of the climate and development sector in Pakistan, and of where youth-led organisations sit within it.",
-        "The consistency to commit around two hours a day for at least a year.",
       ],
     },
   ] as readonly CareerOpening[],
