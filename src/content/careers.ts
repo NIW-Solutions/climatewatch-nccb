@@ -180,37 +180,6 @@ export const careersContent = {
       ],
     },
 
-    {
-      slug: "human-resources-intern",
-      title: "Human Resources Intern",
-      division: "Human Resources",
-      commitment: "Internship",
-      location: "Remote",
-      term: "3 months, extendable to 6",
-      hours: "Around 8 hours per week",
-      posted: "August 2026",
-
-      summary:
-        "Support the division that keeps a distributed volunteer team working: recruitment, onboarding, records, and the supervision and reporting that institutional internships depend on.",
-
-      responsibilities: [
-        "Support recruitment for open positions, from advertising a role through to scheduling interviews.",
-        "Onboard new interns and volunteers, and make sure each one knows who they report to and what is expected of them.",
-        "Maintain accurate team records across the divisions — contact details, roles, and internship start and end dates.",
-        "Coordinate mandatory institutional internships: supervisor assignment, agreed reporting schedules and completion certificates.",
-        "Track hours and reporting for interns who need documentation for their university or college.",
-        "Help divisional leads plan for the people they need, and flag where a division is stretched.",
-      ],
-
-      requirements: [
-        "Students or recent graduates in Human Resource Management, Business Administration, Psychology, Public Administration or a related field.",
-        "Organised and reliable with written records. Much of this role is making sure nothing about a person's placement is lost or forgotten.",
-        "Clear, considerate written communication — you are often the first person an applicant or new intern hears from.",
-        "Comfortable handling personal information with discretion.",
-        "Working knowledge of spreadsheets and shared documents.",
-        "Interest in climate action, sustainability or the nonprofit sector is an added advantage.",
-      ],
-    },
   ] as readonly CareerOpening[],
 } as const;
 
