@@ -90,15 +90,12 @@ export const teamContent = {
   stats: [
     {
       /*
-       * Divisional leads (8) plus divisional teams (25). Recount both arrays
+       * Divisional leads (9) plus divisional teams (25). Recount both arrays
        * below when someone joins or leaves — this figure does not derive
        * itself, so a stale number here is a visible error on the page.
-       *
-       * Eight leads, not nine: Partnership and Outreach has no head at
-       * present and the role is advertised on the careers page.
        */
       label: "Team members",
-      value: "33",
+      value: "34",
     },
     {
       // Nine department entries below, and the directory copy says nine.
@@ -234,6 +231,8 @@ export const teamContent = {
         "Research design, evidence standards and applied climate development work.",
       email: "imtiaz.ali@climatewatch-nccb.org",
       image: "/images/team/imtiaz-ali-zeb.webp",
+      linkedin: "https://www.linkedin.com/in/imtiaz-ali-zeb-8613b6262",
+      instagram: "https://www.instagram.com/srfalikaho/",
     },
 
     /* ==========================================
@@ -253,10 +252,18 @@ export const teamContent = {
 
     /* ==========================================
        PARTNERSHIP AND OUTREACH
-       No entry: the division has no head at present. The team page renders
-       the division and its members without a head card, and the role is
-       advertised on the careers page.
        ========================================== */
+    {
+      name: "Mr. Ahmed Yar",
+      department: "partnerships-outreach",
+      designation: "Head of Division",
+      focus:
+        "Institutional partnerships, outreach strategy and stakeholder relations.",
+      email: "Ahmed@climatewatch-nccb.org",
+      image: "/images/team/ahmed-yar.webp",
+      linkedin: "https://www.linkedin.com/in/ahmed-yar-activist/",
+      instagram: "https://www.instagram.com/ahmed_yar2/",
+    },
 
     /* ==========================================
        TECHNICAL AND ENGINEERING
