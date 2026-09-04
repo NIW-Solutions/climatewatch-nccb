@@ -320,7 +320,7 @@ projects: {
           label:
             "Division",
           value:
-            "Research & Development",
+            "International Climate Policy · Technical and Engineering",
         },
       ],
     },

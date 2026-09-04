@@ -145,7 +145,7 @@ export const projectsContent = {
         "In development",
 
       division:
-        "Research & Development",
+        "International Climate Policy · Technical and Engineering",
 
       focusLabel:
         "GLOF prediction & monitoring",
@@ -180,10 +180,16 @@ export const projectsContent = {
       imageCaption:
         "Applied research explores how remote sensing could strengthen observation of climate-related mountain hazards.",
 
+      /*
+        Two divisions now own this project, and /programmes carries a section
+        for only one of them — there is no technical-and-engineering anchor to
+        link to. So this points at the policy side rather than at the division
+        the project no longer sits in.
+      */
       action: {
-        label: "Explore Research & Development",
+        label: "Explore international climate policy",
         href:
-          "/programmes#research-and-development",
+          "/programmes#international-climate-policy",
       },
     },
 
