@@ -242,7 +242,16 @@ function ProfileModal({
 
   return (
     <div
-      className="fixed inset-0 z-[60] flex items-start justify-center overflow-y-auto bg-[rgba(5,22,43,0.78)] p-4 sm:items-center sm:p-8"
+      /*
+        Centring happens via auto margins on the panel below, never with
+        `items-center` here. This element is the scroll container, and
+        centring a flex child that is taller than its container pushes the
+        child's top above the scrollable area — scrollTop cannot go negative,
+        so the header becomes permanently unreachable. Auto margins collapse
+        to zero when there is no free space, so a tall profile starts at the
+        top and scrolls normally.
+      */
+      className="fixed inset-0 z-[60] flex items-start justify-center overflow-y-auto overscroll-contain bg-[rgba(5,22,43,0.78)] p-4 sm:p-8"
       onClick={onClose}
     >
       <div
@@ -253,7 +262,7 @@ function ProfileModal({
         onClick={(event) =>
           event.stopPropagation()
         }
-        className="my-8 w-full max-w-3xl bg-background shadow-2xl sm:my-0"
+        className="my-auto w-full max-w-3xl bg-background shadow-2xl"
       >
         {/* Header */}
         <div className="flex items-start justify-between gap-6 border-b border-border px-6 py-6 sm:px-10">
