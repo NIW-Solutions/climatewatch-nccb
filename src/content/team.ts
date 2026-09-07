@@ -533,6 +533,27 @@ export const teamContent = {
 
       image: "/images/team/imran-saqib-khalid.webp",
     },
+    {
+      slug: "faisal-nadeem-khan",
+      image: "/images/team/faisal-nadeem-khan.webp",
+      name: "Dr. Muhammad Faisal Nadeem Khan",
+      role: "External Advisor — Energy Transition and Clean Technology",
+      summary:
+        "Associate Professor of Power Systems at UET Taxila and Director of its Next-Generation Mobility and Energy Systems Lab, working on electric vehicles, smart grids and renewable energy integration.",
+      profile: [
+        "Dr. Muhammad Faisal Nadeem Khan is ClimateWatch's External Advisor on Energy Transition and Clean Technology.",
+        "He is Associate Professor of Power Systems at the University of Engineering and Technology, Taxila, and Director of the university's Next-Generation Mobility and Energy Systems Lab. His work covers electric vehicles, smart grids, and the integration of renewable energy into power systems, and he has held postdoctoral research experience at New York University.",
+        "Within IEEE he serves as advisor to the Power and Energy Society and Industry Applications Society chapters at UET Taxila, and as Branch Counselor for the university's student branch.",
+        "He advises ClimateWatch on the technical foundations of its energy and mitigation work: the accuracy of its analysis of Pakistan's power sector, what renewable integration and grid constraints actually permit, and the mitigation components of the country's Nationally Determined Contribution. Pakistan's climate commitments rest largely on decisions about generation and transmission, and this is the expertise that lets ClimateWatch judge whether those commitments are technically credible.",
+      ],
+      expertise: [
+        "Power systems and grid integration",
+        "Renewable energy integration and system planning",
+        "Electric vehicles and next-generation mobility",
+        "Smart grids",
+        "Energy policy and mitigation analysis",
+      ],
+    },
   ] satisfies readonly TeamProfile[],
 
   /* ============================================================
