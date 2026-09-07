@@ -554,6 +554,28 @@ export const teamContent = {
         "Energy policy and mitigation analysis",
       ],
     },
+    {
+      slug: "sidra-riaz",
+      image: "/images/team/sidra-riaz.webp",
+      name: "Sidra Riaz",
+      role: "External Advisor — Youth Climate Diplomacy and UNFCCC Engagement",
+      summary:
+        "UN Youth Delegate to COP29 and COP30, member of the UNFCCC Youth Policy Team, and founder of Environmental Change Makers. PhD scholar in Public Affairs at Florida International University.",
+      profile: [
+        "Sidra Riaz is ClimateWatch's External Advisor on Youth Climate Diplomacy and UNFCCC Engagement.",
+        "She is a PhD scholar in Public Affairs at Florida International University and a Presidential Fellow, and was previously a senior lecturer at the National University of Modern Languages in Islamabad. She holds an M.Phil in Government and Public Policy from National Defence University.",
+        "She has served as a UN Youth Delegate to the UN Climate Change Conferences, including COP29 in Azerbaijan and COP30 in Brazil, and as a UN Women Delegate at CSW70. She sits on the UNFCCC Youth Policy Team and co-authored the COP30 Global Youth Statement and the SB64 Policy Position Paper.",
+        "She founded Environmental Change Makers, a youth-led climate education organisation, and has given more than seventy talks worldwide, including two TEDx talks and interventions at the United Nations General Assembly. She has co-authored nine peer-reviewed publications, and holds the CLCGlobal 100 Global Women Leaders Award and the APPAM Excellence, Equity and Inclusion Fellowship.",
+        "She advises ClimateWatch on youth engagement in UNFCCC processes: how youth positions are negotiated and carried into formal text, and how ClimateWatch's own negotiation reporting and submissions land in that space.",
+      ],
+      expertise: [
+        "Youth engagement in UNFCCC processes",
+        "International climate negotiations",
+        "Climate justice advocacy",
+        "Public affairs and policy analysis",
+        "Climate education and youth mobilisation",
+      ],
+    },
   ] satisfies readonly TeamProfile[],
 
   /* ============================================================

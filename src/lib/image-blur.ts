@@ -104,6 +104,7 @@ export const imageBlur: Readonly<Record<string, string>> = {
   "/images/team/sajjad-ali.webp": "data:image/webp;base64,UklGRlIAAABXRUJQVlA4IEYAAAAQAgCdASoIAAoABABoJZgCdAEPAhpLrMfgAPyyb50d8vHRriGjqpfXOizvDHzcuzQm1BrKsZAzURkRJC95rqAiESEPQAAA",
   "/images/team/sania-asim.webp": "data:image/webp;base64,UklGRkoAAABXRUJQVlA4ID4AAADQAQCdASoIAAoABABoJbAC7AD0iG8MgAD+kWcOmXw0jPdLtiB2tUAKX14jsf1eH2REJZTLKUdL0LDqMgAAAA==",
   "/images/team/shahab-uddin.webp": "data:image/webp;base64,UklGRkoAAABXRUJQVlA4ID4AAADQAQCdASoIAAoABABoJZwAAl3HKEpAAAD89XosjBGSzxla7QS/BZ9xbekgeLWg8/j1I/RfaZeORSobCoAAAA==",
+  "/images/team/sidra-riaz.webp": "data:image/webp;base64,UklGRlwAAABXRUJQVlA4IFAAAAAwAgCdASoIAAoABABoJZACdH8AGZUa/2/UAAD5CS5HrJtp+VFLceRvdISeJ0jC3oziWGDmPvNpNsUaRkPZlihIC8h4AHy7sxrDxxeBFcAAAA==",
   "/images/team/sitara-parveen.webp": "data:image/webp;base64,UklGRloAAABXRUJQVlA4IE4AAADQAQCdASoIAAoABABoJQBOgCP7OTIegAD+bLz3WLbmVsEukcJA27l9qIlfRRUlNeUrAdhIigzFuisSd2h+XrrExNZp0nJxtbNOJueq6AA=",
   "/images/team/syed-kiram.webp": "data:image/webp;base64,UklGRlYAAABXRUJQVlA4IEoAAADQAQCdASoIAAoABABoJQBOgB8tFvVXsAD+ovq4mi4C3ldY1SMN4LQBVKZd3kfokjwoXubP94fL7wH2ofPZCDMNYIVb6Q0cFQAAAA==",
   "/images/team/syeda-hoorain-imran.webp": "data:image/webp;base64,UklGRlQAAABXRUJQVlA4IEgAAACwAQCdASoIAAoABABoJQBOgB6QPYWAAP5oQbhBsK3b9uuH/ytfb6V7dBxWkSvJIb1ueLBYL1fsSbsejf8LWaGfEh/d+axwAAA=",
