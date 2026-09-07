@@ -90,12 +90,12 @@ export const teamContent = {
   stats: [
     {
       /*
-       * Divisional leads (9) plus divisional teams (25). Recount both arrays
+       * Divisional leads (9) plus divisional teams (23). Recount both arrays
        * below when someone joins or leaves — this figure does not derive
        * itself, so a stale number here is a visible error on the page.
        */
       label: "Team members",
-      value: "34",
+      value: "32",
     },
     {
       // Nine department entries below, and the directory copy says nine.
@@ -872,20 +872,6 @@ export const teamContent = {
       image:
         "/images/team/rima-sahar.webp",
     },
-    {
-      /*
-       * Spelling follows the supplied photo file ("Fatimah Zaheer") and the
-       * roster's existing Fatimah Muneer. The request adding her wrote
-       * "Fatima" — worth confirming which she uses.
-       */
-      name: "Fatimah Zaheer",
-      department: "international-climate-policy",
-      position: "Intern",
-      email:
-        "fatimazaheer602@gmail.com",
-      image:
-        "/images/team/fatimah-zaheer.webp",
-    },
     /* ==========================================
        EDUCATION FOR SUSTAINABLE DEVELOPMENT
        ========================================== */
@@ -953,14 +939,6 @@ export const teamContent = {
       email: "ahbab.ullah@climatewatch-nccb.org",
       image:
         "/images/team/ahbab-ullah.webp",
-    },
-    {
-      name: "Syeda Fiza Kazmi",
-      department: "project-management",
-      position: "Project Coordinator",
-      email: "fiza.kazmi@climatewatch-nccb.org",
-      image:
-        "/images/team/syeda-fiza-kazmi.webp",
     },
     /* ==========================================
        MEDIA AND COMMUNICATIONS
