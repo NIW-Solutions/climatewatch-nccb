@@ -59,6 +59,7 @@ export const imageBlur: Readonly<Record<string, string>> = {
   "/images/research/research-fieldwork-focus-2026-08.webp": "data:image/webp;base64,UklGRkIAAABXRUJQVlA4IDYAAADQAQCdASoIAAYABABoJZQC7ADdaQvsAAD+hrMkeOkMf7TBWUfa4XFmrouQPCWdFMtBjQ/eAAA=",
   "/images/research/research-hero-2026-08.webp": "data:image/webp;base64,UklGRjYAAABXRUJQVlA4ICoAAACwAQCdASoIAAUABABoJQBOgCHXYJAAAP55MOW/rFWCC+UsOBRk3VLTAAA=",
   "/images/team/ahbab-ullah.webp": "data:image/webp;base64,UklGRlQAAABXRUJQVlA4IEgAAADQAQCdASoIAAoABABoJZgAAvxTZZzdsAD+ASeV3zi0XNS1MUkW0lXW5SVn7U6cb95OTMJ5en+mGUVEe6U2/z05tIxemUXaKAA=",
+  "/images/team/ahmad-mahmood.webp": "data:image/webp;base64,UklGRk4AAABXRUJQVlA4IEIAAADwAQCdASoIAAoABABoJYgCdAEWToS8sAAAzgcGrUzIFB4YMcyrN1Ks1ksP+R8i0bUISQHvZC3MxAEYGUqq1CM8uAA=",
   "/images/team/ahmad-rafay-alam.webp": "data:image/webp;base64,UklGRlYAAABXRUJQVlA4IEoAAAAQAgCdASoIAAoABABoJYwCdAEfB/17tneAAP7m5z5p32GYRTDJRSMPcVCOTCTsGTDhxmiTx1t3RdayUdCUQI7AUjK9CBjX+AAAAA==",
   "/images/team/ahmed-yar.webp": "data:image/webp;base64,UklGRlQAAABXRUJQVlA4IEgAAADQAQCdASoIAAoABABoJQBOgCB/r6/ZdAD+4o0qLBo1Sv/YMAVlh/qcqQFcGHTafOqeitdcwYRsVC3n93x8XupD6Sh0UU+HAAA=",
   "/images/team/aimen-tahir.webp": "data:image/webp;base64,UklGRkoAAABXRUJQVlA4ID4AAADQAQCdASoIAAoABABoJZQCsAED9/GTkAD+YQFes6uWScGPbFdUibLSscr+rG0B/jkzL+PkEegagvTogQAAAA==",
