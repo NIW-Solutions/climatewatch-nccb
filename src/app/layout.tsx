@@ -11,6 +11,7 @@ import "./globals.css";
 import "leaflet/dist/leaflet.css";
 
 import { SiteFooter } from "@/components/layout/SiteFooter";
+import { EventBanner } from "@/components/shared/EventBanner";
 import { SiteHeader } from "@/components/layout/SiteHeader";
 import { SiteStructuredData } from "@/components/shared/SiteStructuredData";
 import { siteConfig } from "@/config/site";
@@ -129,6 +130,7 @@ export default function RootLayout({
           server or the first client pass, so it cannot affect hydration or
           what a crawler sees.
         */}
+        <EventBanner />
       </body>
     </html>
   );

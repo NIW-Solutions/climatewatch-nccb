@@ -223,6 +223,10 @@ export const programmesContent = {
 
         date: "6 October 2026",
 
+        /* Collapsed-banner label. Short enough for a pill on a phone. */
+        bannerLabel:
+          "Pre-COP31 Consultation · 6 Oct",
+
         venue:
           "Institute of Strategic Studies Islamabad",
 
@@ -305,6 +309,15 @@ export const programmesContent = {
         image:
           "/images/programmes/pre-cop31-consultation-2026-10.webp",
 
+        /*
+          The poster's own proportions. The frame is built from these rather
+          than from a hard-coded ratio, so replacing a portrait poster with a
+          landscape one is a file and two numbers — nothing letterboxes and
+          nothing crops.
+        */
+        imageWidth: 3413,
+        imageHeight: 4500,
+
         imageAlt:
           "Event poster: From Belém to Antalya, Pakistan's Position — Pre-COP31 Multi-Stakeholder Consultation, 6 October at the Institute of Strategic Studies Islamabad.",
       },
@@ -343,3 +356,32 @@ export const programmesContent = {
 
 export type ProgrammesContent =
   typeof programmesContent;
+
+/**
+ * The next scheduled event, or null when there is none to show.
+ *
+ * An event stays listed through the whole of its own day and disappears
+ * afterwards — a banner advertising a date that has passed is worse than no
+ * banner, and nobody is going to remember to take it down by hand.
+ *
+ * CALL THIS FROM AN EFFECT, NOT DURING RENDER. It reads the clock, so a
+ * server pass and the first client pass could disagree and break hydration.
+ */
+export function upcomingEvent() {
+  const today = new Date();
+
+  return (
+    programmesContent.events.scheduled.find(
+      (event) => {
+        const end = new Date(
+          `${event.dateISO}T23:59:59`,
+        );
+
+        return end.getTime() >= today.getTime();
+      },
+    ) ?? null
+  );
+}
+
+export type ScheduledEvent =
+  (typeof programmesContent.events.scheduled)[number];

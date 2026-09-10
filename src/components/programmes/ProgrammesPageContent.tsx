@@ -474,27 +474,37 @@ function EventCard({
         }}
       />
 
-      <div className="grid gap-0 lg:grid-cols-[0.85fr_1.15fr]">
-        {/* POSTER */}
+      <div>
+        {/* POSTER
+            Above the text, not beside it. The frame takes the poster's own
+            proportions from the content, so the same markup holds a portrait
+            or a landscape one without cropping either. */}
 
         <InView
           amount={0.1}
-          className="relative border-b border-border lg:border-b-0 lg:border-r"
+          className="border-b border-border"
         >
-          <div className="relative aspect-[3413/4500] w-full overflow-hidden bg-surface-muted">
-            <LoadedImage
-              src={event.image}
-              alt={event.imageAlt}
-              fill
-              sizes="(max-width: 1024px) 100vw, 42vw"
-              className="object-cover"
-            />
+          <div className="mx-auto w-full max-w-4xl p-5 sm:p-8">
+            <div
+              className="relative w-full overflow-hidden bg-surface-muted"
+              style={{
+                aspectRatio: `${event.imageWidth} / ${event.imageHeight}`,
+              }}
+            >
+              <LoadedImage
+                src={event.image}
+                alt={event.imageAlt}
+                fill
+                sizes="(max-width: 896px) 100vw, 896px"
+                className="object-contain"
+              />
+            </div>
           </div>
         </InView>
 
         {/* DETAIL */}
 
-        <div className="p-7 sm:p-10">
+        <div className="mx-auto max-w-4xl p-7 sm:p-10">
           <InView from="right">
             <p className="text-[0.6875rem] font-bold uppercase tracking-[0.12em] text-secondary">
               {event.status}

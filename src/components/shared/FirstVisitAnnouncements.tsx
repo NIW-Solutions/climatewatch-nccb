@@ -10,9 +10,9 @@ import {
 import { ArrowUpRight, X } from "lucide-react";
 
 import {
-  careersContent,
-  openingsSignature,
-} from "@/content/careers";
+  upcomingEvent,
+  type ScheduledEvent,
+} from "@/content/programmes";
 import { publicationsContent } from "@/content/publications";
 
 /**
@@ -21,7 +21,7 @@ import { publicationsContent } from "@/content/publications";
  *
  * Two things a first-time visitor should see once and never again:
  *
- *   1. Open roles, as a dialog. Only when there are roles to announce.
+ *   1. The next scheduled event, as a dialog. Only when one is coming up.
  *   2. The newest publication, as a corner notice.
  *
  * They never appear together. Interrupting someone twice on arrival is the
@@ -30,9 +30,9 @@ import { publicationsContent } from "@/content/publications";
  *
  * "Seen" is stored per item, not as a visited flag:
  *
- *   - roles are keyed on a signature of the current slugs, so posting a new
- *     role re-announces it to someone who dismissed the last batch, while
- *     editing an existing role's wording does not;
+ *   - the event is keyed on its slug, so a new event re-announces itself to
+ *     someone who dismissed the last one, while editing the wording of an
+ *     existing event does not;
  *   - the publication is keyed on its slug, so it re-announces when a newer
  *     one is published.
  *
@@ -45,7 +45,7 @@ import { publicationsContent } from "@/content/publications";
  * dialog no one can permanently dismiss is worse than no dialog.
  */
 
-const SEEN_ROLES_KEY = "climatewatch:seen-openings";
+const SEEN_EVENT_KEY = "climatewatch:seen-event";
 const SEEN_PUBLICATION_KEY = "climatewatch:seen-publication";
 
 /** Let the page paint and settle before interrupting. */
@@ -84,8 +84,12 @@ function storageAvailable(): boolean {
 }
 
 export function FirstVisitAnnouncements() {
-  const [showRoles, setShowRoles] =
+  const [showEvent, setShowEvent] =
     useState(false);
+
+  /* Resolved in an effect: upcomingEvent() reads the clock. */
+  const [event, setEvent] =
+    useState<ScheduledEvent | null>(null);
   const [
     showPublication,
     setShowPublication,
@@ -96,19 +100,18 @@ export function FirstVisitAnnouncements() {
 
   const latest =
     publicationsContent.items[0];
-  const openings = careersContent.openings;
 
   useEffect(() => {
     if (!storageAvailable()) {
       return;
     }
 
-    const signature = openingsSignature();
+    const next = upcomingEvent();
 
-    const rolesDue =
-      openings.length > 0 &&
-      readStored(SEEN_ROLES_KEY) !==
-        signature;
+    const eventDue =
+      next !== null &&
+      readStored(SEEN_EVENT_KEY) !==
+        next.slug;
 
     publicationDue.current =
       Boolean(latest) &&
@@ -118,8 +121,14 @@ export function FirstVisitAnnouncements() {
 
     const timer = window.setTimeout(
       () => {
-        if (rolesDue) {
-          setShowRoles(true);
+        /*
+          Set inside the timeout, not in the body of the effect: setting
+          state synchronously there renders twice before the browser paints,
+          and nothing here is urgent enough to justify that.
+        */
+        if (eventDue) {
+          setEvent(next);
+          setShowEvent(true);
         } else if (
           publicationDue.current
         ) {
@@ -131,21 +140,23 @@ export function FirstVisitAnnouncements() {
 
     return () =>
       window.clearTimeout(timer);
-  }, [latest, openings.length]);
+  }, [latest]);
 
-  const dismissRoles =
+  const dismissEvent =
     useCallback(() => {
-      writeStored(
-        SEEN_ROLES_KEY,
-        openingsSignature(),
-      );
-      setShowRoles(false);
+      if (event) {
+        writeStored(
+          SEEN_EVENT_KEY,
+          event.slug,
+        );
+      }
+      setShowEvent(false);
 
       /* The notice was waiting its turn. */
       if (publicationDue.current) {
         setShowPublication(true);
       }
-    }, []);
+    }, [event]);
 
   const dismissPublication =
     useCallback(() => {
@@ -161,9 +172,10 @@ export function FirstVisitAnnouncements() {
 
   return (
     <>
-      {showRoles ? (
-        <RolesDialog
-          onDismiss={dismissRoles}
+      {showEvent && event ? (
+        <EventDialog
+          event={event}
+          onDismiss={dismissEvent}
         />
       ) : null}
 
@@ -180,19 +192,20 @@ export function FirstVisitAnnouncements() {
 }
 
 /* ==========================================
-   OPEN ROLES DIALOG
+   EVENT DIALOG
    ========================================== */
 
-function RolesDialog({
+function EventDialog({
+  event,
   onDismiss,
-}: Readonly<{ onDismiss: () => void }>) {
+}: Readonly<{
+  event: ScheduledEvent;
+  onDismiss: () => void;
+}>) {
   const panelRef =
     useRef<HTMLDivElement>(null);
   const closeRef =
     useRef<HTMLButtonElement>(null);
-
-  const openings = careersContent.openings;
-  const count = openings.length;
 
   useEffect(() => {
     const returnFocusTo =
@@ -269,7 +282,7 @@ function RolesDialog({
       className="fixed inset-0 z-[100] flex items-end justify-center p-4 sm:items-center"
       role="dialog"
       aria-modal="true"
-      aria-labelledby="roles-dialog-title"
+      aria-labelledby="event-dialog-title"
     >
       <button
         type="button"
@@ -298,48 +311,57 @@ function RolesDialog({
         </button>
 
         <p className="text-[0.6875rem] font-bold uppercase tracking-[0.13em] text-secondary">
-          We are hiring
+          Upcoming event
         </p>
 
         <h2
-          id="roles-dialog-title"
-          className="mt-5 max-w-sm font-editorial text-[1.7rem] font-medium leading-[1.12] tracking-[-0.03em] text-primary"
+          id="event-dialog-title"
+          className="mt-5 max-w-sm pr-6 font-editorial text-[1.7rem] font-medium leading-[1.12] tracking-[-0.03em] text-primary"
         >
-          {count === 1
-            ? "There is an open role at ClimateWatch."
-            : `There are ${count} open roles at ClimateWatch.`}
+          {event.title}
         </h2>
 
-        <ul className="mt-6 space-y-3 border-t border-border pt-6">
-          {openings.slice(0, 4).map((opening) => (
-            <li
-              key={opening.slug}
-              className="flex flex-wrap items-baseline gap-x-3 gap-y-1"
-            >
-              <span className="text-sm font-medium text-primary">
-                {opening.title}
-              </span>
+        <p className="mt-4 text-sm font-semibold leading-6 text-primary/75">
+          {event.subtitle}
+        </p>
 
-              <span className="text-[0.6875rem] font-bold uppercase tracking-[0.11em] text-muted-light">
-                {opening.commitment} · {opening.division}
-              </span>
-            </li>
-          ))}
+        <dl className="mt-6 space-y-2.5 border-t border-border pt-6">
+          <div className="flex gap-3">
+            <dt className="w-14 shrink-0 text-[0.6875rem] font-bold uppercase tracking-[0.11em] text-muted-light">
+              Date
+            </dt>
 
-          {count > 4 ? (
-            <li className="text-sm text-muted">
-              and {count - 4} more
-            </li>
-          ) : null}
-        </ul>
+            <dd className="text-sm font-medium text-primary">
+              <time
+                dateTime={event.dateISO}
+              >
+                {event.date}
+              </time>
+            </dd>
+          </div>
+
+          <div className="flex gap-3">
+            <dt className="w-14 shrink-0 text-[0.6875rem] font-bold uppercase tracking-[0.11em] text-muted-light">
+              Venue
+            </dt>
+
+            <dd className="text-sm font-medium text-primary">
+              {event.venue}
+            </dd>
+          </div>
+        </dl>
+
+        <p className="mt-6 text-sm font-bold uppercase tracking-[0.08em] text-secondary">
+          {event.registration.headline}
+        </p>
 
         <div className="mt-8 flex flex-wrap items-center gap-4">
           <Link
-            href="/careers"
+            href="/programmes#events"
             onClick={onDismiss}
             className="group inline-flex min-h-11 items-center gap-3 bg-secondary px-6 text-xs font-bold uppercase tracking-[0.1em] !text-white transition-colors hover:!bg-secondary-dark hover:!text-white"
           >
-            See the roles
+            See the event
             <ArrowUpRight
               aria-hidden="true"
               className="size-3.5 transition-transform duration-300 group-hover:-translate-y-0.5 group-hover:translate-x-0.5"
