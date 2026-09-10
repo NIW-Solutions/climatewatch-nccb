@@ -315,11 +315,11 @@ export const programmesContent = {
           landscape one is a file and two numbers — nothing letterboxes and
           nothing crops.
         */
-        imageWidth: 3413,
-        imageHeight: 4500,
+        imageWidth: 4659,
+        imageHeight: 3297,
 
         imageAlt:
-          "Event poster: From Belém to Antalya, Pakistan's Position — Pre-COP31 Multi-Stakeholder Consultation, 6 October at the Institute of Strategic Studies Islamabad.",
+          "Event poster: From Belém to Antalya, Pakistan's Position — Pre-COP31 Multi-Stakeholder Consultation, 6 October 2026 at the Institute of Strategic Studies Islamabad. Convened by ClimateWatch with SDPI and ISSI.",
       },
     ],
   },

@@ -42,7 +42,7 @@ export const imageBlur: Readonly<Record<string, string>> = {
   "/images/programmes/education-sustainable-development-2026-08.webp": "data:image/webp;base64,UklGRjYAAABXRUJQVlA4ICoAAABwAQCdASoIAAUABABoJaQAAlJNQAD+TSW4U06ZSgTNmwSe9J+0miAAAAA=",
   "/images/programmes/glacier-school-2026-08.webp": "data:image/webp;base64,UklGRjgAAABXRUJQVlA4ICwAAADQAQCdASoIAAUABABoJQBOkCYjAa3cxAD5UjBOJvOUQ+5446iJeQ3lkyUgAA==",
   "/images/programmes/international-climate-policy-2026-08.webp": "data:image/webp;base64,UklGRjwAAABXRUJQVlA4IDAAAACwAQCdASoIAAUABABoJYwCdADyfvaAAP6jFA0qyj0Wh1WXA2m8tca+sG9a1BuwAAA=",
-  "/images/programmes/pre-cop31-consultation-2026-10.webp": "data:image/webp;base64,UklGRkYAAABXRUJQVlA4IDoAAACwAQCdASoIAAsABABoJQBdgB5qpOrgAP6PLI5HOwWsIqlsZEnMCSK/5rFAJOjO5O2X4yvyPV66DwAA",
+  "/images/programmes/pre-cop31-consultation-2026-10.webp": "data:image/webp;base64,UklGRjgAAABXRUJQVlA4ICwAAACwAQCdASoIAAYABABoJZQAAvxOu5AAAP7f7WWxMl398l8p+A7OW9ohQIAAAA==",
   "/images/programmes/programmes-hero-debris-2026-08.webp": "data:image/webp;base64,UklGRjQAAABXRUJQVlA4ICgAAACQAQCdASoIAAUABABoJZwAApeIMAAA+fNvQgONB5Zw0esbT0/1gIAA",
   "/images/programmes/research-development-2026-08.webp": "data:image/webp;base64,UklGRjwAAABXRUJQVlA4IDAAAACwAQCdASoIAAUABABoJaACdADb0g4AAP6HQ2ceAxtDFTSwQ0mevWlubhMRhnWAAAA=",
   "/images/projects/autonomous-drones.webp": "data:image/webp;base64,UklGRj4AAABXRUJQVlA4IDIAAACQAQCdASoIAAUABABoJQBOgBsyX/AA9dyTqdYKpzg24ykmwJG1jw2ayPsQCgoMVKAAAA==",
