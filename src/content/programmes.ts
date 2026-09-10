@@ -1,3 +1,12 @@
+/**
+ * Whether an event is taking registrations yet. `as const` below pins each
+ * event's `state` to its current literal, so anything comparing against the
+ * other value needs this union rather than the narrowed literal.
+ */
+export type EventRegistrationState =
+  | "coming-soon"
+  | "open";
+
 export const programmesContent = {
   hero: {
     eyebrow: "Programmes",
@@ -169,6 +178,138 @@ export const programmesContent = {
       },
     },
   ],
+
+  /* ============================================================
+     EVENTS
+
+     ONLY LIST EVENTS THAT ARE GENUINELY SCHEDULED, and take an
+     event down once it has happened — a page advertising a date
+     that has passed is worse than no listing.
+
+     `status` drives the label on the card. `registration.state`
+     drives the block beneath it: "coming-soon" shows the notice
+     with no link, "open" shows the button, so adding the link
+     later is one field and one URL.
+     ============================================================ */
+
+  events: {
+    eyebrow: "Events",
+
+    title: "Where the programmes meet the people who decide.",
+
+    description:
+      "ClimateWatch convenes consultations and roundtables that bring government, research institutions and civil society into the same room ahead of the moments that matter in the international climate calendar.",
+
+    /* Shown when `scheduled` is empty. */
+    emptyTitle: "No scheduled events at the moment.",
+
+    emptyDescription:
+      "Nothing is in the calendar right now. Events are announced here and through the newsletter.",
+
+    scheduled: [
+      {
+        slug: "pre-cop31-consultation-islamabad",
+
+        status: "Scheduled",
+
+        title:
+          "From Belém to Antalya: Pakistan's Position",
+
+        subtitle:
+          "Pre-COP31 Multi-Stakeholder Consultation",
+
+        /* Machine-readable date for the Event structured data. */
+        dateISO: "2026-10-06",
+
+        date: "6 October 2026",
+
+        venue:
+          "Institute of Strategic Studies Islamabad",
+
+        city: "Islamabad",
+
+        description:
+          "A multi-stakeholder consultation on the position Pakistan carries from COP30 in Belém to COP31 in Antalya. Two roundtable streams take up the thematic areas across government, research and civil society, and the record becomes a multi-stakeholder position paper for COP31.",
+
+        /*
+         * The poster groups four items under "thematic areas", but its own
+         * text says two streams take up "the three thematic areas" — the
+         * fourth describes the format. It is set out separately below as
+         * `format` for that reason.
+         */
+        themes: [
+          {
+            title: "Adaptation finance",
+            description:
+              "Pakistan's adaptation priorities and the distance between assessed need and available support.",
+          },
+          {
+            title: "Just transition",
+            description:
+              "Pakistan's solar boom is running ahead of national energy policy, reaching health facilities, schools, water schemes and remote settlements.",
+          },
+          {
+            title: "Loss and damage",
+            description:
+              "Pakistan's access to the Fund responding to Loss and Damage and to other channels.",
+          },
+        ],
+
+        format: {
+          title: "Shape the position",
+          description:
+            "Two roundtable streams take up the three thematic areas across government, research and civil society. The record becomes a multi-stakeholder position paper for COP31 — the position is shaped in the room, not circulated in advance.",
+        },
+
+        convening: [
+          "Ministry of Climate Change and Environmental Coordination",
+          "Ministry of Foreign Affairs",
+          "Ministry of Planning and Development",
+          "Youth negotiators and observers",
+          "Women representatives",
+          "Civil society organisations",
+        ],
+
+        partners: [
+          {
+            name: "Sustainable Development Policy Institute",
+            shortName: "SDPI",
+          },
+          {
+            name: "Institute of Strategic Studies Islamabad",
+            shortName: "ISSI",
+          },
+        ],
+
+        registration: {
+          /*
+            Asserted to the union rather than left as its literal: `as const`
+            below would otherwise pin this to "coming-soon", and every check
+            for "open" would be a type error on a comparison that can never
+            be true.
+          */
+          state:
+            "coming-soon" as EventRegistrationState,
+
+          headline: "Registrations coming soon",
+
+          description:
+            "Virtual accreditation will open for youth, academia and civil society to follow the roundtable online. The link will be published here.",
+
+          /* Add the URL and switch `state` to "open" when it goes live. */
+          href: "",
+
+          label: "Register for virtual accreditation",
+        },
+
+        image:
+          "/images/programmes/pre-cop31-consultation-2026-10.webp",
+
+        imageAlt:
+          "Event poster: From Belém to Antalya, Pakistan's Position — Pre-COP31 Multi-Stakeholder Consultation, 6 October at the Institute of Strategic Studies Islamabad.",
+      },
+    ],
+  },
 
   connection: {
     eyebrow:

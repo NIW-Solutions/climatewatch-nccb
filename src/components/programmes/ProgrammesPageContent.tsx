@@ -1,6 +1,8 @@
 import {
   ArrowRight,
   ArrowUpRight,
+  CalendarDays,
+  MapPin,
 } from "lucide-react";
 import Link from "next/link";
 
@@ -12,6 +14,7 @@ export function ProgrammesPageContent() {
   const {
     hero,
     introduction,
+    events,
     divisions,
     connection,
     closing,
@@ -122,6 +125,67 @@ export function ProgrammesPageContent() {
               </div>
             </InView>
           </div>
+        </div>
+      </section>
+
+      {/* =====================================
+          EVENTS
+          Above the divisions on purpose. A dated event is the only
+          thing on this page that stops being useful if it is missed,
+          and the divisions below it do not change week to week.
+          ===================================== */}
+
+      <section
+        id="events"
+        aria-labelledby="events-heading"
+        className="scroll-mt-32 border-t border-border bg-surface"
+      >
+        <div className="site-container section-shell-small">
+          <InView>
+            <div className="content-grid gap-y-8">
+              <div className="col-span-12 lg:col-span-3">
+                <p className="eyebrow text-primary">
+                  {events.eyebrow}
+                </p>
+              </div>
+
+              <div className="col-span-12 lg:col-span-8 lg:col-start-5">
+                <h2
+                  id="events-heading"
+                  className="max-w-3xl font-editorial text-[clamp(2.1rem,3.3vw,3.6rem)] font-medium leading-[1.06] tracking-[-0.04em] text-primary"
+                >
+                  {events.title}
+                </h2>
+
+                <p className="mt-7 max-w-2xl body-copy">
+                  {events.description}
+                </p>
+              </div>
+            </div>
+          </InView>
+
+          {events.scheduled.length > 0 ? (
+            <div className="mt-14 space-y-14">
+              {events.scheduled.map(
+                (event) => (
+                  <EventCard
+                    key={event.slug}
+                    event={event}
+                  />
+                ),
+              )}
+            </div>
+          ) : (
+            <InView className="mt-12">
+              <h3 className="max-w-2xl font-editorial text-[clamp(1.6rem,2.4vw,2.3rem)] font-medium leading-[1.1] tracking-[-0.035em] text-primary">
+                {events.emptyTitle}
+              </h3>
+
+              <p className="mt-5 max-w-2xl body-copy">
+                {events.emptyDescription}
+              </p>
+            </InView>
+          )}
         </div>
       </section>
 
@@ -353,5 +417,289 @@ export function ProgrammesPageContent() {
         </div>
       </section>
     </main>
+  );
+}
+
+/* ==========================================
+   EVENT
+   ========================================== */
+
+type ScheduledEvent =
+  (typeof programmesContent.events.scheduled)[number];
+
+function EventCard({
+  event,
+}: Readonly<{ event: ScheduledEvent }>) {
+  const registrationOpen =
+    event.registration.state === "open" &&
+    event.registration.href.length > 0;
+
+  return (
+    <article
+      id={event.slug}
+      className="scroll-mt-32 border border-border bg-background"
+    >
+      {/*
+        Event structured data. The poster carries the same facts, but a
+        search engine cannot read a poster.
+      */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "Event",
+            name: `${event.title} — ${event.subtitle}`,
+            startDate: event.dateISO,
+            eventAttendanceMode:
+              "https://schema.org/MixedEventAttendanceMode",
+            eventStatus:
+              "https://schema.org/EventScheduled",
+            description: event.description,
+            location: {
+              "@type": "Place",
+              name: event.venue,
+              address: {
+                "@type": "PostalAddress",
+                addressLocality: event.city,
+                addressCountry: "PK",
+              },
+            },
+            organizer: {
+              "@type": "Organization",
+              name: "ClimateWatch",
+              url: "https://www.climatewatch-nccb.org",
+            },
+          }),
+        }}
+      />
+
+      <div className="grid gap-0 lg:grid-cols-[0.85fr_1.15fr]">
+        {/* POSTER */}
+
+        <InView
+          amount={0.1}
+          className="relative border-b border-border lg:border-b-0 lg:border-r"
+        >
+          <div className="relative aspect-[3413/4500] w-full overflow-hidden bg-surface-muted">
+            <LoadedImage
+              src={event.image}
+              alt={event.imageAlt}
+              fill
+              sizes="(max-width: 1024px) 100vw, 42vw"
+              className="object-cover"
+            />
+          </div>
+        </InView>
+
+        {/* DETAIL */}
+
+        <div className="p-7 sm:p-10">
+          <InView from="right">
+            <p className="text-[0.6875rem] font-bold uppercase tracking-[0.12em] text-secondary">
+              {event.status}
+            </p>
+
+            <h3 className="mt-5 max-w-2xl font-editorial text-[clamp(1.75rem,2.6vw,2.6rem)] font-medium leading-[1.08] tracking-[-0.035em] text-primary">
+              {event.title}
+            </h3>
+
+            <p className="mt-4 max-w-2xl text-sm font-semibold leading-7 text-primary/75">
+              {event.subtitle}
+            </p>
+
+            {/* WHEN AND WHERE */}
+
+            <dl className="mt-8 grid gap-5 border-y border-border py-6 sm:grid-cols-2">
+              <div className="flex items-start gap-3">
+                <CalendarDays
+                  aria-hidden="true"
+                  className="mt-0.5 size-4 shrink-0 text-secondary"
+                  strokeWidth={1.7}
+                />
+
+                <div>
+                  <dt className="text-[0.6875rem] font-bold uppercase tracking-[0.11em] text-muted-light">
+                    Date
+                  </dt>
+
+                  <dd className="mt-1.5 text-sm font-semibold text-primary">
+                    <time dateTime={event.dateISO}>
+                      {event.date}
+                    </time>
+                  </dd>
+                </div>
+              </div>
+
+              <div className="flex items-start gap-3">
+                <MapPin
+                  aria-hidden="true"
+                  className="mt-0.5 size-4 shrink-0 text-secondary"
+                  strokeWidth={1.7}
+                />
+
+                <div>
+                  <dt className="text-[0.6875rem] font-bold uppercase tracking-[0.11em] text-muted-light">
+                    Venue
+                  </dt>
+
+                  <dd className="mt-1.5 text-sm font-semibold text-primary">
+                    {event.venue}
+                  </dd>
+                </div>
+              </div>
+            </dl>
+
+            <p className="mt-7 max-w-2xl text-sm leading-7 text-muted">
+              {event.description}
+            </p>
+          </InView>
+
+          {/* REGISTRATION
+              Set large and first among the blocks below the summary: it is
+              the only thing on this card a reader has to come back for. */}
+
+          <InView
+            delay={0.06}
+            className="mt-9"
+          >
+            {registrationOpen ? (
+              <div className="border border-secondary bg-secondary/[0.06] p-6 sm:p-7">
+                <p className="font-editorial text-[clamp(1.5rem,2.2vw,2.1rem)] font-medium leading-[1.1] tracking-[-0.03em] text-primary">
+                  {event.registration.headline}
+                </p>
+
+                <p className="mt-4 max-w-xl text-sm leading-7 text-muted">
+                  {event.registration.description}
+                </p>
+
+                <a
+                  href={event.registration.href}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="group mt-6 inline-flex min-h-11 items-center gap-3 bg-secondary px-6 text-xs font-bold uppercase tracking-[0.1em] !text-white transition-colors hover:!bg-secondary-dark hover:!text-white"
+                >
+                  {event.registration.label}
+                  <ArrowUpRight
+                    aria-hidden="true"
+                    className="size-3.5 transition-transform duration-300 group-hover:-translate-y-0.5 group-hover:translate-x-0.5"
+                    strokeWidth={1.8}
+                  />
+                </a>
+              </div>
+            ) : (
+              <div className="border-2 border-secondary bg-secondary/[0.07] p-6 sm:p-8">
+                <p className="font-editorial text-[clamp(1.9rem,3.2vw,3rem)] font-semibold uppercase leading-[1.02] tracking-[-0.03em] text-secondary">
+                  {event.registration.headline}
+                </p>
+
+                <p className="mt-5 max-w-xl text-sm leading-7 text-muted">
+                  {event.registration.description}
+                </p>
+              </div>
+            )}
+          </InView>
+
+          {/* THEMATIC AREAS */}
+
+          <InView
+            delay={0.06}
+            className="mt-10"
+          >
+            <p className="text-[0.6875rem] font-bold uppercase tracking-[0.12em] text-muted-light">
+              Thematic areas
+            </p>
+
+            <ol className="mt-5 space-y-5">
+              {event.themes.map(
+                (theme, index) => (
+                  <li
+                    key={theme.title}
+                    className="flex gap-4"
+                  >
+                    <span
+                      aria-hidden="true"
+                      className="mt-0.5 grid size-6 shrink-0 place-items-center border border-border-strong text-[0.6875rem] font-bold text-secondary"
+                    >
+                      {index + 1}
+                    </span>
+
+                    <div>
+                      <p className="text-sm font-semibold text-primary">
+                        {theme.title}
+                      </p>
+
+                      <p className="mt-1.5 text-sm leading-7 text-muted">
+                        {theme.description}
+                      </p>
+                    </div>
+                  </li>
+                ),
+              )}
+            </ol>
+
+            <div className="mt-7 border-t border-border pt-6">
+              <p className="text-sm font-semibold text-primary">
+                {event.format.title}
+              </p>
+
+              <p className="mt-1.5 max-w-2xl text-sm leading-7 text-muted">
+                {event.format.description}
+              </p>
+            </div>
+          </InView>
+
+          {/* WHO IS IN THE ROOM, AND WITH WHOM */}
+
+          <InView
+            delay={0.06}
+            className="mt-10 grid gap-9 border-t border-border pt-8 sm:grid-cols-2"
+          >
+            <div>
+              <p className="text-[0.6875rem] font-bold uppercase tracking-[0.12em] text-muted-light">
+                Convening
+              </p>
+
+              <ul className="mt-4 space-y-2.5">
+                {event.convening.map((body) => (
+                  <li
+                    key={body}
+                    className="flex gap-3 text-sm leading-7 text-muted"
+                  >
+                    <span
+                      aria-hidden="true"
+                      className="mt-3 size-1 shrink-0 bg-secondary"
+                    />
+                    {body}
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            <div>
+              <p className="text-[0.6875rem] font-bold uppercase tracking-[0.12em] text-muted-light">
+                In partnership with
+              </p>
+
+              <ul className="mt-4 space-y-4">
+                {event.partners.map(
+                  (partner) => (
+                    <li key={partner.shortName}>
+                      <p className="text-sm font-semibold text-primary">
+                        {partner.shortName}
+                      </p>
+
+                      <p className="mt-1 text-sm leading-6 text-muted">
+                        {partner.name}
+                      </p>
+                    </li>
+                  ),
+                )}
+              </ul>
+            </div>
+          </InView>
+        </div>
+      </div>
+    </article>
   );
 }
