@@ -306,8 +306,15 @@ export const programmesContent = {
           label: "Register for virtual accreditation",
         },
 
+        /*
+          REPLACING THIS IMAGE MEANS A NEW FILENAME, not new bytes at the
+          same path. next/image serves optimised copies under
+          /_next/image?url=... with max-age=2592000, so overwriting a file
+          in place leaves everyone who has already loaded the page looking
+          at the old one for thirty days.
+        */
         image:
-          "/images/programmes/pre-cop31-consultation-2026-10.webp",
+          "/images/programmes/pre-cop31-consultation-landscape-2026-10.webp",
 
         /*
           The poster's own proportions. The frame is built from these rather
