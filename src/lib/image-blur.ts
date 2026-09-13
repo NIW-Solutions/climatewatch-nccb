@@ -92,6 +92,7 @@ export const imageBlur: Readonly<Record<string, string>> = {
   "/images/team/mehak-mir.webp": "data:image/webp;base64,UklGRlIAAABXRUJQVlA4IEYAAAAQAgCdASoIAAoABABoJZwAD48Pv2g3dJgAAP6RVNgGoG+sZq8pwPUBlv2OVIX91imG34Qegiex1A66TqUEhhpCKAfmEAAA",
   "/images/team/mehnaz-parveen.webp": "data:image/webp;base64,UklGRlYAAABXRUJQVlA4IEoAAAAQAgCdASoIAAoABABoJbACdAD5jb7c/NsAAP4+J1FtERwtvvTwgxw4Z6Sk/IQRPhzpnaB6GJwKb/p+hiftzEAcn80I5/k3TAAAAA==",
   "/images/team/mehtab-kamal.webp": "data:image/webp;base64,UklGRlAAAABXRUJQVlA4IEQAAAAQAgCdASoIAAoABABoJYgCdAEDe+F/qlcAAPRMHIff7/t7CCGLDfE+DHPryGX1j/ddaK/kJwPcsrCb4pacoDVGuVQAAA==",
+  "/images/team/michael-kimwele.webp": "data:image/webp;base64,UklGRkoAAABXRUJQVlA4ID4AAADwAQCdASoIAAoABABoJYwC06DcV9tGhNAA/P2Vy4gWFZCJ8D+puJKVc8o7vXQOdHajFgsrTf9RvpqNIVqAAA==",
   "/images/team/michael-muyutu.webp": "data:image/webp;base64,UklGRkAAAABXRUJQVlA4IDQAAACQAQCdASoIAAoABABoJZwAAptpzLAA/un3j5mCsFwma0GeQdhBt2p5CAZV5IbJcZT9AAAA",
   "/images/team/mubeen-ishfaq-2026-08.webp": "data:image/webp;base64,UklGRlQAAABXRUJQVlA4IEgAAAAwAgCdASoIAAoABABoJZQAD4wRf/g9OYuj6AD+8K6lgxMWvTmR2ZEbMmvpridqCbpbGZFbgZpIzHWiDbh2IkYUQ0Q3Gp5DcAA=",
   "/images/team/muhammad-abdullah-fateh.webp": "data:image/webp;base64,UklGRjoAAABXRUJQVlA4IC4AAAAwAQCdASoIAAoABABoJZwAA3AA/vGu7Pnstuz/75+omuicnHSTSkOROHRlvIQA",

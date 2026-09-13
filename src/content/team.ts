@@ -617,6 +617,28 @@ export const teamContent = {
 
   internationalAdvisors: [
     {
+      slug: "michael-kimwele",
+      image: "/images/team/michael-kimwele.webp",
+      name: "Dr. Michael W. Kimwele",
+      country: "KE",
+      role: "External Advisor — Data Science and Digital Systems",
+      summary:
+        "Senior Lecturer in Information Technology at Jomo Kenyatta University of Agriculture and Technology and former Director of its School of Computing and Information Technology, with over twenty years in information security, machine learning and data science.",
+      profile: [
+        "Dr. Michael W. Kimwele is ClimateWatch's External Advisor on Data Science and Digital Systems.",
+        "He is Senior Lecturer in Information Technology at Jomo Kenyatta University of Agriculture and Technology in Kenya, with more than twenty years of academic and professional experience, and has served as Director of the University's School of Computing and Information Technology.",
+        "He holds a PhD in Information Technology, an MSc in IT Management from the University of Sunderland, and a BSc in Mathematics and Computer Science. His work covers information security, artificial intelligence, machine learning, data science and computing research, and he has published more than fifty papers alongside extensive postgraduate supervision.",
+        "He advises ClimateWatch on how the organisation holds and works with data: the management and security of research datasets, including those containing community information, the application of machine learning and data science methods to climate and environmental data, and research design and supervision practice for early-career researchers.",
+      ],
+      expertise: [
+        "Data science and machine learning",
+        "Information security and data protection",
+        "Artificial intelligence",
+        "Research computing and data management",
+        "Postgraduate research supervision",
+      ],
+    },
+    {
       slug: "daniele-savietto",
       image: "/images/team/daniele-savietto.webp",
       name: "Dr. Daniele Savietto",

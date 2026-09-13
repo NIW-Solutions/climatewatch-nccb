@@ -82,6 +82,46 @@ const FLAGS: Readonly<
     ],
   },
 
+  KE: {
+    name: "Kenya",
+    viewBox: "0 0 900 600",
+    /* Warm green from the lower band. Pakistan's green is cooler, and is
+       only ever drawn as a banner rather than a badge, so the two plates
+       never appear together. */
+    tint: "#f1f3e9",
+    edge: "#c8d0ab",
+    shapes: [
+      { kind: "rect", fill: "#000000", x: 0, y: 0, w: 900, h: 180 },
+      { kind: "rect", fill: "#ffffff", x: 0, y: 180, w: 900, h: 30 },
+      { kind: "rect", fill: "#bb0000", x: 0, y: 210, w: 900, h: 180 },
+      { kind: "rect", fill: "#ffffff", x: 0, y: 390, w: 900, h: 30 },
+      { kind: "rect", fill: "#006600", x: 0, y: 420, w: 900, h: 180 },
+      /*
+       * Two crossed spears behind a Maasai shield, simplified. The real
+       * shield carries curved black, white and red fields that cannot be
+       * drawn honestly without a clip path, and none of that detail survives
+       * at the size a badge actually renders — the bands, the spears and the
+       * dark shield are what identify the flag.
+       */
+      {
+        kind: "polygon",
+        fill: "#ffffff",
+        points: "326,104 340,94 574,496 560,506",
+      },
+      {
+        kind: "polygon",
+        fill: "#ffffff",
+        points: "574,104 560,94 326,496 340,506",
+      },
+      { kind: "path", fill: "#ffffff", d: "M450 118 Q556 300 450 482 Q344 300 450 118 Z" },
+      { kind: "path", fill: "#bb0000", d: "M450 150 Q520 300 450 450 Q380 300 450 150 Z" },
+      { kind: "path", fill: "#000000", d: "M450 150 Q492 190 506 224 L394 224 Q408 190 450 150 Z" },
+      { kind: "path", fill: "#000000", d: "M450 450 Q492 410 506 376 L394 376 Q408 410 450 450 Z" },
+      { kind: "rect", fill: "#ffffff", x: 398, y: 228, w: 104, h: 15 },
+      { kind: "rect", fill: "#ffffff", x: 398, y: 357, w: 104, h: 15 },
+    ],
+  },
+
   EG: {
     name: "Egypt",
     viewBox: "0 0 900 600",
