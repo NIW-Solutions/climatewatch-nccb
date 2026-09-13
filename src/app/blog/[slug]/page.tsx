@@ -4,6 +4,7 @@ import { notFound } from "next/navigation";
 import { ArrowLeft } from "lucide-react";
 
 import { blogContent } from "@/content/blog";
+import { ViewCount } from "@/components/blog/ViewCount";
 import { siteConfig } from "@/config/site";
 import type {
   BlogPost,
@@ -195,6 +196,17 @@ export default async function BlogPostPage({
             <p className="text-[0.6875rem] font-bold uppercase tracking-[0.12em] text-muted-light">
               {post.readingTime}
             </p>
+
+            {/*
+              Records this read and shows the total, but only once a post is
+              past VIEW_THRESHOLD — see src/lib/views.ts. Renders nothing at
+              all below that, and nothing on the server.
+            */}
+            <ViewCount
+              slug={post.slug}
+              record
+              className="text-[0.6875rem] font-bold uppercase tracking-[0.12em] text-muted-light before:mr-3 before:inline-block before:size-1 before:-translate-y-[3px] before:bg-border before:align-middle before:content-['']"
+            />
 
             {post.date ? (
               <>

@@ -20,6 +20,8 @@
     "node": ">=20.9.0"
   },
   "dependencies": {
+    "@aws-sdk/client-dynamodb": "^3.1131.0",
+    "@aws-sdk/lib-dynamodb": "^3.1131.0",
     "leaflet": "^1.9.4",
     "lucide-react": "^1.27.0",
     "motion": "^12.42.2",

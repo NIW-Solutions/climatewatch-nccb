@@ -20,6 +20,10 @@
 # subscribers to a list. Do not use this route for anything whose misuse
 # would be serious; AWS recommends an IAM role on the SSR compute for that.
 #
+# VIEWS_ carries only a DynamoDB table name and a region — no credentials.
+# The view counter reads the SSR compute role for those, which is the IAM
+# route AWS recommends and the reason there are no AWS keys in this file.
+#
 # The `|| true` matters: grep exits non-zero when nothing matches, which would
 # otherwise fail the whole build on a branch where these are not set.
 
@@ -31,7 +35,7 @@ frontend:
         - npm ci
     build:
       commands:
-        - env | grep -e NEWSLETTER_ -e NOTION_ >> .env.production || true
+        - env | grep -e NEWSLETTER_ -e NOTION_ -e VIEWS_ >> .env.production || true
         - npm run build
   artifacts:
     baseDirectory: .next
