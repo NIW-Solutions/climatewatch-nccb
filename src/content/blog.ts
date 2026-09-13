@@ -89,6 +89,107 @@ export const blogContent = {
   posts: [
     {
       /*
+       * Part two of the Carbon Victims series. Text taken verbatim from the
+       * author's PDF — no wording is changed.
+       *
+       * KNOWN GAP, LEFT AS SUPPLIED: the third paragraph reads "are
+       * syecological and hydrological systems". The words between "sy" and
+       * "ecological" are missing in the source document itself, not in the
+       * extraction — the PDF's own text stream reads that way. Awaiting the
+       * author's wording rather than guessing at it.
+       *
+       * All eight hyperlinks come from the PDF's link annotations, matched
+       * to their anchor text by rectangle position and trimmed to the phrase
+       * inside each rectangle. None were added.
+       */
+      slug: "carbon-victims",
+      date: "2026-09-13",
+
+      title: "Carbon Victims",
+
+      excerpt:
+        "Pakistan produces less than one percent of the world\u2019s greenhouse gases and is consistently named among the most at-risk countries on the planet. Part two turns to the countries that have contributed least to global emissions and been affected most.",
+
+      topic: "climate-science",
+      topicLabel: "Climate science",
+
+      image:
+        "/images/blog/carbon-victims.webp",
+
+      readingTime: "3 min read",
+      author: "Habiba Tariq",
+
+      body: [
+        [
+          "In the ",
+          {
+            text: "previous part",
+            href:
+              "https://www.climatewatch-nccb.org/blog/the-carbon-league",
+          },
+          ", we discussed the economic tycoons who have contributed most to global emissions. In this one, we look at the countries that have contributed least to global emissions but have been affected most, across sectors of the economy, temperature, and disasters that are no longer natural. The countries most exposed to these changes are heavily concentrated in the Global South, particularly across South Asia, Sub-Saharan Africa, Central America, and low-lying island states. Comprehensive risk assessments and vulnerability datasets like the ",
+          {
+            text: "GermanWatch Global Climate Risk Index",
+            href:
+              "https://www.germanwatch.org/en/cri",
+          },
+          " and the ",
+          {
+            text: "Notre Dame Global Adaptation Initiative (ND-GAIN) Index",
+            href:
+              "https://gain-new.crc.nd.edu/country/pakistan",
+          },
+          " consistently point to nations such as Bangladesh, Chad, Somalia, and Central American states as being among the most heavily impacted on Earth. In these regions, climate change does not occur in an economic or social vacuum. Instead, it collides with pre-existing poverty, high population density, and heavy reliance on natural resources, making every heatwave, drought, or extreme storm far more destructive than it would be in a wealthier nation.",
+        ],
+        [
+          "Pakistan is one of the clearest examples of this unfairness. It produces less than one percent of the world\u2019s greenhouse gases, yet it\u2019s consistently named one of the most at-risk countries on the planet. The country faces an extraordinary convergence of climate risks, as in 2025, ",
+          {
+            text: "more than 100 houses were damaged in Gilgit-Baltistan",
+            href:
+              "https://www.arabnews.pk/pakistan/relief-efforts-underway-after-glacier-burst-damages-over-100-houses-in-pakistans-north-2612644",
+          },
+          " by glaciers in its northern mountain ranges, which are melting at unprecedented speeds. This rapid retreat triggers immediate, life-threatening glacial lake outburst floods downstream, while simultaneously endangering the long-term flow of the Indus River basin. The country\u2019s primary agricultural lifeline. Coupled with severe heatwaves that test the limits of human endurance, unpredictable monsoons regularly inflict catastrophic flooding, as seen in recent years when vast portions of arable land were inundated, destroying millions of homes and causing billions of dollars in economic damage.",
+        ],
+        [
+          "The physical transformations driven by global warming are syecological and hydrological systems. In high-altitude mountain ranges like the Himalayas, rising atmospheric temperatures accelerate glacial retreat at alarming rates. This rapid melting initially triggers violent flash floods and ",
+          {
+            text: "glacial lake outbursts",
+            href:
+              "https://www.wy4cj.org/symposium/breaking-the-ice-glacial-lake-outburst-floods-impact-of-climate-change",
+          },
+          " downstream. Over time, however, the loss of frozen reserves threatens people globally, ",
+          {
+            text: "more than 15 million people are exposed to impacts from potential GLOFs",
+            href:
+              "https://www.nature.com/articles/s41467-023-36033-x",
+          },
+          ".",
+        ],
+        [
+          "At the same time, global oceans absorb excess atmospheric heat, causing thermal expansion and sea levels to rise. For low-lying coastal and island communities, this leads to severe land erosion, stronger storm surges, and saltwater leaking into underground aquifers, which permanently ruins drinking water supplies and fertile agricultural soil.",
+        ],
+        [
+          "Rainfall patterns have also become increasingly erratic and unpredictable as global temperatures rise. Monsoons and seasonal rains that farming communities relied on for centuries now arrive in short, violent downpours that wash away topsoil and trigger sudden flooding, only to be followed by prolonged months of severe drought. These shifting weather patterns hit the agricultural sector harder than almost any other part of the global economy. According to data and field studies by the United Nations, when essential crops fail and livestock herds perish due to water scarcity, ",
+          {
+            text: "food supplies shrink rapidly",
+            href:
+              "https://www.un.org/en/academic-impact/worlds-food-supply-made-insecure-climate-change",
+          },
+          ", and market prices skyrocket out of reach. For rural populations dependent on subsistence farming, a single failed harvest can trigger widespread hunger, deep financial debt, and long-term economic impoverishment.",
+        ],
+        [
+          "The human cost of this crisis extends far beyond agricultural losses and rural villages. Severe climate disruptions force millions of people to leave their ancestral lands entirely, creating massive waves of internal displacement. Annual data collected by the ",
+          {
+            text: "Internal Displacement Monitoring Centre (IDMC)",
+            href:
+              "https://www.internal-displacement.org/global-report/grid2025/",
+          },
+          " tracks 9.8 million individuals who are displaced in 2024 primarily by climate-related disasters and weather extremes. As farmable land turns to desert or coastal villages slip beneath rising sea levels, displaced families are forced to migrate into nearby urban centers. This rapid, unplanned migration puts immense strain on municipal infrastructure, leading to overcrowded informal settlements, unsafe sanitation conditions, and severely stretched public services. Health risks also multiply rapidly in these environments, as prolonged heatwaves increase instances of heat stroke while expanding the geographic range of vector-borne diseases like malaria and dengue fever.",
+        ],
+      ],
+    },
+    {
+      /*
        * Text taken verbatim from the author's document. The extraction
        * dropped some inter-word spacing — "burningfuel", "42.6%of",
        * "industrialprocessesmake" — and those spaces are restored here.

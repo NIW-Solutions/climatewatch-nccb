@@ -13,6 +13,7 @@ export const imageBlur: Readonly<Record<string, string>> = {
   "/images/about/about-hero-2026-08.webp": "data:image/webp;base64,UklGRjwAAABXRUJQVlA4IDAAAADQAQCdASoIAAUABABoJQBOgCIBWh96AADLQH2QVQUAV8fd56LHHyx+MyYzt7EAAAA=",
   "/images/about/geographic-scope-2026-08.webp": "data:image/webp;base64,UklGRjAAAABXRUJQVlA4ICQAAACwAQCdASoIAAQABABoJZQAAxbJHNEAAP1PHiDzqTM9uyFAAAA=",
   "/images/about/mission-community-2026-08.webp": "data:image/webp;base64,UklGRjYAAABXRUJQVlA4ICoAAACQAQCdASoIAAUABABoJZwAAp0ispwAzCUW+x0wxMF6ae6OmiQB26OAAAA=",
+  "/images/blog/carbon-victims.webp": "data:image/webp;base64,UklGRj4AAABXRUJQVlA4IDIAAADwAQCdASoIAAQABABoJYwCdH8AFcnNlQAA/tB0UWeUqmdJSY4TkAjV8gLTQ9HxXg4AAA==",
   "/images/blog/rising-the-heat-declining-the-productivity.webp": "data:image/webp;base64,UklGRkQAAABXRUJQVlA4IDgAAABQAgCdASoIAAQABABoJaACdH8IwBb/4HocxoAA9kfF31k6zUfWNim+oJmuExGuMJLyL7+L+ZgaAA==",
   "/images/blog/the-carbon-league.webp": "data:image/webp;base64,UklGRjgAAABXRUJQVlA4ICwAAACwAQCdASoIAAQABABoJZQCdAD0cgEQAP7pXXIJNzN8r8Td8SiJBOIAV9QAAA==",
   "/images/blog/thirsty-ai.webp": "data:image/webp;base64,UklGRjwAAABXRUJQVlA4IDAAAACwAQCdASoIAAQABABoJYwCdAD0gbJgAP7ytCbdMugiNm3FWSBWMcBE82kH+v8VegA=",
