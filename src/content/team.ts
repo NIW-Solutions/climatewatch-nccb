@@ -617,6 +617,28 @@ export const teamContent = {
 
   internationalAdvisors: [
     {
+      slug: "daniele-savietto",
+      image: "/images/team/daniele-savietto.webp",
+      name: "Dr. Daniele Savietto",
+      country: "DE",
+      role: "External Advisor — Climate Communication and Media Literacy",
+      summary:
+        "Climate communication and education specialist with over fifteen years of international experience, a member of the UNESCO Media and Information Literacy Alliance, and an experienced hand on Horizon Europe and Creative Europe projects.",
+      profile: [
+        "Dr. Daniele Savietto is ClimateWatch's External Advisor on Climate Communication and Media Literacy.",
+        "A PhD in Education, they have more than fifteen years of international experience across climate communication, education, media literacy, sustainability and international cooperation. Their work has supported Horizon Europe and Creative Europe projects, covered UN Climate Change Conferences, and produced research dissemination materials, educational resources and policy-oriented publications.",
+        "They are a member of the UNESCO Media and Information Literacy Alliance, and work across stakeholder engagement, science communication, youth participation and evidence-based climate education.",
+        "They advise ClimateWatch on how its research reaches people: turning technical findings into accessible material without losing accuracy, designing educational resources that hold up to scrutiny, and countering climate misinformation in the organisation's public work.",
+      ],
+      expertise: [
+        "Climate communication and science communication",
+        "Media and information literacy",
+        "Evidence-based climate education",
+        "Research dissemination and European project delivery",
+        "Stakeholder engagement and youth participation",
+      ],
+    },
+    {
       slug: "eman-ahmad",
       image: "/images/team/eman-ahmad.webp",
       name: "Dr. Eman Ahmad",

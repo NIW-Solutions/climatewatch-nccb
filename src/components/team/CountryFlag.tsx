@@ -67,6 +67,21 @@ type FlagDrawing = Readonly<{
 const FLAGS: Readonly<
   Record<string, FlagDrawing>
 > = {
+  DE: {
+    name: "Germany",
+    viewBox: "0 0 5 3",
+    /* Neutral, drawn from the black band. Tinting from the gold would have
+       produced a second Egypt, and all three German bands are dark enough to
+       hold their own on a light plate without help. */
+    tint: "#f1f1f3",
+    edge: "#c6c6cc",
+    shapes: [
+      { kind: "rect", fill: "#000000", x: 0, y: 0, w: 5, h: 1 },
+      { kind: "rect", fill: "#dd0000", x: 0, y: 1, w: 5, h: 1 },
+      { kind: "rect", fill: "#ffce00", x: 0, y: 2, w: 5, h: 1 },
+    ],
+  },
+
   EG: {
     name: "Egypt",
     viewBox: "0 0 900 600",
