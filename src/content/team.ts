@@ -90,12 +90,13 @@ export const teamContent = {
   stats: [
     {
       /*
-       * Divisional leads (9) plus divisional teams (23). Recount both arrays
+       * Divisional leads (10) plus divisional teams (24). Human Resources
+       * carries two leads: an interim head and a manager. Recount both arrays
        * below when someone joins or leaves — this figure does not derive
        * itself, so a stale number here is a visible error on the page.
        */
       label: "Team members",
-      value: "32",
+      value: "34",
     },
     {
       // Nine department entries below, and the directory copy says nine.
@@ -316,6 +317,14 @@ export const teamContent = {
     /* ==========================================
        HUMAN RESOURCES
        ========================================== */
+    {
+      name: "Rayyan Butt",
+      department: "human-resources",
+      designation: "Interim Head of Division",
+      focus:
+        "Divisional leadership, recruitment and organisational policy.",
+      image: "/images/team/rayyan-butt.webp",
+    },
     {
       name: "Mr. Michael Muyutu",
       department: "human-resources",
@@ -1027,6 +1036,13 @@ export const teamContent = {
       email: "HR@climatewatch-nccb.org",
       image:
         "/images/team/shahab-uddin.webp",
+    },
+    {
+      name: "Muhammad Abdullah Fateh",
+      department: "human-resources",
+      position: "Intern",
+      image:
+        "/images/team/muhammad-abdullah-fateh.webp",
     },
   ] satisfies readonly TeamAssociate[],
 

@@ -49,7 +49,12 @@ export function TeamPageContent() {
   const divisions = departments
     .map((department) => ({
       department,
-      head: members.find(
+      /*
+        Plural. Most divisions have one lead, but Human Resources has an
+        interim head alongside its manager, and `find` would have silently
+        dropped whichever of the two came second.
+      */
+      heads: members.filter(
         (member) =>
           member.department === department.id,
       ),
@@ -60,7 +65,7 @@ export function TeamPageContent() {
     }))
     .filter(
       (group) =>
-        group.head ||
+        group.heads.length > 0 ||
         group.team.length > 0,
     );
 
@@ -314,12 +319,10 @@ export function TeamPageContent() {
                     <p className="text-[0.6875rem] font-bold uppercase tracking-[0.11em] text-muted-light">
                       {String(
                         group.team.length +
-                          (group.head ? 1 : 0),
+                          group.heads.length,
                       ).padStart(2, "0")}{" "}
                       {group.team.length +
-                        (group.head
-                          ? 1
-                          : 0) ===
+                        group.heads.length ===
                       1
                         ? "member"
                         : "members"}
@@ -345,30 +348,40 @@ export function TeamPageContent() {
                   grid column at each breakpoint, gaps subtracted, so nothing about the
                   card itself changes.
                 */}
-                {group.head ? (
-                  <div className="mt-8 flex justify-center">
-                    <div className="w-full sm:max-w-[calc((100%-2rem)/2)] lg:max-w-[calc((100%-4rem)/3)] xl:max-w-[calc((100%-6rem)/4)]">
-                      <InView
-                        from="right"
-                        amount={0.05}
-                      >
-                      <PersonCard
-                        name={group.head.name}
-                        role={
-                          group.head.designation
-                        }
-                        focus={group.head.focus}
-                        image={group.head.image}
-                        email={group.head.email}
-                        linkedin={
-                          group.head.linkedin
-                        }
-                        instagram={
-                          group.head.instagram
-                        }
-                      />
-                      </InView>
-                    </div>
+                {group.heads.length > 0 ? (
+                  <div className="mt-8 flex flex-wrap justify-center gap-x-8 gap-y-12">
+                    {group.heads.map(
+                      (head, headIndex) => (
+                        <div
+                          key={head.name}
+                          className="w-full sm:max-w-[calc((100%-2rem)/2)] lg:max-w-[calc((100%-4rem)/3)] xl:max-w-[calc((100%-6rem)/4)]"
+                        >
+                          <InView
+                            from="right"
+                            amount={0.05}
+                            delay={
+                              headIndex * 0.08
+                            }
+                          >
+                            <PersonCard
+                              name={head.name}
+                              role={
+                                head.designation
+                              }
+                              focus={head.focus}
+                              image={head.image}
+                              email={head.email}
+                              linkedin={
+                                head.linkedin
+                              }
+                              instagram={
+                                head.instagram
+                              }
+                            />
+                          </InView>
+                        </div>
+                      ),
+                    )}
                   </div>
                 ) : (
                   /*
