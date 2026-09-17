@@ -2,6 +2,7 @@ import type { MetadataRoute } from "next";
 
 import { siteConfig } from "@/config/site";
 import { blogContent } from "@/content/blog";
+import { programmesContent } from "@/content/programmes";
 import { publicationsContent } from "@/content/publications";
 
 const routes = [
@@ -136,9 +137,24 @@ export default function sitemap(): MetadataRoute.Sitemap {
     }),
   );
 
+  /*
+   * One entry per scheduled event. High priority while an event is upcoming:
+   * it is time-limited, and the weeks before it are the only ones in which
+   * anyone searching for it matters.
+   */
+  const eventRoutes =
+    programmesContent.events.scheduled.map(
+      (event) => ({
+        url: `${baseUrl}/events/${event.slug}`,
+        changeFrequency: "weekly" as const,
+        priority: 0.8,
+      }),
+    );
+
   return [
     ...staticRoutes,
     ...publicationRoutes,
     ...blogRoutes,
+    ...eventRoutes,
   ];
 }

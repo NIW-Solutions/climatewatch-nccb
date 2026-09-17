@@ -30,6 +30,28 @@ const nextConfig: NextConfig = {
     ],
   },
 
+  /*
+   * Short links for print.
+   *
+   * A QR code's density comes from how many characters it encodes, so a
+   * shorter URL means fewer modules, which scans faster and survives being
+   * printed small or photographed at an angle. /cop31 is 34 characters with
+   * the domain; the page's own path is nearly twice that.
+   *
+   * Permanent, so the short link is the one that accrues any inbound links
+   * while the event page stays canonical.
+   */
+  async redirects() {
+    return [
+      {
+        source: "/cop31",
+        destination:
+          "/events/pre-cop31-consultation-islamabad",
+        permanent: true,
+      },
+    ];
+  },
+
   async headers() {
     return [
       {

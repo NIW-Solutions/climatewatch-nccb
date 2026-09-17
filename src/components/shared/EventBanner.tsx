@@ -40,7 +40,7 @@ import {
  *
  * WHERE IT DOES NOT APPEAR:
  *
- *   - /programmes, which is where the event itself lives. Following a
+ *   - /programmes and /events, where the event itself lives. Following a
  *     banner to the page you are already on is a dead end;
  *   - after the event's own day has passed. `upcomingEvent()` handles that,
  *     so nobody has to remember to take this down;
@@ -88,7 +88,8 @@ export function EventBanner() {
     useState(false);
 
   const onEventPage =
-    pathname?.startsWith("/programmes") ??
+    pathname?.startsWith("/programmes") ||
+    pathname?.startsWith("/events") ||
     false;
 
   /*
@@ -260,7 +261,7 @@ export function EventBanner() {
         </p>
 
         <Link
-          href="/programmes#events"
+          href={`/events/${event.slug}`}
           className="group mt-4 inline-flex items-center gap-2 text-xs font-semibold text-primary transition-colors hover:text-secondary"
         >
           See the event

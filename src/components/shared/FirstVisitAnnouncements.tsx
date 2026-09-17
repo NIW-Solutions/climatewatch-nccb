@@ -357,7 +357,7 @@ function EventDialog({
 
         <div className="mt-8 flex flex-wrap items-center gap-4">
           <Link
-            href="/programmes#events"
+            href={`/events/${event.slug}`}
             onClick={onDismiss}
             className="group inline-flex min-h-11 items-center gap-3 bg-secondary px-6 text-xs font-bold uppercase tracking-[0.1em] !text-white transition-colors hover:!bg-secondary-dark hover:!text-white"
           >
