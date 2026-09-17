@@ -1,3 +1,4 @@
+import Link from "next/link";
 import {
   ArrowUpRight,
   CalendarDays,
@@ -17,7 +18,15 @@ type ScheduledEvent =
 
 export function EventCard({
   event,
-}: Readonly<{ event: ScheduledEvent }>) {
+  linked = true,
+}: Readonly<{
+  event: ScheduledEvent;
+  /*
+    False on the event's own page, where the poster and the title would
+    otherwise link to the page you are already reading.
+  */
+  linked?: boolean;
+}>) {
   const registrationOpen =
     event.registration.state === "open" &&
     event.registration.href.length > 0;
@@ -73,20 +82,39 @@ export function EventCard({
           className="border-b border-border"
         >
           <div className="mx-auto w-full max-w-4xl p-5 sm:p-8">
-            <div
-              className="relative w-full overflow-hidden bg-surface-muted"
-              style={{
+            {(() => {
+              const frame = (
+                <LoadedImage
+                  src={event.image}
+                  alt={event.imageAlt}
+                  fill
+                  sizes="(max-width: 896px) 100vw, 896px"
+                  className="object-contain"
+                />
+              );
+
+              const style = {
                 aspectRatio: `${event.imageWidth} / ${event.imageHeight}`,
-              }}
-            >
-              <LoadedImage
-                src={event.image}
-                alt={event.imageAlt}
-                fill
-                sizes="(max-width: 896px) 100vw, 896px"
-                className="object-contain"
-              />
-            </div>
+              };
+
+              return linked ? (
+                <Link
+                  href={`/events/${event.slug}`}
+                  aria-label={event.title}
+                  className="relative block w-full overflow-hidden bg-surface-muted"
+                  style={style}
+                >
+                  {frame}
+                </Link>
+              ) : (
+                <div
+                  className="relative w-full overflow-hidden bg-surface-muted"
+                  style={style}
+                >
+                  {frame}
+                </div>
+              );
+            })()}
           </div>
         </InView>
 
@@ -99,7 +127,16 @@ export function EventCard({
             </p>
 
             <h3 className="mt-5 max-w-2xl font-editorial text-[clamp(1.75rem,2.6vw,2.6rem)] font-medium leading-[1.08] tracking-[-0.035em] text-primary">
-              {event.title}
+              {linked ? (
+                <Link
+                  href={`/events/${event.slug}`}
+                  className="!text-primary transition-colors hover:!text-secondary"
+                >
+                  {event.title}
+                </Link>
+              ) : (
+                event.title
+              )}
             </h3>
 
             <p className="mt-4 max-w-2xl text-sm font-semibold leading-7 text-primary/75">

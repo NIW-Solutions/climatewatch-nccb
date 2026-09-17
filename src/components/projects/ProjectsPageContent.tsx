@@ -189,13 +189,23 @@ export function ProjectsPageContent() {
                       {/* IMAGE */}
 
                       <div>
-                        <div className="relative aspect-[16/10] overflow-hidden bg-primary-dark">
+                        {/*
+                          The thumbnail is the link, not a decoration beside
+                          one. aria-label carries the destination, since the
+                          image's alt describes the photograph rather than
+                          where clicking it goes.
+                        */}
+                        <Link
+                          href={`/projects/${project.id}`}
+                          aria-label={project.name}
+                          className="group/thumb relative block aspect-[16/10] overflow-hidden bg-primary-dark"
+                        >
                           <LoadedImage
                             src={project.image}
                             alt={project.imageAlt}
                             fill
                             sizes="(max-width: 1024px) 100vw, 44vw"
-                            className="object-cover"
+                            className="object-cover transition-transform duration-700 ease-out group-hover/thumb:scale-[1.03]"
                             darkLoader
                           />
 
@@ -211,7 +221,7 @@ export function ProjectsPageContent() {
                               </p>
                             </div>
                           ) : null}
-                        </div>
+                        </Link>
 
                         {/* DESKTOP META */}
 
@@ -259,7 +269,12 @@ export function ProjectsPageContent() {
                         </p>
 
                         <h2 className="mt-4 max-w-3xl font-editorial text-[clamp(2rem,3vw,3.15rem)] font-medium leading-[1.06] tracking-[-0.035em] text-primary">
-                          {project.title}
+                          <Link
+                            href={`/projects/${project.id}`}
+                            className="!text-primary transition-colors hover:!text-secondary"
+                          >
+                            {project.title}
+                          </Link>
                         </h2>
 
                         {/* SHORT VISIBLE DESCRIPTION */}

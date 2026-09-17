@@ -90,7 +90,17 @@ function ProfileCard({
         className="rounded-sm p-[2px]"
         style={{ background: PORTRAIT_BORDER }}
       >
-      <div className="relative aspect-[4/5] overflow-hidden rounded-[2px] bg-surface-muted">
+      {/*
+        The portrait goes to the profile page. The button below still opens
+        the modal, which is the quicker read for someone working down the
+        grid — so the card offers both, rather than making the page
+        reachable only from inside the modal.
+      */}
+      <Link
+        href={`/team/${profile.slug}`}
+        aria-label={profile.name}
+        className="relative block aspect-[4/5] overflow-hidden rounded-[2px] bg-surface-muted"
+      >
         <TeamPhoto
           src={profile.image}
           name={profile.name}
@@ -101,13 +111,18 @@ function ProfileCard({
           aria-hidden="true"
           className="absolute inset-x-0 bottom-0 h-[3px] origin-left scale-x-0 bg-secondary transition-transform duration-500 ease-out group-hover:scale-x-100"
         />
-      </div>
+      </Link>
       </div>
 
       {/* Identity */}
       <div className="mt-5 flex flex-1 flex-col border-t border-border pt-4">
         <h3 className="font-editorial text-[1.35rem] font-medium leading-[1.15] tracking-[-0.03em] text-primary transition-colors duration-300 group-hover:text-secondary">
-          {profile.name}
+          <Link
+            href={`/team/${profile.slug}`}
+            className="!text-inherit hover:!text-secondary"
+          >
+            {profile.name}
+          </Link>
         {profile.country ? (
           <CountryFlag
             code={profile.country}

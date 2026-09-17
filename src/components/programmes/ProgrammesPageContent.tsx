@@ -218,13 +218,17 @@ export function ProgrammesPageContent() {
                             : "lg:order-2 lg:col-span-6 lg:col-start-7",
                         ].join(" ")}
                       >
-                        <div className="relative aspect-[4/3] overflow-hidden bg-primary-dark">
+                        <Link
+                          href={`/programmes/${division.id}`}
+                          aria-label={division.eyebrow}
+                          className="group/thumb relative block aspect-[4/3] overflow-hidden bg-primary-dark"
+                        >
                           <LoadedImage
                             src={division.image}
                             alt={division.imageAlt}
                             fill
                             sizes="(max-width: 1024px) 100vw, 50vw"
-                            className="object-cover"
+                            className="object-cover transition-transform duration-700 ease-out group-hover/thumb:scale-[1.03]"
                             darkLoader
                           />
 
@@ -240,7 +244,7 @@ export function ProgrammesPageContent() {
                               </p>
                             </div>
                           ) : null}
-                        </div>
+                        </Link>
                       </InView>
 
                       {/* CONTENT */}
@@ -270,7 +274,12 @@ export function ProgrammesPageContent() {
                           </p>
 
                           <h2 className="mt-5 max-w-xl font-editorial text-[clamp(2.15rem,3.5vw,3.8rem)] font-medium leading-[1.05] tracking-[-0.04em] text-primary">
-                            {division.title}
+                            <Link
+                              href={`/programmes/${division.id}`}
+                              className="!text-primary transition-colors hover:!text-secondary"
+                            >
+                              {division.title}
+                            </Link>
                           </h2>
 
                           <p className="body-copy-large mt-6 max-w-xl">

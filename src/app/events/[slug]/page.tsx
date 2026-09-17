@@ -132,7 +132,11 @@ export default async function EventPage({
 
       <section className="bg-background">
         <div className="site-container section-shell-small">
-          <EventCard event={event} />
+          {/* Already on this event's page — nothing here links to itself. */}
+          <EventCard
+            event={event}
+            linked={false}
+          />
         </div>
       </section>
     </main>

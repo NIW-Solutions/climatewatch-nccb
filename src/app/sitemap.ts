@@ -168,6 +168,15 @@ export default function sitemap(): MetadataRoute.Sitemap {
       }),
     );
 
+  const programmeRoutes =
+    programmesContent.divisions.map(
+      (division) => ({
+        url: `${baseUrl}/programmes/${division.id}`,
+        changeFrequency: "monthly" as const,
+        priority: 0.7,
+      }),
+    );
+
   const profileRoutes = [
     ...teamContent.advisors,
     ...teamContent.internationalAdvisors,
@@ -184,6 +193,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     ...blogRoutes,
     ...eventRoutes,
     ...projectRoutes,
+    ...programmeRoutes,
     ...profileRoutes,
   ];
 }
