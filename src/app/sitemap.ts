@@ -3,6 +3,8 @@ import type { MetadataRoute } from "next";
 import { siteConfig } from "@/config/site";
 import { blogContent } from "@/content/blog";
 import { programmesContent } from "@/content/programmes";
+import { projectsContent } from "@/content/projects";
+import { teamContent } from "@/content/team";
 import { publicationsContent } from "@/content/publications";
 
 const routes = [
@@ -151,10 +153,37 @@ export default function sitemap(): MetadataRoute.Sitemap {
       }),
     );
 
+  /*
+   * One entry per project, and one per advisor and board member. Both used
+   * to exist only inside another page — projects as anchors, profiles inside
+   * a modal with no address at all — so neither could be indexed on its own
+   * subject or the person's own name.
+   */
+  const projectRoutes =
+    projectsContent.projects.map(
+      (project) => ({
+        url: `${baseUrl}/projects/${project.id}`,
+        changeFrequency: "monthly" as const,
+        priority: 0.7,
+      }),
+    );
+
+  const profileRoutes = [
+    ...teamContent.advisors,
+    ...teamContent.internationalAdvisors,
+    ...teamContent.board,
+  ].map((profile) => ({
+    url: `${baseUrl}/team/${profile.slug}`,
+    changeFrequency: "yearly" as const,
+    priority: 0.6,
+  }));
+
   return [
     ...staticRoutes,
     ...publicationRoutes,
     ...blogRoutes,
     ...eventRoutes,
+    ...projectRoutes,
+    ...profileRoutes,
   ];
 }

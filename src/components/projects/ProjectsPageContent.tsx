@@ -368,16 +368,34 @@ export function ProjectsPageContent() {
 
                         {/* ACTION */}
 
-                        <div className="mt-auto pt-7">
+                        <div className="mt-auto flex flex-wrap items-center gap-x-8 gap-y-3 pt-7">
+                          {/*
+                            The project's own page, so it can be linked to
+                            and shared as itself rather than as an anchor
+                            partway down this one.
+                          */}
                           <Link
-                            href={project.action.href}
+                            href={`/projects/${project.id}`}
                             className="group/link inline-flex items-center gap-3 text-sm font-semibold text-primary transition-colors hover:text-secondary"
                           >
-                            {project.action.label}
+                            Project page
 
                             <ArrowRight
                               aria-hidden="true"
                               className="size-4 transition-transform duration-300 group-hover/link:translate-x-1"
+                              strokeWidth={1.7}
+                            />
+                          </Link>
+
+                          <Link
+                            href={project.action.href}
+                            className="group/alt inline-flex items-center gap-2.5 text-sm font-medium text-muted transition-colors hover:text-primary"
+                          >
+                            {project.action.label}
+
+                            <ArrowUpRight
+                              aria-hidden="true"
+                              className="size-3.5 transition-transform duration-300 group-hover/alt:-translate-y-0.5 group-hover/alt:translate-x-0.5"
                               strokeWidth={1.7}
                             />
                           </Link>

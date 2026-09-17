@@ -1,5 +1,8 @@
 "use client";
 
+import Link from "next/link";
+import { ArrowUpRight } from "lucide-react";
+
 /**
  * Advisor and board profile grid — src/components/team/TeamProfileGrid.tsx
  *
@@ -361,6 +364,23 @@ function ProfileModal({
             linkedin={profile.linkedin}
             instagram={profile.instagram}
           />
+
+          {/*
+            The permalink. A modal has no address of its own, so without this
+            there is no way to send someone this biography — which is the
+            thing people actually want to do with an advisor's profile.
+          */}
+          <Link
+            href={`/team/${profile.slug}`}
+            className="group mt-8 inline-flex items-center gap-2 border-t border-border pt-6 text-xs font-semibold text-primary transition-colors hover:text-secondary"
+          >
+            Open as a page
+            <ArrowUpRight
+              aria-hidden="true"
+              className="size-3.5 transition-transform duration-300 group-hover:-translate-y-0.5 group-hover:translate-x-0.5"
+              strokeWidth={1.8}
+            />
+          </Link>
         </div>
       </div>
     </div>
