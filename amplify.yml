@@ -42,7 +42,7 @@ frontend:
         - npm ci
     build:
       commands:
-        - env | grep -e NEWSLETTER_ -e NOTION_ -e VIEWS_ -e FORMS_ -e SUBMISSIONS_ >> .env.production || true
+        - env | grep -e NEWSLETTER_ -e NOTION_ -e VIEWS_ -e FORMS_ -e SUBMISSIONS_ -e UPLOADS_ >> .env.production || true
         - npm run build
   artifacts:
     baseDirectory: .next

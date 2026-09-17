@@ -6,7 +6,11 @@ import {
   useState,
   type FormEvent,
 } from "react";
-import { ArrowRight, Check } from "lucide-react";
+import {
+  ArrowRight,
+  Check,
+  Upload,
+} from "lucide-react";
 
 import type {
   FormDefinition,
@@ -66,6 +70,11 @@ export function FormRenderer({
   const [failure, setFailure] = useState<
     string | null
   >(null);
+
+  /* S3 object keys for file fields, filled in as each upload finishes. */
+  const [files, setFiles] = useState<
+    Record<string, string>
+  >({});
 
   const honeypot = useRef("");
 
@@ -137,6 +146,7 @@ export function FormRenderer({
           body: JSON.stringify({
             slug: form.slug,
             answers,
+            files,
             website: honeypot.current,
             startedAt: openedAt.current,
           }),
@@ -250,8 +260,15 @@ export function FormRenderer({
             field={field}
             value={answers[field.id] ?? ""}
             error={errors[field.id]}
+            slug={form.slug}
             onChange={setAnswer}
             onToggle={toggleCheckbox}
+            onUploaded={(id, key) =>
+              setFiles((current) => ({
+                ...current,
+                [id]: key,
+              }))
+            }
           />
         ))}
       </div>
@@ -298,12 +315,15 @@ function Field({
   field,
   value,
   error,
+  slug,
   onChange,
   onToggle,
+  onUploaded,
 }: Readonly<{
   field: FormField;
   value: string | string[];
   error?: string;
+  slug: string;
   onChange: (
     id: string,
     value: string | string[],
@@ -311,6 +331,10 @@ function Field({
   onToggle: (
     id: string,
     option: string,
+  ) => void;
+  onUploaded: (
+    id: string,
+    key: string,
   ) => void;
 }>) {
   const describedBy =
@@ -484,11 +508,12 @@ function Field({
           )}
         </div>
       ) : field.type === "file" ? (
-        <p className="mt-3 border border-dashed border-border px-4 py-3 text-xs leading-6 text-muted">
-          File uploads are not switched on yet.
-          Send the file to the address on the
-          page instead.
-        </p>
+        <FileField
+          field={field}
+          slug={slug}
+          onChange={onChange}
+          onUploaded={onUploaded}
+        />
       ) : (
         <input
           id={field.id}
@@ -552,5 +577,191 @@ function FieldNotes({
         </p>
       ) : null}
     </>
+  );
+}
+
+/* ==========================================
+   FILE UPLOAD
+   ========================================== */
+
+/** Mirrors MAX_UPLOAD_BYTES on the server, for a message before the trip. */
+const MAX_MB = 8;
+
+const ACCEPT =
+  ".pdf,.doc,.docx,.odt,.rtf,.txt";
+
+/**
+ * Uploads straight to S3 with a presigned URL, so the document never passes
+ * through the server and a slow connection cannot time out a form submit.
+ *
+ * The upload happens on choosing the file, not on submitting the form. By
+ * the time someone presses Submit their CV is already stored and the
+ * submission carries only its key — which means a failed upload is a problem
+ * they can see and fix while they are still filling the form in, rather than
+ * a submit button that hangs.
+ */
+function FileField({
+  field,
+  slug,
+  onChange,
+  onUploaded,
+}: Readonly<{
+  field: FormField;
+  slug: string;
+  onChange: (
+    id: string,
+    value: string | string[],
+  ) => void;
+  onUploaded: (
+    id: string,
+    key: string,
+  ) => void;
+}>) {
+  const [state, setState] = useState<
+    "idle" | "uploading" | "done"
+  >("idle");
+  const [name, setName] = useState("");
+  const [problem, setProblem] = useState<
+    string | null
+  >(null);
+
+  async function handleFile(
+    file: File | undefined,
+  ) {
+    if (!file) return;
+
+    setProblem(null);
+
+    if (file.size > MAX_MB * 1024 * 1024) {
+      setProblem(
+        `That file is ${(file.size / (1024 * 1024)).toFixed(1)} MB. The limit is ${MAX_MB} MB.`,
+      );
+      return;
+    }
+
+    setState("uploading");
+    setName(file.name);
+
+    try {
+      const auth = await fetch(
+        "/api/forms/upload",
+        {
+          method: "POST",
+          headers: {
+            "content-type":
+              "application/json",
+          },
+          body: JSON.stringify({
+            slug,
+            fieldId: field.id,
+            filename: file.name,
+            size: file.size,
+          }),
+        },
+      );
+
+      if (!auth.ok) {
+        const data = await auth
+          .json()
+          .catch(() => ({}));
+
+        setProblem(
+          data.error ??
+            "Could not upload that file.",
+        );
+        setState("idle");
+        return;
+      }
+
+      const { url, key } =
+        await auth.json();
+
+      /*
+        Content-Type must match what the signature was made for, or S3
+        rejects the PUT outright.
+      */
+      const put = await fetch(url, {
+        method: "PUT",
+        headers: {
+          "content-type":
+            file.type ||
+            "application/octet-stream",
+        },
+        body: file,
+      });
+
+      if (!put.ok) {
+        setProblem(
+          "The upload did not complete. Please try again.",
+        );
+        setState("idle");
+        return;
+      }
+
+      /* The visible answer is the filename; the key travels separately. */
+      onChange(field.id, file.name);
+      onUploaded(field.id, key);
+      setState("done");
+    } catch {
+      setProblem(
+        "Could not reach the server. Check your connection and try again.",
+      );
+      setState("idle");
+    }
+  }
+
+  return (
+    <div className="mt-3">
+      <label
+        htmlFor={field.id}
+        className="group inline-flex min-h-11 cursor-pointer items-center gap-3 border border-border-strong bg-surface px-5 text-xs font-bold uppercase tracking-[0.1em] text-primary transition-colors hover:border-primary hover:bg-primary hover:text-white"
+      >
+        <Upload
+          aria-hidden="true"
+          className="size-3.5"
+          strokeWidth={1.8}
+        />
+        {state === "uploading"
+          ? "Uploading…"
+          : state === "done"
+            ? "Choose a different file"
+            : "Choose a file"}
+      </label>
+
+      <input
+        id={field.id}
+        type="file"
+        accept={ACCEPT}
+        className="sr-only"
+        onChange={(e) =>
+          handleFile(e.target.files?.[0])
+        }
+      />
+
+      {state === "done" ? (
+        <p className="mt-3 flex items-center gap-2 text-sm text-primary">
+          <Check
+            aria-hidden="true"
+            className="size-3.5 text-secondary"
+            strokeWidth={2}
+          />
+          {name}
+        </p>
+      ) : null}
+
+      <p className="mt-3 text-xs leading-6 text-muted-light">
+        PDF, Word, ODT, RTF or text. Up to{" "}
+        {MAX_MB} MB.
+      </p>
+
+      {problem ? (
+        <p
+          role="alert"
+          className="mt-2 text-xs font-semibold leading-6 text-secondary"
+        >
+          {problem}
+        </p>
+      ) : null}
+    </div>
   );
 }

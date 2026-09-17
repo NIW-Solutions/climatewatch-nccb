@@ -55,6 +55,8 @@ export async function POST(
     /* Honeypot. Named to look worth filling in to a bot. */
     website?: unknown;
     startedAt?: unknown;
+    /* S3 object keys, keyed by field id, from /api/forms/upload. */
+    files?: unknown;
   };
 
   try {
@@ -144,6 +146,65 @@ export async function POST(
     );
   }
 
+  /*
+   * Uploaded files.
+   *
+   * The keys are checked against the shape this server issues rather than
+   * taken as given: a field that exists on the form, a file field, and a key
+   * under that form and field's own prefix. Without that check a submission
+   * could name any object in the bucket and have it appear in the admin as
+   * though it were the applicant's own.
+   */
+  const files: Record<string, string> = {};
+
+  if (
+    body.files &&
+    typeof body.files === "object"
+  ) {
+    for (const [fieldId, value] of Object.entries(
+      body.files as Record<string, unknown>,
+    )) {
+      if (typeof value !== "string") continue;
+
+      const field = form.fields.find(
+        (f) => f.id === fieldId,
+      );
+
+      if (!field || field.type !== "file") {
+        continue;
+      }
+
+      const expected = `submissions/${slug}/${fieldId}/`;
+
+      if (
+        value.startsWith(expected) &&
+        !value.includes("..")
+      ) {
+        files[fieldId] = value;
+      }
+    }
+  }
+
+  /* A required file field has to have produced one. */
+  const missingFile = form.fields.find(
+    (f) =>
+      f.type === "file" &&
+      f.required &&
+      !files[f.id],
+  );
+
+  if (missingFile) {
+    return NextResponse.json(
+      {
+        errors: {
+          [missingFile.id]:
+            "Please attach a file.",
+        },
+      },
+      { status: 422 },
+    );
+  }
+
   const now = new Date().toISOString();
 
   const saved = await saveSubmission({
@@ -152,6 +213,9 @@ export async function POST(
     submissionId: `${now}#${randomUUID().slice(0, 8)}`,
     submittedAt: now,
     answers: result.answers,
+    ...(Object.keys(files).length
+      ? { files }
+      : {}),
     meta: {
       userAgent: (
         request.headers.get("user-agent") ?? ""

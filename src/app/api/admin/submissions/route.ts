@@ -81,12 +81,18 @@ export async function GET(
     });
   }
 
-  /* Columns follow the form's field order, so the export reads like it. */
+  /*
+    Columns follow the form's field order, so the export reads like it.
+
+    File fields are exported as the filename the applicant uploaded, not the
+    S3 key. A key in a spreadsheet is useless to a person and is an internal
+    path — the document itself is downloaded from the responses screen.
+  */
   const header = [
     "Submitted at",
-    ...form.fields
-      .filter((f) => f.type !== "file")
-      .map((f) => f.label || f.id),
+    ...form.fields.map(
+      (f) => f.label || f.id,
+    ),
   ];
 
   const lines = [
@@ -94,11 +100,9 @@ export async function GET(
     ...rows.map((row) =>
       [
         csvCell(row.submittedAt),
-        ...form.fields
-          .filter((f) => f.type !== "file")
-          .map((f) =>
-            csvCell(row.answers[f.id]),
-          ),
+        ...form.fields.map((f) =>
+          csvCell(row.answers[f.id]),
+        ),
       ].join(","),
     ),
   ];

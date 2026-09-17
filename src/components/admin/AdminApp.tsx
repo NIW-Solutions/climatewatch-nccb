@@ -1212,9 +1212,8 @@ function Responses({
     };
   }, [slug]);
 
-  const columns = (
-    form?.fields ?? []
-  ).filter((f) => f.type !== "file");
+  /* File fields are shown as download links rather than dropped. */
+  const columns = form?.fields ?? [];
 
   return (
     <div className="pt-10">
@@ -1295,6 +1294,39 @@ function Responses({
                   {columns.map((field) => {
                     const value =
                       row.answers[field.id];
+
+                    if (
+                      field.type === "file"
+                    ) {
+                      const hasFile =
+                        row.files?.[field.id];
+
+                      return (
+                        <td
+                          key={field.id}
+                          className="border-b border-border px-4 py-3 text-sm leading-6 text-primary"
+                        >
+                          {hasFile ? (
+                            <a
+                              href={`/api/admin/files?slug=${encodeURIComponent(slug)}&id=${encodeURIComponent(row.submissionId)}&field=${encodeURIComponent(field.id)}`}
+                              className="group inline-flex items-center gap-2 font-semibold text-primary transition-colors hover:text-secondary"
+                            >
+                              <Download
+                                aria-hidden="true"
+                                className="size-3.5 shrink-0"
+                                strokeWidth={1.8}
+                              />
+                              {typeof value ===
+                              "string"
+                                ? value
+                                : "Download"}
+                            </a>
+                          ) : (
+                            "—"
+                          )}
+                        </td>
+                      );
+                    }
 
                     return (
                       <td
