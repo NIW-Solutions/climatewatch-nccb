@@ -24,6 +24,13 @@
 # The view counter reads the SSR compute role for those, which is the IAM
 # route AWS recommends and the reason there are no AWS keys in this file.
 #
+# FORMS_ and SUBMISSIONS_ are the same, with one exception that matters:
+# FORMS_ADMIN_PASSWORD and FORMS_SESSION_SECRET ARE secrets, and by the note
+# above they end up readable by anyone with access to the Amplify app. That
+# is the accepted trade for now — see src/lib/forms/auth.ts, which says the
+# same thing and says what replaces it. Rotate them if that access list ever
+# changes, and move to Cognito before job applications are collected.
+#
 # The `|| true` matters: grep exits non-zero when nothing matches, which would
 # otherwise fail the whole build on a branch where these are not set.
 
@@ -35,7 +42,7 @@ frontend:
         - npm ci
     build:
       commands:
-        - env | grep -e NEWSLETTER_ -e NOTION_ -e VIEWS_ >> .env.production || true
+        - env | grep -e NEWSLETTER_ -e NOTION_ -e VIEWS_ -e FORMS_ -e SUBMISSIONS_ >> .env.production || true
         - npm run build
   artifacts:
     baseDirectory: .next
