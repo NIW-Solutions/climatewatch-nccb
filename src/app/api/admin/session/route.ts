@@ -1,48 +1,68 @@
 import { NextResponse } from "next/server";
 
 import {
-  adminConfigured,
+  adminMode,
+  currentAdmin,
   endSession,
-  isAdmin,
   passwordMatches,
   startSession,
 } from "@/lib/forms/auth";
+import { logoutUrl } from "@/lib/forms/cognito";
 
 /**
  * Admin session — src/app/api/admin/session/route.ts
  *
- *   GET     is anyone signed in?
- *   POST    sign in with the shared password
+ *   GET     who is signed in, and which sign-in method is active
+ *   POST    sign in with the shared password — REFUSED under Cognito
  *   DELETE  sign out
  *
- * The delay on a wrong password is deliberate. This endpoint guards every
- * submission the site holds, and without it an attacker could try passwords
- * as fast as the network allows.
+ * The POST refusal is the point of the migration. Once Cognito is
+ * configured, the shared password stops being a way in, whether or not
+ * FORMS_ADMIN_PASSWORD is still set in the console.
+ *
+ * The delay on a wrong password slows a guessing attack without troubling a
+ * real typo.
  */
 
 export const runtime = "nodejs";
 export const dynamic = "force-dynamic";
 
-/** Slows a guessing attack to a crawl without annoying a real typo. */
 const WRONG_PASSWORD_DELAY_MS = 1200;
 
 export async function GET() {
+  const mode = adminMode();
+  const admin = await currentAdmin();
+
   return NextResponse.json({
-    configured: adminConfigured(),
-    signedIn: await isAdmin(),
+    configured: mode !== "unconfigured",
+    mode,
+    signedIn: admin !== null,
+    email: admin?.email ?? null,
   });
 }
 
 export async function POST(
   request: Request,
 ) {
-  if (!adminConfigured()) {
+  const mode = adminMode();
+
+  if (mode === "unconfigured") {
     return NextResponse.json(
       {
         error:
           "Admin access is not configured on this deployment.",
       },
       { status: 503 },
+    );
+  }
+
+  if (mode === "cognito") {
+    return NextResponse.json(
+      {
+        error:
+          "This site signs in with a ClimateWatch account.",
+      },
+      { status: 409 },
     );
   }
 
@@ -75,13 +95,28 @@ export async function POST(
     );
   }
 
-  await startSession();
+  await startSession({
+    sub: "shared",
+    email: "",
+  });
 
   return NextResponse.json({ ok: true });
 }
 
 export async function DELETE() {
+  const mode = adminMode();
+
   await endSession();
 
-  return NextResponse.json({ ok: true });
+  /*
+   * Under Cognito, clearing our cookie is half the job — the hosted UI keeps
+   * its own session, so the next sign-in would go straight through without
+   * asking. The caller sends the browser here to finish it.
+   */
+  return NextResponse.json({
+    ok: true,
+    ...(mode === "cognito"
+      ? { logoutUrl: logoutUrl() }
+      : {}),
+  });
 }

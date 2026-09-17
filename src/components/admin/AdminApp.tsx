@@ -1,5 +1,6 @@
 "use client";
 
+import { useSearchParams } from "next/navigation";
 import {
   useCallback,
   useEffect,
@@ -108,6 +109,12 @@ export function AdminApp() {
     useState(false);
   const [configured, setConfigured] =
     useState(true);
+  const [mode, setMode] = useState<
+    "cognito" | "password" | "unconfigured"
+  >("password");
+  const [email, setEmail] = useState<
+    string | null
+  >(null);
 
   const [forms, setForms] = useState<
     FormDefinition[]
@@ -144,6 +151,8 @@ export function AdminApp() {
         setConfigured(
           data.configured !== false,
         );
+        setMode(data.mode ?? "password");
+        setEmail(data.email ?? null);
         setSignedIn(data.signedIn === true);
 
         if (data.signedIn) {
@@ -196,7 +205,9 @@ export function AdminApp() {
   }
 
   if (!signedIn) {
-    return (
+    return mode === "cognito" ? (
+      <CognitoSignIn />
+    ) : (
       <SignIn
         onSignedIn={async () => {
           setSignedIn(true);
@@ -213,21 +224,43 @@ export function AdminApp() {
           Forms
         </p>
 
-        <button
-          type="button"
-          className="text-xs font-semibold text-muted transition-colors hover:text-primary"
-          onClick={async () => {
-            await fetch(
-              "/api/admin/session",
-              { method: "DELETE" },
-            );
-            setSignedIn(false);
-            setForms([]);
-            setView({ name: "list" });
-          }}
-        >
-          Sign out
-        </button>
+        <div className="flex items-center gap-4">
+          {email ? (
+            <p className="text-xs text-muted-light">
+              {email}
+            </p>
+          ) : null}
+
+          <button
+            type="button"
+            className="text-xs font-semibold text-muted transition-colors hover:text-primary"
+            onClick={async () => {
+              const res = await fetch(
+                "/api/admin/session",
+                { method: "DELETE" },
+              );
+
+              const data = await res
+                .json()
+                .catch(() => ({}));
+
+              setSignedIn(false);
+              setForms([]);
+              setView({ name: "list" });
+
+              /*
+                Cognito keeps its own session. Without this the next sign-in
+                would go straight through without asking for anything.
+              */
+              if (data.logoutUrl) {
+                window.location.href =
+                  data.logoutUrl;
+              }
+            }}
+          >
+            Sign out
+          </button>
+        </div>
       </div>
 
       {view.name === "list" ? (
@@ -1345,6 +1378,70 @@ function Responses({
           </table>
         </div>
       ) : null}
+    </div>
+  );
+}
+
+/* ==========================================
+   COGNITO SIGN IN
+   ========================================== */
+
+/**
+ * No password field: the password is typed on Cognito's own hosted page,
+ * never on ours. That is the point of the hosted flow — this site never sees
+ * anyone's credentials, so it cannot leak them.
+ */
+function CognitoSignIn() {
+  /*
+    useSearchParams rather than reading window.location in an effect: the
+    effect version sets state synchronously, which renders twice before
+    paint, and reading the URL during render would disagree between the
+    server pass and the browser.
+  */
+  const error =
+    useSearchParams().get("error");
+
+  const problem = !error
+    ? null
+    : error === "denied"
+      ? "Sign-in was cancelled."
+      : error === "bad-state"
+        ? "That sign-in link had expired. Please try again."
+        : "Sign-in did not complete. Please try again.";
+
+  return (
+    <div className="max-w-sm border border-border bg-surface p-8">
+      <div className="flex size-10 items-center justify-center bg-primary text-white">
+        <Lock
+          aria-hidden="true"
+          className="size-4"
+          strokeWidth={1.8}
+        />
+      </div>
+
+      <h2 className="mt-6 font-editorial text-xl font-medium text-primary">
+        Sign in
+      </h2>
+
+      <p className="mt-4 text-sm leading-7 text-muted">
+        Use your ClimateWatch account.
+      </p>
+
+      {problem ? (
+        <p
+          role="alert"
+          className="mt-4 text-xs font-semibold text-secondary"
+        >
+          {problem}
+        </p>
+      ) : null}
+
+      <a
+        href="/api/admin/login"
+        className={`${PRIMARY_BUTTON} mt-6`}
+      >
+        Continue
+      </a>
     </div>
   );
 }

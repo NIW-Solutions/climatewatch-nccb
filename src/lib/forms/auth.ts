@@ -1,41 +1,53 @@
 import "server-only";
 
-import { createHmac, timingSafeEqual } from "node:crypto";
+import {
+  createHmac,
+  timingSafeEqual,
+} from "node:crypto";
 import { cookies } from "next/headers";
+
+import { cognitoConfigured } from "./cognito";
 
 /**
  * Admin session — src/lib/forms/auth.ts
  *
- * A signed cookie, issued against a shared password held in
- * FORMS_ADMIN_PASSWORD and signed with FORMS_SESSION_SECRET.
+ * A signed, httpOnly cookie. Two ways to earn one, and only one of them is
+ * available at a time:
  *
- * READ THIS BEFORE REAL APPLICATIONS FLOW THROUGH THE BUILDER.
+ *   COGNITO       per-person accounts, MFA available, and a record in
+ *                 Cognito of who signed in. Used whenever it is configured.
  *
- * This is deliberately the simplest thing that is honestly secure enough to
- * start with, and it has a ceiling:
+ *   SHARED PASSWORD   the fallback, from before Cognito existed. One
+ *                 password for everyone, so no answer to "who opened that
+ *                 applicant's CV". Fine for event registrations, not for
+ *                 documents about named people.
  *
- *   - one shared password, so there is no record of WHICH person opened an
- *     applicant's CV, and no way to revoke one person's access without
- *     changing everyone's;
- *   - no second factor;
- *   - a leaked password is full access to every submission until someone
- *     notices and changes it.
+ * WHEN COGNITO IS CONFIGURED THE PASSWORD ROUTE IS REFUSED. A weaker door
+ * left open beside a stronger one is just the weaker door — migrating means
+ * the old way stops working, not that it stays as a convenience.
  *
- * That is acceptable while the forms collect event registrations. It is not
- * the right answer for a table of job applications with CVs attached, which
- * is personal data ClimateWatch would be holding on other people's behalf.
- * Before that goes live, move this to Cognito: per-person accounts, MFA,
- * and a log of who signed in. The rest of the builder does not care which
- * of the two is underneath — everything goes through requireAdmin() below.
- *
- * The cookie is httpOnly, secure and sameSite=lax, so it is not readable
- * from JavaScript and does not ride along on cross-site requests.
+ * The cookie now carries an identity, so the admin can show who is signed in
+ * and future work can record who did what. It is signed with
+ * FORMS_SESSION_SECRET; changing that secret invalidates every session
+ * immediately, which is the lever to pull if a laptop goes missing.
  */
 
 const COOKIE = "cw_admin";
 
 /** Eight hours. Long enough for a working day, short enough to matter. */
 const MAX_AGE_SECONDS = 60 * 60 * 8;
+
+export type AdminIdentity = {
+  /** Cognito subject, or "shared" on the password path. */
+  sub: string;
+  /** Email address, or "" when signing in with the shared password. */
+  email: string;
+};
+
+export type AdminMode =
+  | "cognito"
+  | "password"
+  | "unconfigured";
 
 function secret(): string | null {
   return (
@@ -49,8 +61,23 @@ function expectedPassword(): string | null {
   );
 }
 
+/** Which door is open. Cognito wins whenever it is set up. */
+export function adminMode(): AdminMode {
+  if (!secret()) {
+    return "unconfigured";
+  }
+
+  if (cognitoConfigured()) {
+    return "cognito";
+  }
+
+  return expectedPassword()
+    ? "password"
+    : "unconfigured";
+}
+
 export function adminConfigured(): boolean {
-  return Boolean(secret() && expectedPassword());
+  return adminMode() !== "unconfigured";
 }
 
 function sign(value: string): string {
@@ -95,16 +122,32 @@ export function passwordMatches(
   return safeEqual(candidate, expected);
 }
 
-/** Issues the session cookie. Call only after passwordMatches(). */
-export async function startSession(): Promise<void> {
-  const issuedAt = Date.now().toString();
-  const value = `${issuedAt}.${sign(issuedAt)}`;
+/**
+ * Issues the session cookie.
+ *
+ * The payload is base64url rather than raw so a comma in an email cannot
+ * split the fields, and it is signed as a whole, so neither the identity nor
+ * the timestamp can be edited without invalidating it.
+ */
+export async function startSession(
+  identity: AdminIdentity,
+): Promise<void> {
+  const payload = Buffer.from(
+    JSON.stringify({
+      sub: identity.sub,
+      email: identity.email,
+      at: Date.now(),
+    }),
+  ).toString("base64url");
+
+  const value = `${payload}.${sign(payload)}`;
 
   const jar = await cookies();
 
   jar.set(COOKIE, value, {
     httpOnly: true,
-    secure: process.env.NODE_ENV === "production",
+    secure:
+      process.env.NODE_ENV === "production",
     sameSite: "lax",
     path: "/",
     maxAge: MAX_AGE_SECONDS,
@@ -116,48 +159,78 @@ export async function endSession(): Promise<void> {
   jar.delete(COOKIE);
 }
 
-/** True when the request carries a valid, unexpired session. */
-export async function isAdmin(): Promise<boolean> {
-  if (!adminConfigured()) {
-    return false;
+/** The signed-in identity, or null. */
+export async function currentAdmin(): Promise<AdminIdentity | null> {
+  if (!secret()) {
+    return null;
   }
 
   const jar = await cookies();
   const raw = jar.get(COOKIE)?.value;
 
   if (!raw) {
-    return false;
+    return null;
   }
 
-  const [issuedAt, signature] = raw.split(".");
+  const [payload, signature] = raw.split(".");
 
-  if (!issuedAt || !signature) {
-    return false;
+  if (!payload || !signature) {
+    return null;
   }
 
   let expected: string;
 
   try {
-    expected = sign(issuedAt);
+    expected = sign(payload);
   } catch {
-    return false;
+    return null;
   }
 
   if (!safeEqual(signature, expected)) {
-    return false;
+    return null;
   }
 
-  const age = Date.now() - Number(issuedAt);
+  let parsed: {
+    sub?: unknown;
+    email?: unknown;
+    at?: unknown;
+  };
+
+  try {
+    parsed = JSON.parse(
+      Buffer.from(payload, "base64url").toString(
+        "utf8",
+      ),
+    );
+  } catch {
+    return null;
+  }
+
+  const at = Number(parsed.at);
+  const age = Date.now() - at;
 
   if (
     !Number.isFinite(age) ||
     age < 0 ||
     age > MAX_AGE_SECONDS * 1000
   ) {
-    return false;
+    return null;
   }
 
-  return true;
+  return {
+    sub:
+      typeof parsed.sub === "string"
+        ? parsed.sub
+        : "",
+    email:
+      typeof parsed.email === "string"
+        ? parsed.email
+        : "",
+  };
+}
+
+export async function isAdmin(): Promise<boolean> {
+  return (await currentAdmin()) !== null;
 }
 
 /**
