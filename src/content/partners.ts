@@ -35,6 +35,15 @@ export type Partner = {
   detail?: string;
   href?: string;
   logo?: string;
+  /**
+   * Kept in this file but not shown anywhere on the site.
+   *
+   * For a partner whose listing is paused rather than ended — the logo, the
+   * URL and the wording all stay here, so restoring one is deleting a single
+   * line rather than rebuilding the entry from memory. Delete the entry
+   * outright only when the relationship itself has ended.
+   */
+  hidden?: boolean;
 };
 
 export const partnersContent = {
@@ -68,12 +77,16 @@ export const partnersContent = {
           "Sustainable Development Policy Institute",
         logo: "/images/partners/sustainable-development-policy-institute.png",
         href: "https://sdpi.org/",
+        /* Paused at ClimateWatch's request. Remove this line to restore. */
+        hidden: true,
       },
       {
         name:
           "Institute of Strategic Studies Islamabad",
         logo: "/images/partners/institute-of-strategic-studies-islamabad.png",
         href: "https://issi.org.pk/",
+        /* Paused at ClimateWatch's request. Remove this line to restore. */
+        hidden: true,
       },
       {
         /*

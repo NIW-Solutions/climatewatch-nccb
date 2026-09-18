@@ -53,9 +53,32 @@ function logoExists(
   );
 }
 
+/**
+ * Drops partners marked `hidden`.
+ *
+ * Generic over the group so each keeps its own literal type — the two groups
+ * differ in their eyebrow and title, and a shared parameter type would make
+ * one unassignable to the other.
+ *
+ * Filtered in one place rather than at each call site, so a listing added
+ * somewhere else later cannot quietly bring a paused partner back.
+ */
+function visible<
+  T extends { partners: readonly Partner[] },
+>(group: T): T {
+  return {
+    ...group,
+    partners: group.partners.filter(
+      (partner) => !partner.hidden,
+    ),
+  };
+}
+
 export function PartnerTicker() {
   const { official, collaborating } =
     partnersContent;
+
+
 
   return (
     <section
@@ -87,7 +110,7 @@ export function PartnerTicker() {
       </div>
 
       <TickerRow
-        group={official}
+        group={visible(official)}
         /* Centred and narrower than the row below, as a distinct tier. */
         narrow
         arc
@@ -95,7 +118,7 @@ export function PartnerTicker() {
       />
 
       <TickerRow
-        group={collaborating}
+        group={visible(collaborating)}
         durationClass="partner-ticker-track--base"
       />
     </section>
