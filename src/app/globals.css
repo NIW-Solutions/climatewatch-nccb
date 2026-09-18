@@ -1497,6 +1497,29 @@ input[type="checkbox"] {
   to   { opacity: 1; transform: translateY(0) scale(1); }
 }
 
+/*
+   A call to action that beats, for a dated event people have to act on
+   before it passes. Two beats then a rest, like a pulse, rather than a
+   steady throb — the pause is what stops it reading as a broken animation.
+
+   Transform only, so it never triggers layout. Applied through Tailwind's
+   motion-safe: variant, so it holds still for anyone who has asked for
+   reduced motion.
+   ========================================== */
+
+@keyframes heartbeat {
+  0%, 38%, 100% { transform: scale(1); }
+  10%           { transform: scale(1.055); }
+  20%           { transform: scale(1); }
+  29%           { transform: scale(1.04); }
+}
+
+/* The dot on the livestream badge. */
+@keyframes livePulse {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50%      { opacity: 0.35; transform: scale(0.8); }
+}
+
 @keyframes noticeIn {
   from { opacity: 0; transform: translateY(14px); }
   to   { opacity: 1; transform: translateY(0); }

@@ -285,25 +285,30 @@ export const programmesContent = {
           },
         ],
 
+        /* The roundtable is attended online as well as in the room. */
+        online: {
+          label: "Livestream · Online",
+          note: "Attend online via Zoom",
+        },
+
         registration: {
           /*
             Asserted to the union rather than left as its literal: `as const`
-            below would otherwise pin this to "coming-soon", and every check
-            for "open" would be a type error on a comparison that can never
-            be true.
+            below would otherwise pin this to one value, and every check for
+            the other would be a type error on a comparison that can never be
+            true.
           */
           state:
-            "coming-soon" as EventRegistrationState,
+            "open" as EventRegistrationState,
 
-          headline: "Registrations coming soon",
+          headline: "Register now",
 
           description:
-            "Virtual accreditation will open for youth, academia and civil society to follow the roundtable online. The link will be published here.",
+            "Registration for Observer Status via Zoom. Organisations, academia and individuals are all encouraged to register. Registering gives you access to follow the roundtable online.",
 
-          /* Add the URL and switch `state` to "open" when it goes live. */
-          href: "",
+          href: "https://us06web.zoom.us/meeting/register/WdaiAFBKSJOaOfz32YmmBA",
 
-          label: "Register for virtual accreditation",
+          label: "Register for observer status",
         },
 
         /*

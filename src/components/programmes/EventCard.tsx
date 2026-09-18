@@ -122,9 +122,30 @@ export function EventCard({
 
         <div className="mx-auto max-w-4xl p-7 sm:p-10">
           <InView from="right">
-            <p className="text-[0.6875rem] font-bold uppercase tracking-[0.12em] text-secondary">
-              {event.status}
-            </p>
+            <div className="flex flex-wrap items-center gap-3">
+              <p className="text-[0.6875rem] font-bold uppercase tracking-[0.12em] text-secondary">
+                {event.status}
+              </p>
+
+              {/*
+                Says the roundtable can be attended online, at the top where
+                someone deciding whether it is relevant to them will see it
+                before anything else. It links to the same registration,
+                because registering is how you get in.
+              */}
+              <a
+                href={event.registration.href}
+                target="_blank"
+                rel="noreferrer"
+                className="group inline-flex items-center gap-2 border border-secondary/50 bg-secondary/[0.07] px-3 py-1.5 text-[0.6875rem] font-bold uppercase tracking-[0.1em] !text-secondary transition-colors hover:border-secondary hover:bg-secondary hover:!text-white"
+              >
+                <span
+                  aria-hidden="true"
+                  className="size-1.5 rounded-full bg-secondary motion-safe:animate-[livePulse_1800ms_ease-in-out_infinite] group-hover:bg-white"
+                />
+                {event.online.label}
+              </a>
+            </div>
 
             <h3 className="mt-5 max-w-2xl font-editorial text-[clamp(1.75rem,2.6vw,2.6rem)] font-medium leading-[1.08] tracking-[-0.035em] text-primary">
               {linked ? (
@@ -208,19 +229,32 @@ export function EventCard({
                   {event.registration.description}
                 </p>
 
-                <a
-                  href={event.registration.href}
-                  target="_blank"
-                  rel="noreferrer"
-                  className="group mt-6 inline-flex min-h-11 items-center gap-3 bg-secondary px-6 text-xs font-bold uppercase tracking-[0.1em] !text-white transition-colors hover:!bg-secondary-dark hover:!text-white"
-                >
-                  {event.registration.label}
-                  <ArrowUpRight
-                    aria-hidden="true"
-                    className="size-3.5 transition-transform duration-300 group-hover:-translate-y-0.5 group-hover:translate-x-0.5"
-                    strokeWidth={1.8}
-                  />
-                </a>
+                {/*
+                  The heartbeat is on a wrapper rather than the button, so
+                  the scale animation and the button's own hover transition
+                  do not fight over transform. motion-safe: means it holds
+                  still for anyone who has asked for reduced motion — a
+                  pulsing call to action is exactly what that setting is for.
+                */}
+                <span className="mt-6 inline-block motion-safe:animate-[heartbeat_2200ms_ease-in-out_infinite]">
+                  <a
+                    href={event.registration.href}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="group inline-flex min-h-12 items-center gap-3 bg-secondary px-7 text-xs font-bold uppercase tracking-[0.1em] !text-white shadow-lg shadow-secondary/25 transition-colors hover:!bg-secondary-dark hover:!text-white"
+                  >
+                    {event.registration.label}
+                    <ArrowUpRight
+                      aria-hidden="true"
+                      className="size-3.5 transition-transform duration-300 group-hover:-translate-y-0.5 group-hover:translate-x-0.5"
+                      strokeWidth={1.8}
+                    />
+                  </a>
+                </span>
+
+                <p className="mt-4 text-xs leading-6 text-muted-light">
+                  {event.online.note}
+                </p>
               </div>
             ) : (
               <div className="border-2 border-secondary bg-secondary/[0.07] p-6 sm:p-8">
