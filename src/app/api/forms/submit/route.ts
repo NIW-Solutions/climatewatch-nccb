@@ -6,6 +6,7 @@ import {
   getForm,
   saveSubmission,
 } from "@/lib/forms/store";
+import { notifySubmission } from "@/lib/forms/notify";
 import { validateSubmission } from "@/lib/forms/validate";
 
 /**
@@ -207,7 +208,7 @@ export async function POST(
 
   const now = new Date().toISOString();
 
-  const saved = await saveSubmission({
+  const submission = {
     formSlug: slug,
     /* Timestamp first, so the sort key orders by time. */
     submissionId: `${now}#${randomUUID().slice(0, 8)}`,
@@ -225,7 +226,10 @@ export async function POST(
           "cloudfront-viewer-country",
         ) ?? undefined,
     },
-  });
+  };
+
+  const saved =
+    await saveSubmission(submission);
 
   if (!saved) {
     return NextResponse.json(
@@ -236,6 +240,14 @@ export async function POST(
       { status: 502 },
     );
   }
+
+  /*
+   * Awaited rather than fired and forgotten: on a serverless runtime the
+   * function can be frozen the moment the response is returned, and a
+   * dangling promise is simply never finished. notifySubmission swallows its
+   * own failures, so this cannot turn a saved submission into an error.
+   */
+  await notifySubmission(form, submission);
 
   return NextResponse.json({
     ok: true,

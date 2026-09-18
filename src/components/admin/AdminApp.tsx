@@ -830,6 +830,39 @@ function FormEditor({
 
         <div>
           <label
+            htmlFor="form-notify"
+            className={LABEL}
+          >
+            Email these addresses on each response
+          </label>
+
+          <input
+            id="form-notify"
+            value={form.notify.join(", ")}
+            placeholder="hr@climatewatch-nccb.org, info@climatewatch-nccb.org"
+            onChange={(e) =>
+              patch({
+                notify: e.target.value
+                  .split(",")
+                  .map((a) => a.trim())
+                  .filter(Boolean),
+              })
+            }
+            className={INPUT}
+          />
+
+          <p className="mt-2 text-xs leading-6 text-muted-light">
+            Separate with commas. The email says
+            a response arrived and links here —
+            it never contains the answers
+            themselves, because applications hold
+            personal details and email is the
+            least private place to keep them.
+          </p>
+        </div>
+
+        <div>
+          <label
             htmlFor="form-closes"
             className={LABEL}
           >
