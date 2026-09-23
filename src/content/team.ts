@@ -90,13 +90,13 @@ export const teamContent = {
   stats: [
     {
       /*
-       * Divisional leads (10) plus divisional teams (24). Human Resources
+       * Divisional leads (10) plus divisional teams (23). Human Resources
        * carries two leads: an interim head and a manager. Recount both arrays
        * below when someone joins or leaves — this figure does not derive
        * itself, so a stale number here is a visible error on the page.
        */
       label: "Team members",
-      value: "34",
+      value: "33",
     },
     {
       // Nine department entries below, and the directory copy says nine.
@@ -898,14 +898,6 @@ export const teamContent = {
       email: "saniaasim26@gmail.com",
       image:
         "/images/team/sania-asim.webp",
-    },
-    {
-      name: "Mamoona Asim",
-      department: "research-development",
-      position: "Intern",
-      email: "mamoonaasim@climatewatch-nccb.org",
-      image:
-        "/images/team/mamoona-asim.webp",
     },
     {
       name: "Bilal Ahmed",
