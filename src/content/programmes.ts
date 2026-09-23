@@ -319,7 +319,7 @@ export const programmesContent = {
           at the old one for thirty days.
         */
         image:
-          "/images/programmes/pre-cop31-consultation-landscape-2026-10.webp",
+          "/images/programmes/pre-cop31-consultation-landscape-2026-10-v2.webp",
 
         /*
           The poster's own proportions. The frame is built from these rather
@@ -331,7 +331,7 @@ export const programmesContent = {
         imageHeight: 3297,
 
         imageAlt:
-          "Event poster: From Belém to Antalya, Pakistan's Position — Pre-COP31 Multi-Stakeholder Consultation, 6 October 2026 at the Institute of Strategic Studies Islamabad. Convened by ClimateWatch with SDPI and ISSI.",
+          "Event poster: From Belém to Antalya, Pakistan's Position — Pre-COP31 Multi-Stakeholder Consultation, 6 October 2026 at the Institute of Strategic Studies Islamabad. Convened by ClimateWatch with SDPI and ISSI, alongside the Pakistan Red Crescent and the German Red Cross, and supported by German Cooperation.",
       },
     ],
   },
