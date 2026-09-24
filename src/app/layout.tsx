@@ -29,8 +29,18 @@ const newsreader = Newsreader({
   display: "swap",
 });
 
+/*
+ * "Pakistan" is in the title on purpose.
+ *
+ * "ClimateWatch" alone is contested: climatewatchdata.org is the World
+ * Resources Institute's global emissions platform, a far older and far more
+ * linked site, and it owns that query. What this organisation can rank for
+ * is the searches that identify it — ClimateWatch Pakistan, ClimateWatch
+ * NCCB, climate policy think tank Pakistan — so the words people would
+ * actually type belong in the title rather than a generic descriptor.
+ */
 const defaultTitle =
-  "ClimateWatch | Climate Policy, Research & Development";
+  "ClimateWatch Pakistan | Youth-Led Climate Policy Think Tank";
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteConfig.url),
