@@ -49,6 +49,30 @@ const nextConfig: NextConfig = {
           "/events/pre-cop31-consultation-islamabad",
         permanent: true,
       },
+
+      /*
+       * Legacy URLs from an earlier version of this site. Google still has
+       * them indexed and was still showing them — 39 and 15 impressions in
+       * three months, every one of them landing on a 404.
+       *
+       * A 404 on an indexed URL wastes the impression and throws away
+       * whatever ranking the page had earned. A permanent redirect hands
+       * both to the page that replaced it.
+       *
+       * "programs" is the American spelling this site never used; the
+       * section has always been /programmes.
+       */
+      {
+        source: "/programs/:path*",
+        destination: "/programmes",
+        permanent: true,
+      },
+      {
+        source: "/news/education",
+        destination:
+          "/programmes/education-for-sustainable-development",
+        permanent: true,
+      },
     ];
   },
 
