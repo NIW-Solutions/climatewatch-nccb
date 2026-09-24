@@ -330,6 +330,17 @@ export const programmesContent = {
         imageWidth: 4659,
         imageHeight: 3297,
 
+        /*
+          The A4 flyer, shown as the first-visit popup on the homepage. A
+          separate artwork from the landscape poster above — portrait, and
+          carrying the sponsors — so it has its own dimensions.
+        */
+        flyer: "/images/programmes/pre-cop31-flyer-2026-10.webp",
+        flyerWidth: 3413,
+        flyerHeight: 4500,
+        flyerAlt:
+          "Event flyer: From Belém to Antalya, Pakistan's Position — Pre-COP31 Multi-Stakeholder Consultation, 6 October at the Institute of Strategic Studies Islamabad.",
+
         imageAlt:
           "Event poster: From Belém to Antalya, Pakistan's Position — Pre-COP31 Multi-Stakeholder Consultation, 6 October 2026 at the Institute of Strategic Studies Islamabad. Convened by ClimateWatch with SDPI and ISSI, alongside the Pakistan Red Crescent and the German Red Cross, and supported by German Cooperation.",
       },

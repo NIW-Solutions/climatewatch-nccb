@@ -279,7 +279,7 @@ function EventDialog({
 
   return (
     <div
-      className="fixed inset-0 z-[100] flex items-end justify-center p-4 sm:items-center"
+      className="fixed inset-0 z-[100] flex items-start justify-center overflow-y-auto p-4 sm:p-6"
       role="dialog"
       aria-modal="true"
       aria-labelledby="event-dialog-title"
@@ -289,94 +289,80 @@ function EventDialog({
         aria-label="Close"
         tabIndex={-1}
         onClick={onDismiss}
-        className="absolute inset-0 cursor-default bg-primary-dark/70 motion-safe:animate-[fadeIn_240ms_ease-out]"
+        className="fixed inset-0 cursor-default bg-primary-dark/80 motion-safe:animate-[fadeIn_240ms_ease-out]"
       />
 
+      {/*
+        Centred with my-auto rather than items-center, for the reason the
+        profile dialog was fixed: centring a flex child taller than its
+        scrolling container puts the top of it out of reach. On a short
+        laptop screen an A4 flyer is exactly that child.
+      */}
+      {/*
+        Sized from the image rather than the panel: w-fit lets the card take
+        the flyer's own width, and the max-height below keeps an A4 portrait
+        inside a short laptop screen without letterboxing it. An earlier
+        attempt put the arithmetic in the width — calc(100vh-7rem)*0.758 —
+        which is invalid CSS, because the multiplication has to be inside
+        the calc(). Browsers drop a rule like that silently.
+      */}
       <div
         ref={panelRef}
-        className="relative w-full max-w-lg border border-border bg-surface p-7 shadow-2xl sm:p-9 motion-safe:animate-[panelIn_320ms_cubic-bezier(0.22,1,0.36,1)]"
+        className="relative my-auto w-fit max-w-full motion-safe:animate-[panelIn_320ms_cubic-bezier(0.22,1,0.36,1)]"
       >
-        <button
-          ref={closeRef}
-          type="button"
-          onClick={onDismiss}
-          className="absolute right-4 top-4 inline-flex size-9 items-center justify-center text-muted transition-colors hover:text-primary"
-          aria-label="Close"
-        >
-          <X
-            aria-hidden="true"
-            className="size-4"
-            strokeWidth={1.8}
-          />
-        </button>
-
-        <p className="text-[0.6875rem] font-bold uppercase tracking-[0.13em] text-secondary">
-          Upcoming event
-        </p>
-
         <h2
           id="event-dialog-title"
-          className="mt-5 max-w-sm pr-6 font-editorial text-[1.7rem] font-medium leading-[1.12] tracking-[-0.03em] text-primary"
+          className="sr-only"
         >
-          {event.title}
+          {event.title} — {event.subtitle}
         </h2>
 
-        <p className="mt-4 text-sm font-semibold leading-6 text-primary/75">
-          {event.subtitle}
-        </p>
+        {/*
+          The flyer is the link. Someone who taps a poster expects to go to
+          the thing it advertises, so the whole image goes to the event page
+          rather than hiding the action behind a small button underneath.
+        */}
+        <Link
+          href={`/events/${event.slug}`}
+          onClick={onDismiss}
+          className="group block bg-surface shadow-2xl"
+        >
+          {/* eslint-disable-next-line @next/next/no-img-element -- fixed known dimensions, and next/image's fill would need a sized parent inside a height-constrained dialog */}
+          <img
+            src={event.flyer}
+            alt={event.flyerAlt}
+            width={event.flyerWidth}
+            height={event.flyerHeight}
+            className="block max-h-[calc(100vh-11rem)] w-auto max-w-full"
+          />
 
-        <dl className="mt-6 space-y-2.5 border-t border-border pt-6">
-          <div className="flex gap-3">
-            <dt className="w-14 shrink-0 text-[0.6875rem] font-bold uppercase tracking-[0.11em] text-muted-light">
-              Date
-            </dt>
-
-            <dd className="text-sm font-medium text-primary">
-              <time
-                dateTime={event.dateISO}
-              >
-                {event.date}
-              </time>
-            </dd>
-          </div>
-
-          <div className="flex gap-3">
-            <dt className="w-14 shrink-0 text-[0.6875rem] font-bold uppercase tracking-[0.11em] text-muted-light">
-              Venue
-            </dt>
-
-            <dd className="text-sm font-medium text-primary">
-              {event.venue}
-            </dd>
-          </div>
-        </dl>
-
-        <p className="mt-6 text-sm font-bold uppercase tracking-[0.08em] text-secondary">
-          {event.registration.headline}
-        </p>
-
-        <div className="mt-8 flex flex-wrap items-center gap-4">
-          <Link
-            href={`/events/${event.slug}`}
-            onClick={onDismiss}
-            className="group inline-flex min-h-11 items-center gap-3 bg-secondary px-6 text-xs font-bold uppercase tracking-[0.1em] !text-white transition-colors hover:!bg-secondary-dark hover:!text-white"
-          >
+          <span className="flex items-center justify-between gap-3 border-t border-border bg-surface px-5 py-4 text-xs font-bold uppercase tracking-[0.1em] text-primary transition-colors group-hover:text-secondary">
             See the event
             <ArrowUpRight
               aria-hidden="true"
               className="size-3.5 transition-transform duration-300 group-hover:-translate-y-0.5 group-hover:translate-x-0.5"
               strokeWidth={1.8}
             />
-          </Link>
+          </span>
+        </Link>
 
-          <button
-            type="button"
-            onClick={onDismiss}
-            className="text-xs font-semibold text-muted transition-colors hover:text-primary"
-          >
-            Not now
-          </button>
-        </div>
+        {/*
+          Sits on the overlay, outside the flyer, so it never covers the
+          artwork and is obvious against the dimmed page.
+        */}
+        <button
+          ref={closeRef}
+          type="button"
+          onClick={onDismiss}
+          aria-label="Close"
+          className="absolute -right-2 -top-2 inline-flex size-10 items-center justify-center border border-border bg-surface text-primary shadow-lg transition-colors hover:bg-primary hover:text-white sm:-right-4 sm:-top-4"
+        >
+          <X
+            aria-hidden="true"
+            className="size-4"
+            strokeWidth={1.9}
+          />
+        </button>
       </div>
     </div>
   );
