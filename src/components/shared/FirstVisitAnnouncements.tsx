@@ -46,6 +46,18 @@ import { publicationsContent } from "@/content/publications";
  */
 
 const SEEN_EVENT_KEY = "climatewatch:seen-event";
+
+/**
+ * Bump this whenever the announcement itself changes — new artwork, new
+ * wording, a different call to action.
+ *
+ * "Seen" is stored as slug + version, so a visitor who dismissed a previous
+ * announcement for the SAME event is shown the new one. Keying on the slug
+ * alone was a mistake: replacing the text popup with the flyer changed
+ * nothing for anyone who had already dismissed the text, because the event
+ * had not changed. They would simply never have seen it.
+ */
+const ANNOUNCEMENT_VERSION = "flyer-1";
 const SEEN_PUBLICATION_KEY = "climatewatch:seen-publication";
 
 /** Let the page paint and settle before interrupting. */
@@ -69,6 +81,11 @@ function writeStored(
   } catch {
     return false;
   }
+}
+
+/** What "seen" means: this event, as announced in this version. */
+function seenValue(slug: string): string {
+  return `${slug}:${ANNOUNCEMENT_VERSION}`;
 }
 
 /** True when storage works at all. Nothing is shown when it does not. */
@@ -111,7 +128,7 @@ export function FirstVisitAnnouncements() {
     const eventDue =
       next !== null &&
       readStored(SEEN_EVENT_KEY) !==
-        next.slug;
+        seenValue(next.slug);
 
     publicationDue.current =
       Boolean(latest) &&
@@ -147,7 +164,7 @@ export function FirstVisitAnnouncements() {
       if (event) {
         writeStored(
           SEEN_EVENT_KEY,
-          event.slug,
+          seenValue(event.slug),
         );
       }
       setShowEvent(false);
