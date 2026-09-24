@@ -62,6 +62,16 @@ export const privacyContent = {
 
     {
       number: "05",
+      title: "Analytics and cookies",
+      paragraphs: [
+        "This website uses Google Analytics to understand how it is used — which pages are read, how visitors arrive, and roughly where in the world they are. This helps ClimateWatch decide what to publish and what to improve.",
+        "Google Analytics sets cookies in your browser and sends information to Google, including your IP address, which Google shortens before storing it. ClimateWatch does not use this information to identify individual visitors, and does not combine it with anything you send through a form.",
+        "You can refuse these cookies through your browser settings, or by using Google's opt-out browser add-on. Nothing on this website stops working if you do.",
+      ],
+    },
+
+    {
+      number: "06",
       title: "Third-party websites",
       paragraphs: [
         "The ClimateWatch website may link to external websites, publications, social platforms and institutional resources.",
@@ -70,7 +80,7 @@ export const privacyContent = {
     },
 
     {
-      number: "06",
+      number: "07",
       title: "Data security",
       paragraphs: [
         "Reasonable steps should be taken to protect information submitted through the website and associated communication channels.",
@@ -79,7 +89,7 @@ export const privacyContent = {
     },
 
     {
-      number: "07",
+      number: "08",
       title: "Retention",
       paragraphs: [
         "Information may be retained for as long as reasonably necessary to manage correspondence, maintain institutional records or respond to the purpose for which it was provided.",
@@ -87,7 +97,7 @@ export const privacyContent = {
     },
 
     {
-      number: "08",
+      number: "09",
       title: "Your enquiries",
       paragraphs: [
         "If you have a question about information you previously submitted to ClimateWatch, you may contact the organisation directly.",
@@ -95,7 +105,7 @@ export const privacyContent = {
     },
 
     {
-      number: "09",
+      number: "10",
       title: "Changes to this policy",
       paragraphs: [
         "This Privacy Policy may be updated when the website, organisational processes or applicable requirements change.",
