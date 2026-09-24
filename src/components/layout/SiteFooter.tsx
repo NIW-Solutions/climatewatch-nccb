@@ -2,6 +2,8 @@ import Image from "next/image";
 import Link from "next/link";
 import { ArrowUpRight, Mail } from "lucide-react";
 
+import { CookieSettingsLink } from "@/components/shared/CookieSettingsLink";
+
 import { siteConfig } from "@/config/site";
 
 /**
@@ -117,7 +119,10 @@ export function SiteFooter() {
                 href: "/terms",
               },
             ]}
-          />
+          >
+            {/* Withdrawing consent has to be as easy as giving it. */}
+            <CookieSettingsLink />
+          </FooterColumn>
 
           {/* =====================================
               CONNECT
@@ -206,12 +211,15 @@ export function SiteFooter() {
 function FooterColumn({
   title,
   links,
+  children,
 }: Readonly<{
   title: string;
   links: readonly {
     label: string;
     href: string;
   }[];
+  /** Anything that belongs in the list but is not a link. */
+  children?: React.ReactNode;
 }>) {
   return (
     <div>
@@ -230,6 +238,8 @@ function FooterColumn({
             {item.label}
           </Link>
         ))}
+
+        {children}
       </nav>
     </div>
   );

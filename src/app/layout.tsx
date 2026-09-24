@@ -6,13 +6,13 @@ import {
   Geist,
   Newsreader,
 } from "next/font/google";
-import Script from "next/script";
 
 import "./globals.css";
 import "leaflet/dist/leaflet.css";
 
 import { SiteFooter } from "@/components/layout/SiteFooter";
 import { EventBanner } from "@/components/shared/EventBanner";
+import { CookieConsent } from "@/components/shared/CookieConsent";
 import { SiteHeader } from "@/components/layout/SiteHeader";
 import { SiteStructuredData } from "@/components/shared/SiteStructuredData";
 import { siteConfig } from "@/config/site";
@@ -107,9 +107,6 @@ export const viewport: Viewport = {
   colorScheme: "light",
 };
 
-/** Google Analytics 4 measurement ID. Public — it appears in the page source. */
-const GA_MEASUREMENT_ID = "G-7GLXEP0GLR";
-
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -121,40 +118,6 @@ export default function RootLayout({
       className={`${geist.variable} ${newsreader.variable}`}
     >
       <body>
-        {/*
-          Google Analytics, on every page.
-
-          next/script with afterInteractive rather than a raw <script> tag:
-          Next hoists it and loads it after the page is interactive, so
-          analytics never delays first paint or Largest Contentful Paint.
-          Two tags because that is how gtag.js works — the loader, then the
-          config call that runs once it is in.
-
-          The measurement ID is not a secret. It is visible in the page
-          source of every site that uses GA, which is why it is here rather
-          than in an environment variable nobody could set without a
-          redeploy.
-
-          WORTH KNOWING: this sets cookies and sends visitor data to Google,
-          which is why the privacy policy now has a section saying so. If
-          ClimateWatch ever needs consent-gated analytics for EU visitors,
-          this is the single place to put that behind a banner.
-        */}
-        <Script
-          src={`https://www.googletagmanager.com/gtag/js?id=${GA_MEASUREMENT_ID}`}
-          strategy="afterInteractive"
-        />
-
-        <Script
-          id="google-analytics"
-          strategy="afterInteractive"
-        >
-          {`window.dataLayer = window.dataLayer || [];
-function gtag(){dataLayer.push(arguments);}
-gtag('js', new Date());
-gtag('config', '${GA_MEASUREMENT_ID}');`}
-        </Script>
-
         <SiteStructuredData />
 
         <SiteHeader />
@@ -169,6 +132,13 @@ gtag('config', '${GA_MEASUREMENT_ID}');`}
           what a crawler sees.
         */}
         <EventBanner />
+
+        {/*
+          Consent first, analytics second. Nothing is requested from Google
+          until a visitor agrees — see CookieConsent for why it is not done
+          with Google's Consent Mode.
+        */}
+        <CookieConsent />
       </body>
     </html>
   );
