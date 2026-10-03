@@ -426,14 +426,17 @@ export function TeamPageContent() {
                         amount={0.05}
                       >
                         {/*
-                          Associates get an email link only — the content
-                          model carries no social handles for them.
+                          Handles are optional here, as they are on the
+                          division leads: a card shows whichever of email,
+                          LinkedIn and Instagram that person actually has.
                         */}
                         <PersonCard
                           name={person.name}
                           role={person.position}
                           image={person.image}
                           email={person.email}
+                          linkedin={person.linkedin}
+                          instagram={person.instagram}
                         />
                       </InView>
                     ),

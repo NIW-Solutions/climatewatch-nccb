@@ -72,6 +72,13 @@ export type TeamAssociate = {
   position: string;
   email?: string;
   image?: string;
+  /**
+   * Optional, as on TeamMember. Associates used to carry no handles at all,
+   * which meant a colleague who had a public professional profile could not
+   * be linked to from their own card.
+   */
+  linkedin?: string;
+  instagram?: string;
 };
 
 export const teamContent = {
@@ -1036,6 +1043,7 @@ export const teamContent = {
       position: "Communication Consultant",
       image:
         "/images/team/muhammad-shahid-khan.webp",
+      linkedin: "https://www.linkedin.com/in/shahid44/",
     },
     {
       name: "Aimen Tahir",
