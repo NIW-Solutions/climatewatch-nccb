@@ -314,6 +314,7 @@ export const teamContent = {
       /* The remit of the role, as before — not anything biographical. */
       focus:
         "Editorial direction, media relations and public climate communication.",
+      email: "sidra@climatewatch-nccb.org",
       image: "/images/team/sidra-zaheer.webp",
       linkedin:
         "https://www.linkedin.com/in/sidra-zaheer-30939655/",
