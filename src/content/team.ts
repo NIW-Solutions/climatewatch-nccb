@@ -97,13 +97,13 @@ export const teamContent = {
   stats: [
     {
       /*
-       * Divisional leads (10) plus divisional teams (24). Human Resources
+       * Divisional leads (10) plus divisional teams (25). Human Resources
        * carries two leads: an interim head and a manager. Recount both arrays
        * below when someone joins or leaves — this figure does not derive
        * itself, so a stale number here is a visible error on the page.
        */
       label: "Team members",
-      value: "34",
+      value: "35",
     },
     {
       // Nine department entries below, and the directory copy says nine.
@@ -308,17 +308,15 @@ export const teamContent = {
        MEDIA AND COMMUNICATIONS
        ========================================== */
     {
-      name: "Mr. Sajjad Ali",
+      name: "Sidra Zaheer",
       department: "communications-media",
       designation: "Head of Division",
-      // NEEDS CONFIRMATION: no description supplied in the spreadsheet.
-      // Written from the remit of the role, not from anything biographical.
+      /* The remit of the role, as before — not anything biographical. */
       focus:
         "Editorial direction, media relations and public climate communication.",
-      email: "sajjad@climatewatch-nccb.org",
-      image: "/images/team/sajjad-ali.webp",
-      linkedin: "https://www.linkedin.com/in/sajjadaly/",
-      instagram: "https://www.instagram.com/sajjad_sharma/",
+      image: "/images/team/sidra-zaheer.webp",
+      linkedin:
+        "https://www.linkedin.com/in/sidra-zaheer-30939655/",
     },
 
     /* ==========================================
@@ -1037,6 +1035,16 @@ export const teamContent = {
     /* ==========================================
        MEDIA AND COMMUNICATIONS
        ========================================== */
+    {
+      name: "Mr. Sajjad Ali",
+      department: "communications-media",
+      position: "Host and Climate Journalist",
+      email: "sajjad@climatewatch-nccb.org",
+      image:
+        "/images/team/sajjad-ali.webp",
+      linkedin: "https://www.linkedin.com/in/sajjadaly/",
+      instagram: "https://www.instagram.com/sajjad_sharma/",
+    },
     {
       name: "Muhammad Shahid Khan",
       department: "communications-media",
