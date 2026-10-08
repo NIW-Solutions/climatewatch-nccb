@@ -5,8 +5,11 @@ import { ArrowLeft } from "lucide-react";
 import { CountryFlag } from "@/components/team/CountryFlag";
 import { InView } from "@/components/motion-primitives/InView";
 import { LoadedImage } from "@/components/ui/LoadedImage";
+import { TeamSocialLinks } from "@/components/team/team-primitives";
 import {
+  staffDirectory,
   teamContent,
+  type StaffEntry,
   type TeamProfile,
 } from "@/content/team";
 
@@ -28,6 +31,13 @@ import {
  * advisors, international advisors, and the board. Slugs are already unique
  * across the three — the board entries that double as advisors carry their
  * own, such as "atia-fehmi-board".
+ *
+ * STAFF TOO. Division leads and their teams get a page from the same route,
+ * at a slug derived from their name. Their pages are shorter, and honestly
+ * so: an advisor supplied a biography, a colleague on the roster did not, so
+ * their page carries what the organisation actually knows — role, division,
+ * remit where there is one, and how to reach them. Nothing is invented to
+ * fill the space.
  */
 
 const GROUPS = [
@@ -74,16 +84,29 @@ function findProfile(
   return undefined;
 }
 
+function findStaff(
+  slug: string,
+): StaffEntry | undefined {
+  return staffDirectory().find(
+    (person) => person.slug === slug,
+  );
+}
+
 export const dynamicParams = false;
 
 export function generateStaticParams() {
-  return GROUPS.flatMap((group) =>
-    (
-      group.profiles as readonly TeamProfile[]
-    ).map((profile) => ({
-      slug: profile.slug,
+  return [
+    ...GROUPS.flatMap((group) =>
+      (
+        group.profiles as readonly TeamProfile[]
+      ).map((profile) => ({
+        slug: profile.slug,
+      })),
+    ),
+    ...staffDirectory().map((person) => ({
+      slug: person.slug,
     })),
-  );
+  ];
 }
 
 export async function generateMetadata({
@@ -95,7 +118,30 @@ export async function generateMetadata({
   const found = findProfile(slug);
 
   if (!found) {
-    return { title: "Team" };
+    const person = findStaff(slug);
+
+    if (!person) {
+      return { title: "Team" };
+    }
+
+    const description = `${person.name} is ${person.role} in ${person.departmentName} at ClimateWatch.`;
+
+    return {
+      title: `${person.name} — ${person.role}`,
+      description,
+      alternates: {
+        canonical: `/team/${person.slug}`,
+      },
+      openGraph: {
+        type: "profile",
+        title: `${person.name} — ${person.role}`,
+        description,
+        url: `/team/${person.slug}`,
+        ...(person.image
+          ? { images: [person.image] }
+          : {}),
+      },
+    };
   }
 
   const { profile } = found;
@@ -127,7 +173,11 @@ export default async function ProfilePage({
   const found = findProfile(slug);
 
   if (!found) {
-    return null;
+    const person = findStaff(slug);
+
+    return person ? (
+      <StaffPage person={person} />
+    ) : null;
   }
 
   const { profile, label, backTo } = found;
@@ -277,6 +327,122 @@ export default async function ProfilePage({
                 </ul>
               </InView>
             ) : null}
+          </div>
+        </div>
+      </section>
+    </main>
+  );
+}
+
+/* ==========================================
+   STAFF PAGE
+   ========================================== */
+
+/**
+ * A division lead or team member.
+ *
+ * Shorter than an advisor's page on purpose. Advisors supplied biographies;
+ * the roster did not, so this carries what the organisation actually knows —
+ * who they are, what they do, which division, and how to reach them. Padding
+ * it with invented prose would be worse than it being brief.
+ */
+function StaffPage({
+  person,
+}: Readonly<{ person: StaffEntry }>) {
+  const site =
+    "https://www.climatewatch-nccb.org";
+
+  return (
+    <main>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "Person",
+            name: person.name,
+            jobTitle: person.role,
+            url: `${site}/team/${person.slug}`,
+            ...(person.image
+              ? {
+                  image: `${site}${person.image}`,
+                }
+              : {}),
+            ...(person.linkedin
+              ? { sameAs: [person.linkedin] }
+              : {}),
+            worksFor: {
+              "@type": "Organization",
+              name: "ClimateWatch",
+              url: site,
+            },
+          }),
+        }}
+      />
+
+      <section className="border-b border-border bg-surface">
+        <div className="site-container pt-32 pb-14 sm:pt-36 sm:pb-16">
+          <InView>
+            <Link
+              href={`/team#${person.department}`}
+              className="group inline-flex items-center gap-2 text-[0.6875rem] font-bold uppercase tracking-[0.11em] text-muted-light transition-colors hover:text-primary"
+            >
+              <ArrowLeft
+                aria-hidden="true"
+                className="size-3.5 transition-transform duration-300 group-hover:-translate-x-0.5"
+                strokeWidth={1.8}
+              />
+              {person.departmentName}
+            </Link>
+          </InView>
+
+          <div className="mt-10 grid gap-10 lg:grid-cols-[minmax(0,18rem)_minmax(0,1fr)] lg:gap-14">
+            {person.image ? (
+              <InView amount={0.1}>
+                <div className="relative aspect-[4/5] w-full max-w-xs overflow-hidden bg-surface-muted">
+                  <LoadedImage
+                    src={person.image}
+                    alt={person.name}
+                    fill
+                    priority
+                    sizes="(max-width: 1024px) 60vw, 288px"
+                    className="object-cover"
+                  />
+                </div>
+              </InView>
+            ) : null}
+
+            <InView
+              from="right"
+              amount={0.1}
+            >
+              <h1 className="font-editorial text-[clamp(2rem,4.2vw,3.1rem)] font-medium leading-[1.06] tracking-[-0.035em] text-primary">
+                {person.name}
+              </h1>
+
+              <p className="mt-4 text-[0.6875rem] font-bold uppercase leading-5 tracking-[0.11em] text-secondary">
+                {person.role}
+              </p>
+
+              <p className="mt-2 text-[0.6875rem] font-bold uppercase leading-5 tracking-[0.11em] text-muted-light">
+                {person.departmentName}
+              </p>
+
+              {person.focus ? (
+                <p className="mt-7 max-w-2xl border-t border-border pt-6 text-base leading-8 text-primary">
+                  {person.focus}
+                </p>
+              ) : null}
+
+              <div className="mt-8 border-t border-border pt-6">
+                <TeamSocialLinks
+                  name={person.name}
+                  email={person.email}
+                  linkedin={person.linkedin}
+                  instagram={person.instagram}
+                />
+              </div>
+            </InView>
           </div>
         </div>
       </section>

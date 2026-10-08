@@ -207,7 +207,7 @@ export const teamContent = {
       designation: "Director",
       focus:
         "Institutional strategy, climate policy direction and organisational representation.",
-      email: "syedkiram-cw@nccb-un.org",
+      email: "Syedkiram@climatewatch-nccb.org",
       image: "/images/team/syed-kiram.webp",
       linkedin: "https://www.linkedin.com/in/syed-kiram-828377193/",
       instagram: "https://www.instagram.com/syedkiram/",
@@ -222,7 +222,7 @@ export const teamContent = {
       designation: "Head of Division",
       focus:
         "Policy Advisor Anticipatory Action, UNFCCC negotiation tracking, climate policy analysis and international engagement.",
-      email: "pervez-cw@nccb-un.org",
+      email: "Pervez@climatewatch-nccb.org",
       image: "/images/team/pervez-aly-2026-08.webp",
       linkedin: "https://www.linkedin.com/in/pervezaly/",
       instagram: "https://www.instagram.com/_aka.aly/",
@@ -1119,3 +1119,106 @@ export const teamContent = {
     email: "info@climatewatch-nccb.org",
   },
 } as const;
+
+/**
+ * A person's URL segment, derived from their name.
+ *
+ * Honorifics are dropped — "Mr. Pervez Aly" becomes pervez-aly — because a
+ * title is not part of who someone is, and "mr-pervez-aly" reads as a
+ * mistake. Accents are folded so a name is typeable on any keyboard.
+ *
+ * Lowercase and hyphenated, matching the advisor and board slugs already
+ * live and indexed. URLs are case-sensitive on most servers, so a mixed-case
+ * address is a support question waiting to happen.
+ *
+ * Slugs are derived rather than stored for staff: a roster of forty people
+ * maintained by hand would drift, and nobody would notice until a link
+ * 404'd. Uniqueness is asserted at build time by staffDirectory() below.
+ */
+export function personSlug(name: string): string {
+  return name
+    .replace(/^(Mr|Mrs|Ms|Dr|Prof)\.?\s+/i, "")
+    .toLowerCase()
+    .normalize("NFD")
+    .replace(/[\u0300-\u036f]/g, "")
+    .replace(/[^a-z0-9]+/g, "-")
+    .replace(/^-+|-+$/g, "");
+}
+
+/** A division lead or team member, with the page they live at. */
+export type StaffEntry = {
+  slug: string;
+  name: string;
+  /** Designation for a lead, position for everyone else. */
+  role: string;
+  department: string;
+  departmentName: string;
+  /** Leads carry a focus line; the rest do not. */
+  focus?: string;
+  email?: string;
+  image?: string;
+  linkedin?: string;
+  instagram?: string;
+  isLead: boolean;
+};
+
+/**
+ * Everyone on staff, keyed by slug.
+ *
+ * Throws on a duplicate slug rather than letting two people quietly share a
+ * page: two colleagues whose names reduce to the same segment is the one
+ * thing that silently breaks this, and a build failure is the right place to
+ * find out.
+ */
+export function staffDirectory(): StaffEntry[] {
+  const departmentName = (id: string) =>
+    teamContent.departments.find(
+      (d) => d.id === id,
+    )?.name ?? id;
+
+  const entries: StaffEntry[] = [
+    ...teamContent.members.map((person) => ({
+      slug: personSlug(person.name),
+      name: person.name,
+      role: person.designation,
+      department: person.department,
+      departmentName: departmentName(
+        person.department,
+      ),
+      focus: person.focus,
+      email: person.email,
+      image: person.image,
+      linkedin: person.linkedin,
+      instagram: person.instagram,
+      isLead: true,
+    })),
+    ...teamContent.associates.map((person) => ({
+      slug: personSlug(person.name),
+      name: person.name,
+      role: person.position,
+      department: person.department,
+      departmentName: departmentName(
+        person.department,
+      ),
+      email: person.email,
+      image: person.image,
+      linkedin: person.linkedin,
+      instagram: person.instagram,
+      isLead: false,
+    })),
+  ];
+
+  const seen = new Set<string>();
+
+  for (const entry of entries) {
+    if (seen.has(entry.slug)) {
+      throw new Error(
+        `Two people share the slug "${entry.slug}". Give one of them a distinguishing middle name in src/content/team.ts.`,
+      );
+    }
+
+    seen.add(entry.slug);
+  }
+
+  return entries;
+}

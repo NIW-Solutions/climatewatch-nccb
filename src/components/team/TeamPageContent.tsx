@@ -7,6 +7,7 @@ import { InView } from "@/components/motion-primitives/InView";
 import { LoadedImage } from "@/components/ui/LoadedImage";
 import { TeamProfileGrid } from "@/components/team/TeamProfileGrid";
 import {
+  personSlug,
   teamContent,
   type TeamAssociate,
 } from "@/content/team";
@@ -698,6 +699,13 @@ function PersonCard({
   linkedin?: string;
   instagram?: string;
 }>) {
+  /*
+    Derived here rather than passed in, so every caller gets the link without
+    threading a slug through — the same function the route uses to find the
+    page, so the two cannot drift apart.
+  */
+  const href = `/team/${personSlug(name)}`;
+
   return (
     <article className="group flex h-full flex-col">
       <div
@@ -706,19 +714,28 @@ function PersonCard({
           background: PORTRAIT_BORDER,
         }}
       >
-        <div className="relative aspect-[4/5] overflow-hidden rounded-[2px] bg-surface-muted">
+        <Link
+          href={href}
+          aria-label={name}
+          className="relative block aspect-[4/5] overflow-hidden rounded-[2px] bg-surface-muted"
+        >
           <TeamPhoto
             src={image}
             name={name}
             sizes="(max-width: 640px) 100vw, (max-width: 1280px) 33vw, 260px"
             className="object-cover transition-transform duration-700 ease-out group-hover:scale-[1.03]"
           />
-        </div>
+        </Link>
       </div>
 
       <div className="mt-5 flex flex-1 flex-col border-t border-border pt-4">
         <h3 className="font-editorial text-[1.35rem] font-medium leading-[1.15] tracking-[-0.03em] text-primary transition-colors duration-300 group-hover:text-secondary">
-          {name}
+          <Link
+            href={href}
+            className="!text-inherit hover:!text-secondary"
+          >
+            {name}
+          </Link>
         </h3>
 
         <p className="mt-2.5 text-[0.6875rem] font-bold uppercase leading-5 tracking-[0.11em] text-secondary">

@@ -4,7 +4,10 @@ import { siteConfig } from "@/config/site";
 import { blogContent } from "@/content/blog";
 import { programmesContent } from "@/content/programmes";
 import { projectsContent } from "@/content/projects";
-import { teamContent } from "@/content/team";
+import {
+  staffDirectory,
+  teamContent,
+} from "@/content/team";
 import { publicationsContent } from "@/content/publications";
 
 const routes = [
@@ -177,6 +180,19 @@ export default function sitemap(): MetadataRoute.Sitemap {
       }),
     );
 
+  /*
+    Everyone on staff, alongside the advisors and board below. These are the
+    pages people reach by searching a colleague's name, which is exactly the
+    kind of query a small organisation can actually win.
+  */
+  const staffRoutes = staffDirectory().map(
+    (person) => ({
+      url: `${baseUrl}/team/${person.slug}`,
+      changeFrequency: "yearly" as const,
+      priority: 0.5,
+    }),
+  );
+
   const profileRoutes = [
     ...teamContent.advisors,
     ...teamContent.internationalAdvisors,
@@ -194,6 +210,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     ...eventRoutes,
     ...projectRoutes,
     ...programmeRoutes,
+    ...staffRoutes,
     ...profileRoutes,
   ];
 }
