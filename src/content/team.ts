@@ -20,6 +20,16 @@ export type TeamMember = {
   linkedin?: string;
   instagram?: string;
   /**
+   * Other spellings this person is published under.
+   *
+   * Not decoration: press coverage of Pervez Aly appears as both "Aly" and
+   * "Ali", which splits one person into two as far as a search engine is
+   * concerned. This feeds schema.org alternateName — the field built to say
+   * "the same person, written differently", which is the machine-readable
+   * version of what a parenthetical in a heading only tells a human.
+   */
+  alsoKnownAs?: readonly string[];
+  /**
    * Placeholder entries are illustrative staff records used to
    * populate the directory ahead of the real roster.
    *
@@ -79,6 +89,8 @@ export type TeamAssociate = {
    */
   linkedin?: string;
   instagram?: string;
+  /** Other spellings this person is published under. See TeamMember. */
+  alsoKnownAs?: readonly string[];
 };
 
 export const teamContent = {
@@ -223,6 +235,8 @@ export const teamContent = {
       focus:
         "Policy Advisor Anticipatory Action, UNFCCC negotiation tracking, climate policy analysis and international engagement.",
       email: "Pervez@climatewatch-nccb.org",
+      /* Published as "Pervez Ali" by Dawn and DW, "Pervez Aly" by Vice. */
+      alsoKnownAs: ["Pervez Ali"],
       image: "/images/team/pervez-aly-2026-08.webp",
       linkedin: "https://www.linkedin.com/in/pervezaly/",
       instagram: "https://www.instagram.com/_aka.aly/",
@@ -1159,6 +1173,7 @@ export type StaffEntry = {
   image?: string;
   linkedin?: string;
   instagram?: string;
+  alsoKnownAs?: readonly string[];
   isLead: boolean;
 };
 
@@ -1170,6 +1185,31 @@ export type StaffEntry = {
  * thing that silently breaks this, and a build failure is the right place to
  * find out.
  */
+/**
+ * Reads `alsoKnownAs` off a roster entry.
+ *
+ * `satisfies` on the arrays below keeps each entry's literal type, so an
+ * entry without this field does not have the property at all and the `in`
+ * check narrows to `unknown` rather than to the declared type. One guarded
+ * read in one place beats repeating that at every call site.
+ */
+function readAlsoKnownAs(
+  person: object,
+): readonly string[] | undefined {
+  if (!("alsoKnownAs" in person)) {
+    return undefined;
+  }
+
+  const value = (
+    person as { alsoKnownAs?: unknown }
+  ).alsoKnownAs;
+
+  return Array.isArray(value) &&
+    value.every((v) => typeof v === "string")
+    ? (value as readonly string[])
+    : undefined;
+}
+
 export function staffDirectory(): StaffEntry[] {
   const departmentName = (id: string) =>
     teamContent.departments.find(
@@ -1190,6 +1230,8 @@ export function staffDirectory(): StaffEntry[] {
       image: person.image,
       linkedin: person.linkedin,
       instagram: person.instagram,
+      alsoKnownAs:
+        readAlsoKnownAs(person),
       isLead: true,
     })),
     ...teamContent.associates.map((person) => ({
@@ -1204,6 +1246,8 @@ export function staffDirectory(): StaffEntry[] {
       image: person.image,
       linkedin: person.linkedin,
       instagram: person.instagram,
+      alsoKnownAs:
+        readAlsoKnownAs(person),
       isLead: false,
     })),
   ];

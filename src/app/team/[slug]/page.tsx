@@ -361,6 +361,12 @@ function StaffPage({
             "@context": "https://schema.org",
             "@type": "Person",
             name: person.name,
+            ...(person.alsoKnownAs?.length
+              ? {
+                  alternateName:
+                    person.alsoKnownAs,
+                }
+              : {}),
             jobTitle: person.role,
             url: `${site}/team/${person.slug}`,
             ...(person.image
@@ -427,6 +433,22 @@ function StaffPage({
               <p className="mt-2 text-[0.6875rem] font-bold uppercase leading-5 tracking-[0.11em] text-muted-light">
                 {person.departmentName}
               </p>
+
+              {/*
+                Said in the open as well as in the markup. Someone holding a
+                cutting that spells the name differently needs to know it is
+                the same person, and a search engine is not the only reader
+                that matters.
+              */}
+              {person.alsoKnownAs?.length ? (
+                <p className="mt-4 text-xs leading-6 text-muted">
+                  Also published as{" "}
+                  {person.alsoKnownAs.join(
+                    ", ",
+                  )}
+                  .
+                </p>
+              ) : null}
 
               {person.focus ? (
                 <p className="mt-7 max-w-2xl border-t border-border pt-6 text-base leading-8 text-primary">
