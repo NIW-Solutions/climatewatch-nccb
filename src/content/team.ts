@@ -100,8 +100,7 @@ export const teamContent = {
     description:
       "ClimateWatch brings together climate policy specialists, researchers, educators, engineers and communicators working across Pakistan and international climate processes.",
     image: "/images/team/team-hero-2026-08.webp",
-    imageAlt:
-      "Young climate campaigners holding Fridays for Future placards.",
+    imageAlt: "Young climate campaigners holding Fridays for Future placards.",
     imageCaption:
       "Our team works between mountain communities, national policy institutions and international climate negotiations.",
   },
@@ -204,8 +203,7 @@ export const teamContent = {
       id: "human-resources",
       name: "Human Resources",
       shortName: "Human Resources",
-      description:
-        "Recruitment, staff development and organisational policy.",
+      description: "Recruitment, staff development and organisational policy.",
     },
   ] satisfies readonly TeamDepartment[],
 
@@ -330,8 +328,7 @@ export const teamContent = {
         "Editorial direction, media relations and public climate communication.",
       email: "sidra@climatewatch-nccb.org",
       image: "/images/team/sidra-zaheer.webp",
-      linkedin:
-        "https://www.linkedin.com/in/sidra-zaheer-30939655/",
+      linkedin: "https://www.linkedin.com/in/sidra-zaheer-30939655/",
     },
 
     /* ==========================================
@@ -341,8 +338,7 @@ export const teamContent = {
       name: "Rayyan Butt",
       department: "human-resources",
       designation: "Interim Head of Division",
-      focus:
-        "Divisional leadership, recruitment and organisational policy.",
+      focus: "Divisional leadership, recruitment and organisational policy.",
       image: "/images/team/rayyan-butt.webp",
     },
     {
@@ -531,6 +527,28 @@ export const teamContent = {
         "Climate justice advocacy",
         "Public affairs and policy analysis",
         "Climate education and youth mobilisation",
+      ],
+    },
+    {
+      slug: "munira-shaheen",
+      image: "/images/team/munira-shaheen.webp",
+      name: "Munira Shaheen",
+      role: "External Advisor \u2014 Community Development and Civil Society Engagement",
+      linkedin: "https://www.linkedin.com/in/munira-shaheen-48034b32",
+      summary:
+        "Works with the Aga Khan Foundation and the Aga Khan Rural Support Programme, with earlier experience at Aga Khan University. Her background spans the London School of Economics, SZABIST and Karakoram International University.",
+      profile: [
+        "Munira Shaheen is ClimateWatch's External Advisor on Community Development and Civil Society Engagement.",
+        "She works with the Aga Khan Foundation and the Aga Khan Rural Support Programme, which has operated across Gilgit-Baltistan and Chitral since 1982, and previously held a position at Aga Khan University. Her background includes the London School of Economics, SZABIST and Karakoram International University.",
+        "She has been involved in the Women Leadership Academy, a programme for women leading civil society organisations in Gilgit-Baltistan and Chitral, delivered with support from AKRSP, the Aga Khan Foundation and Global Affairs Canada.",
+        "She advises ClimateWatch on community development and civil society engagement: how the organisation works with communities in Gilgit-Baltistan and Chitral, how local organisations are brought into its programmes, and how its project design reflects what communities in the region actually need.",
+      ],
+      expertise: [
+        "Community development in Gilgit-Baltistan and Chitral",
+        "Civil society organisation capacity and leadership",
+        "Programme design and delivery",
+        "Institutional partnerships",
+        "Women's leadership in community organisations",
       ],
     },
     {
@@ -900,40 +918,35 @@ export const teamContent = {
       department: "research-development",
       position: "Staff",
       email: "nisha@climatewatch-nccb.org",
-      image:
-        "/images/team/nisha-irfan.webp",
+      image: "/images/team/nisha-irfan.webp",
     },
     {
       name: "Fatimah Muneer",
       department: "research-development",
       position: "Research Associate",
       email: "fatimah.muneer@climatewatch-nccb.org",
-      image:
-        "/images/team/fatimah-muneer.webp",
+      image: "/images/team/fatimah-muneer.webp",
     },
     {
       name: "Sania Asim",
       department: "research-development",
       position: "Research Associate",
       email: "saniaasim26@gmail.com",
-      image:
-        "/images/team/sania-asim.webp",
+      image: "/images/team/sania-asim.webp",
     },
     {
       name: "Bilal Ahmed",
       department: "research-development",
       position: "Intern",
       email: "bilal@climatewatch-nccb.org",
-      image:
-        "/images/team/bilal-ahmed.webp",
+      image: "/images/team/bilal-ahmed.webp",
     },
     {
       name: "Muhammad Ehsaan",
       department: "research-development",
       position: "Intern",
       email: "muhammadehsaan@climatewatch-nccb.org",
-      image:
-        "/images/team/muhammad-ehsaan.webp",
+      image: "/images/team/muhammad-ehsaan.webp",
     },
     /* ==========================================
        INTERNATIONAL CLIMATE POLICY
@@ -943,41 +956,35 @@ export const teamContent = {
       department: "international-climate-policy",
       position: "Research Associate",
       email: "anfal.nadir@climatewatch-nccb.org",
-      image:
-        "/images/team/anfal-nadir.webp",
+      image: "/images/team/anfal-nadir.webp",
     },
     {
       name: "Mutahira Hasnain Gillani",
       department: "international-climate-policy",
       position: "Junior Policy Advisor",
       email: "mutahira@climatewatch-nccb.org",
-      image:
-        "/images/team/mutahira-hasnain-gillani.webp",
+      image: "/images/team/mutahira-hasnain-gillani.webp",
     },
     {
       name: "Babar Nasir",
       department: "international-climate-policy",
       position: "Intern",
       email: "n.babar@climatewatch-nccb.org",
-      image:
-        "/images/team/babar-nasir.webp",
+      image: "/images/team/babar-nasir.webp",
     },
     {
       name: "Mehak Mir",
       department: "international-climate-policy",
       position: "Intern",
-      image:
-        "/images/team/mehak-mir.webp",
-      email:
-        "mehakmaqsadmir@gmail.com",
+      image: "/images/team/mehak-mir.webp",
+      email: "mehakmaqsadmir@gmail.com",
     },
     {
       name: "Rima Sahar",
       department: "international-climate-policy",
       position: "Intern",
       email: "rimasahar786@gmail.com",
-      image:
-        "/images/team/rima-sahar.webp",
+      image: "/images/team/rima-sahar.webp",
     },
     /* ==========================================
        EDUCATION FOR SUSTAINABLE DEVELOPMENT
@@ -987,24 +994,21 @@ export const teamContent = {
       department: "education-sustainable-development",
       position: "Student Assistant",
       email: "rafiaimtiaz@climatewatch-nccb.org",
-      image:
-        "/images/team/rafia-imtiaz.webp",
+      image: "/images/team/rafia-imtiaz.webp",
     },
     {
       name: "Syeda Hoorain Imran",
       department: "education-sustainable-development",
       position: "Student Assistant",
       email: "hoorain.imran@climatewatch-nccb.org",
-      image:
-        "/images/team/syeda-hoorain-imran.webp",
+      image: "/images/team/syeda-hoorain-imran.webp",
     },
     {
       name: "Hashma Shahzad Ahmad",
       department: "education-sustainable-development",
       position: "Intern",
       email: "hashma.shahzad@climatewatch-nccb.org",
-      image:
-        "/images/team/hashma-shahzad-ahmad.webp",
+      image: "/images/team/hashma-shahzad-ahmad.webp",
     },
     /* ==========================================
        PARTNERSHIP AND OUTREACH
@@ -1014,16 +1018,14 @@ export const teamContent = {
       department: "partnerships-outreach",
       position: "Student Assistant",
       email: "k.ariba@climatewatch-nccb.org",
-      image:
-        "/images/team/ariba-khan.webp",
+      image: "/images/team/ariba-khan.webp",
     },
     {
       name: "Alexandra Schiller",
       department: "partnerships-outreach",
       position: "Intern",
       email: "s.alexandra@climatewatch-nccb.org",
-      image:
-        "/images/team/alexandra-schiller.webp",
+      image: "/images/team/alexandra-schiller.webp",
     },
     /* ==========================================
        TECHNICAL AND ENGINEERING
@@ -1033,8 +1035,7 @@ export const teamContent = {
       department: "technical-engineering",
       position: "AI Engineer",
       email: "fahamin5149@gmail.com",
-      image:
-        "/images/team/amin-fahim.webp",
+      image: "/images/team/amin-fahim.webp",
     },
     /* ==========================================
        PROJECT MANAGEMENT
@@ -1044,8 +1045,7 @@ export const teamContent = {
       department: "project-management",
       position: "Project Coordinator",
       email: "ahbab.ullah@climatewatch-nccb.org",
-      image:
-        "/images/team/ahbab-ullah.webp",
+      image: "/images/team/ahbab-ullah.webp",
     },
     /* ==========================================
        MEDIA AND COMMUNICATIONS
@@ -1055,8 +1055,7 @@ export const teamContent = {
       department: "communications-media",
       position: "Host and Climate Journalist",
       email: "sajjad@climatewatch-nccb.org",
-      image:
-        "/images/team/sajjad-ali.webp",
+      image: "/images/team/sajjad-ali.webp",
       linkedin: "https://www.linkedin.com/in/sajjadaly/",
       instagram: "https://www.instagram.com/sajjad_sharma/",
     },
@@ -1064,8 +1063,7 @@ export const teamContent = {
       name: "Muhammad Shahid Khan",
       department: "communications-media",
       position: "Communication Consultant",
-      image:
-        "/images/team/muhammad-shahid-khan.webp",
+      image: "/images/team/muhammad-shahid-khan.webp",
       linkedin: "https://www.linkedin.com/in/shahid44/",
     },
     {
@@ -1073,32 +1071,28 @@ export const teamContent = {
       department: "communications-media",
       position: "Media Host",
       email: "aimantahirhashmi2@gmail.com",
-      image:
-        "/images/team/aimen-tahir.webp",
+      image: "/images/team/aimen-tahir.webp",
     },
     {
       name: "Ebrahim Jamali",
       department: "communications-media",
       position: "Media Host",
       email: "ebrahimjamali181005@gmail.com",
-      image:
-        "/images/team/ebrahim-jamali.webp",
+      image: "/images/team/ebrahim-jamali.webp",
     },
     {
       name: "Aqsa Essa",
       department: "communications-media",
       position: "Intern",
       email: "aqsaessa4@gmail.com",
-      image:
-        "/images/team/aqsa-essa.webp",
+      image: "/images/team/aqsa-essa.webp",
     },
     {
       name: "Habiba Tariq",
       department: "communications-media",
       position: "Intern, Blog Writer",
       email: "habibat990@gmail.com",
-      image:
-        "/images/team/habiba-tariq-2026-08.webp",
+      image: "/images/team/habiba-tariq-2026-08.webp",
     },
     /* ==========================================
        HUMAN RESOURCES
@@ -1108,15 +1102,13 @@ export const teamContent = {
       department: "human-resources",
       position: "Intern",
       email: "HR@climatewatch-nccb.org",
-      image:
-        "/images/team/shahab-uddin.webp",
+      image: "/images/team/shahab-uddin.webp",
     },
     {
       name: "Muhammad Abdullah Fateh",
       department: "human-resources",
       position: "Intern",
-      image:
-        "/images/team/muhammad-abdullah-fateh.webp",
+      image: "/images/team/muhammad-abdullah-fateh.webp",
     },
   ] satisfies readonly TeamAssociate[],
 
@@ -1193,28 +1185,21 @@ export type StaffEntry = {
  * check narrows to `unknown` rather than to the declared type. One guarded
  * read in one place beats repeating that at every call site.
  */
-function readAlsoKnownAs(
-  person: object,
-): readonly string[] | undefined {
+function readAlsoKnownAs(person: object): readonly string[] | undefined {
   if (!("alsoKnownAs" in person)) {
     return undefined;
   }
 
-  const value = (
-    person as { alsoKnownAs?: unknown }
-  ).alsoKnownAs;
+  const value = (person as { alsoKnownAs?: unknown }).alsoKnownAs;
 
-  return Array.isArray(value) &&
-    value.every((v) => typeof v === "string")
+  return Array.isArray(value) && value.every((v) => typeof v === "string")
     ? (value as readonly string[])
     : undefined;
 }
 
 export function staffDirectory(): StaffEntry[] {
   const departmentName = (id: string) =>
-    teamContent.departments.find(
-      (d) => d.id === id,
-    )?.name ?? id;
+    teamContent.departments.find((d) => d.id === id)?.name ?? id;
 
   const entries: StaffEntry[] = [
     ...teamContent.members.map((person) => ({
@@ -1222,16 +1207,13 @@ export function staffDirectory(): StaffEntry[] {
       name: person.name,
       role: person.designation,
       department: person.department,
-      departmentName: departmentName(
-        person.department,
-      ),
+      departmentName: departmentName(person.department),
       focus: person.focus,
       email: person.email,
       image: person.image,
       linkedin: person.linkedin,
       instagram: person.instagram,
-      alsoKnownAs:
-        readAlsoKnownAs(person),
+      alsoKnownAs: readAlsoKnownAs(person),
       isLead: true,
     })),
     ...teamContent.associates.map((person) => ({
@@ -1239,15 +1221,12 @@ export function staffDirectory(): StaffEntry[] {
       name: person.name,
       role: person.position,
       department: person.department,
-      departmentName: departmentName(
-        person.department,
-      ),
+      departmentName: departmentName(person.department),
       email: person.email,
       image: person.image,
       linkedin: person.linkedin,
       instagram: person.instagram,
-      alsoKnownAs:
-        readAlsoKnownAs(person),
+      alsoKnownAs: readAlsoKnownAs(person),
       isLead: false,
     })),
   ];
