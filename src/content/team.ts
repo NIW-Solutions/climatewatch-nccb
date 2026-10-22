@@ -218,7 +218,7 @@ export const teamContent = {
       focus:
         "Institutional strategy, climate policy direction and organisational representation.",
       email: "Syedkiram@climatewatch-nccb.org",
-      image: "/images/team/syed-kiram.webp",
+      image: "/images/team/syed-kiram-2026-10.webp",
       linkedin: "https://www.linkedin.com/in/syed-kiram-828377193/",
       instagram: "https://www.instagram.com/syedkiram/",
     },
@@ -250,7 +250,7 @@ export const teamContent = {
       focus:
         "Research design, evidence standards and applied climate development work.",
       email: "imtiaz.ali@climatewatch-nccb.org",
-      image: "/images/team/imtiaz-ali-zeb.webp",
+      image: "/images/team/imtiaz-ali-zeb-2026-10.webp",
       linkedin: "https://www.linkedin.com/in/imtiaz-ali-zeb-8613b6262",
       instagram: "https://www.instagram.com/srfalikaho/",
     },
@@ -776,7 +776,7 @@ export const teamContent = {
     },
     {
       slug: "syed-kiram-board",
-      image: "/images/team/syed-kiram.webp",
+      image: "/images/team/syed-kiram-2026-10.webp",
       name: "Mr. Syed Kiram Ali",
       // NEEDS CONFIRMATION: the board row reads "Executive Director"; the staff
       // row and the current live site read "Director".
