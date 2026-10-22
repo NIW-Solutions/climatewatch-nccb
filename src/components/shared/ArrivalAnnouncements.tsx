@@ -14,39 +14,54 @@ import { publicationsContent } from "@/content/publications";
  *
  * Two things a visitor sees on arrival:
  *
- *   1. The current highlight, as a dialog. Every arrival, not once.
+ *   1. The current highlight, as a dialog. On arrival, at most once every
+ *      five minutes.
  *   2. The newest publication, as a corner notice. Once per publication.
  *
- * WHY THE HIGHLIGHT REPEATS. It used to be stored as seen, keyed on the
- * event slug, and it was also gated behind `upcomingEvent()`, which returns
- * null the day after an event. Between the two, the dialog looked broken:
- * anyone who had dismissed it once never saw it again, and once the
- * consultation date passed nobody saw it at all. ClimateWatch asked for it
- * on every arrival — close the tab, come back two seconds later, it shows.
- * So nothing about the highlight is remembered, and it is driven by
- * `currentHighlight()`, which is a named slug rather than a date.
+ * WHY IT IS TIMED RATHER THAN REMEMBERED. It used to be gated twice: on a
+ * stored "seen" flag, so anyone who dismissed it never saw it again, and on
+ * `upcomingEvent()`, which returns null the day after an event — so once the
+ * consultation date passed, nobody saw it at all. Both gates went, and for a
+ * while it showed on every single arrival. That was worse in the other
+ * direction: a dialog that returns on every reload is the thing that teaches
+ * people to close it without reading.
  *
- * The cost is real and worth stating: a dialog on every arrival is an
- * interruption every arrival. It is held to one — the publication notice
- * waits until the dialog is gone rather than stacking on top of it — and
- * it is suppressed on the highlight's own page, where it would be showing
- * someone what they are already looking at.
+ * So it is a cooldown, not a flag. First visit shows it. Reload, navigate,
+ * come back two minutes later — nothing. Come back after five minutes and it
+ * shows again. The stored value carries the highlight's slug as well as the
+ * time, so changing the spotlight shows the new one immediately rather than
+ * making it wait out the old one's window.
  *
- * The publication notice is still remembered, because "newest publication"
- * is news exactly once.
+ * Two further limits, both deliberate: it stays quiet on the highlight's own
+ * page, where it would be advertising what someone is already reading, and
+ * the publication notice waits until the dialog is gone rather than stacking
+ * on top of it.
  *
  * Nothing renders during server rendering or the first client pass, so the
  * markup React hydrates matches the markup the server sent and a crawler
- * indexes a page with no overlay. The highlight no longer needs
- * localStorage at all, so it still appears where storage is blocked; the
- * publication notice silently does nothing there, since a notice no one can
- * dismiss for good is worse than no notice.
+ * indexes a page with no overlay. The highlight touches localStorage only to
+ * remember when it last appeared. Where storage is
+ * blocked it reads as a first visit every time, which is the honest fallback:
+ * the dialog still works, it simply cannot keep its own cooldown.
  */
 
 const SEEN_PUBLICATION_KEY = "climatewatch:seen-publication";
 
 /** Let the page paint and settle before interrupting. */
 const APPEAR_DELAY_MS = 1400;
+
+const SEEN_HIGHLIGHT_KEY = "climatewatch:seen-highlight";
+
+/**
+ * How long the highlight stays quiet after someone has seen it.
+ *
+ * Showing it on every arrival was too much — ClimateWatch said so, and they
+ * were right: a dialog that returns the moment you reload is the thing that
+ * teaches people to close it without reading. Five minutes is the number they
+ * asked for. Inside that window you can reload as often as you like and the
+ * site stays out of your way; come back later and it introduces itself again.
+ */
+const HIGHLIGHT_COOLDOWN_MS = 5 * 60 * 1000;
 
 function readStored(key: string): string | null {
   try {
@@ -62,6 +77,43 @@ function writeStored(key: string, value: string): void {
   } catch {
     /* Private browsing. The notice returns next time; nothing breaks. */
   }
+}
+
+/**
+ * Stored as `slug:timestamp`, not as a plain "seen" flag.
+ *
+ * The slug half matters: a NEW highlight is new regardless of when the last
+ * one was seen, so changing the spotlight shows it straight away rather than
+ * hiding it behind the previous one's window.
+ */
+function highlightDue(slug: string): boolean {
+  const stored = readStored(SEEN_HIGHLIGHT_KEY);
+
+  /* Never seen, or storage is blocked. Either way, treat it as a first visit. */
+  if (!stored) {
+    return true;
+  }
+
+  const split = stored.lastIndexOf(":");
+
+  if (split === -1 || stored.slice(0, split) !== slug) {
+    return true;
+  }
+
+  const seenAt = Number(stored.slice(split + 1));
+
+  if (!Number.isFinite(seenAt)) {
+    return true;
+  }
+
+  const elapsed = Date.now() - seenAt;
+
+  /*
+    A negative figure means the stored time is in the future, which happens
+    when a device clock is wrong or gets changed. Waiting that out could
+    silence the dialog for years, so treat it as due.
+  */
+  return elapsed < 0 || elapsed >= HIGHLIGHT_COOLDOWN_MS;
 }
 
 export function ArrivalAnnouncements() {
@@ -88,7 +140,8 @@ export function ArrivalAnnouncements() {
     const onItsOwnPage =
       highlight !== null && pathname === `/events/${highlight.slug}`;
 
-    const highlightDue = highlight !== null && !onItsOwnPage;
+    const dialogDue =
+      highlight !== null && !onItsOwnPage && highlightDue(highlight.slug);
 
     publicationDue.current =
       Boolean(latest) && readStored(SEEN_PUBLICATION_KEY) !== latest.slug;
@@ -99,7 +152,14 @@ export function ArrivalAnnouncements() {
           state synchronously there renders twice before the browser paints,
           and nothing here is urgent enough to justify that.
         */
-      if (highlightDue) {
+      if (dialogDue && highlight) {
+        /*
+          Stamped when it appears, not when it is closed, so the five minutes
+          run from the moment someone saw it. Stamping on dismissal would
+          restart the clock for anyone who left a tab open for an hour.
+        */
+        writeStored(SEEN_HIGHLIGHT_KEY, `${highlight.slug}:${Date.now()}`);
+
         setEvent(highlight);
         setShowEvent(true);
       } else if (publicationDue.current) {
@@ -112,9 +172,9 @@ export function ArrivalAnnouncements() {
 
   const dismissEvent = useCallback(() => {
     /*
-        Deliberately not recorded. The highlight is meant to return on the
-        next arrival, so there is nothing to write down.
-      */
+      Nothing is written here: the appearance was already stamped, and the
+      cooldown counts from being seen rather than from being closed.
+    */
     setShowEvent(false);
 
     /* The notice was waiting its turn. */
