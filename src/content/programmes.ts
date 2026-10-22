@@ -1,12 +1,3 @@
-/**
- * Whether an event is taking registrations yet. `as const` below pins each
- * event's `state` to its current literal, so anything comparing against the
- * other value needs this union rather than the narrowed literal.
- */
-export type EventRegistrationState =
-  | "coming-soon"
-  | "open";
-
 export const programmesContent = {
   hero: {
     eyebrow: "Programmes",
@@ -22,8 +13,7 @@ export const programmesContent = {
      * export rather than a camera original, and upscaling it to the 2560px
      * the other section images use would add no detail.
      */
-    image:
-      "/images/programmes/programmes-hero-debris-2026-08.webp",
+    image: "/images/programmes/programmes-hero-debris-2026-08.webp",
 
     imageAlt:
       "People shovelling rock and silt debris from land in northern Pakistan.",
@@ -35,8 +25,7 @@ export const programmesContent = {
   introduction: {
     eyebrow: "Our programme structure",
 
-    title:
-      "Different disciplines. A shared evidence-led approach.",
+    title: "Different disciplines. A shared evidence-led approach.",
 
     paragraphs: [
       "Each ClimateWatch division has its own programme focus, but the work is designed to connect across research, community evidence, climate education and policy engagement.",
@@ -51,8 +40,7 @@ export const programmesContent = {
 
       id: "international-climate-policy",
 
-      eyebrow:
-        "International Climate Policy",
+      eyebrow: "International Climate Policy",
 
       title:
         "Following the climate-policy processes that shape national decisions.",
@@ -75,8 +63,7 @@ export const programmesContent = {
         "Climate-policy analysis",
       ],
 
-      image:
-        "/images/programmes/international-climate-policy-2026-08.webp",
+      image: "/images/programmes/international-climate-policy-2026-08.webp",
 
       imageAlt:
         "Youth delegates seated behind a YOUTH NGOs nameplate at an international climate negotiation session.",
@@ -95,11 +82,9 @@ export const programmesContent = {
 
       id: "education-for-sustainable-development",
 
-      eyebrow:
-        "Education for Sustainable Development",
+      eyebrow: "Education for Sustainable Development",
 
-      title:
-        "Climate learning grounded in place, knowledge and experience.",
+      title: "Climate learning grounded in place, knowledge and experience.",
 
       description:
         "The Education for Sustainable Development division connects climate and earth-science education with community knowledge and the realities of climate-vulnerable regions.",
@@ -119,11 +104,9 @@ export const programmesContent = {
         "Climate literacy",
       ],
 
-      image:
-        "/images/programmes/glacier-school-2026-08.webp",
+      image: "/images/programmes/glacier-school-2026-08.webp",
 
-      imageAlt:
-        "A glacier below a snow-covered summit in northern Pakistan.",
+      imageAlt: "A glacier below a snow-covered summit in northern Pakistan.",
 
       imageCaption:
         "Climate education connected to mountain environments, local knowledge and practical learning.",
@@ -139,8 +122,7 @@ export const programmesContent = {
 
       id: "research-and-development",
 
-      eyebrow:
-        "Research & Development",
+      eyebrow: "Research & Development",
 
       title:
         "Applied research for climate vulnerability, resilience and adaptation.",
@@ -163,11 +145,9 @@ export const programmesContent = {
         "Early-warning approaches",
       ],
 
-      image:
-        "/images/programmes/research-development-2026-08.webp",
+      image: "/images/programmes/research-development-2026-08.webp",
 
-      imageAlt:
-        "Water droplets held on a leaf.",
+      imageAlt: "Water droplets held on a leaf.",
 
       imageCaption:
         "Research connecting climate evidence with practical questions of resilience and risk.",
@@ -182,14 +162,15 @@ export const programmesContent = {
   /* ============================================================
      EVENTS
 
-     ONLY LIST EVENTS THAT ARE GENUINELY SCHEDULED, and take an
-     event down once it has happened — a page advertising a date
-     that has passed is worse than no listing.
+     A page advertising a date that has passed is worse than no
+     listing — but an event that has happened and produced
+     something is not an advertisement, it is a record. Either take
+     the entry down or turn it into one, as the Pre-COP31
+     consultation was: registration removed, `status` set to
+     "Held", and an `outcome` block put where the call to register
+     used to be.
 
-     `status` drives the label on the card. `registration.state`
-     drives the block beneath it: "coming-soon" shows the notice
-     with no link, "open" shows the button, so adding the link
-     later is one field and one URL.
+     `status` drives the label on the card.
      ============================================================ */
 
   events: {
@@ -210,13 +191,11 @@ export const programmesContent = {
       {
         slug: "pre-cop31-consultation-islamabad",
 
-        status: "Scheduled",
+        status: "Held",
 
-        title:
-          "From Belém to Antalya: Pakistan's Position",
+        title: "From Belém to Antalya: Pakistan's Position",
 
-        subtitle:
-          "Pre-COP31 Multi-Stakeholder Consultation",
+        subtitle: "Pre-COP31 Multi-Stakeholder Consultation",
 
         /* Machine-readable date for the Event structured data. */
         dateISO: "2026-10-06",
@@ -224,16 +203,14 @@ export const programmesContent = {
         date: "6 October 2026",
 
         /* Collapsed-banner label. Short enough for a pill on a phone. */
-        bannerLabel:
-          "Pre-COP31 Consultation · 6 Oct",
+        bannerLabel: "Pre-COP31 Consultation · 6 Oct",
 
-        venue:
-          "Institute of Strategic Studies Islamabad",
+        venue: "Institute of Strategic Studies Islamabad",
 
         city: "Islamabad",
 
         description:
-          "A multi-stakeholder consultation on the position Pakistan carries from COP30 in Belém to COP31 in Antalya. Two roundtable streams take up the thematic areas across government, research and civil society, and the record becomes a multi-stakeholder position paper for COP31.",
+          "A multi-stakeholder consultation on the position Pakistan carries from COP30 in Belém to COP31 in Antalya. Two roundtable streams took up the thematic areas across government, research and civil society, and the record becomes a multi-stakeholder position paper for COP31.",
 
         /*
          * The poster groups four items under "thematic areas", but its own
@@ -260,9 +237,9 @@ export const programmesContent = {
         ],
 
         format: {
-          title: "Shape the position",
+          title: "How the position was shaped",
           description:
-            "Two roundtable streams take up the three thematic areas across government, research and civil society. The record becomes a multi-stakeholder position paper for COP31 — the position is shaped in the room, not circulated in advance.",
+            "Two roundtable streams took up the three thematic areas across government, research and civil society. The record becomes the multi-stakeholder position paper for COP31 — the position was shaped in the room, not circulated in advance.",
         },
 
         convening: [
@@ -285,30 +262,22 @@ export const programmesContent = {
           },
         ],
 
-        /* The roundtable is attended online as well as in the room. */
-        online: {
-          label: "Livestream · Online",
-          note: "Attend online via Zoom",
-        },
+        /*
+          The consultation has happened, so what stood where the registration
+          stood is what came out of it. Three lines, not a report: the
+          position paper is the long form, and it is not public yet.
+        */
+        outcome: {
+          title: "What came out of the room.",
 
-        registration: {
-          /*
-            Asserted to the union rather than left as its literal: `as const`
-            below would otherwise pin this to one value, and every check for
-            the other would be a type error on a comparison that can never be
-            true.
-          */
-          state:
-            "open" as EventRegistrationState,
+          points: [
+            "Government, research institutions and civil society set out the position Pakistan carries from COP30 in Bel\u00e9m to COP31 in Antalya.",
+            "Two roundtable streams took up adaptation finance, just transition, and loss and damage.",
+            "The record of the room is being drafted into a multi-stakeholder position paper for COP31.",
+          ],
 
-          headline: "Register now",
-
-          description:
-            "Registration for Observer Status via Zoom. Organisations, academia and individuals are all encouraged to register. Registering gives you access to follow the roundtable online.",
-
-          href: "https://us06web.zoom.us/meeting/register/WdaiAFBKSJOaOfz32YmmBA",
-
-          label: "Register for observer status",
+          paper:
+            "The position paper goes to the Ministry of Climate Change and Environmental Coordination first. It will be published here for anyone to read once it has been submitted.",
         },
 
         /*
@@ -317,50 +286,40 @@ export const programmesContent = {
           /_next/image?url=... with max-age=2592000, so overwriting a file
           in place leaves everyone who has already loaded the page looking
           at the old one for thirty days.
+
+          This was the poster advertising registration. Registration closed
+          when the room did, so it is now a photograph of the consultation
+          itself — the same image carries the card, the highlight on
+          Programmes and Projects, and the dialog on arrival.
         */
-        image:
-          "/images/programmes/pre-cop31-consultation-landscape-2026-10-v2.webp",
+        image: "/images/programmes/pre-cop31-consultation-outcome-2026-10.webp",
 
         /*
-          The poster's own proportions. The frame is built from these rather
-          than from a hard-coded ratio, so replacing a portrait poster with a
-          landscape one is a file and two numbers — nothing letterboxes and
-          nothing crops.
+          The photograph's own proportions. The frame is built from these
+          rather than from a hard-coded ratio, so swapping a landscape image
+          for a portrait one is a file and two numbers \u2014 nothing
+          letterboxes and nothing crops.
         */
-        imageWidth: 4659,
-        imageHeight: 3297,
-
-        /*
-          The A4 flyer, shown as the first-visit popup on the homepage. A
-          separate artwork from the landscape poster above — portrait, and
-          carrying the sponsors — so it has its own dimensions.
-        */
-        flyer: "/images/programmes/pre-cop31-flyer-2026-10.webp",
-        flyerWidth: 3413,
-        flyerHeight: 4500,
-        flyerAlt:
-          "Event flyer: From Belém to Antalya, Pakistan's Position — Pre-COP31 Multi-Stakeholder Consultation, 6 October at the Institute of Strategic Studies Islamabad.",
+        imageWidth: 2400,
+        imageHeight: 1287,
 
         imageAlt:
-          "Event poster: From Belém to Antalya, Pakistan's Position — Pre-COP31 Multi-Stakeholder Consultation, 6 October 2026 at the Institute of Strategic Studies Islamabad. Convened by ClimateWatch with SDPI and ISSI, alongside the Pakistan Red Crescent and the German Red Cross, and supported by German Cooperation.",
+          "The Pre-COP31 Multi-Stakeholder Consultation under way at the Institute of Strategic Studies Islamabad on 6 October 2026, four speakers at the head table beneath a backdrop reading From Bel\u00e9m to Antalya: Pakistan's Position.",
       },
     ],
   },
 
   connection: {
-    eyebrow:
-      "Across the divisions",
+    eyebrow: "Across the divisions",
 
-    title:
-      "The programme areas are separate by discipline, not by purpose.",
+    title: "The programme areas are separate by discipline, not by purpose.",
 
     description:
       "Policy analysis, climate education and applied research reinforce one another. Community evidence can inform research, research can strengthen policy engagement, and education can build the capacity needed to use both.",
   },
 
   closing: {
-    eyebrow:
-      "Explore the work",
+    eyebrow: "Explore the work",
 
     title:
       "See how ClimateWatch programmes become research and practical projects.",
@@ -377,8 +336,7 @@ export const programmesContent = {
   },
 } as const;
 
-export type ProgrammesContent =
-  typeof programmesContent;
+export type ProgrammesContent = typeof programmesContent;
 
 /**
  * The next scheduled event, or null when there is none to show.
@@ -390,19 +348,36 @@ export type ProgrammesContent =
  * CALL THIS FROM AN EFFECT, NOT DURING RENDER. It reads the clock, so a
  * server pass and the first client pass could disagree and break hydration.
  */
+/**
+ * The slug of the item shown as the site-wide highlight: the top of
+ * Programmes and Projects, and the dialog on arrival. One constant, so
+ * moving the spotlight to the next thing is a single edit rather than a
+ * hunt through three components.
+ *
+ * Deliberately NOT derived from the date. The highlight is an editorial
+ * choice about what matters now, and what matters now is usually something
+ * that has just happened rather than something about to.
+ */
+const HIGHLIGHT_SLUG = "pre-cop31-consultation-islamabad";
+
+/** Null when the slug matches nothing, which is how you turn it off. */
+export function currentHighlight(): ScheduledEvent | null {
+  return (
+    programmesContent.events.scheduled.find(
+      (event) => event.slug === HIGHLIGHT_SLUG,
+    ) ?? null
+  );
+}
+
 export function upcomingEvent() {
   const today = new Date();
 
   return (
-    programmesContent.events.scheduled.find(
-      (event) => {
-        const end = new Date(
-          `${event.dateISO}T23:59:59`,
-        );
+    programmesContent.events.scheduled.find((event) => {
+      const end = new Date(`${event.dateISO}T23:59:59`);
 
-        return end.getTime() >= today.getTime();
-      },
-    ) ?? null
+      return end.getTime() >= today.getTime();
+    }) ?? null
   );
 }
 

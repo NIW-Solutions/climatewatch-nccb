@@ -1,9 +1,5 @@
 import Link from "next/link";
-import {
-  ArrowUpRight,
-  CalendarDays,
-  MapPin,
-} from "lucide-react";
+import { CalendarDays, MapPin } from "lucide-react";
 
 import { InView } from "@/components/motion-primitives/InView";
 import { LoadedImage } from "@/components/ui/LoadedImage";
@@ -13,8 +9,7 @@ import { programmesContent } from "@/content/programmes";
    EVENT
    ========================================== */
 
-type ScheduledEvent =
-  (typeof programmesContent.events.scheduled)[number];
+type ScheduledEvent = (typeof programmesContent.events.scheduled)[number];
 
 export function EventCard({
   event,
@@ -27,10 +22,6 @@ export function EventCard({
   */
   linked?: boolean;
 }>) {
-  const registrationOpen =
-    event.registration.state === "open" &&
-    event.registration.href.length > 0;
-
   return (
     <article
       id={event.slug}
@@ -48,10 +39,8 @@ export function EventCard({
             "@type": "Event",
             name: `${event.title} — ${event.subtitle}`,
             startDate: event.dateISO,
-            eventAttendanceMode:
-              "https://schema.org/MixedEventAttendanceMode",
-            eventStatus:
-              "https://schema.org/EventScheduled",
+            eventAttendanceMode: "https://schema.org/MixedEventAttendanceMode",
+            eventStatus: "https://schema.org/EventScheduled",
             description: event.description,
             location: {
               "@type": "Place",
@@ -77,10 +66,7 @@ export function EventCard({
             proportions from the content, so the same markup holds a portrait
             or a landscape one without cropping either. */}
 
-        <InView
-          amount={0.1}
-          className="border-b border-border"
-        >
+        <InView amount={0.1} className="border-b border-border">
           <div className="mx-auto w-full max-w-4xl p-5 sm:p-8">
             {(() => {
               const frame = (
@@ -126,25 +112,6 @@ export function EventCard({
               <p className="text-[0.6875rem] font-bold uppercase tracking-[0.12em] text-secondary">
                 {event.status}
               </p>
-
-              {/*
-                Says the roundtable can be attended online, at the top where
-                someone deciding whether it is relevant to them will see it
-                before anything else. It links to the same registration,
-                because registering is how you get in.
-              */}
-              <a
-                href={event.registration.href}
-                target="_blank"
-                rel="noreferrer"
-                className="group inline-flex items-center gap-2 border border-secondary/50 bg-secondary/[0.07] px-3 py-1.5 text-[0.6875rem] font-bold uppercase tracking-[0.1em] !text-secondary transition-colors hover:border-secondary hover:bg-secondary hover:!text-white"
-              >
-                <span
-                  aria-hidden="true"
-                  className="size-1.5 rounded-full bg-secondary motion-safe:animate-[livePulse_1800ms_ease-in-out_infinite] group-hover:bg-white"
-                />
-                {event.online.label}
-              </a>
             </div>
 
             <h3 className="mt-5 max-w-2xl font-editorial text-[clamp(1.75rem,2.6vw,2.6rem)] font-medium leading-[1.08] tracking-[-0.035em] text-primary">
@@ -180,9 +147,7 @@ export function EventCard({
                   </dt>
 
                   <dd className="mt-1.5 text-sm font-semibold text-primary">
-                    <time dateTime={event.dateISO}>
-                      {event.date}
-                    </time>
+                    <time dateTime={event.dateISO}>{event.date}</time>
                   </dd>
                 </div>
               </div>
@@ -211,100 +176,71 @@ export function EventCard({
             </p>
           </InView>
 
-          {/* REGISTRATION
-              Set large and first among the blocks below the summary: it is
-              the only thing on this card a reader has to come back for. */}
+          {/* OUTCOME
+              Where the registration call used to sit. The room has met, so
+              the question a reader arrives with is no longer "can I get in"
+              but "what came of it". */}
 
-          <InView
-            delay={0.06}
-            className="mt-9"
-          >
-            {registrationOpen ? (
-              <div className="border border-secondary bg-secondary/[0.06] p-6 sm:p-7">
-                <p className="font-editorial text-[clamp(1.5rem,2.2vw,2.1rem)] font-medium leading-[1.1] tracking-[-0.03em] text-primary">
-                  {event.registration.headline}
-                </p>
+          <InView delay={0.06} className="mt-9">
+            <div className="border border-secondary bg-secondary/[0.06] p-6 sm:p-7">
+              <p className="font-editorial text-[clamp(1.5rem,2.2vw,2.1rem)] font-medium leading-[1.1] tracking-[-0.03em] text-primary">
+                {event.outcome.title}
+              </p>
 
-                <p className="mt-4 max-w-xl text-sm leading-7 text-muted">
-                  {event.registration.description}
-                </p>
-
-                {/*
-                  The heartbeat is on a wrapper rather than the button, so
-                  the scale animation and the button's own hover transition
-                  do not fight over transform. motion-safe: means it holds
-                  still for anyone who has asked for reduced motion — a
-                  pulsing call to action is exactly what that setting is for.
-                */}
-                <span className="mt-6 inline-block motion-safe:animate-[heartbeat_2200ms_ease-in-out_infinite]">
-                  <a
-                    href={event.registration.href}
-                    target="_blank"
-                    rel="noreferrer"
-                    className="group inline-flex min-h-12 items-center gap-3 bg-secondary px-7 text-xs font-bold uppercase tracking-[0.1em] !text-white shadow-lg shadow-secondary/25 transition-colors hover:!bg-secondary-dark hover:!text-white"
+              <ul className="mt-6 grid gap-4">
+                {event.outcome.points.map((point) => (
+                  <li
+                    key={point}
+                    className="flex gap-3.5 text-sm leading-7 text-muted"
                   >
-                    {event.registration.label}
-                    <ArrowUpRight
+                    <span
                       aria-hidden="true"
-                      className="size-3.5 transition-transform duration-300 group-hover:-translate-y-0.5 group-hover:translate-x-0.5"
-                      strokeWidth={1.8}
+                      className="mt-3 size-1 shrink-0 bg-secondary"
                     />
-                  </a>
-                </span>
 
-                <p className="mt-4 text-xs leading-6 text-muted-light">
-                  {event.online.note}
-                </p>
-              </div>
-            ) : (
-              <div className="border-2 border-secondary bg-secondary/[0.07] p-6 sm:p-8">
-                <p className="font-editorial text-[clamp(1.9rem,3.2vw,3rem)] font-semibold uppercase leading-[1.02] tracking-[-0.03em] text-secondary">
-                  {event.registration.headline}
-                </p>
+                    {point}
+                  </li>
+                ))}
+              </ul>
 
-                <p className="mt-5 max-w-xl text-sm leading-7 text-muted">
-                  {event.registration.description}
-                </p>
-              </div>
-            )}
+              {/*
+                Set apart from the outcomes above it, because it is the one
+                line on this card that is a promise rather than a record.
+              */}
+              <p className="mt-7 border-t border-secondary/25 pt-6 text-sm leading-7 text-primary/80">
+                {event.outcome.paper}
+              </p>
+            </div>
           </InView>
 
           {/* THEMATIC AREAS */}
 
-          <InView
-            delay={0.06}
-            className="mt-10"
-          >
+          <InView delay={0.06} className="mt-10">
             <p className="text-[0.6875rem] font-bold uppercase tracking-[0.12em] text-muted-light">
               Thematic areas
             </p>
 
             <ol className="mt-5 space-y-5">
-              {event.themes.map(
-                (theme, index) => (
-                  <li
-                    key={theme.title}
-                    className="flex gap-4"
+              {event.themes.map((theme, index) => (
+                <li key={theme.title} className="flex gap-4">
+                  <span
+                    aria-hidden="true"
+                    className="mt-0.5 grid size-6 shrink-0 place-items-center border border-border-strong text-[0.6875rem] font-bold text-secondary"
                   >
-                    <span
-                      aria-hidden="true"
-                      className="mt-0.5 grid size-6 shrink-0 place-items-center border border-border-strong text-[0.6875rem] font-bold text-secondary"
-                    >
-                      {index + 1}
-                    </span>
+                    {index + 1}
+                  </span>
 
-                    <div>
-                      <p className="text-sm font-semibold text-primary">
-                        {theme.title}
-                      </p>
+                  <div>
+                    <p className="text-sm font-semibold text-primary">
+                      {theme.title}
+                    </p>
 
-                      <p className="mt-1.5 text-sm leading-7 text-muted">
-                        {theme.description}
-                      </p>
-                    </div>
-                  </li>
-                ),
-              )}
+                    <p className="mt-1.5 text-sm leading-7 text-muted">
+                      {theme.description}
+                    </p>
+                  </div>
+                </li>
+              ))}
             </ol>
 
             <div className="mt-7 border-t border-border pt-6">
@@ -351,19 +287,17 @@ export function EventCard({
               </p>
 
               <ul className="mt-4 space-y-4">
-                {event.partners.map(
-                  (partner) => (
-                    <li key={partner.shortName}>
-                      <p className="text-sm font-semibold text-primary">
-                        {partner.shortName}
-                      </p>
+                {event.partners.map((partner) => (
+                  <li key={partner.shortName}>
+                    <p className="text-sm font-semibold text-primary">
+                      {partner.shortName}
+                    </p>
 
-                      <p className="mt-1 text-sm leading-6 text-muted">
-                        {partner.name}
-                      </p>
-                    </li>
-                  ),
-                )}
+                    <p className="mt-1 text-sm leading-6 text-muted">
+                      {partner.name}
+                    </p>
+                  </li>
+                ))}
               </ul>
             </div>
           </InView>

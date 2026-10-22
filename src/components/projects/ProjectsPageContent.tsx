@@ -1,21 +1,13 @@
-import {
-  ArrowRight,
-  ArrowUpRight,
-  ChevronDown,
-} from "lucide-react";
+import { ArrowRight, ArrowUpRight, ChevronDown } from "lucide-react";
 import Link from "next/link";
 
 import { InView } from "@/components/motion-primitives/InView";
 import { LoadedImage } from "@/components/ui/LoadedImage";
 import { projectsContent } from "@/content/projects";
+import { HighlightFeature } from "@/components/shared/HighlightFeature";
 
 export function ProjectsPageContent() {
-  const {
-    hero,
-    introduction,
-    projects,
-    closing,
-  } = projectsContent;
+  const { hero, introduction, projects, closing } = projectsContent;
 
   return (
     <main>
@@ -32,14 +24,9 @@ export function ProjectsPageContent() {
             <InView className="flex flex-col justify-between">
               <div>
                 <div className="flex items-center gap-4">
-                  <span
-                    aria-hidden="true"
-                    className="h-px w-10 bg-secondary"
-                  />
+                  <span aria-hidden="true" className="h-px w-10 bg-secondary" />
 
-                  <p className="eyebrow text-primary">
-                    {hero.eyebrow}
-                  </p>
+                  <p className="eyebrow text-primary">{hero.eyebrow}</p>
                 </div>
 
                 <h1
@@ -55,10 +42,7 @@ export function ProjectsPageContent() {
               </p>
             </InView>
 
-            <InView
-              delay={0.05}
-              amount={0.1}
-            >
+            <InView delay={0.05} amount={0.1}>
               <div className="relative aspect-[16/10] overflow-hidden bg-primary-dark">
                 <LoadedImage
                   src={hero.image}
@@ -91,6 +75,15 @@ export function ProjectsPageContent() {
       </section>
 
       {/* =====================================
+          HIGHLIGHT
+          Directly under the hero. It is the one item ClimateWatch wants
+          seen first, and it is the same component on Projects, so the two
+          pages cannot drift apart.
+          ===================================== */}
+
+      <HighlightFeature />
+
+      {/* =====================================
           INTRODUCTION
           ===================================== */}
 
@@ -98,9 +91,7 @@ export function ProjectsPageContent() {
         <div className="site-container section-shell-small">
           <div className="content-grid gap-y-8">
             <InView className="col-span-12 lg:col-span-3">
-              <p className="eyebrow text-primary">
-                {introduction.eyebrow}
-              </p>
+              <p className="eyebrow text-primary">{introduction.eyebrow}</p>
             </InView>
 
             <InView className="col-span-12 lg:col-span-8 lg:col-start-5">
@@ -109,16 +100,11 @@ export function ProjectsPageContent() {
               </h2>
 
               <div className="mt-7 grid gap-6 border-t border-border pt-7 sm:grid-cols-2 sm:gap-10">
-                {introduction.paragraphs.map(
-                  (paragraph) => (
-                    <p
-                      key={paragraph}
-                      className="body-copy"
-                    >
-                      {paragraph}
-                    </p>
-                  ),
-                )}
+                {introduction.paragraphs.map((paragraph) => (
+                  <p key={paragraph} className="body-copy">
+                    {paragraph}
+                  </p>
+                ))}
               </div>
             </InView>
           </div>
@@ -134,13 +120,10 @@ export function ProjectsPageContent() {
           <InView>
             <div className="flex items-end justify-between gap-8 border-t border-primary pt-5">
               <div>
-                <p className="eyebrow text-primary">
-                  Current projects
-                </p>
+                <p className="eyebrow text-primary">Current projects</p>
 
                 <p className="mt-3 max-w-xl text-sm leading-7 text-muted">
-                  Selected work across education,
-                  community evidence, applied
+                  Selected work across education, community evidence, applied
                   research and climate policy.
                 </p>
               </div>
@@ -156,271 +139,239 @@ export function ProjectsPageContent() {
               ===================================== */}
 
           <div className="mt-10 border-t border-border">
-            {projects.map(
-              (project, index) => (
-                <InView
-                  key={project.id}
-                  delay={Math.min(index, 5) * 0.07}
-                  amount={0.08}
+            {projects.map((project, index) => (
+              <InView
+                key={project.id}
+                delay={Math.min(index, 5) * 0.07}
+                amount={0.08}
+              >
+                <article
+                  id={project.id}
+                  className="scroll-mt-32 border-b border-border"
                 >
-                  <article
-                    id={project.id}
-                    className="scroll-mt-32 border-b border-border"
-                  >
-                    {/* TOP RAIL */}
+                  {/* TOP RAIL */}
 
-                    <div className="grid gap-3 py-5 sm:grid-cols-[4rem_1fr_auto] sm:items-center sm:gap-6">
-                      <span className="editorial-index">
-                        {project.number}
-                      </span>
+                  <div className="grid gap-3 py-5 sm:grid-cols-[4rem_1fr_auto] sm:items-center sm:gap-6">
+                    <span className="editorial-index">{project.number}</span>
 
-                      <p className="text-sm font-semibold text-primary">
-                        {project.name}
-                      </p>
+                    <p className="text-sm font-semibold text-primary">
+                      {project.name}
+                    </p>
 
-                      <p className="text-[0.6875rem] font-bold uppercase tracking-[0.11em] text-secondary">
-                        {project.status}
-                      </p>
-                    </div>
+                    <p className="text-[0.6875rem] font-bold uppercase tracking-[0.11em] text-secondary">
+                      {project.status}
+                    </p>
+                  </div>
 
-                    {/* MAIN PROJECT */}
+                  {/* MAIN PROJECT */}
 
-                    <div className="grid gap-8 border-t border-border py-8 lg:grid-cols-[0.88fr_1.12fr] lg:gap-12 lg:py-10 xl:gap-16">
-                      {/* IMAGE */}
+                  <div className="grid gap-8 border-t border-border py-8 lg:grid-cols-[0.88fr_1.12fr] lg:gap-12 lg:py-10 xl:gap-16">
+                    {/* IMAGE */}
 
-                      <div>
-                        {/*
+                    <div>
+                      {/*
                           The thumbnail is the link, not a decoration beside
                           one. aria-label carries the destination, since the
                           image's alt describes the photograph rather than
                           where clicking it goes.
                         */}
+                      <Link
+                        href={`/projects/${project.id}`}
+                        aria-label={project.name}
+                        className="group/thumb relative block aspect-[16/10] overflow-hidden bg-primary-dark"
+                      >
+                        <LoadedImage
+                          src={project.image}
+                          alt={project.imageAlt}
+                          fill
+                          sizes="(max-width: 1024px) 100vw, 44vw"
+                          className="object-cover transition-transform duration-700 ease-out group-hover/thumb:scale-[1.03]"
+                          darkLoader
+                        />
+
+                        <div
+                          aria-hidden="true"
+                          className="pointer-events-none absolute inset-0 bg-[linear-gradient(180deg,transparent_58%,rgba(5,22,43,0.68)_100%)]"
+                        />
+
+                        {project.imageCaption ? (
+                          <div className="pointer-events-none absolute inset-x-0 bottom-0 z-20 p-5 sm:p-6">
+                            <p className="max-w-lg border-t border-white/25 pt-3 text-[0.7rem] leading-5 text-white/68">
+                              {project.imageCaption}
+                            </p>
+                          </div>
+                        ) : null}
+                      </Link>
+
+                      {/* DESKTOP META */}
+
+                      <div className="mt-5 hidden grid-cols-2 gap-x-6 gap-y-4 lg:grid">
+                        <ProjectMeta
+                          label="Division"
+                          value={project.division}
+                        />
+
+                        {"region" in project ? (
+                          <ProjectMeta label="Region" value={project.region} />
+                        ) : null}
+
+                        {"format" in project ? (
+                          <ProjectMeta label="Format" value={project.format} />
+                        ) : null}
+
+                        {"focusLabel" in project ? (
+                          <ProjectMeta
+                            label="Focus"
+                            value={project.focusLabel}
+                          />
+                        ) : null}
+
+                        {"scope" in project ? (
+                          <ProjectMeta label="Scope" value={project.scope} />
+                        ) : null}
+                      </div>
+                    </div>
+
+                    {/* CONTENT */}
+
+                    <div className="flex flex-col">
+                      <p className="text-[0.6875rem] font-bold uppercase tracking-[0.11em] text-muted-light">
+                        {project.division}
+                      </p>
+
+                      <h2 className="mt-4 max-w-3xl font-editorial text-[clamp(2rem,3vw,3.15rem)] font-medium leading-[1.06] tracking-[-0.035em] text-primary">
                         <Link
                           href={`/projects/${project.id}`}
-                          aria-label={project.name}
-                          className="group/thumb relative block aspect-[16/10] overflow-hidden bg-primary-dark"
+                          className="!text-primary transition-colors hover:!text-secondary"
                         >
-                          <LoadedImage
-                            src={project.image}
-                            alt={project.imageAlt}
-                            fill
-                            sizes="(max-width: 1024px) 100vw, 44vw"
-                            className="object-cover transition-transform duration-700 ease-out group-hover/thumb:scale-[1.03]"
-                            darkLoader
-                          />
-
-                          <div
-                            aria-hidden="true"
-                            className="pointer-events-none absolute inset-0 bg-[linear-gradient(180deg,transparent_58%,rgba(5,22,43,0.68)_100%)]"
-                          />
-
-                          {project.imageCaption ? (
-                            <div className="pointer-events-none absolute inset-x-0 bottom-0 z-20 p-5 sm:p-6">
-                              <p className="max-w-lg border-t border-white/25 pt-3 text-[0.7rem] leading-5 text-white/68">
-                                {project.imageCaption}
-                              </p>
-                            </div>
-                          ) : null}
+                          {project.title}
                         </Link>
+                      </h2>
 
-                        {/* DESKTOP META */}
+                      {/* SHORT VISIBLE DESCRIPTION */}
 
-                        <div className="mt-5 hidden grid-cols-2 gap-x-6 gap-y-4 lg:grid">
+                      <p className="mt-6 max-w-3xl text-base leading-8 text-muted">
+                        {project.description}
+                      </p>
+
+                      {/* MOBILE META */}
+
+                      <div className="mt-7 grid grid-cols-2 gap-x-6 gap-y-5 border-t border-border pt-5 lg:hidden">
+                        <ProjectMeta label="Status" value={project.status} />
+
+                        <ProjectMeta
+                          label="Division"
+                          value={project.division}
+                        />
+
+                        {"region" in project ? (
+                          <ProjectMeta label="Region" value={project.region} />
+                        ) : null}
+
+                        {"format" in project ? (
+                          <ProjectMeta label="Format" value={project.format} />
+                        ) : null}
+
+                        {"focusLabel" in project ? (
                           <ProjectMeta
-                            label="Division"
-                            value={project.division}
+                            label="Focus"
+                            value={project.focusLabel}
                           />
+                        ) : null}
 
-                          {"region" in project ? (
-                            <ProjectMeta
-                              label="Region"
-                              value={project.region}
-                            />
-                          ) : null}
-
-                          {"format" in project ? (
-                            <ProjectMeta
-                              label="Format"
-                              value={project.format}
-                            />
-                          ) : null}
-
-                          {"focusLabel" in project ? (
-                            <ProjectMeta
-                              label="Focus"
-                              value={project.focusLabel}
-                            />
-                          ) : null}
-
-                          {"scope" in project ? (
-                            <ProjectMeta
-                              label="Scope"
-                              value={project.scope}
-                            />
-                          ) : null}
-                        </div>
+                        {"scope" in project ? (
+                          <ProjectMeta label="Scope" value={project.scope} />
+                        ) : null}
                       </div>
 
-                      {/* CONTENT */}
-
-                      <div className="flex flex-col">
-                        <p className="text-[0.6875rem] font-bold uppercase tracking-[0.11em] text-muted-light">
-                          {project.division}
-                        </p>
-
-                        <h2 className="mt-4 max-w-3xl font-editorial text-[clamp(2rem,3vw,3.15rem)] font-medium leading-[1.06] tracking-[-0.035em] text-primary">
-                          <Link
-                            href={`/projects/${project.id}`}
-                            className="!text-primary transition-colors hover:!text-secondary"
-                          >
-                            {project.title}
-                          </Link>
-                        </h2>
-
-                        {/* SHORT VISIBLE DESCRIPTION */}
-
-                        <p className="mt-6 max-w-3xl text-base leading-8 text-muted">
-                          {project.description}
-                        </p>
-
-                        {/* MOBILE META */}
-
-                        <div className="mt-7 grid grid-cols-2 gap-x-6 gap-y-5 border-t border-border pt-5 lg:hidden">
-                          <ProjectMeta
-                            label="Status"
-                            value={project.status}
-                          />
-
-                          <ProjectMeta
-                            label="Division"
-                            value={project.division}
-                          />
-
-                          {"region" in project ? (
-                            <ProjectMeta
-                              label="Region"
-                              value={project.region}
-                            />
-                          ) : null}
-
-                          {"format" in project ? (
-                            <ProjectMeta
-                              label="Format"
-                              value={project.format}
-                            />
-                          ) : null}
-
-                          {"focusLabel" in project ? (
-                            <ProjectMeta
-                              label="Focus"
-                              value={project.focusLabel}
-                            />
-                          ) : null}
-
-                          {"scope" in project ? (
-                            <ProjectMeta
-                              label="Scope"
-                              value={project.scope}
-                            />
-                          ) : null}
-                        </div>
-
-                        {/* =====================================
+                      {/* =====================================
                             READ MORE
                             ===================================== */}
 
-                        <details className="group mt-7 border-t border-border">
-                          <summary className="flex cursor-pointer list-none items-center justify-between gap-6 py-5 text-sm font-semibold text-primary transition-colors hover:text-secondary [&::-webkit-details-marker]:hidden">
-                            <span>
-                              Read more
-                            </span>
+                      <details className="group mt-7 border-t border-border">
+                        <summary className="flex cursor-pointer list-none items-center justify-between gap-6 py-5 text-sm font-semibold text-primary transition-colors hover:text-secondary [&::-webkit-details-marker]:hidden">
+                          <span>Read more</span>
 
-                            <span className="grid size-8 shrink-0 place-items-center border border-border-strong transition-[background-color,border-color,color] duration-300 group-open:border-primary group-open:bg-primary group-open:text-white">
-                              <ChevronDown
-                                aria-hidden="true"
-                                className="size-4 transition-transform duration-300 group-open:rotate-180"
-                                strokeWidth={1.7}
-                              />
-                            </span>
-                          </summary>
+                          <span className="grid size-8 shrink-0 place-items-center border border-border-strong transition-[background-color,border-color,color] duration-300 group-open:border-primary group-open:bg-primary group-open:text-white">
+                            <ChevronDown
+                              aria-hidden="true"
+                              className="size-4 transition-transform duration-300 group-open:rotate-180"
+                              strokeWidth={1.7}
+                            />
+                          </span>
+                        </summary>
 
-                          <div className="border-t border-border pb-2 pt-6">
-                            <div className="space-y-5">
-                              {project.paragraphs.map(
-                                (paragraph) => (
-                                  <p
-                                    key={paragraph}
-                                    className="max-w-3xl text-sm leading-7 text-muted sm:text-base sm:leading-8"
-                                  >
-                                    {paragraph}
-                                  </p>
-                                ),
-                              )}
-                            </div>
-
-                            {/* FOCUS */}
-
-                            <div className="mt-8 border-t border-border pt-6">
-                              <p className="text-[0.6875rem] font-bold uppercase tracking-[0.11em] text-muted-light">
-                                Areas of focus
+                        <div className="border-t border-border pb-2 pt-6">
+                          <div className="space-y-5">
+                            {project.paragraphs.map((paragraph) => (
+                              <p
+                                key={paragraph}
+                                className="max-w-3xl text-sm leading-7 text-muted sm:text-base sm:leading-8"
+                              >
+                                {paragraph}
                               </p>
+                            ))}
+                          </div>
 
-                              <div className="mt-4 flex flex-wrap gap-x-5 gap-y-3">
-                                {project.focus.map(
-                                  (item) => (
-                                    <span
-                                      key={item}
-                                      className="border-b border-border pb-1 text-sm font-medium text-primary"
-                                    >
-                                      {item}
-                                    </span>
-                                  ),
-                                )}
-                              </div>
+                          {/* FOCUS */}
+
+                          <div className="mt-8 border-t border-border pt-6">
+                            <p className="text-[0.6875rem] font-bold uppercase tracking-[0.11em] text-muted-light">
+                              Areas of focus
+                            </p>
+
+                            <div className="mt-4 flex flex-wrap gap-x-5 gap-y-3">
+                              {project.focus.map((item) => (
+                                <span
+                                  key={item}
+                                  className="border-b border-border pb-1 text-sm font-medium text-primary"
+                                >
+                                  {item}
+                                </span>
+                              ))}
                             </div>
                           </div>
-                        </details>
+                        </div>
+                      </details>
 
-                        {/* ACTION */}
+                      {/* ACTION */}
 
-                        <div className="mt-auto flex flex-wrap items-center gap-x-8 gap-y-3 pt-7">
-                          {/*
+                      <div className="mt-auto flex flex-wrap items-center gap-x-8 gap-y-3 pt-7">
+                        {/*
                             The project's own page, so it can be linked to
                             and shared as itself rather than as an anchor
                             partway down this one.
                           */}
-                          <Link
-                            href={`/projects/${project.id}`}
-                            className="group/link inline-flex items-center gap-3 text-sm font-semibold text-primary transition-colors hover:text-secondary"
-                          >
-                            Project page
+                        <Link
+                          href={`/projects/${project.id}`}
+                          className="group/link inline-flex items-center gap-3 text-sm font-semibold text-primary transition-colors hover:text-secondary"
+                        >
+                          Project page
+                          <ArrowRight
+                            aria-hidden="true"
+                            className="size-4 transition-transform duration-300 group-hover/link:translate-x-1"
+                            strokeWidth={1.7}
+                          />
+                        </Link>
 
-                            <ArrowRight
-                              aria-hidden="true"
-                              className="size-4 transition-transform duration-300 group-hover/link:translate-x-1"
-                              strokeWidth={1.7}
-                            />
-                          </Link>
+                        <Link
+                          href={project.action.href}
+                          className="group/alt inline-flex items-center gap-2.5 text-sm font-medium text-muted transition-colors hover:text-primary"
+                        >
+                          {project.action.label}
 
-                          <Link
-                            href={project.action.href}
-                            className="group/alt inline-flex items-center gap-2.5 text-sm font-medium text-muted transition-colors hover:text-primary"
-                          >
-                            {project.action.label}
-
-                            <ArrowUpRight
-                              aria-hidden="true"
-                              className="size-3.5 transition-transform duration-300 group-hover/alt:-translate-y-0.5 group-hover/alt:translate-x-0.5"
-                              strokeWidth={1.7}
-                            />
-                          </Link>
-                        </div>
+                          <ArrowUpRight
+                            aria-hidden="true"
+                            className="size-3.5 transition-transform duration-300 group-hover/alt:-translate-y-0.5 group-hover/alt:translate-x-0.5"
+                            strokeWidth={1.7}
+                          />
+                        </Link>
                       </div>
                     </div>
-                  </article>
-                </InView>
-              ),
-            )}
+                  </div>
+                </article>
+              </InView>
+            ))}
           </div>
         </div>
       </section>
@@ -434,9 +385,7 @@ export function ProjectsPageContent() {
           <InView>
             <div className="grid gap-8 py-14 sm:py-16 lg:grid-cols-[0.75fr_1.65fr_0.6fr] lg:items-end lg:py-18">
               <div>
-                <p className="eyebrow text-white/50">
-                  {closing.eyebrow}
-                </p>
+                <p className="eyebrow text-white/50">{closing.eyebrow}</p>
               </div>
 
               <div>

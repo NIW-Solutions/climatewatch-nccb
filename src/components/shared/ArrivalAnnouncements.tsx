@@ -1,63 +1,48 @@
 "use client";
 
 import Link from "next/link";
-import {
-  useCallback,
-  useEffect,
-  useRef,
-  useState,
-} from "react";
+import { usePathname } from "next/navigation";
+import { useCallback, useEffect, useRef, useState } from "react";
 import { ArrowUpRight, X } from "lucide-react";
 
-import {
-  upcomingEvent,
-  type ScheduledEvent,
-} from "@/content/programmes";
+import { currentHighlight, type ScheduledEvent } from "@/content/programmes";
 import { publicationsContent } from "@/content/publications";
 
 /**
- * First-visit announcements —
- * src/components/shared/FirstVisitAnnouncements.tsx
+ * Arrival announcements —
+ * src/components/shared/ArrivalAnnouncements.tsx
  *
- * Two things a first-time visitor should see once and never again:
+ * Two things a visitor sees on arrival:
  *
- *   1. The next scheduled event, as a dialog. Only when one is coming up.
- *   2. The newest publication, as a corner notice.
+ *   1. The current highlight, as a dialog. Every arrival, not once.
+ *   2. The newest publication, as a corner notice. Once per publication.
  *
- * They never appear together. Interrupting someone twice on arrival is the
- * behaviour that trains people to dismiss things unread, so the notice waits
- * until the dialog is gone; when there are no roles it appears on its own.
+ * WHY THE HIGHLIGHT REPEATS. It used to be stored as seen, keyed on the
+ * event slug, and it was also gated behind `upcomingEvent()`, which returns
+ * null the day after an event. Between the two, the dialog looked broken:
+ * anyone who had dismissed it once never saw it again, and once the
+ * consultation date passed nobody saw it at all. ClimateWatch asked for it
+ * on every arrival — close the tab, come back two seconds later, it shows.
+ * So nothing about the highlight is remembered, and it is driven by
+ * `currentHighlight()`, which is a named slug rather than a date.
  *
- * "Seen" is stored per item, not as a visited flag:
+ * The cost is real and worth stating: a dialog on every arrival is an
+ * interruption every arrival. It is held to one — the publication notice
+ * waits until the dialog is gone rather than stacking on top of it — and
+ * it is suppressed on the highlight's own page, where it would be showing
+ * someone what they are already looking at.
  *
- *   - the event is keyed on its slug, so a new event re-announces itself to
- *     someone who dismissed the last one, while editing the wording of an
- *     existing event does not;
- *   - the publication is keyed on its slug, so it re-announces when a newer
- *     one is published.
+ * The publication notice is still remembered, because "newest publication"
+ * is news exactly once.
  *
- * Nothing renders during server rendering or the first client pass. Reading
- * localStorage happens in an effect, so the markup React hydrates matches the
- * markup the server sent, and search engines index a page with no overlay.
- *
- * If localStorage is unavailable — private browsing in some browsers, storage
- * disabled — everything here silently does nothing. That is deliberate: a
- * dialog no one can permanently dismiss is worse than no dialog.
+ * Nothing renders during server rendering or the first client pass, so the
+ * markup React hydrates matches the markup the server sent and a crawler
+ * indexes a page with no overlay. The highlight no longer needs
+ * localStorage at all, so it still appears where storage is blocked; the
+ * publication notice silently does nothing there, since a notice no one can
+ * dismiss for good is worse than no notice.
  */
 
-const SEEN_EVENT_KEY = "climatewatch:seen-event";
-
-/**
- * Bump this whenever the announcement itself changes — new artwork, new
- * wording, a different call to action.
- *
- * "Seen" is stored as slug + version, so a visitor who dismissed a previous
- * announcement for the SAME event is shown the new one. Keying on the slug
- * alone was a mistake: replacing the text popup with the flyer changed
- * nothing for anyone who had already dismissed the text, because the event
- * had not changed. They would simply never have seen it.
- */
-const ANNOUNCEMENT_VERSION = "flyer-1";
 const SEEN_PUBLICATION_KEY = "climatewatch:seen-publication";
 
 /** Let the page paint and settle before interrupting. */
@@ -71,129 +56,85 @@ function readStored(key: string): string | null {
   }
 }
 
-function writeStored(
-  key: string,
-  value: string,
-): boolean {
+function writeStored(key: string, value: string): void {
   try {
     window.localStorage.setItem(key, value);
-    return true;
   } catch {
-    return false;
+    /* Private browsing. The notice returns next time; nothing breaks. */
   }
 }
 
-/** What "seen" means: this event, as announced in this version. */
-function seenValue(slug: string): string {
-  return `${slug}:${ANNOUNCEMENT_VERSION}`;
-}
+export function ArrivalAnnouncements() {
+  const [showEvent, setShowEvent] = useState(false);
 
-/** True when storage works at all. Nothing is shown when it does not. */
-function storageAvailable(): boolean {
-  try {
-    const probe = "climatewatch:probe";
-    window.localStorage.setItem(probe, "1");
-    window.localStorage.removeItem(probe);
-    return true;
-  } catch {
-    return false;
-  }
-}
-
-export function FirstVisitAnnouncements() {
-  const [showEvent, setShowEvent] =
-    useState(false);
-
-  /* Resolved in an effect: upcomingEvent() reads the clock. */
-  const [event, setEvent] =
-    useState<ScheduledEvent | null>(null);
-  const [
-    showPublication,
-    setShowPublication,
-  ] = useState(false);
+  /* Resolved in an effect so the server and the first client pass agree. */
+  const [event, setEvent] = useState<ScheduledEvent | null>(null);
+  const [showPublication, setShowPublication] = useState(false);
 
   /* Pending publication announcement, held back while the dialog is up. */
   const publicationDue = useRef(false);
 
-  const latest =
-    publicationsContent.items[0];
+  const pathname = usePathname();
+
+  const latest = publicationsContent.items[0];
 
   useEffect(() => {
-    if (!storageAvailable()) {
-      return;
-    }
+    const highlight = currentHighlight();
 
-    const next = upcomingEvent();
+    /*
+      Not on the page it is about. Someone who followed a link to the
+      consultation does not need a dialog telling them about it.
+    */
+    const onItsOwnPage =
+      highlight !== null && pathname === `/events/${highlight.slug}`;
 
-    const eventDue =
-      next !== null &&
-      readStored(SEEN_EVENT_KEY) !==
-        seenValue(next.slug);
+    const highlightDue = highlight !== null && !onItsOwnPage;
 
     publicationDue.current =
-      Boolean(latest) &&
-      readStored(
-        SEEN_PUBLICATION_KEY,
-      ) !== latest.slug;
+      Boolean(latest) && readStored(SEEN_PUBLICATION_KEY) !== latest.slug;
 
-    const timer = window.setTimeout(
-      () => {
-        /*
+    const timer = window.setTimeout(() => {
+      /*
           Set inside the timeout, not in the body of the effect: setting
           state synchronously there renders twice before the browser paints,
           and nothing here is urgent enough to justify that.
         */
-        if (eventDue) {
-          setEvent(next);
-          setShowEvent(true);
-        } else if (
-          publicationDue.current
-        ) {
-          setShowPublication(true);
-        }
-      },
-      APPEAR_DELAY_MS,
-    );
-
-    return () =>
-      window.clearTimeout(timer);
-  }, [latest]);
-
-  const dismissEvent =
-    useCallback(() => {
-      if (event) {
-        writeStored(
-          SEEN_EVENT_KEY,
-          seenValue(event.slug),
-        );
-      }
-      setShowEvent(false);
-
-      /* The notice was waiting its turn. */
-      if (publicationDue.current) {
+      if (highlightDue) {
+        setEvent(highlight);
+        setShowEvent(true);
+      } else if (publicationDue.current) {
         setShowPublication(true);
       }
-    }, [event]);
+    }, APPEAR_DELAY_MS);
 
-  const dismissPublication =
-    useCallback(() => {
-      if (latest) {
-        writeStored(
-          SEEN_PUBLICATION_KEY,
-          latest.slug,
-        );
-      }
-      publicationDue.current = false;
-      setShowPublication(false);
-    }, [latest]);
+    return () => window.clearTimeout(timer);
+  }, [latest, pathname]);
+
+  const dismissEvent = useCallback(() => {
+    /*
+        Deliberately not recorded. The highlight is meant to return on the
+        next arrival, so there is nothing to write down.
+      */
+    setShowEvent(false);
+
+    /* The notice was waiting its turn. */
+    if (publicationDue.current) {
+      setShowPublication(true);
+    }
+  }, []);
+
+  const dismissPublication = useCallback(() => {
+    if (latest) {
+      writeStored(SEEN_PUBLICATION_KEY, latest.slug);
+    }
+    publicationDue.current = false;
+    setShowPublication(false);
+  }, [latest]);
 
   return (
     <>
       {showEvent && event ? (
-        <EventDialog
-          event={event}
-          onDismiss={dismissEvent}
-        />
+        <EventDialog event={event} onDismiss={dismissEvent} />
       ) : null}
 
       {showPublication && latest ? (
@@ -219,26 +160,19 @@ function EventDialog({
   event: ScheduledEvent;
   onDismiss: () => void;
 }>) {
-  const panelRef =
-    useRef<HTMLDivElement>(null);
-  const closeRef =
-    useRef<HTMLButtonElement>(null);
+  const panelRef = useRef<HTMLDivElement>(null);
+  const closeRef = useRef<HTMLButtonElement>(null);
 
   useEffect(() => {
-    const returnFocusTo =
-      document.activeElement as HTMLElement | null;
+    const returnFocusTo = document.activeElement as HTMLElement | null;
 
     closeRef.current?.focus();
 
     /* Hold the page still underneath. */
-    const { overflow } =
-      document.body.style;
-    document.body.style.overflow =
-      "hidden";
+    const { overflow } = document.body.style;
+    document.body.style.overflow = "hidden";
 
-    function onKeyDown(
-      event: KeyboardEvent,
-    ) {
+    function onKeyDown(event: KeyboardEvent) {
       if (event.key === "Escape") {
         event.preventDefault();
         onDismiss();
@@ -250,46 +184,31 @@ function EventDialog({
       }
 
       /* Keep Tab inside the dialog. */
-      const focusable =
-        panelRef.current?.querySelectorAll<HTMLElement>(
-          'a[href], button:not([disabled])',
-        );
+      const focusable = panelRef.current?.querySelectorAll<HTMLElement>(
+        "a[href], button:not([disabled])",
+      );
 
       if (!focusable || focusable.length === 0) {
         return;
       }
 
       const first = focusable[0];
-      const last =
-        focusable[focusable.length - 1];
+      const last = focusable[focusable.length - 1];
 
-      if (
-        event.shiftKey &&
-        document.activeElement === first
-      ) {
+      if (event.shiftKey && document.activeElement === first) {
         event.preventDefault();
         last.focus();
-      } else if (
-        !event.shiftKey &&
-        document.activeElement === last
-      ) {
+      } else if (!event.shiftKey && document.activeElement === last) {
         event.preventDefault();
         first.focus();
       }
     }
 
-    document.addEventListener(
-      "keydown",
-      onKeyDown,
-    );
+    document.addEventListener("keydown", onKeyDown);
 
     return () => {
-      document.removeEventListener(
-        "keydown",
-        onKeyDown,
-      );
-      document.body.style.overflow =
-        overflow;
+      document.removeEventListener("keydown", onKeyDown);
+      document.body.style.overflow = overflow;
       returnFocusTo?.focus?.();
     };
   }, [onDismiss]);
@@ -313,11 +232,11 @@ function EventDialog({
         Centred with my-auto rather than items-center, for the reason the
         profile dialog was fixed: centring a flex child taller than its
         scrolling container puts the top of it out of reach. On a short
-        laptop screen an A4 flyer is exactly that child.
+        laptop screen a tall image is exactly that child.
       */}
       {/*
         Sized from the image rather than the panel: w-fit lets the card take
-        the flyer's own width, and the max-height below keeps an A4 portrait
+        the image's own width, and the max-height below keeps a tall image
         inside a short laptop screen without letterboxing it. An earlier
         attempt put the arithmetic in the width — calc(100vh-7rem)*0.758 —
         which is invalid CSS, because the multiplication has to be inside
@@ -327,15 +246,12 @@ function EventDialog({
         ref={panelRef}
         className="relative my-auto w-fit max-w-full motion-safe:animate-[panelIn_320ms_cubic-bezier(0.22,1,0.36,1)]"
       >
-        <h2
-          id="event-dialog-title"
-          className="sr-only"
-        >
+        <h2 id="event-dialog-title" className="sr-only">
           {event.title} — {event.subtitle}
         </h2>
 
         {/*
-          The flyer is the link. Someone who taps a poster expects to go to
+          The picture is the link. Someone who taps it expects to go to
           the thing it advertises, so the whole image goes to the event page
           rather than hiding the action behind a small button underneath.
         */}
@@ -346,15 +262,15 @@ function EventDialog({
         >
           {/* eslint-disable-next-line @next/next/no-img-element -- fixed known dimensions, and next/image's fill would need a sized parent inside a height-constrained dialog */}
           <img
-            src={event.flyer}
-            alt={event.flyerAlt}
-            width={event.flyerWidth}
-            height={event.flyerHeight}
-            className="block max-h-[calc(100vh-11rem)] w-auto max-w-full"
+            src={event.image}
+            alt={event.imageAlt}
+            width={event.imageWidth}
+            height={event.imageHeight}
+            className="block max-h-[calc(100vh-11rem)] w-auto max-w-[min(60rem,100%)]"
           />
 
           <span className="flex items-center justify-between gap-3 border-t border-border bg-surface px-5 py-4 text-xs font-bold uppercase tracking-[0.1em] text-primary transition-colors group-hover:text-secondary">
-            See the event
+            See what came of it
             <ArrowUpRight
               aria-hidden="true"
               className="size-3.5 transition-transform duration-300 group-hover:-translate-y-0.5 group-hover:translate-x-0.5"
@@ -364,7 +280,7 @@ function EventDialog({
         </Link>
 
         {/*
-          Sits on the overlay, outside the flyer, so it never covers the
+          Sits on the overlay, outside the picture, so it never covers the
           artwork and is obvious against the dimmed page.
         */}
         <button
@@ -374,11 +290,7 @@ function EventDialog({
           aria-label="Close"
           className="absolute -right-2 -top-2 inline-flex size-10 items-center justify-center border border-border bg-surface text-primary shadow-lg transition-colors hover:bg-primary hover:text-white sm:-right-4 sm:-top-4"
         >
-          <X
-            aria-hidden="true"
-            className="size-4"
-            strokeWidth={1.9}
-          />
+          <X aria-hidden="true" className="size-4" strokeWidth={1.9} />
         </button>
       </div>
     </div>
@@ -413,11 +325,7 @@ function PublicationNotice({
           className="absolute right-3 top-3 inline-flex size-8 items-center justify-center text-muted-light transition-colors hover:text-primary"
           aria-label="Dismiss"
         >
-          <X
-            aria-hidden="true"
-            className="size-3.5"
-            strokeWidth={1.8}
-          />
+          <X aria-hidden="true" className="size-3.5" strokeWidth={1.8} />
         </button>
 
         <p className="text-[0.6875rem] font-bold uppercase tracking-[0.13em] text-secondary">

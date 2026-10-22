@@ -1,23 +1,15 @@
-import {
-  ArrowRight,
-  ArrowUpRight,
-} from "lucide-react";
+import { ArrowRight, ArrowUpRight } from "lucide-react";
 import Link from "next/link";
 
 import { EventCard } from "@/components/programmes/EventCard";
+import { HighlightFeature } from "@/components/shared/HighlightFeature";
 import { InView } from "@/components/motion-primitives/InView";
 import { LoadedImage } from "@/components/ui/LoadedImage";
 import { programmesContent } from "@/content/programmes";
 
 export function ProgrammesPageContent() {
-  const {
-    hero,
-    introduction,
-    events,
-    divisions,
-    connection,
-    closing,
-  } = programmesContent;
+  const { hero, introduction, events, divisions, connection, closing } =
+    programmesContent;
 
   return (
     <main>
@@ -34,14 +26,9 @@ export function ProgrammesPageContent() {
             <InView className="flex flex-col justify-between">
               <div>
                 <div className="flex items-center gap-4">
-                  <span
-                    aria-hidden="true"
-                    className="h-px w-10 bg-secondary"
-                  />
+                  <span aria-hidden="true" className="h-px w-10 bg-secondary" />
 
-                  <p className="eyebrow text-primary">
-                    {hero.eyebrow}
-                  </p>
+                  <p className="eyebrow text-primary">{hero.eyebrow}</p>
                 </div>
 
                 <h1
@@ -57,10 +44,7 @@ export function ProgrammesPageContent() {
               </p>
             </InView>
 
-            <InView
-              delay={0.05}
-              amount={0.1}
-            >
+            <InView delay={0.05} amount={0.1}>
               <div className="relative aspect-[16/11] overflow-hidden bg-primary-dark sm:aspect-[16/10]">
                 <LoadedImage
                   src={hero.image}
@@ -93,6 +77,15 @@ export function ProgrammesPageContent() {
       </section>
 
       {/* =====================================
+          HIGHLIGHT
+          Directly under the hero. It is the one item ClimateWatch wants
+          seen first, and it is the same component on Projects, so the two
+          pages cannot drift apart.
+          ===================================== */}
+
+      <HighlightFeature />
+
+      {/* =====================================
           INTRODUCTION
           ===================================== */}
 
@@ -100,9 +93,7 @@ export function ProgrammesPageContent() {
         <div className="site-container section-shell-small">
           <div className="content-grid gap-y-9">
             <InView className="col-span-12 lg:col-span-3">
-              <p className="eyebrow text-primary">
-                {introduction.eyebrow}
-              </p>
+              <p className="eyebrow text-primary">{introduction.eyebrow}</p>
             </InView>
 
             <InView className="col-span-12 lg:col-span-8 lg:col-start-5">
@@ -111,16 +102,11 @@ export function ProgrammesPageContent() {
               </h2>
 
               <div className="mt-8 grid gap-7 border-t border-border pt-7 sm:grid-cols-2 sm:gap-10">
-                {introduction.paragraphs.map(
-                  (paragraph) => (
-                    <p
-                      key={paragraph}
-                      className="body-copy"
-                    >
-                      {paragraph}
-                    </p>
-                  ),
-                )}
+                {introduction.paragraphs.map((paragraph) => (
+                  <p key={paragraph} className="body-copy">
+                    {paragraph}
+                  </p>
+                ))}
               </div>
             </InView>
           </div>
@@ -143,9 +129,7 @@ export function ProgrammesPageContent() {
           <InView>
             <div className="content-grid gap-y-8">
               <div className="col-span-12 lg:col-span-3">
-                <p className="eyebrow text-primary">
-                  {events.eyebrow}
-                </p>
+                <p className="eyebrow text-primary">{events.eyebrow}</p>
               </div>
 
               <div className="col-span-12 lg:col-span-8 lg:col-start-5">
@@ -156,23 +140,16 @@ export function ProgrammesPageContent() {
                   {events.title}
                 </h2>
 
-                <p className="mt-7 max-w-2xl body-copy">
-                  {events.description}
-                </p>
+                <p className="mt-7 max-w-2xl body-copy">{events.description}</p>
               </div>
             </div>
           </InView>
 
           {events.scheduled.length > 0 ? (
             <div className="mt-14 space-y-14">
-              {events.scheduled.map(
-                (event) => (
-                  <EventCard
-                    key={event.slug}
-                    event={event}
-                  />
-                ),
-              )}
+              {events.scheduled.map((event) => (
+                <EventCard key={event.slug} event={event} />
+              ))}
             </div>
           ) : (
             <InView className="mt-12">
@@ -194,152 +171,142 @@ export function ProgrammesPageContent() {
 
       <section className="bg-surface">
         <div>
-          {divisions.map(
-            (division, index) => {
-              const imageFirst =
-                index % 2 === 0;
+          {divisions.map((division, index) => {
+            const imageFirst = index % 2 === 0;
 
-              return (
-                <article
-                  key={division.id}
-                  id={division.id}
-                  className="scroll-mt-32 border-t border-border"
-                >
-                  <div className="site-container section-shell-small">
-                    <div className="content-grid gap-y-10 lg:items-start">
-                      {/* IMAGE */}
+            return (
+              <article
+                key={division.id}
+                id={division.id}
+                className="scroll-mt-32 border-t border-border"
+              >
+                <div className="site-container section-shell-small">
+                  <div className="content-grid gap-y-10 lg:items-start">
+                    {/* IMAGE */}
 
-                      <InView
-                        amount={0.1}
-                        className={[
-                          "col-span-12",
-                          imageFirst
-                            ? "lg:col-span-6"
-                            : "lg:order-2 lg:col-span-6 lg:col-start-7",
-                        ].join(" ")}
+                    <InView
+                      amount={0.1}
+                      className={[
+                        "col-span-12",
+                        imageFirst
+                          ? "lg:col-span-6"
+                          : "lg:order-2 lg:col-span-6 lg:col-start-7",
+                      ].join(" ")}
+                    >
+                      <Link
+                        href={`/programmes/${division.id}`}
+                        aria-label={division.eyebrow}
+                        className="group/thumb relative block aspect-[4/3] overflow-hidden bg-primary-dark"
                       >
-                        <Link
-                          href={`/programmes/${division.id}`}
-                          aria-label={division.eyebrow}
-                          className="group/thumb relative block aspect-[4/3] overflow-hidden bg-primary-dark"
-                        >
-                          <LoadedImage
-                            src={division.image}
-                            alt={division.imageAlt}
-                            fill
-                            sizes="(max-width: 1024px) 100vw, 50vw"
-                            className="object-cover transition-transform duration-700 ease-out group-hover/thumb:scale-[1.03]"
-                            darkLoader
-                          />
+                        <LoadedImage
+                          src={division.image}
+                          alt={division.imageAlt}
+                          fill
+                          sizes="(max-width: 1024px) 100vw, 50vw"
+                          className="object-cover transition-transform duration-700 ease-out group-hover/thumb:scale-[1.03]"
+                          darkLoader
+                        />
 
-                          <div
-                            aria-hidden="true"
-                            className="pointer-events-none absolute inset-0 bg-[linear-gradient(180deg,transparent_48%,rgba(5,22,43,0.66)_100%)]"
-                          />
+                        <div
+                          aria-hidden="true"
+                          className="pointer-events-none absolute inset-0 bg-[linear-gradient(180deg,transparent_48%,rgba(5,22,43,0.66)_100%)]"
+                        />
 
-                          {division.imageCaption ? (
-                            <div className="pointer-events-none absolute inset-x-0 bottom-0 z-20 p-6 sm:p-8">
-                              <p className="max-w-lg border-t border-white/30 pt-4 text-xs leading-6 text-white/70">
-                                {division.imageCaption}
-                              </p>
-                            </div>
-                          ) : null}
-                        </Link>
-                      </InView>
-
-                      {/* CONTENT */}
-
-                      <InView
-                        delay={0.05}
-                        className={[
-                          "col-span-12",
-                          imageFirst
-                            ? "lg:col-span-5 lg:col-start-8"
-                            : "lg:order-1 lg:col-span-5",
-                        ].join(" ")}
-                      >
-                        <div className="border-t border-primary pt-5">
-                          <div className="flex items-center justify-between gap-5">
-                            <span className="editorial-index">
-                              {division.number}
-                            </span>
-
-                            <p className="text-[0.6875rem] font-bold uppercase tracking-[0.11em] text-muted-light">
-                              ClimateWatch
+                        {division.imageCaption ? (
+                          <div className="pointer-events-none absolute inset-x-0 bottom-0 z-20 p-6 sm:p-8">
+                            <p className="max-w-lg border-t border-white/30 pt-4 text-xs leading-6 text-white/70">
+                              {division.imageCaption}
                             </p>
                           </div>
+                        ) : null}
+                      </Link>
+                    </InView>
 
-                          <p className="eyebrow mt-8 text-primary">
-                            {division.eyebrow}
+                    {/* CONTENT */}
+
+                    <InView
+                      delay={0.05}
+                      className={[
+                        "col-span-12",
+                        imageFirst
+                          ? "lg:col-span-5 lg:col-start-8"
+                          : "lg:order-1 lg:col-span-5",
+                      ].join(" ")}
+                    >
+                      <div className="border-t border-primary pt-5">
+                        <div className="flex items-center justify-between gap-5">
+                          <span className="editorial-index">
+                            {division.number}
+                          </span>
+
+                          <p className="text-[0.6875rem] font-bold uppercase tracking-[0.11em] text-muted-light">
+                            ClimateWatch
                           </p>
-
-                          <h2 className="mt-5 max-w-xl font-editorial text-[clamp(2.15rem,3.5vw,3.8rem)] font-medium leading-[1.05] tracking-[-0.04em] text-primary">
-                            <Link
-                              href={`/programmes/${division.id}`}
-                              className="!text-primary transition-colors hover:!text-secondary"
-                            >
-                              {division.title}
-                            </Link>
-                          </h2>
-
-                          <p className="body-copy-large mt-6 max-w-xl">
-                            {division.description}
-                          </p>
-
-                          <div className="mt-8 space-y-5">
-                            {division.paragraphs.map(
-                              (paragraph) => (
-                                <p
-                                  key={paragraph}
-                                  className="body-copy"
-                                >
-                                  {paragraph}
-                                </p>
-                              ),
-                            )}
-                          </div>
-
-                          {/* FOCUS */}
-
-                          <div className="mt-9 border-t border-border pt-6">
-                            <p className="text-[0.6875rem] font-bold uppercase tracking-[0.12em] text-muted-light">
-                              Areas of focus
-                            </p>
-
-                            <div className="mt-5 flex flex-wrap gap-x-5 gap-y-3">
-                              {division.focus.map(
-                                (item) => (
-                                  <span
-                                    key={item}
-                                    className="border-b border-border pb-1 text-sm font-semibold text-primary"
-                                  >
-                                    {item}
-                                  </span>
-                                ),
-                              )}
-                            </div>
-                          </div>
-
-                          <Link
-                            href={division.action.href}
-                            className="group mt-8 inline-flex items-center gap-3 text-sm font-semibold text-primary transition-colors hover:text-secondary"
-                          >
-                            {division.action.label}
-
-                            <ArrowRight
-                              aria-hidden="true"
-                              className="size-4 transition-transform duration-300 group-hover:translate-x-1"
-                              strokeWidth={1.7}
-                            />
-                          </Link>
                         </div>
-                      </InView>
-                    </div>
+
+                        <p className="eyebrow mt-8 text-primary">
+                          {division.eyebrow}
+                        </p>
+
+                        <h2 className="mt-5 max-w-xl font-editorial text-[clamp(2.15rem,3.5vw,3.8rem)] font-medium leading-[1.05] tracking-[-0.04em] text-primary">
+                          <Link
+                            href={`/programmes/${division.id}`}
+                            className="!text-primary transition-colors hover:!text-secondary"
+                          >
+                            {division.title}
+                          </Link>
+                        </h2>
+
+                        <p className="body-copy-large mt-6 max-w-xl">
+                          {division.description}
+                        </p>
+
+                        <div className="mt-8 space-y-5">
+                          {division.paragraphs.map((paragraph) => (
+                            <p key={paragraph} className="body-copy">
+                              {paragraph}
+                            </p>
+                          ))}
+                        </div>
+
+                        {/* FOCUS */}
+
+                        <div className="mt-9 border-t border-border pt-6">
+                          <p className="text-[0.6875rem] font-bold uppercase tracking-[0.12em] text-muted-light">
+                            Areas of focus
+                          </p>
+
+                          <div className="mt-5 flex flex-wrap gap-x-5 gap-y-3">
+                            {division.focus.map((item) => (
+                              <span
+                                key={item}
+                                className="border-b border-border pb-1 text-sm font-semibold text-primary"
+                              >
+                                {item}
+                              </span>
+                            ))}
+                          </div>
+                        </div>
+
+                        <Link
+                          href={division.action.href}
+                          className="group mt-8 inline-flex items-center gap-3 text-sm font-semibold text-primary transition-colors hover:text-secondary"
+                        >
+                          {division.action.label}
+
+                          <ArrowRight
+                            aria-hidden="true"
+                            className="size-4 transition-transform duration-300 group-hover:translate-x-1"
+                            strokeWidth={1.7}
+                          />
+                        </Link>
+                      </div>
+                    </InView>
                   </div>
-                </article>
-              );
-            },
-          )}
+                </div>
+              </article>
+            );
+          })}
         </div>
       </section>
 
@@ -352,9 +319,7 @@ export function ProgrammesPageContent() {
           <InView>
             <div className="content-grid gap-y-8 border-t border-primary pt-6">
               <div className="col-span-12 lg:col-span-3">
-                <p className="eyebrow text-primary">
-                  {connection.eyebrow}
-                </p>
+                <p className="eyebrow text-primary">{connection.eyebrow}</p>
               </div>
 
               <div className="col-span-12 lg:col-span-6">
@@ -364,9 +329,7 @@ export function ProgrammesPageContent() {
               </div>
 
               <div className="col-span-12 lg:col-span-3">
-                <p className="body-copy">
-                  {connection.description}
-                </p>
+                <p className="body-copy">{connection.description}</p>
               </div>
             </div>
           </InView>
@@ -382,9 +345,7 @@ export function ProgrammesPageContent() {
           <InView>
             <div className="grid gap-9 py-14 sm:py-16 lg:grid-cols-[0.75fr_1.65fr_0.6fr] lg:items-end lg:py-20">
               <div>
-                <p className="eyebrow text-white/50">
-                  {closing.eyebrow}
-                </p>
+                <p className="eyebrow text-white/50">{closing.eyebrow}</p>
               </div>
 
               <div>

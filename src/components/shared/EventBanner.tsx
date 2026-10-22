@@ -256,9 +256,6 @@ export function EventBanner() {
           {event.city}
         </p>
 
-        <p className="mt-3 text-[0.6875rem] font-bold uppercase tracking-[0.08em] text-secondary">
-          {event.registration.headline}
-        </p>
 
         <Link
           href={`/events/${event.slug}`}

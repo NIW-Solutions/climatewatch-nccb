@@ -1,16 +1,11 @@
-import type {
-  Metadata,
-  Viewport,
-} from "next";
-import {
-  Geist,
-  Newsreader,
-} from "next/font/google";
+import type { Metadata, Viewport } from "next";
+import { Geist, Newsreader } from "next/font/google";
 
 import "./globals.css";
 import "leaflet/dist/leaflet.css";
 
 import { SiteFooter } from "@/components/layout/SiteFooter";
+import { ArrivalAnnouncements } from "@/components/shared/ArrivalAnnouncements";
 import { EventBanner } from "@/components/shared/EventBanner";
 import { CookieConsent } from "@/components/shared/CookieConsent";
 import { SiteHeader } from "@/components/layout/SiteHeader";
@@ -58,8 +53,7 @@ export const metadata: Metadata = {
 
   publisher: siteConfig.name,
 
-  referrer:
-    "origin-when-cross-origin",
+  referrer: "origin-when-cross-origin",
 
   formatDetection: {
     email: false,
@@ -76,8 +70,7 @@ export const metadata: Metadata = {
 
     title: defaultTitle,
 
-    description:
-      siteConfig.description,
+    description: siteConfig.description,
   },
 
   twitter: {
@@ -85,8 +78,7 @@ export const metadata: Metadata = {
 
     title: defaultTitle,
 
-    description:
-      siteConfig.description,
+    description: siteConfig.description,
   },
 
   robots: {
@@ -97,8 +89,7 @@ export const metadata: Metadata = {
       index: true,
       follow: true,
 
-      "max-image-preview":
-        "large",
+      "max-image-preview": "large",
 
       "max-snippet": -1,
 
@@ -123,10 +114,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html
-      lang="en"
-      className={`${geist.variable} ${newsreader.variable}`}
-    >
+    <html lang="en" className={`${geist.variable} ${newsreader.variable}`}>
       <body>
         <SiteStructuredData />
 
@@ -141,6 +129,16 @@ export default function RootLayout({
           server or the first client pass, so it cannot affect hydration or
           what a crawler sees.
         */}
+        {/*
+          In the layout rather than on the home page. Someone arriving from
+          a search result or a shared link lands on a profile or a blog post
+          as often as on the front page, and the highlight is for whoever
+          turns up, wherever they turn up. A layout mounts once per full page
+          load, so this fires on arrival and stays quiet while someone
+          clicks around the site.
+        */}
+        <ArrivalAnnouncements />
+
         <EventBanner />
 
         {/*

@@ -11,7 +11,6 @@ import { HomePublication } from "@/components/home/HomePublication";
 import { HomeResearch } from "@/components/home/HomeResearch";
 import { PakistanCoverageMap } from "@/components/shared/PakistanCoverageMap";
 import { PartnerTicker } from "@/components/shared/PartnerTicker";
-import { FirstVisitAnnouncements } from "@/components/shared/FirstVisitAnnouncements";
 import { SectionAccordion } from "@/components/shared/SectionAccordion";
 
 /**
@@ -41,7 +40,6 @@ export default function HomePage() {
         someone dismissed it — including for a visitor arriving on a blog
         post from a search result. An announcement belongs on the front door.
       */}
-      <FirstVisitAnnouncements />
 
       <HomeHero />
 
@@ -92,8 +90,7 @@ export default function HomePage() {
           },
           {
             id: "featured-publication",
-            label:
-              "Featured publication",
+            label: "Featured publication",
             summary:
               "The latest report from the ClimateWatch research programme.",
             children: <HomePublication />,
