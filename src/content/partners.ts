@@ -77,16 +77,12 @@ export const partnersContent = {
           "Sustainable Development Policy Institute",
         logo: "/images/partners/sustainable-development-policy-institute.png",
         href: "https://sdpi.org/",
-        /* Paused at ClimateWatch's request. Remove this line to restore. */
-        hidden: true,
       },
       {
         name:
           "Institute of Strategic Studies Islamabad",
         logo: "/images/partners/institute-of-strategic-studies-islamabad.png",
         href: "https://issi.org.pk/",
-        /* Paused at ClimateWatch's request. Remove this line to restore. */
-        hidden: true,
       },
       {
         /*
