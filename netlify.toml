@@ -1,0 +1,39 @@
+# Netlify build specification
+#
+# This replaces amplify.yml. The site moved off AWS Amplify in November 2026
+# after the AWS account was suspended for non-payment; the bill came from an
+# Aurora PostgreSQL cluster nothing on this site ever used.
+#
+# WHAT IS DIFFERENT FROM AMPLIFY, AND WHY IT MATTERS
+#
+# amplify.yml had to grep the environment into .env.production before the
+# build, because Amplify passed console variables to the BUILD but not to the
+# SSR RUNTIME. That baked every value into the deployment artifact, including
+# FORMS_ADMIN_PASSWORD and FORMS_SESSION_SECRET, where anyone with access to
+# the app could read them.
+#
+# Netlify passes environment variables to the functions at runtime, so that
+# workaround is gone and so is the exposure. Set variables in the Netlify UI
+# (Site configuration > Environment variables) and they reach the server
+# without being written into the build output. Do not reintroduce the grep.
+#
+# NODE VERSION
+#
+# package.json asks for >=20.9.0. 22 is the current LTS and what this build
+# is verified against. Raising it is fine; dropping below 20.9 is not, as
+# Next 16 will refuse to build.
+
+[build]
+  command = "npm run build"
+  publish = ".next"
+
+[build.environment]
+  NODE_VERSION = "22"
+
+# The Next.js Runtime. It reads next.config.ts directly, so the redirects
+# (/cop31, /programs/*, /news/education) and the security headers defined
+# there are applied by Netlify without being restated here. Keep them in
+# next.config.ts as the single source — duplicating them in this file is how
+# the two drift apart.
+[[plugins]]
+  package = "@netlify/plugin-nextjs"
