@@ -197,20 +197,29 @@ export const programmesContent = {
 
         subtitle: "Pre-COP31 Multi-Stakeholder Consultation",
 
-        /* Machine-readable date for the Event structured data. */
-        dateISO: "2026-10-06",
+        /*
+          HELD ON 21 OCTOBER, NOT 6 OCTOBER. The poster this entry was built
+          from advertised 6 October. The adopted text gives the date three
+          times, once with the weekday ("Wednesday 21 October 2026"), and
+          its cover prints it again; the photograph below has the printed
+          date on the backdrop masked for the same reason. The record of
+          the room is the authority, so the date follows it.
+        */
 
-        date: "6 October 2026",
+        /* Machine-readable date for the Event structured data. */
+        dateISO: "2026-10-21",
+
+        date: "21 October 2026",
 
         /* Collapsed-banner label. Short enough for a pill on a phone. */
-        bannerLabel: "Pre-COP31 Consultation · 6 Oct",
+        bannerLabel: "Pre-COP31 Consultation · 21 Oct",
 
         venue: "Institute of Strategic Studies Islamabad",
 
         city: "Islamabad",
 
         description:
-          "A multi-stakeholder consultation on the position Pakistan carries from COP30 in Belém to COP31 in Antalya. Two roundtable streams took up the thematic areas across government, research and civil society, and the record becomes a multi-stakeholder position paper for COP31.",
+          "A multi-stakeholder consultation on the position Pakistan carries from COP30 in Belém to COP31 in Antalya. The room negotiated and adopted the Islamabad Outcome Text, a position text for COP31 on just transition, adaptation finance, and loss and damage.",
 
         /*
          * The poster groups four items under "thematic areas", but its own
@@ -239,7 +248,7 @@ export const programmesContent = {
         format: {
           title: "How the position was shaped",
           description:
-            "Two roundtable streams took up the three thematic areas across government, research and civil society. The record becomes the multi-stakeholder position paper for COP31 — the position was shaped in the room, not circulated in advance.",
+            "A draft of twenty-one operative paragraphs, a preamble and a youth annex was circulated in advance. The room negotiated it paragraph by paragraph across four sessions, recording each paragraph as agreed, agreed as amended, to be redrafted, or not agreed.",
         },
 
         convening: [
@@ -265,19 +274,34 @@ export const programmesContent = {
         /*
           The consultation has happened, so what stood where the registration
           stood is what came out of it. Three lines, not a report: the
-          position paper is the long form, and it is not public yet.
+          Islamabad Outcome Text is the long form, and `publication` is the
+          way through to it.
+
+          Every line here is taken from that text and its record of
+          proceedings (Annex A) rather than from the poster, which described
+          a format the day did not follow. Two things to keep if this is
+          ever reworded: who took part is the record's list, not
+          "government"; and `paper` carries the text's own disclaimer, which
+          its cover prints too. The positions are those of the institutions
+          and organisations in the room.
         */
         outcome: {
           title: "What came out of the room.",
 
           points: [
-            "Government, research institutions and civil society set out the position Pakistan carries from COP30 in Bel\u00e9m to COP31 in Antalya.",
-            "Two roundtable streams took up adaptation finance, just transition, and loss and damage.",
-            "The record of the room is being drafted into a multi-stakeholder position paper for COP31.",
+            "Negotiators, research institutes, civil society, youth organisations and mountain and frontline communities negotiated a position text for COP31, paragraph by paragraph.",
+            "Four sessions took up just transition, adaptation finance, loss and damage, and cross-cutting and youth asks.",
+            "The room adopted the Islamabad Outcome Text: twenty-one operative paragraphs and a youth annex.",
           ],
 
           paper:
-            "The position paper goes to the Ministry of Climate Change and Environmental Coordination first. It will be published here for anyone to read once it has been submitted.",
+            "The text is published in full. It records the positions of the institutions and organisations that took part, and does not represent the position of the Government of Pakistan.",
+
+          /* The adopted text itself, in Publications. */
+          publication: {
+            label: "Read the Islamabad Outcome Text",
+            href: "/publications/islamabad-outcome-text",
+          },
         },
 
         /*
@@ -304,7 +328,7 @@ export const programmesContent = {
         imageHeight: 1287,
 
         imageAlt:
-          "The Pre-COP31 Multi-Stakeholder Consultation under way at the Institute of Strategic Studies Islamabad on 6 October 2026, four speakers at the head table beneath a backdrop reading From Bel\u00e9m to Antalya: Pakistan's Position.",
+          "The Pre-COP31 Multi-Stakeholder Consultation under way at the Institute of Strategic Studies Islamabad on 21 October 2026, four speakers at the head table beneath a backdrop reading From Bel\u00e9m to Antalya: Pakistan's Position.",
       },
     ],
   },

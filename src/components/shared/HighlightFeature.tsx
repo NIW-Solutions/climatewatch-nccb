@@ -13,10 +13,10 @@ import { currentHighlight } from "@/content/programmes";
  * `currentHighlight()` in src/content/programmes.ts names the slug, so
  * moving the spotlight is one edit and both pages follow.
  *
- * It is a summary, not the page. Three outcome lines and the line about the
- * position paper — the rest of the record lives on the event's own page,
- * which this links to. Anything longer here would push the pages' actual
- * subject below the fold on a phone.
+ * It is a summary, not the page. Three outcome lines, the line saying whose
+ * positions they are, and two ways on: to the adopted text in Publications
+ * and to the event's own page, where the rest of the record lives. Anything
+ * longer here would push the pages' actual subject below the fold on a phone.
  *
  * Renders nothing when there is no highlight, so turning it off does not
  * leave an empty band behind.
@@ -94,25 +94,47 @@ export function HighlightFeature() {
               </ul>
 
               {/*
-                The one forward-looking line on the page, so it is set apart
-                from the record above it rather than reading as a fourth
-                thing that already happened.
+                Whose positions these are. Set apart from the record above it
+                so the disclaimer is not read as a fourth outcome.
               */}
               <p className="mt-7 border-l-2 border-secondary pl-5 text-sm leading-7 text-primary/80">
                 {highlight.outcome.paper}
               </p>
 
-              <Link
-                href={`/events/${highlight.slug}`}
-                className="group mt-8 inline-flex min-h-11 items-center gap-2.5 text-xs font-bold uppercase tracking-[0.1em] text-primary transition-colors hover:text-secondary"
-              >
-                See the consultation
-                <ArrowUpRight
-                  aria-hidden="true"
-                  className="size-3.5 transition-transform duration-300 group-hover:-translate-y-0.5 group-hover:translate-x-0.5"
-                  strokeWidth={1.8}
-                />
-              </Link>
+              {/*
+                The text first: it is what the room produced, and the reason
+                most people will have come. The event page second.
+
+                The `!` on the colours is not decoration. globals.css sets
+                `a { color: inherit }` outside any layer, which beats a plain
+                text-* utility, so without it both links render in the body
+                colour and the hover does nothing.
+              */}
+              <div className="mt-8 flex flex-wrap items-center gap-x-8 gap-y-1">
+                <Link
+                  href={highlight.outcome.publication.href}
+                  className="group inline-flex min-h-11 items-center gap-2.5 text-xs font-bold uppercase tracking-[0.1em] !text-secondary transition-colors hover:!text-primary"
+                >
+                  {highlight.outcome.publication.label}
+                  <ArrowUpRight
+                    aria-hidden="true"
+                    className="size-3.5 transition-transform duration-300 group-hover:-translate-y-0.5 group-hover:translate-x-0.5"
+                    strokeWidth={1.8}
+                  />
+                </Link>
+
+                <Link
+                  href={`/events/${highlight.slug}`}
+                  className="group inline-flex min-h-11 items-center gap-2.5 text-xs font-bold uppercase tracking-[0.1em] !text-primary transition-colors hover:!text-secondary"
+                >
+                  See the consultation
+                  <ArrowUpRight
+                    aria-hidden="true"
+                    className="size-3.5 transition-transform duration-300 group-hover:-translate-y-0.5 group-hover:translate-x-0.5"
+                    strokeWidth={1.8}
+                  />
+                </Link>
+              </div>
             </div>
           </div>
         </InView>

@@ -53,6 +53,7 @@ export const imageBlur: Readonly<Record<string, string>> = {
   "/images/projects/unfccc-negotiations-bonn-2026-08.webp": "data:image/webp;base64,UklGRjQAAABXRUJQVlA4ICgAAACQAQCdASoIAAQABABoJaQAAsZrVCAA/kkalmnqsi2SS+YLIwXw4AAA",
   "/images/publications/ace-at-sb64.webp": "data:image/webp;base64,UklGRkoAAABXRUJQVlA4ID4AAAAQAgCdASoIAAsABABoJZACdAEUpKQ0Y9gAAP6Ru9EzvEoB1gPh6TAmXBzcu3uP7OxFi2HaKbs4XOgQ1vMgAA==",
   "/images/publications/from-disaster-response-to-climate-resilience.webp": "data:image/webp;base64,UklGRjoAAABXRUJQVlA4IC4AAADQAQCdASoIAAsABABoJaQAAp257SHoAAD+7YsbUEgFaYch73ETv2CR/3kAAAAA",
+  "/images/publications/islamabad-outcome-text.webp": "data:image/webp;base64,UklGRlYAAABXRUJQVlA4IEoAAAAwAgCdASoIAAsABABoJZgCdEf/gehNkNRJAAD+W/6JfhIJ0hb2tTMo8h2E3YUpyGfFzHbaMj1oXEoGNwjMqeUpV9B4NxZmpEAAAA==",
   "/images/publications/mountain-frontlines-youth-futures.webp": "data:image/webp;base64,UklGRkIAAABXRUJQVlA4IDYAAADQAQCdASoIAAsABABoJQBdgCPwjl8LAAD+6EwKhvcFAXCOPYGPPmE+GKO4g6npvpuytYH9xAA=",
   "/images/publications/pakistan-climate-budget-reduction-summary.webp": "data:image/webp;base64,UklGRk4AAABXRUJQVlA4IEIAAADQAQCdASoIAAsABABoJZQCdAEO4aeZAAD+6zZxrC2vrbvvkHOb4JAFCAYcTaHCGJHMc4Rcwf64IAr0b2oCLMa8wAA=",
   "/images/publications/pakistan-climate-budget-reduction.webp": "data:image/webp;base64,UklGRk4AAABXRUJQVlA4IEIAAADwAQCdASoIAAsABABoJbACdAEUmcAfjwAA/phcPxQZspdAVccUc6lW+WAHt3gjkRfDPy0spUDJzn/StIRzY0wquAA=",

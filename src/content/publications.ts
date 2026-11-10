@@ -6,8 +6,13 @@
  * not estimated.
  *
  * The four invented entries (GLOF risk, Loss and Damage Readiness, Climate
- * Education Baseline, COP30 Position Brief) have been removed. All seven
- * remaining titles are published and downloadable; nothing is pending.
+ * Education Baseline, COP30 Position Brief) have been removed. All eight
+ * titles are published and downloadable; nothing is pending.
+ *
+ * ORDER MATTERS. The archive lists entries in the order they appear in
+ * `items`, and ArrivalAnnouncements announces `items[0]` to visitors as the
+ * new publication. So the newest title goes first, whatever section it
+ * would otherwise belong to.
  *
  * PDFs live at public/documents/<slug>.pdf
  */
@@ -125,6 +130,64 @@ export const publicationsContent = {
   ],
 
   items: [
+    /* ==========================================
+       NEWEST — see ORDER MATTERS at the top of this file
+       ========================================== */
+    {
+      /*
+        Title and subtitle are the cover's. The document names no authors:
+        it is a negotiated text, adopted by the room, so the byline is the
+        editing division and the three convening institutions, both as
+        printed on the cover. It gives no suggested citation, so none is
+        offered here rather than one being invented on behalf of three
+        institutions.
+
+        No `href`: the "Source" link on the other entries points at the
+        resource hub, and this text has not been confirmed as posted there.
+      */
+      slug: "islamabad-outcome-text",
+
+      cover:
+        "/images/publications/islamabad-outcome-text.webp",
+
+      coverAlt:
+        "Cover of The Islamabad Outcome Text, a multi-stakeholder position text for COP31, adopted in Islamabad on 21 October 2026.",
+
+      title: "The Islamabad Outcome Text",
+
+      subtitle:
+        "A Multi-Stakeholder Position Text for COP31",
+
+      description:
+        "The text negotiated paragraph by paragraph and adopted at the Pre-COP31 Multi-Stakeholder Consultation in Islamabad on 21 October 2026. Twenty-one operative paragraphs set out positions on just transition, adaptation finance, and loss and damage including mountain communities, with a youth annex and a record of how each paragraph was decided. It records the positions of the institutions and organisations that took part, and does not represent the position of the Government of Pakistan.",
+
+      category: "policy-report",
+
+      categoryLabel: "Outcome text",
+
+      year: "2026",
+
+      date: "November 2026",
+
+      editor:
+        "International Climate Policy Division, ClimateWatch",
+
+      contributors:
+        "Convened by ClimateWatch, the Institute of Strategic Studies Islamabad and the Sustainable Development Policy Institute",
+
+      pdf: "/documents/islamabad-outcome-text.pdf",
+
+      pdfSize: "2.2 MB",
+
+      pages: "11 pages",
+
+      topics: [
+        "Just transition",
+        "Adaptation finance",
+        "Loss and damage",
+      ],
+    },
+
     /* ==========================================
        POLICY BRIEFS
        ========================================== */

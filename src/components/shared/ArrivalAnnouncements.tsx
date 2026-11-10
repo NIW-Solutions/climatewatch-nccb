@@ -143,8 +143,23 @@ export function ArrivalAnnouncements() {
     const dialogDue =
       highlight !== null && !onItsOwnPage && highlightDue(highlight.slug);
 
+    /*
+      The same rule for the notice. The highlight now links straight to the
+      newest publication, so without this a reader who follows that link is
+      told about the page they are on. Reading it counts as having seen the
+      announcement of it.
+    */
+    const onLatestPublication =
+      Boolean(latest) && pathname === `/publications/${latest.slug}`;
+
+    if (onLatestPublication) {
+      writeStored(SEEN_PUBLICATION_KEY, latest.slug);
+    }
+
     publicationDue.current =
-      Boolean(latest) && readStored(SEEN_PUBLICATION_KEY) !== latest.slug;
+      Boolean(latest) &&
+      !onLatestPublication &&
+      readStored(SEEN_PUBLICATION_KEY) !== latest.slug;
 
     const timer = window.setTimeout(() => {
       /*
@@ -388,7 +403,11 @@ function PublicationNotice({
           <X aria-hidden="true" className="size-3.5" strokeWidth={1.8} />
         </button>
 
-        <p className="text-[0.6875rem] font-bold uppercase tracking-[0.13em] text-secondary">
+        {/*
+          pr-8 keeps the line clear of the dismiss button. "July 2026" fitted
+          beside it by luck; "November 2026" ran underneath.
+        */}
+        <p className="pr-8 text-[0.6875rem] font-bold uppercase tracking-[0.13em] text-secondary">
           New publication · {date}
         </p>
 

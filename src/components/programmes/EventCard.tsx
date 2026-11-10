@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { CalendarDays, MapPin } from "lucide-react";
+import { ArrowUpRight, CalendarDays, MapPin } from "lucide-react";
 
 import { InView } from "@/components/motion-primitives/InView";
 import { LoadedImage } from "@/components/ui/LoadedImage";
@@ -204,12 +204,27 @@ export function EventCard({
               </ul>
 
               {/*
-                Set apart from the outcomes above it, because it is the one
-                line on this card that is a promise rather than a record.
+                Set apart from the outcomes above it: it says whose
+                positions these are, and it carries the way through to the
+                adopted text itself.
               */}
-              <p className="mt-7 border-t border-secondary/25 pt-6 text-sm leading-7 text-primary/80">
-                {event.outcome.paper}
-              </p>
+              <div className="mt-7 border-t border-secondary/25 pt-6">
+                <p className="text-sm leading-7 text-primary/80">
+                  {event.outcome.paper}
+                </p>
+
+                <Link
+                  href={event.outcome.publication.href}
+                  className="group mt-4 inline-flex min-h-11 items-center gap-2.5 text-xs font-bold uppercase tracking-[0.1em] !text-primary transition-colors hover:!text-secondary"
+                >
+                  {event.outcome.publication.label}
+                  <ArrowUpRight
+                    aria-hidden="true"
+                    className="size-3.5 transition-transform duration-300 group-hover:-translate-y-0.5 group-hover:translate-x-0.5"
+                    strokeWidth={1.8}
+                  />
+                </Link>
+              </div>
             </div>
           </InView>
 
