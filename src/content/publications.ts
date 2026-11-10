@@ -96,8 +96,7 @@ export const publicationsContent = {
   featured: {
     eyebrow: "Featured publication",
 
-    slug:
-      "from-disaster-response-to-climate-resilience",
+    slug: "islamabad-outcome-text",
   },
 
   archive: {
