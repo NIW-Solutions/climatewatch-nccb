@@ -5,6 +5,8 @@ import {
 import Link from "next/link";
 
 import { InView } from "@/components/motion-primitives/InView";
+import { RevealText } from "@/components/motion-primitives/RevealText";
+import { ScrollScale } from "@/components/motion-primitives/ScrollScale";
 import { LoadedImage } from "@/components/ui/LoadedImage";
 import { homeContent } from "@/content/home";
 
@@ -65,18 +67,20 @@ export function HomeIntroduction() {
               id="introduction-heading"
               className="max-w-5xl font-editorial text-[clamp(2.8rem,5.2vw,5.5rem)] font-medium leading-[0.99] tracking-[-0.045em] text-primary"
             >
-              {introduction.title}
+              <RevealText text={introduction.title} />
             </h2>
 
             <div className="mt-9 grid gap-7 border-t border-border pt-8 sm:grid-cols-2 sm:gap-10 lg:mt-12 lg:pt-10">
               {introduction.paragraphs.map(
-                (paragraph) => (
-                  <p
+                (paragraph, index) => (
+                  <InView
                     key={paragraph}
-                    className="body-copy"
+                    delay={0.35 + index * 0.12}
                   >
-                    {paragraph}
-                  </p>
+                    <p className="body-copy">
+                      {paragraph}
+                    </p>
+                  </InView>
                 ),
               )}
             </div>
@@ -89,11 +93,7 @@ export function HomeIntroduction() {
             public/images/home/home-introduction-2026-08.webp
             ===================================== */}
 
-        <InView
-          delay={0.08}
-          amount={0.1}
-          className="mt-16 sm:mt-20 lg:mt-24"
-        >
+        <ScrollScale className="mt-16 sm:mt-20 lg:mt-24">
           <div className="grid overflow-hidden bg-primary lg:grid-cols-[1.18fr_0.82fr]">
             {/* Image */}
 
@@ -146,7 +146,7 @@ export function HomeIntroduction() {
                 </div>
 
                 <p className="mt-8 max-w-xl font-editorial text-[clamp(2rem,3vw,3.35rem)] font-medium leading-[1.1] tracking-[-0.035em] text-white">
-                  {introduction.mission}
+                  <RevealText text={introduction.mission} delay={0.15} />
                 </p>
               </div>
 
@@ -171,7 +171,7 @@ export function HomeIntroduction() {
               </div>
             </div>
           </div>
-        </InView>
+        </ScrollScale>
       </div>
     </section>
   );
