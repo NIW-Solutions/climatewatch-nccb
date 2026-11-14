@@ -10,6 +10,7 @@ import { PakistanCoverageMap } from "@/components/shared/PakistanCoverageMap";
 import { PartnerTicker } from "@/components/shared/PartnerTicker";
 import { SectionAccordion } from "@/components/shared/SectionAccordion";
 import { aboutContent } from "@/content/about";
+import { RevealText } from "@/components/motion-primitives/RevealText";
 
 export function AboutPageContent() {
   const {
@@ -52,9 +53,9 @@ export function AboutPageContent() {
 
                 <h1
                   id="about-heading"
-                  className="mt-7 max-w-3xl font-editorial text-[clamp(2.8rem,4.8vw,5.2rem)] font-medium leading-[1] tracking-[-0.045em] text-primary"
+                  className="text-balance mt-7 max-w-3xl font-editorial text-[clamp(2.8rem,4.8vw,5.2rem)] font-medium leading-[1] tracking-[-0.045em] text-primary"
                 >
-                  {hero.title}
+                  <RevealText text={hero.title} />
                 </h1>
               </div>
 
@@ -206,8 +207,8 @@ export function AboutPageContent() {
                               </p>
                             </div>
 
-                            <h2 className="mt-7 max-w-xl font-editorial text-[clamp(2.3rem,3.6vw,4rem)] font-medium leading-[1.05] tracking-[-0.04em] text-white">
-                              {mission.title}
+                            <h2 className="text-balance mt-7 max-w-xl font-editorial text-[clamp(2.3rem,3.6vw,4rem)] font-medium leading-[1.05] tracking-[-0.04em] text-white">
+                              <RevealText text={mission.title} />
                             </h2>
 
                             <p className="mt-7 max-w-xl text-base leading-8 text-white/68 sm:text-lg sm:leading-9">
@@ -236,8 +237,8 @@ export function AboutPageContent() {
                             </div>
 
                             <div className="col-span-12 lg:col-span-6">
-                              <h2 className="max-w-3xl font-editorial text-[clamp(2.25rem,3.7vw,4rem)] font-medium leading-[1.05] tracking-[-0.04em] text-primary">
-                                {beliefs.title}
+                              <h2 className="text-balance max-w-3xl font-editorial text-[clamp(2.25rem,3.7vw,4rem)] font-medium leading-[1.05] tracking-[-0.04em] text-primary">
+                                <RevealText text={beliefs.title} />
                               </h2>
                             </div>
                           </header>
@@ -289,8 +290,8 @@ export function AboutPageContent() {
                             </div>
 
                             <div className="col-span-12 lg:col-span-6">
-                              <h2 className="max-w-3xl font-editorial text-[clamp(2.15rem,3.4vw,3.75rem)] font-medium leading-[1.06] tracking-[-0.04em] text-primary">
-                                {method.title}
+                              <h2 className="text-balance max-w-3xl font-editorial text-[clamp(2.15rem,3.4vw,3.75rem)] font-medium leading-[1.06] tracking-[-0.04em] text-primary">
+                                <RevealText text={method.title} />
                               </h2>
 
                               <p className="body-copy mt-6 max-w-2xl">
@@ -364,8 +365,8 @@ export function AboutPageContent() {
                                 </p>
                               </div>
 
-                              <h2 className="mt-7 font-editorial text-[clamp(2.3rem,3.6vw,4rem)] font-medium leading-[1.05] tracking-[-0.04em] text-primary">
-                                {geography.title}
+                              <h2 className="text-balance mt-7 font-editorial text-[clamp(2.3rem,3.6vw,4rem)] font-medium leading-[1.05] tracking-[-0.04em] text-primary">
+                                <RevealText text={geography.title} />
                               </h2>
 
                               <div className="mt-8 space-y-6">
@@ -435,8 +436,8 @@ export function AboutPageContent() {
                             </div>
 
                             <div className="col-span-12 lg:col-span-7">
-                              <h2 className="max-w-3xl font-editorial text-[clamp(2.15rem,3.4vw,3.7rem)] font-medium leading-[1.06] tracking-[-0.04em] text-primary">
-                                {governance.title}
+                              <h2 className="text-balance max-w-3xl font-editorial text-[clamp(2.15rem,3.4vw,3.7rem)] font-medium leading-[1.06] tracking-[-0.04em] text-primary">
+                                <RevealText text={governance.title} />
                               </h2>
 
                               <p className="body-copy mt-6 max-w-3xl">
@@ -496,8 +497,8 @@ export function AboutPageContent() {
               </div>
 
               <div>
-                <h2 className="max-w-3xl font-editorial text-[clamp(2.15rem,3.5vw,3.9rem)] font-medium leading-[1.05] tracking-[-0.04em] text-white">
-                  {closing.title}
+                <h2 className="text-balance max-w-3xl font-editorial text-[clamp(2.15rem,3.5vw,3.9rem)] font-medium leading-[1.05] tracking-[-0.04em] text-white">
+                  <RevealText text={closing.title} />
                 </h2>
               </div>
 
