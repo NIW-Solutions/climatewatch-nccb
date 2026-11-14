@@ -1,6 +1,7 @@
 import { InView } from "@/components/motion-primitives/InView";
 import { NewsletterSignupForm } from "@/components/newsletter/NewsletterSignupForm";
 import { newsletterContent } from "@/content/newsletter";
+import { RevealText } from "@/components/motion-primitives/RevealText";
 
 export function NewsletterPageContent() {
   const {
@@ -35,9 +36,9 @@ export function NewsletterPageContent() {
 
               <h1
                 id="newsletter-heading"
-                className="mt-8 max-w-4xl font-editorial text-[clamp(2.2rem,3.6vw,3.85rem)] font-medium leading-[1.04] tracking-[-0.04em] text-primary"
+                className="text-balance mt-8 max-w-4xl font-editorial text-[clamp(2.2rem,3.6vw,3.85rem)] font-medium leading-[1.04] tracking-[-0.04em] text-primary"
               >
-                {hero.title}
+                <RevealText text={hero.title} />
               </h1>
 
               <p className="body-copy-large mt-7 max-w-3xl">
@@ -67,8 +68,8 @@ export function NewsletterPageContent() {
                 </p>
               </div>
 
-              <h2 className="mt-6 max-w-3xl font-editorial text-[clamp(1.7rem,3vw,2.6rem)] font-medium leading-[1.1] tracking-[-0.035em] text-primary">
-                {signup.title}
+              <h2 className="text-balance mt-6 max-w-3xl font-editorial text-[clamp(1.7rem,3vw,2.6rem)] font-medium leading-[1.1] tracking-[-0.035em] text-primary">
+                <RevealText text={signup.title} />
               </h2>
 
               <p className="mt-4 max-w-2xl text-sm leading-7 text-muted">
@@ -102,8 +103,8 @@ export function NewsletterPageContent() {
                 </p>
               </div>
 
-              <h2 className="mt-6 max-w-3xl font-editorial text-[clamp(1.7rem,3vw,2.6rem)] font-medium leading-[1.1] tracking-[-0.035em] text-primary">
-                {expectations.title}
+              <h2 className="text-balance mt-6 max-w-3xl font-editorial text-[clamp(1.7rem,3vw,2.6rem)] font-medium leading-[1.1] tracking-[-0.035em] text-primary">
+                <RevealText text={expectations.title} />
               </h2>
             </div>
           </InView>
