@@ -8,6 +8,7 @@ import { InView } from "@/components/motion-primitives/InView";
 import { NewsFeedSections } from "@/components/news/NewsFeedSections";
 import { newsContent } from "@/content/news";
 import type { FeedSection } from "@/lib/news";
+import { RevealText } from "@/components/motion-primitives/RevealText";
 
 export function NewsPageContent({
   feedSections,
@@ -55,9 +56,9 @@ export function NewsPageContent({
               <div>
                 <h1
                   id="news-heading"
-                  className="max-w-3xl font-editorial text-[clamp(2.55rem,4vw,4.3rem)] font-medium leading-[1.03] tracking-[-0.04em] text-primary"
+                  className="text-balance max-w-3xl font-editorial text-[clamp(2.55rem,4vw,4.3rem)] font-medium leading-[1.03] tracking-[-0.04em] text-primary"
                 >
-                  {hero.title}
+                  <RevealText text={hero.title} />
                 </h1>
               </div>
 
@@ -102,8 +103,8 @@ export function NewsPageContent({
                   {featured.category}
                 </p>
 
-                <h2 className="mt-4 max-w-4xl font-editorial text-[clamp(2.2rem,3.6vw,3.85rem)] font-medium leading-[1.04] tracking-[-0.04em] text-primary">
-                  {featured.title}
+                <h2 className="text-balance mt-4 max-w-4xl font-editorial text-[clamp(2.2rem,3.6vw,3.85rem)] font-medium leading-[1.04] tracking-[-0.04em] text-primary">
+                  <RevealText text={featured.title} />
                 </h2>
 
                 <p className="body-copy-large mt-7 max-w-3xl">
@@ -234,8 +235,8 @@ export function NewsPageContent({
               {/* Content */}
 
               <div>
-                <h2 className="max-w-2xl font-editorial text-[clamp(1.9rem,2.8vw,2.9rem)] font-medium leading-[1.1] tracking-[-0.035em] text-primary">
-                  {source.title}
+                <h2 className="text-balance max-w-2xl font-editorial text-[clamp(1.9rem,2.8vw,2.9rem)] font-medium leading-[1.1] tracking-[-0.035em] text-primary">
+                  <RevealText text={source.title} />
                 </h2>
 
                 <p className="body-copy mt-5 max-w-2xl">
@@ -285,8 +286,8 @@ export function NewsPageContent({
               {/* Heading */}
 
               <div>
-                <h2 className="max-w-2xl font-editorial text-[clamp(1.9rem,2.8vw,3rem)] font-medium leading-[1.08] tracking-[-0.035em] text-white">
-                  {press.title}
+                <h2 className="text-balance max-w-2xl font-editorial text-[clamp(1.9rem,2.8vw,3rem)] font-medium leading-[1.08] tracking-[-0.035em] text-white">
+                  <RevealText text={press.title} />
                 </h2>
               </div>
 

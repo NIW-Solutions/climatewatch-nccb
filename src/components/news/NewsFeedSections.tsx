@@ -6,6 +6,7 @@ import type {
   FeedItem,
   FeedSection,
 } from "@/lib/news";
+import { RevealText } from "@/components/motion-primitives/RevealText";
 
 /**
  * Live climate coverage — src/components/news/NewsFeedSections.tsx
@@ -122,9 +123,9 @@ export function NewsFeedSections({
 
                   <h2
                     id={`${section.id}-heading`}
-                    className="mt-6 max-w-3xl font-editorial text-[clamp(1.7rem,3vw,2.6rem)] font-medium leading-[1.1] tracking-[-0.035em] text-primary"
+                    className="text-balance mt-6 max-w-3xl font-editorial text-[clamp(1.7rem,3vw,2.6rem)] font-medium leading-[1.1] tracking-[-0.035em] text-primary"
                   >
-                    {section.title}
+                    <RevealText text={section.title} />
                   </h2>
 
                   <p className="mt-4 max-w-2xl text-sm leading-7 text-muted">
