@@ -1,6 +1,7 @@
 import { ArrowUpRight, Mail } from "lucide-react";
 
 import { careersContent } from "@/content/careers";
+import { RevealText } from "@/components/motion-primitives/RevealText";
 
 /**
  * Careers page — src/components/careers/CareersPageContent.tsx
@@ -42,8 +43,8 @@ export function CareersPageContent() {
             </p>
           </div>
 
-          <h1 className="mt-8 max-w-4xl font-editorial text-[clamp(2.1rem,5vw,3.6rem)] font-medium leading-[1.05] tracking-[-0.035em]">
-            {hero.title}
+          <h1 className="text-balance mt-8 max-w-4xl font-editorial text-[clamp(2.1rem,5vw,3.6rem)] font-medium leading-[1.05] tracking-[-0.035em]">
+            <RevealText text={hero.title} />
           </h1>
 
           <p className="mt-7 max-w-2xl text-base leading-8 text-white/70">
@@ -72,8 +73,8 @@ export function CareersPageContent() {
             </p>
           </div>
 
-          <h2 className="mt-6 max-w-3xl font-editorial text-[clamp(1.7rem,3vw,2.6rem)] font-medium leading-[1.1] tracking-[-0.035em] text-primary">
-            {terms.title}
+          <h2 className="text-balance mt-6 max-w-3xl font-editorial text-[clamp(1.7rem,3vw,2.6rem)] font-medium leading-[1.1] tracking-[-0.035em] text-primary">
+            <RevealText text={terms.title} />
           </h2>
 
           <dl className="mt-12 grid gap-px border border-border bg-border sm:grid-cols-2">
@@ -117,8 +118,8 @@ export function CareersPageContent() {
 
           {openings.length > 0 ? (
             <>
-              <h2 className="mt-6 max-w-3xl font-editorial text-[clamp(1.7rem,3vw,2.6rem)] font-medium leading-[1.1] tracking-[-0.035em] text-primary">
-                {openingsSection.title}
+              <h2 className="text-balance mt-6 max-w-3xl font-editorial text-[clamp(1.7rem,3vw,2.6rem)] font-medium leading-[1.1] tracking-[-0.035em] text-primary">
+                <RevealText text={openingsSection.title} />
               </h2>
 
               <div className="mt-12 space-y-6">
@@ -133,8 +134,8 @@ export function CareersPageContent() {
             </>
           ) : (
             <>
-              <h2 className="mt-6 max-w-3xl font-editorial text-[clamp(1.7rem,3vw,2.6rem)] font-medium leading-[1.1] tracking-[-0.035em] text-primary">
-                {openingsSection.emptyTitle}
+              <h2 className="text-balance mt-6 max-w-3xl font-editorial text-[clamp(1.7rem,3vw,2.6rem)] font-medium leading-[1.1] tracking-[-0.035em] text-primary">
+                <RevealText text={openingsSection.emptyTitle} />
               </h2>
 
               <p className="mt-5 max-w-2xl text-sm leading-7 text-muted">
@@ -162,8 +163,8 @@ export function CareersPageContent() {
             </p>
           </div>
 
-          <h2 className="mt-6 max-w-3xl font-editorial text-[clamp(1.7rem,3vw,2.6rem)] font-medium leading-[1.1] tracking-[-0.035em] text-primary">
-            {process.title}
+          <h2 className="text-balance mt-6 max-w-3xl font-editorial text-[clamp(1.7rem,3vw,2.6rem)] font-medium leading-[1.1] tracking-[-0.035em] text-primary">
+            <RevealText text={process.title} />
           </h2>
 
           <ul className="mt-12 grid gap-px border border-border bg-border sm:grid-cols-3">
@@ -202,8 +203,8 @@ export function CareersPageContent() {
             </p>
           </div>
 
-          <h2 className="mt-6 max-w-3xl font-editorial text-[clamp(1.7rem,3vw,2.6rem)] font-medium leading-[1.1] tracking-[-0.035em] text-primary">
-            {contact.title}
+          <h2 className="text-balance mt-6 max-w-3xl font-editorial text-[clamp(1.7rem,3vw,2.6rem)] font-medium leading-[1.1] tracking-[-0.035em] text-primary">
+            <RevealText text={contact.title} />
           </h2>
 
           <a
