@@ -5,6 +5,7 @@ import { InView } from "@/components/motion-primitives/InView";
 import { LoadedImage } from "@/components/ui/LoadedImage";
 import { projectsContent } from "@/content/projects";
 import { HighlightFeature } from "@/components/shared/HighlightFeature";
+import { RevealText } from "@/components/motion-primitives/RevealText";
 
 export function ProjectsPageContent() {
   const { hero, introduction, projects, closing } = projectsContent;
@@ -31,9 +32,9 @@ export function ProjectsPageContent() {
 
                 <h1
                   id="projects-heading"
-                  className="mt-7 max-w-3xl font-editorial text-[clamp(2.7rem,4.5vw,4.8rem)] font-medium leading-[1.01] tracking-[-0.045em] text-primary"
+                  className="text-balance mt-7 max-w-3xl font-editorial text-[clamp(2.7rem,4.5vw,4.8rem)] font-medium leading-[1.01] tracking-[-0.045em] text-primary"
                 >
-                  {hero.title}
+                  <RevealText text={hero.title} />
                 </h1>
               </div>
 
@@ -95,8 +96,8 @@ export function ProjectsPageContent() {
             </InView>
 
             <InView className="col-span-12 lg:col-span-8 lg:col-start-5">
-              <h2 className="max-w-3xl font-editorial text-[clamp(2rem,3vw,3.25rem)] font-medium leading-[1.08] tracking-[-0.035em] text-primary">
-                {introduction.title}
+              <h2 className="text-balance max-w-3xl font-editorial text-[clamp(2rem,3vw,3.25rem)] font-medium leading-[1.08] tracking-[-0.035em] text-primary">
+                <RevealText text={introduction.title} />
               </h2>
 
               <div className="mt-7 grid gap-6 border-t border-border pt-7 sm:grid-cols-2 sm:gap-10">
@@ -389,8 +390,8 @@ export function ProjectsPageContent() {
               </div>
 
               <div>
-                <h2 className="max-w-3xl font-editorial text-[clamp(2rem,3vw,3.25rem)] font-medium leading-[1.07] tracking-[-0.035em] text-white">
-                  {closing.title}
+                <h2 className="text-balance max-w-3xl font-editorial text-[clamp(2rem,3vw,3.25rem)] font-medium leading-[1.07] tracking-[-0.035em] text-white">
+                  <RevealText text={closing.title} />
                 </h2>
               </div>
 
