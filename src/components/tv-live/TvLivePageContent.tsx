@@ -4,6 +4,7 @@ import { InView } from "@/components/motion-primitives/InView";
 import { NewsThumbnail } from "@/components/news/NewsThumbnail";
 import { tvLiveContent } from "@/content/tv-live";
 import type { FeedItem } from "@/lib/news";
+import { RevealText } from "@/components/motion-primitives/RevealText";
 
 /**
  * TV Live — src/components/tv-live/TvLivePageContent.tsx
@@ -97,9 +98,9 @@ export function TvLivePageContent({
 
               <h1
                 id="tv-live-heading"
-                className="mt-8 max-w-4xl font-editorial text-[clamp(2.2rem,3.6vw,3.85rem)] font-medium leading-[1.04] tracking-[-0.04em] text-primary"
+                className="text-balance mt-8 max-w-4xl font-editorial text-[clamp(2.2rem,3.6vw,3.85rem)] font-medium leading-[1.04] tracking-[-0.04em] text-primary"
               >
-                {hero.title}
+                <RevealText text={hero.title} />
               </h1>
 
               <p className="body-copy-large mt-7 max-w-3xl">
@@ -141,8 +142,8 @@ export function TvLivePageContent({
                   />
                 </div>
 
-                <h2 className="mt-8 max-w-3xl font-editorial text-[clamp(1.6rem,2.8vw,2.4rem)] font-medium leading-[1.1] tracking-[-0.035em] text-primary">
-                  {latest.title}
+                <h2 className="text-balance mt-8 max-w-3xl font-editorial text-[clamp(1.6rem,2.8vw,2.4rem)] font-medium leading-[1.1] tracking-[-0.035em] text-primary">
+                  <RevealText text={latest.title} />
                 </h2>
 
                 <p className="mt-4 text-[0.6875rem] font-semibold uppercase tracking-[0.1em] text-muted-light">
@@ -193,8 +194,8 @@ export function TvLivePageContent({
                 </p>
               </div>
 
-              <h2 className="mt-6 max-w-3xl font-editorial text-[clamp(1.7rem,3vw,2.6rem)] font-medium leading-[1.1] tracking-[-0.035em] text-primary">
-                {schedule.title}
+              <h2 className="text-balance mt-6 max-w-3xl font-editorial text-[clamp(1.7rem,3vw,2.6rem)] font-medium leading-[1.1] tracking-[-0.035em] text-primary">
+                <RevealText text={schedule.title} />
               </h2>
             </div>
           </InView>
@@ -246,9 +247,9 @@ export function TvLivePageContent({
 
               <h2
                 id="broadcast-archive-heading"
-                className="mt-6 max-w-3xl font-editorial text-[clamp(1.7rem,3vw,2.6rem)] font-medium leading-[1.1] tracking-[-0.035em] text-primary"
+                className="text-balance mt-6 max-w-3xl font-editorial text-[clamp(1.7rem,3vw,2.6rem)] font-medium leading-[1.1] tracking-[-0.035em] text-primary"
               >
-                {archive.title}
+                <RevealText text={archive.title} />
               </h2>
 
               <p className="mt-4 max-w-2xl text-sm leading-7 text-muted">
@@ -326,8 +327,8 @@ export function TvLivePageContent({
               </div>
 
               <div>
-                <h2 className="max-w-2xl font-editorial text-[clamp(1.9rem,2.8vw,3rem)] font-medium leading-[1.08] tracking-[-0.035em] text-white">
-                  {closing.title}
+                <h2 className="text-balance max-w-2xl font-editorial text-[clamp(1.9rem,2.8vw,3rem)] font-medium leading-[1.08] tracking-[-0.035em] text-white">
+                  <RevealText text={closing.title} />
                 </h2>
 
                 <p className="mt-5 max-w-xl text-sm leading-7 text-white/70">
