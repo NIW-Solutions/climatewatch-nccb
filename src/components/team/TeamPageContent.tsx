@@ -17,6 +17,7 @@ import {
   TeamPhoto,
   TeamSocialLinks,
 } from "./team-primitives";
+import { RevealText } from "@/components/motion-primitives/RevealText";
 
 export function TeamPageContent() {
   const {
@@ -112,9 +113,9 @@ export function TeamPageContent() {
             </div>
             <h1
               id="team-heading"
-              className="mt-7 max-w-4xl font-editorial text-[clamp(2.8rem,5.5vw,5.5rem)] font-medium leading-[1.01] tracking-[-0.045em] text-white"
+              className="text-balance mt-7 max-w-4xl font-editorial text-[clamp(2.8rem,5.5vw,5.5rem)] font-medium leading-[1.01] tracking-[-0.045em] text-white"
             >
-              {hero.title}
+              <RevealText text={hero.title} />
             </h1>
             <p className="mt-8 max-w-2xl text-base leading-8 text-white/70 sm:text-lg">
               {hero.description}
@@ -160,8 +161,8 @@ export function TeamPageContent() {
                 </p>
               </div>
               <div>
-                <h2 className="max-w-xl font-editorial text-[clamp(1.9rem,2.8vw,2.9rem)] font-medium leading-[1.08] tracking-[-0.035em] text-primary">
-                  {directory.title}
+                <h2 className="text-balance max-w-xl font-editorial text-[clamp(1.9rem,2.8vw,2.9rem)] font-medium leading-[1.08] tracking-[-0.035em] text-primary">
+                  <RevealText text={directory.title} />
                 </h2>
               </div>
               <div>
@@ -480,9 +481,9 @@ export function TeamPageContent() {
               <div>
                 <h2
                   id="advisors-heading"
-                  className="max-w-xl font-editorial text-[clamp(1.9rem,2.8vw,2.9rem)] font-medium leading-[1.08] tracking-[-0.035em] text-primary"
+                  className="text-balance max-w-xl font-editorial text-[clamp(1.9rem,2.8vw,2.9rem)] font-medium leading-[1.08] tracking-[-0.035em] text-primary"
                 >
-                  {advisory.title}
+                  <RevealText text={advisory.title} />
                 </h2>
               </div>
               <div>
@@ -527,9 +528,9 @@ export function TeamPageContent() {
                 <div>
                   <h2
                     id="international-advisors-heading"
-                    className="max-w-xl font-editorial text-[clamp(1.9rem,2.8vw,2.9rem)] font-medium leading-[1.08] tracking-[-0.035em] text-primary"
+                    className="text-balance max-w-xl font-editorial text-[clamp(1.9rem,2.8vw,2.9rem)] font-medium leading-[1.08] tracking-[-0.035em] text-primary"
                   >
-                    {internationalAdvisory.title}
+                    <RevealText text={internationalAdvisory.title} />
                   </h2>
                 </div>
                 <div>
@@ -574,9 +575,9 @@ export function TeamPageContent() {
               <div>
                 <h2
                   id="board-heading"
-                  className="max-w-xl font-editorial text-[clamp(1.9rem,2.8vw,2.9rem)] font-medium leading-[1.08] tracking-[-0.035em] text-primary"
+                  className="text-balance max-w-xl font-editorial text-[clamp(1.9rem,2.8vw,2.9rem)] font-medium leading-[1.08] tracking-[-0.035em] text-primary"
                 >
-                  {governance.title}
+                  <RevealText text={governance.title} />
                 </h2>
               </div>
               <div>
@@ -641,8 +642,8 @@ export function TeamPageContent() {
                 </p>
               </div>
               <div>
-                <h2 className="max-w-2xl font-editorial text-[clamp(1.9rem,2.8vw,3rem)] font-medium leading-[1.08] tracking-[-0.035em] text-white">
-                  {closing.title}
+                <h2 className="text-balance max-w-2xl font-editorial text-[clamp(1.9rem,2.8vw,3rem)] font-medium leading-[1.08] tracking-[-0.035em] text-white">
+                  <RevealText text={closing.title} />
                 </h2>
               </div>
               <div className="lg:text-right">
