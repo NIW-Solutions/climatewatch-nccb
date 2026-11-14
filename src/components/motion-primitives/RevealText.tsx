@@ -5,8 +5,8 @@ import { motion, useReducedMotion } from "motion/react";
 /**
  * Reveal text — src/components/motion-primitives/RevealText.tsx
  *
- * A headline that arrives a word at a time: each word rises a little and
- * comes into focus, staggered, as the line scrolls into view. It is the
+ * A headline that arrives a word at a time: each word rises and fades in,
+ * staggered, as the line scrolls into view. It is the
  * difference between a heading that is simply there and one that is said.
  *
  * The full sentence is given to screen readers once, through aria-label;
@@ -46,10 +46,10 @@ export function RevealText({
           className="inline-block overflow-hidden pb-[0.12em] align-bottom"
         >
           <motion.span
-            className="inline-block will-change-transform"
+            className="inline-block"
             variants={{
-              hidden: { y: "105%", opacity: 0, filter: "blur(6px)" },
-              shown: { y: "0%", opacity: 1, filter: "blur(0px)" },
+              hidden: { y: "105%", opacity: 0 },
+              shown: { y: "0%", opacity: 1 },
             }}
             transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
           >

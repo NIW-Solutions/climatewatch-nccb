@@ -7,11 +7,7 @@ import {
   useTransform,
 } from "motion/react";
 
-import {
-  ArrowDown,
-  ArrowRight,
-  ArrowUpRight,
-} from "lucide-react";
+import { ArrowDown, ArrowRight, ArrowUpRight } from "lucide-react";
 
 import Link from "next/link";
 import { useRef } from "react";
@@ -20,66 +16,64 @@ import { LoadedImage } from "@/components/ui/LoadedImage";
 import { homeContent } from "@/content/home";
 
 export function HomeHero() {
-  const sectionRef =
-    useRef<HTMLElement | null>(null);
+  const sectionRef = useRef<HTMLElement | null>(null);
 
-  const reducedMotion =
-    useReducedMotion();
+  const reducedMotion = useReducedMotion();
 
-  const { scrollYProgress } =
-    useScroll({
-      target: sectionRef,
-      offset: [
-        "start start",
-        "end start",
-      ],
-    });
+  const { scrollYProgress } = useScroll({
+    target: sectionRef,
+    offset: ["start start", "end start"],
+  });
 
-  const imageScale =
-    useTransform(
-      scrollYProgress,
-      [0, 1],
-      [
-        1,
-        reducedMotion
-          ? 1
-          : 1.035,
-      ],
-    );
+  const imageScale = useTransform(
+    scrollYProgress,
+    [0, 1],
+    [1, reducedMotion ? 1 : 1.035],
+  );
 
-  const imageY =
-    useTransform(
-      scrollYProgress,
-      [0, 1],
-      [
-        "0%",
-        reducedMotion
-          ? "0%"
-          : "3%",
-      ],
-    );
+  const imageY = useTransform(
+    scrollYProgress,
+    [0, 1],
+    ["0%", reducedMotion ? "0%" : "3%"],
+  );
 
-  const contentY =
-    useTransform(
-      scrollYProgress,
-      [0, 1],
-      [
-        "0%",
-        reducedMotion
-          ? "0%"
-          : "6%",
-      ],
-    );
+  const contentY = useTransform(
+    scrollYProgress,
+    [0, 1],
+    ["0%", reducedMotion ? "0%" : "6%"],
+  );
 
-  const contentOpacity =
-    useTransform(
-      scrollYProgress,
-      [0, 0.72],
-      [1, 0.18],
-    );
+  const contentOpacity = useTransform(scrollYProgress, [0, 0.72], [1, 0.18]);
 
-  const { hero } =
-    homeContent;
+  const { hero } = homeContent;
+
+  /*
+    The hero assembles in sequence rather than appearing as one block:
+    eyebrow, then each line of the headline, then the description, the
+    buttons and finally the facts strip. Transform and opacity only, so it
+    stays on the compositor. With reduced motion everything is simply there.
+  */
+  const sequence = {
+    hidden: {},
+    shown: {
+      transition: {
+        staggerChildren: 0.12,
+        delayChildren: 0.15,
+      },
+    },
+  };
+
+  const rise = {
+    hidden: reducedMotion ? { opacity: 1, y: 0 } : { opacity: 0, y: 32 },
+    shown: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        duration: 0.9,
+        ease: [0.22, 1, 0.36, 1] as const,
+      },
+    },
+  };
 
   return (
     <section
@@ -157,10 +151,7 @@ export function HomeHero() {
 
       {/* Editorial lines */}
 
-      <div
-        aria-hidden="true"
-        className="absolute inset-0 hidden lg:block"
-      >
+      <div aria-hidden="true" className="absolute inset-0 hidden lg:block">
         <span className="absolute left-[58%] top-0 h-full w-px bg-white/[0.055]" />
 
         <span className="absolute left-[73%] top-0 h-full w-px bg-white/[0.055]" />
@@ -177,164 +168,125 @@ export function HomeHero() {
           className="max-w-5xl pb-8 sm:pb-12 lg:pb-14"
           style={{
             y: contentY,
-            opacity:
-              contentOpacity,
-          }}
-          initial={
-            reducedMotion
-              ? false
-              : {
-                  opacity: 0,
-                  y: 26,
-                }
-          }
-          animate={{
-            opacity: 1,
-            y: 0,
-          }}
-          transition={{
-            duration: 0.9,
-            ease: [
-              0.22,
-              1,
-              0.36,
-              1,
-            ],
+            opacity: contentOpacity,
           }}
         >
-          {/* =====================================
+          <motion.div variants={sequence} initial="hidden" animate="shown">
+            {/* =====================================
               EYEBROW
               Hidden on mobile
               ===================================== */}
 
-          <div className="hidden items-center gap-4 sm:flex">
-            <span
-              aria-hidden="true"
-              className="h-px w-10 bg-secondary"
-            />
-
-            <p className="eyebrow text-white/72">
-              {hero.eyebrow}
-            </p>
-          </div>
-
-          {/* Heading */}
-
-          <h1
-            id="home-heading"
-            className="max-w-[12ch] text-[clamp(3rem,13vw,4.5rem)] font-semibold leading-[0.92] tracking-[-0.06em] text-white sm:mt-7 sm:text-[clamp(3.8rem,8vw,6rem)] lg:text-[clamp(4.8rem,7vw,7.35rem)]"
-          >
-            Evidence from where
-            the climate{" "}
-
-            <span className="text-white/68">
-              impacts land.
-            </span>
-          </h1>
-
-          {/* Description */}
-
-          <p className="mt-6 max-w-3xl text-[0.95rem] leading-7 text-white/75 sm:mt-8 sm:text-lg sm:leading-9">
-            {hero.description}
-          </p>
-
-          {/* Actions */}
-
-          <div className="mt-7 flex flex-col gap-3 sm:mt-9 sm:flex-row sm:flex-wrap">
-            <Link
-              href={
-                hero
-                  .primaryAction
-                  .href
-              }
-              className="button-primary group"
+            <motion.div
+              variants={rise}
+              className="hidden items-center gap-4 sm:flex"
             >
-              {
-                hero
-                  .primaryAction
-                  .label
-              }
+              <span aria-hidden="true" className="h-px w-10 bg-secondary" />
 
-              <ArrowRight
-                aria-hidden="true"
-                className="size-4 transition-transform duration-300 group-hover:translate-x-1"
-                strokeWidth={1.8}
-              />
-            </Link>
+              <p className="eyebrow text-white/72">{hero.eyebrow}</p>
+            </motion.div>
 
-            <Link
-              href={
-                hero
-                  .secondaryAction
-                  .href
-              }
-              className="button-light group"
+            {/* Heading */}
+
+            <h1
+              id="home-heading"
+              className="max-w-[12ch] text-balance text-[clamp(3rem,13vw,4.5rem)] font-semibold leading-[0.92] tracking-[-0.06em] text-white sm:mt-7 sm:text-[clamp(3.8rem,8vw,6rem)] lg:text-[clamp(4.8rem,7vw,7.35rem)]"
             >
-              {
-                hero
-                  .secondaryAction
-                  .label
-              }
+              <motion.span variants={rise} className="block">
+                Evidence from where the climate
+              </motion.span>{" "}
+              <motion.span variants={rise} className="block text-white/68">
+                impacts land.
+              </motion.span>
+            </h1>
 
-              <ArrowUpRight
-                aria-hidden="true"
-                className="size-4 transition-transform duration-300 group-hover:-translate-y-0.5 group-hover:translate-x-0.5"
-                strokeWidth={1.8}
-              />
-            </Link>
-          </div>
+            {/* Description */}
+
+            <motion.p
+              variants={rise}
+              className="mt-6 max-w-3xl text-pretty text-[0.95rem] leading-7 text-white/75 sm:mt-8 sm:text-lg sm:leading-9"
+            >
+              {hero.description}
+            </motion.p>
+
+            {/* Actions */}
+
+            <motion.div
+              variants={rise}
+              className="mt-7 flex flex-col gap-3 sm:mt-9 sm:flex-row sm:flex-wrap"
+            >
+              <Link
+                href={hero.primaryAction.href}
+                className="button-primary group"
+              >
+                {hero.primaryAction.label}
+
+                <ArrowRight
+                  aria-hidden="true"
+                  className="size-4 transition-transform duration-300 group-hover:translate-x-1"
+                  strokeWidth={1.8}
+                />
+              </Link>
+
+              <Link
+                href={hero.secondaryAction.href}
+                className="button-light group"
+              >
+                {hero.secondaryAction.label}
+
+                <ArrowUpRight
+                  aria-hidden="true"
+                  className="size-4 transition-transform duration-300 group-hover:-translate-y-0.5 group-hover:translate-x-0.5"
+                  strokeWidth={1.8}
+                />
+              </Link>
+            </motion.div>
+          </motion.div>
         </motion.div>
 
         {/* =====================================
             INSTITUTIONAL PROFILE
             ===================================== */}
 
-        <div className="border-t border-white/25 bg-primary-dark/40 backdrop-blur-[6px]">
+        <motion.div
+          className="border-t border-white/25 bg-primary-dark/40 backdrop-blur-[6px]"
+          initial={reducedMotion ? false : { opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{
+            duration: 0.9,
+            delay: 0.9,
+            ease: "easeOut",
+          }}
+        >
           <div className="grid lg:grid-cols-[1.15fr_2.85fr]">
             <div className="border-b border-white/18 px-4 py-4 sm:px-6 sm:py-6 lg:border-b-0 lg:border-r lg:px-8 lg:py-7 xl:px-9">
               <p className="max-w-md text-[0.78rem] font-medium leading-6 text-white/72 sm:text-[0.95rem] sm:leading-7">
-                {
-                  hero
-                    .institutionalStatement
-                }
+                {hero.institutionalStatement}
               </p>
             </div>
 
             <div className="grid grid-cols-3">
-              {hero.facts.map(
-                (
-                  fact,
-                  index,
-                ) => (
-                  <div
-                    key={
-                      fact.label
-                    }
-                    className={[
-                      "min-w-0 px-3 py-4 sm:px-6 sm:py-6 lg:px-8 lg:py-7 xl:px-9",
+              {hero.facts.map((fact, index) => (
+                <div
+                  key={fact.label}
+                  className={[
+                    "min-w-0 px-3 py-4 sm:px-6 sm:py-6 lg:px-8 lg:py-7 xl:px-9",
 
-                      index > 0
-                        ? "border-l border-white/18"
-                        : "",
-                    ].join(" ")}
-                  >
-                    <p className="text-[0.6875rem] font-bold uppercase leading-4 tracking-[0.08em] text-white/42 sm:text-[0.6875rem] sm:tracking-[0.12em]">
-                      {
-                        fact.label
-                      }
-                    </p>
+                    index > 0 ? "border-l border-white/18" : "",
+                  ].join(" ")}
+                >
+                  <p className="text-[0.6875rem] font-bold uppercase leading-4 tracking-[0.08em] text-white/42 sm:text-[0.6875rem] sm:tracking-[0.12em]">
+                    {fact.label}
+                  </p>
 
-                    <p className="mt-2 max-w-[14rem] text-[0.6875rem] font-semibold leading-5 text-white sm:mt-2.5 sm:text-[0.95rem] sm:leading-6">
-                      {
-                        fact.value
-                      }
-                    </p>
-                  </div>
-                ),
-              )}
+                  <p className="mt-2 max-w-[14rem] text-[0.6875rem] font-semibold leading-5 text-white sm:mt-2.5 sm:text-[0.95rem] sm:leading-6">
+                    {fact.value}
+                  </p>
+                </div>
+              ))}
             </div>
           </div>
-        </div>
+        </motion.div>
       </div>
 
       {/* =====================================
@@ -360,9 +312,7 @@ export function HomeHero() {
       {hero.imageCaption ? (
         <div className="absolute right-[var(--page-gutter)] top-[8.5rem] z-20 hidden max-w-[15rem] text-right xl:block">
           <p className="text-[0.6875rem] leading-5 text-white/40">
-            {
-              hero.imageCaption
-            }
+            {hero.imageCaption}
           </p>
         </div>
       ) : null}
