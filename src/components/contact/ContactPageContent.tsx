@@ -6,6 +6,7 @@ import {
 import { ContactForm } from "@/components/forms/ContactForm";
 import { InView } from "@/components/motion-primitives/InView";
 import { contactContent } from "@/content/contact";
+import { RevealText } from "@/components/motion-primitives/RevealText";
 
 export function ContactPageContent() {
   const {
@@ -49,9 +50,9 @@ export function ContactPageContent() {
               <div>
                 <h1
                   id="contact-heading"
-                  className="max-w-3xl font-editorial text-[clamp(2.6rem,4.3vw,4.5rem)] font-medium leading-[1.01] tracking-[-0.045em] text-white"
+                  className="text-balance max-w-3xl font-editorial text-[clamp(2.6rem,4.3vw,4.5rem)] font-medium leading-[1.01] tracking-[-0.045em] text-white"
                 >
-                  {hero.title}
+                  <RevealText text={hero.title} />
                 </h1>
               </div>
 
@@ -97,8 +98,8 @@ export function ContactPageContent() {
               </div>
 
               <div>
-                <h2 className="max-w-xl font-editorial text-[clamp(2rem,3vw,3rem)] font-medium leading-[1.08] tracking-[-0.035em] text-primary">
-                  {routes.title}
+                <h2 className="text-balance max-w-xl font-editorial text-[clamp(2rem,3vw,3rem)] font-medium leading-[1.08] tracking-[-0.035em] text-primary">
+                  <RevealText text={routes.title} />
                 </h2>
               </div>
 
@@ -188,8 +189,8 @@ export function ContactPageContent() {
               </div>
 
               <div>
-                <h2 className="max-w-xl font-editorial text-[clamp(2rem,3vw,3rem)] font-medium leading-[1.08] tracking-[-0.035em] text-primary">
-                  {form.title}
+                <h2 className="text-balance max-w-xl font-editorial text-[clamp(2rem,3vw,3rem)] font-medium leading-[1.08] tracking-[-0.035em] text-primary">
+                  <RevealText text={form.title} />
                 </h2>
               </div>
 
@@ -225,8 +226,8 @@ export function ContactPageContent() {
               </div>
 
               <div>
-                <h2 className="font-editorial text-[clamp(1.8rem,2.6vw,2.65rem)] font-medium leading-[1.1] tracking-[-0.035em] text-primary">
-                  {direct.title}
+                <h2 className="text-balance font-editorial text-[clamp(1.8rem,2.6vw,2.65rem)] font-medium leading-[1.1] tracking-[-0.035em] text-primary">
+                  <RevealText text={direct.title} />
                 </h2>
 
                 <p className="mt-4 max-w-xl text-sm leading-7 text-muted">
