@@ -2,6 +2,7 @@ import { ArrowUpRight, Mail } from "lucide-react";
 
 import { InView } from "@/components/motion-primitives/InView";
 import { donateContent } from "@/content/donate";
+import { RevealText } from "@/components/motion-primitives/RevealText";
 
 export function DonatePageContent() {
   const {
@@ -38,9 +39,9 @@ export function DonatePageContent() {
 
               <h1
                 id="donate-heading"
-                className="mt-8 max-w-4xl font-editorial text-[clamp(2.2rem,3.6vw,3.85rem)] font-medium leading-[1.04] tracking-[-0.04em] text-primary"
+                className="text-balance mt-8 max-w-4xl font-editorial text-[clamp(2.2rem,3.6vw,3.85rem)] font-medium leading-[1.04] tracking-[-0.04em] text-primary"
               >
-                {hero.title}
+                <RevealText text={hero.title} />
               </h1>
 
               <p className="body-copy-large mt-7 max-w-3xl">
@@ -70,8 +71,8 @@ export function DonatePageContent() {
                 </p>
               </div>
 
-              <h2 className="mt-6 max-w-3xl font-editorial text-[clamp(1.7rem,3vw,2.6rem)] font-medium leading-[1.1] tracking-[-0.035em] text-primary">
-                {impact.title}
+              <h2 className="text-balance mt-6 max-w-3xl font-editorial text-[clamp(1.7rem,3vw,2.6rem)] font-medium leading-[1.1] tracking-[-0.035em] text-primary">
+                <RevealText text={impact.title} />
               </h2>
             </div>
           </InView>
@@ -122,8 +123,8 @@ export function DonatePageContent() {
                 </p>
               </div>
 
-              <h2 className="mt-6 max-w-3xl font-editorial text-[clamp(1.7rem,3vw,2.6rem)] font-medium leading-[1.1] tracking-[-0.035em] text-primary">
-                {giving.title}
+              <h2 className="text-balance mt-6 max-w-3xl font-editorial text-[clamp(1.7rem,3vw,2.6rem)] font-medium leading-[1.1] tracking-[-0.035em] text-primary">
+                <RevealText text={giving.title} />
               </h2>
 
               <p className="mt-4 max-w-2xl text-sm leading-7 text-muted">
@@ -238,8 +239,8 @@ export function DonatePageContent() {
               </div>
 
               <div>
-                <h2 className="max-w-2xl font-editorial text-[clamp(1.9rem,2.8vw,3rem)] font-medium leading-[1.08] tracking-[-0.035em] text-white">
-                  {assurance.title}
+                <h2 className="text-balance max-w-2xl font-editorial text-[clamp(1.9rem,2.8vw,3rem)] font-medium leading-[1.08] tracking-[-0.035em] text-white">
+                  <RevealText text={assurance.title} />
                 </h2>
 
                 <p className="mt-5 max-w-2xl text-sm leading-7 text-white/70">
