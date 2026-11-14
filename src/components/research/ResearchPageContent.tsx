@@ -7,6 +7,7 @@ import Link from "next/link";
 import { InView } from "@/components/motion-primitives/InView";
 import { LoadedImage } from "@/components/ui/LoadedImage";
 import { researchContent } from "@/content/research";
+import { RevealText } from "@/components/motion-primitives/RevealText";
 
 export function ResearchPageContent() {
   const {
@@ -46,9 +47,9 @@ export function ResearchPageContent() {
 
                 <h1
                   id="research-heading"
-                  className="mt-7 max-w-3xl font-editorial text-[clamp(2.8rem,4.8vw,5.1rem)] font-medium leading-[1] tracking-[-0.045em] text-primary"
+                  className="text-balance mt-7 max-w-3xl font-editorial text-[clamp(2.8rem,4.8vw,5.1rem)] font-medium leading-[1] tracking-[-0.045em] text-primary"
                 >
-                  {hero.title}
+                  <RevealText text={hero.title} />
                 </h1>
               </div>
 
@@ -106,8 +107,8 @@ export function ResearchPageContent() {
             </InView>
 
             <InView className="col-span-12 lg:col-span-8 lg:col-start-5">
-              <h2 className="max-w-3xl font-editorial text-[clamp(2.15rem,3.4vw,3.7rem)] font-medium leading-[1.06] tracking-[-0.04em] text-primary">
-                {introduction.title}
+              <h2 className="text-balance max-w-3xl font-editorial text-[clamp(2.15rem,3.4vw,3.7rem)] font-medium leading-[1.06] tracking-[-0.04em] text-primary">
+                <RevealText text={introduction.title} />
               </h2>
 
               <div className="mt-8 grid gap-7 border-t border-border pt-7 sm:grid-cols-2 sm:gap-10">
@@ -142,8 +143,8 @@ export function ResearchPageContent() {
               </div>
 
               <div className="col-span-12 lg:col-span-6">
-                <h2 className="max-w-3xl font-editorial text-[clamp(2.2rem,3.6vw,3.9rem)] font-medium leading-[1.05] tracking-[-0.04em] text-primary">
-                  {currentResearch.title}
+                <h2 className="text-balance max-w-3xl font-editorial text-[clamp(2.2rem,3.6vw,3.9rem)] font-medium leading-[1.05] tracking-[-0.04em] text-primary">
+                  <RevealText text={currentResearch.title} />
                 </h2>
               </div>
 
@@ -278,8 +279,8 @@ export function ResearchPageContent() {
                   </p>
                 </div>
 
-                <h2 className="mt-7 max-w-xl font-editorial text-[clamp(2.15rem,3.4vw,3.7rem)] font-medium leading-[1.06] tracking-[-0.04em] text-primary">
-                  {fieldwork.title}
+                <h2 className="text-balance mt-7 max-w-xl font-editorial text-[clamp(2.15rem,3.4vw,3.7rem)] font-medium leading-[1.06] tracking-[-0.04em] text-primary">
+                  <RevealText text={fieldwork.title} />
                 </h2>
 
                 <div className="mt-8 space-y-6">
@@ -315,8 +316,8 @@ export function ResearchPageContent() {
               </div>
 
               <div className="col-span-12 lg:col-span-6">
-                <h2 className="max-w-3xl font-editorial text-[clamp(2.15rem,3.4vw,3.7rem)] font-medium leading-[1.06] tracking-[-0.04em] text-primary">
-                  {evidence.title}
+                <h2 className="text-balance max-w-3xl font-editorial text-[clamp(2.15rem,3.4vw,3.7rem)] font-medium leading-[1.06] tracking-[-0.04em] text-primary">
+                  <RevealText text={evidence.title} />
                 </h2>
               </div>
 
@@ -424,8 +425,8 @@ export function ResearchPageContent() {
               </div>
 
               <div>
-                <h2 className="max-w-3xl font-editorial text-[clamp(2.1rem,3.4vw,3.7rem)] font-medium leading-[1.05] tracking-[-0.04em] text-white">
-                  {closing.title}
+                <h2 className="text-balance max-w-3xl font-editorial text-[clamp(2.1rem,3.4vw,3.7rem)] font-medium leading-[1.05] tracking-[-0.04em] text-white">
+                  <RevealText text={closing.title} />
                 </h2>
               </div>
 
