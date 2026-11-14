@@ -16,6 +16,7 @@ import {
   blogContent,
   type BlogTopic,
 } from "@/content/blog";
+import { RevealText } from "@/components/motion-primitives/RevealText";
 
 type Topic = "all" | BlogTopic;
 
@@ -88,9 +89,9 @@ export function BlogPageContent() {
               <div>
                 <h1
                   id="blog-heading"
-                  className="max-w-3xl font-editorial text-[clamp(2.55rem,4vw,4.3rem)] font-medium leading-[1.03] tracking-[-0.04em] text-primary"
+                  className="text-balance max-w-3xl font-editorial text-[clamp(2.55rem,4vw,4.3rem)] font-medium leading-[1.03] tracking-[-0.04em] text-primary"
                 >
-                  {hero.title}
+                  <RevealText text={hero.title} />
                 </h1>
               </div>
 
@@ -183,8 +184,8 @@ export function BlogPageContent() {
               </div>
 
               <div>
-                <h2 className="max-w-xl font-editorial text-[clamp(1.75rem,2.5vw,2.6rem)] font-medium leading-[1.1] tracking-[-0.035em] text-primary">
-                  {distinction.title}
+                <h2 className="text-balance max-w-xl font-editorial text-[clamp(1.75rem,2.5vw,2.6rem)] font-medium leading-[1.1] tracking-[-0.035em] text-primary">
+                  <RevealText text={distinction.title} />
                 </h2>
               </div>
 
@@ -228,8 +229,8 @@ export function BlogPageContent() {
               </div>
 
               <div>
-                <h2 className="max-w-2xl font-editorial text-[clamp(1.9rem,2.8vw,3rem)] font-medium leading-[1.08] tracking-[-0.035em] text-white">
-                  {closing.title}
+                <h2 className="text-balance max-w-2xl font-editorial text-[clamp(1.9rem,2.8vw,3rem)] font-medium leading-[1.08] tracking-[-0.035em] text-white">
+                  <RevealText text={closing.title} />
                 </h2>
 
                 <p className="mt-5 max-w-xl text-sm leading-7 text-white/70">
