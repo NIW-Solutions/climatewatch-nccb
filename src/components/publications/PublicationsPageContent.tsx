@@ -12,6 +12,7 @@ import {
   publicationsContent,
   type PublicationItem,
 } from "@/content/publications";
+import { RevealText } from "@/components/motion-primitives/RevealText";
 
 export function PublicationsPageContent() {
   const {
@@ -56,9 +57,9 @@ export function PublicationsPageContent() {
               <div className="col-span-12 lg:col-span-6">
                 <h1
                   id="publications-heading"
-                  className="max-w-3xl font-editorial text-[clamp(2.5rem,4vw,4.25rem)] font-medium leading-[1.03] tracking-[-0.04em] text-primary"
+                  className="text-balance max-w-3xl font-editorial text-[clamp(2.5rem,4vw,4.25rem)] font-medium leading-[1.03] tracking-[-0.04em] text-primary"
                 >
-                  {hero.title}
+                  <RevealText text={hero.title} />
                 </h1>
               </div>
 
@@ -141,8 +142,8 @@ export function PublicationsPageContent() {
                   {featured.eyebrow}
                 </p>
 
-                <h2 className="mt-5 max-w-3xl font-editorial text-[clamp(2rem,3.1vw,3.35rem)] font-medium leading-[1.04] tracking-[-0.04em] text-primary">
-                  {featuredItem.title}
+                <h2 className="text-balance mt-5 max-w-3xl font-editorial text-[clamp(2rem,3.1vw,3.35rem)] font-medium leading-[1.04] tracking-[-0.04em] text-primary">
+                  <RevealText text={featuredItem.title} />
                 </h2>
 
                 {featuredItem.subtitle ? (
@@ -255,8 +256,8 @@ export function PublicationsPageContent() {
               </div>
 
               <div>
-                <h2 className="max-w-2xl font-editorial text-[clamp(1.9rem,2.8vw,3rem)] font-medium leading-[1.08] tracking-[-0.035em] text-white">
-                  {closing.title}
+                <h2 className="text-balance max-w-2xl font-editorial text-[clamp(1.9rem,2.8vw,3rem)] font-medium leading-[1.08] tracking-[-0.035em] text-white">
+                  <RevealText text={closing.title} />
                 </h2>
 
                 <p className="mt-5 max-w-xl text-sm leading-7 text-white/60">

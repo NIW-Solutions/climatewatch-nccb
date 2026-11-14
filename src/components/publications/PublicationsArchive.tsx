@@ -19,6 +19,7 @@ import {
   type PublicationCategory,
   type PublicationItem,
 } from "@/content/publications";
+import { RevealText } from "@/components/motion-primitives/RevealText";
 
 type Filter =
   | "all"
@@ -73,8 +74,8 @@ export function PublicationsArchive() {
             </div>
 
             <div>
-              <h2 className="max-w-xl font-editorial text-[clamp(1.9rem,2.8vw,2.9rem)] font-medium leading-[1.08] tracking-[-0.035em] text-primary">
-                {archive.title}
+              <h2 className="text-balance max-w-xl font-editorial text-[clamp(1.9rem,2.8vw,2.9rem)] font-medium leading-[1.08] tracking-[-0.035em] text-primary">
+                <RevealText text={archive.title} />
               </h2>
             </div>
 
