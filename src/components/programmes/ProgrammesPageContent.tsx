@@ -6,6 +6,7 @@ import { HighlightFeature } from "@/components/shared/HighlightFeature";
 import { InView } from "@/components/motion-primitives/InView";
 import { LoadedImage } from "@/components/ui/LoadedImage";
 import { programmesContent } from "@/content/programmes";
+import { RevealText } from "@/components/motion-primitives/RevealText";
 
 export function ProgrammesPageContent() {
   const { hero, introduction, events, divisions, connection, closing } =
@@ -33,9 +34,9 @@ export function ProgrammesPageContent() {
 
                 <h1
                   id="programmes-heading"
-                  className="mt-7 max-w-3xl font-editorial text-[clamp(2.8rem,4.8vw,5.2rem)] font-medium leading-[1] tracking-[-0.045em] text-primary"
+                  className="text-balance mt-7 max-w-3xl font-editorial text-[clamp(2.8rem,4.8vw,5.2rem)] font-medium leading-[1] tracking-[-0.045em] text-primary"
                 >
-                  {hero.title}
+                  <RevealText text={hero.title} />
                 </h1>
               </div>
 
@@ -97,8 +98,8 @@ export function ProgrammesPageContent() {
             </InView>
 
             <InView className="col-span-12 lg:col-span-8 lg:col-start-5">
-              <h2 className="max-w-3xl font-editorial text-[clamp(2.2rem,3.6vw,3.9rem)] font-medium leading-[1.05] tracking-[-0.04em] text-primary">
-                {introduction.title}
+              <h2 className="text-balance max-w-3xl font-editorial text-[clamp(2.2rem,3.6vw,3.9rem)] font-medium leading-[1.05] tracking-[-0.04em] text-primary">
+                <RevealText text={introduction.title} />
               </h2>
 
               <div className="mt-8 grid gap-7 border-t border-border pt-7 sm:grid-cols-2 sm:gap-10">
@@ -135,9 +136,9 @@ export function ProgrammesPageContent() {
               <div className="col-span-12 lg:col-span-8 lg:col-start-5">
                 <h2
                   id="events-heading"
-                  className="max-w-3xl font-editorial text-[clamp(2.1rem,3.3vw,3.6rem)] font-medium leading-[1.06] tracking-[-0.04em] text-primary"
+                  className="text-balance max-w-3xl font-editorial text-[clamp(2.1rem,3.3vw,3.6rem)] font-medium leading-[1.06] tracking-[-0.04em] text-primary"
                 >
-                  {events.title}
+                  <RevealText text={events.title} />
                 </h2>
 
                 <p className="mt-7 max-w-2xl body-copy">{events.description}</p>
@@ -323,8 +324,8 @@ export function ProgrammesPageContent() {
               </div>
 
               <div className="col-span-12 lg:col-span-6">
-                <h2 className="max-w-3xl font-editorial text-[clamp(2.1rem,3.3vw,3.6rem)] font-medium leading-[1.06] tracking-[-0.04em] text-primary">
-                  {connection.title}
+                <h2 className="text-balance max-w-3xl font-editorial text-[clamp(2.1rem,3.3vw,3.6rem)] font-medium leading-[1.06] tracking-[-0.04em] text-primary">
+                  <RevealText text={connection.title} />
                 </h2>
               </div>
 
@@ -349,8 +350,8 @@ export function ProgrammesPageContent() {
               </div>
 
               <div>
-                <h2 className="max-w-3xl font-editorial text-[clamp(2.1rem,3.4vw,3.8rem)] font-medium leading-[1.05] tracking-[-0.04em] text-white">
-                  {closing.title}
+                <h2 className="text-balance max-w-3xl font-editorial text-[clamp(2.1rem,3.4vw,3.8rem)] font-medium leading-[1.05] tracking-[-0.04em] text-white">
+                  <RevealText text={closing.title} />
                 </h2>
               </div>
 
