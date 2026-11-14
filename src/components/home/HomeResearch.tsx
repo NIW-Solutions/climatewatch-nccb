@@ -5,6 +5,7 @@ import {
 import Link from "next/link";
 
 import { InView } from "@/components/motion-primitives/InView";
+import { RevealText } from "@/components/motion-primitives/RevealText";
 import { homeContent } from "@/content/home";
 
 export function HomeResearch() {
@@ -37,9 +38,9 @@ export function HomeResearch() {
 
               <h2
                 id="research-heading"
-                className="section-heading mt-7 max-w-5xl text-primary"
+                className="section-heading mt-7 max-w-5xl text-balance text-primary"
               >
-                {research.title}
+                <RevealText text={research.title} />
               </h2>
             </div>
 
@@ -89,7 +90,7 @@ export function HomeResearch() {
               </div>
 
               <h3 className="mt-8 max-w-4xl font-editorial text-[clamp(2.7rem,5vw,5.6rem)] font-medium leading-[0.98] tracking-[-0.045em] text-primary">
-                {research.featured.title}
+                <RevealText text={research.featured.title} />
               </h3>
 
               <p className="body-copy-large mt-8 max-w-3xl">

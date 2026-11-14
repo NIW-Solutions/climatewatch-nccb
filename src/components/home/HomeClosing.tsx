@@ -13,6 +13,7 @@ import {
 import Link from "next/link";
 import { useRef } from "react";
 
+import { RevealText } from "@/components/motion-primitives/RevealText";
 import { LoadedImage } from "@/components/ui/LoadedImage";
 import { homeContent } from "@/content/home";
 
@@ -141,9 +142,9 @@ export function HomeClosing() {
           <div className="max-w-4xl py-14 sm:py-16">
             <h2
               id="closing-heading"
-              className="max-w-3xl font-editorial text-[clamp(2.7rem,4.8vw,5rem)] font-medium leading-[1] tracking-[-0.045em] text-white"
+              className="max-w-3xl text-balance font-editorial text-[clamp(2.7rem,4.8vw,5rem)] font-medium leading-[1] tracking-[-0.045em] text-white"
             >
-              {closing.title}
+              <RevealText text={closing.title} />
             </h2>
 
             <p className="mt-7 max-w-2xl text-base leading-8 text-white/68 sm:text-lg sm:leading-9">

@@ -5,6 +5,8 @@ import {
 import Link from "next/link";
 
 import { InView } from "@/components/motion-primitives/InView";
+import { RevealText } from "@/components/motion-primitives/RevealText";
+import { ScrollScale } from "@/components/motion-primitives/ScrollScale";
 import { LoadedImage } from "@/components/ui/LoadedImage";
 import { homeContent } from "@/content/home";
 
@@ -41,9 +43,9 @@ export function HomeProjects() {
 
               <h2
                 id="projects-heading"
-                className="section-heading mt-7 max-w-5xl text-primary"
+                className="section-heading mt-7 max-w-5xl text-balance text-primary"
               >
-                {projects.title}
+                <RevealText text={projects.title} />
               </h2>
             </div>
 
@@ -74,10 +76,7 @@ export function HomeProjects() {
             FEATURED PROJECT
             ===================================== */}
 
-        <InView
-          amount={0.1}
-          className="mt-16 sm:mt-20 lg:mt-24"
-        >
+        <ScrollScale className="mt-16 sm:mt-20 lg:mt-24">
           <article className="grid overflow-hidden bg-primary lg:grid-cols-[1.4fr_0.6fr]">
             {/* IMAGE */}
 
@@ -141,7 +140,7 @@ export function HomeProjects() {
                 </div>
 
                 <h3 className="mt-8 max-w-lg font-editorial text-[clamp(2.6rem,4vw,4.7rem)] font-medium leading-[0.98] tracking-[-0.045em] text-white">
-                  {featured.title}
+                  <RevealText text={featured.title} />
                 </h3>
 
                 <p className="mt-7 max-w-lg text-base leading-8 text-white/68">
@@ -170,7 +169,7 @@ export function HomeProjects() {
               </div>
             </div>
           </article>
-        </InView>
+        </ScrollScale>
 
         {/* =====================================
             OTHER PROJECTS
