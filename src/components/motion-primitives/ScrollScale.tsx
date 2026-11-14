@@ -12,8 +12,8 @@ import { useRef, type ReactNode } from "react";
  * Scroll scale — src/components/motion-primitives/ScrollScale.tsx
  *
  * A block that grows into place as it is scrolled to: it starts slightly
- * small with rounded corners and settles to full size, square, by the time
- * it is centred. Tied to scroll position rather than a timer, so it moves
+ * small and settles to full size by the time it is well into view. Scale
+ * and opacity only, so it stays on the compositor. Tied to scroll position rather than a timer, so it moves
  * exactly as fast as the reader does.
  */
 export function ScrollScale({
@@ -32,7 +32,6 @@ export function ScrollScale({
   });
 
   const scale = useTransform(scrollYProgress, [0, 1], [0.9, 1]);
-  const radius = useTransform(scrollYProgress, [0, 1], [28, 0]);
   const opacity = useTransform(scrollYProgress, [0, 0.4], [0.4, 1]);
 
   if (reducedMotion) {
@@ -46,8 +45,6 @@ export function ScrollScale({
       style={{
         scale,
         opacity,
-        borderRadius: radius,
-        overflow: "hidden",
         transformOrigin: "50% 100%",
       }}
     >

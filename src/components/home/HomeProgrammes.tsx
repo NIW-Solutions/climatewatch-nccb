@@ -5,6 +5,8 @@ import {
 import Link from "next/link";
 
 import { InView } from "@/components/motion-primitives/InView";
+import { RevealText } from "@/components/motion-primitives/RevealText";
+import { ScrollScale } from "@/components/motion-primitives/ScrollScale";
 import { LoadedImage } from "@/components/ui/LoadedImage";
 import { homeContent } from "@/content/home";
 
@@ -41,9 +43,9 @@ export function HomeProgrammes() {
 
               <h2
                 id="programmes-heading"
-                className="section-heading mt-7 max-w-5xl text-primary"
+                className="section-heading mt-7 max-w-5xl text-balance text-primary"
               >
-                {programmes.title}
+                <RevealText text={programmes.title} />
               </h2>
             </div>
 
@@ -96,6 +98,7 @@ export function HomeProgrammes() {
                           : "lg:order-2 lg:col-span-7 lg:col-start-6",
                       ].join(" ")}
                     >
+                      <ScrollScale>
                       <Link
                         href={division.href}
                         aria-label={`Explore ${division.title}`}
@@ -138,6 +141,7 @@ export function HomeProgrammes() {
                           </div>
                         </div>
                       </Link>
+                      </ScrollScale>
                     </div>
 
                     {/* CONTENT */}
@@ -219,11 +223,7 @@ export function HomeProgrammes() {
 
               <div className="col-span-12 lg:col-span-6">
                 <p className="max-w-3xl font-editorial text-[clamp(1.6rem,2.4vw,2.3rem)] font-medium leading-[1.25] tracking-[-0.025em] text-white">
-                  Policy, education and
-                  research are separate
-                  divisions — but they are
-                  connected by the same
-                  evidence-led approach.
+                  <RevealText text="Policy, education and research are separate divisions — but they are connected by the same evidence-led approach." />
                 </p>
               </div>
 

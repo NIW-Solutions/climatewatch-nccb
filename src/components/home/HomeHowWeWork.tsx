@@ -5,6 +5,8 @@ import {
 import Link from "next/link";
 
 import { InView } from "@/components/motion-primitives/InView";
+import { RevealText } from "@/components/motion-primitives/RevealText";
+import { ScrollRail } from "@/components/motion-primitives/ScrollRail";
 import { LoadedImage } from "@/components/ui/LoadedImage";
 import { homeContent } from "@/content/home";
 
@@ -39,9 +41,9 @@ export function HomeHowWeWork() {
 
                 <h2
                   id="how-we-work-heading"
-                  className="section-heading mt-7 max-w-xl text-primary"
+                  className="section-heading mt-7 max-w-xl text-balance text-primary"
                 >
-                  {howWeWork.title}
+                  <RevealText text={howWeWork.title} />
                 </h2>
 
                 <p className="body-copy-large mt-8 max-w-xl">
@@ -114,7 +116,7 @@ export function HomeHowWeWork() {
               </div>
             </InView>
 
-            <div className="mt-3">
+            <ScrollRail className="mt-3">
               {howWeWork.steps.map((step, index) => (
                 <InView
                   key={step.number}
@@ -125,16 +127,9 @@ export function HomeHowWeWork() {
                     {/* Number */}
 
                     <div className="relative">
-                      <span className="editorial-index">
+                      <span className="editorial-index relative z-10 bg-background pb-1">
                         {step.number}
                       </span>
-
-                      {index < howWeWork.steps.length - 1 ? (
-                        <span
-                          aria-hidden="true"
-                          className="absolute left-[0.28rem] top-7 hidden h-[calc(100%+1.5rem)] w-px bg-border sm:block"
-                        />
-                      ) : null}
                     </div>
 
                     {/* Content */}
@@ -161,7 +156,7 @@ export function HomeHowWeWork() {
                   </article>
                 </InView>
               ))}
-            </div>
+            </ScrollRail>
           </div>
         </div>
 
