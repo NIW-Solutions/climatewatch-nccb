@@ -5,6 +5,7 @@ import {
 
 import { InView } from "@/components/motion-primitives/InView";
 import type { LegalSection } from "@/content/legal";
+import { RevealText } from "@/components/motion-primitives/RevealText";
 
 type LegalPageProps = {
   eyebrow: string;
@@ -59,9 +60,9 @@ export function LegalPage({
               <div>
                 <h1
                   id="legal-heading"
-                  className="max-w-3xl font-editorial text-[clamp(2.5rem,4vw,4rem)] font-medium leading-[1.04] tracking-[-0.04em] text-primary"
+                  className="text-balance max-w-3xl font-editorial text-[clamp(2.5rem,4vw,4rem)] font-medium leading-[1.04] tracking-[-0.04em] text-primary"
                 >
-                  {title}
+                  <RevealText text={title} />
                 </h1>
               </div>
 
@@ -156,8 +157,8 @@ export function LegalPage({
                         {/* Copy */}
 
                         <div>
-                          <h2 className="font-editorial text-[clamp(1.6rem,2.2vw,2.15rem)] font-medium leading-[1.12] tracking-[-0.03em] text-primary">
-                            {section.title}
+                          <h2 className="text-balance font-editorial text-[clamp(1.6rem,2.2vw,2.15rem)] font-medium leading-[1.12] tracking-[-0.03em] text-primary">
+                            <RevealText text={section.title} />
                           </h2>
 
                           {section.paragraphs ? (
@@ -222,8 +223,8 @@ export function LegalPage({
               </div>
 
               <div>
-                <h2 className="font-editorial text-[clamp(1.6rem,2.4vw,2.35rem)] font-medium leading-[1.12] tracking-[-0.03em] text-primary">
-                  {contact.label}
+                <h2 className="text-balance font-editorial text-[clamp(1.6rem,2.4vw,2.35rem)] font-medium leading-[1.12] tracking-[-0.03em] text-primary">
+                  <RevealText text={contact.label} />
                 </h2>
               </div>
 
