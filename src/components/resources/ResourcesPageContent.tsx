@@ -5,6 +5,7 @@ import {
 
 import { InView } from "@/components/motion-primitives/InView";
 import { resourcesContent } from "@/content/resources";
+import { RevealText } from "@/components/motion-primitives/RevealText";
 
 export function ResourcesPageContent() {
   const {
@@ -48,9 +49,9 @@ export function ResourcesPageContent() {
               <div>
                 <h1
                   id="resources-heading"
-                  className="max-w-3xl font-editorial text-[clamp(2.5rem,4vw,4.15rem)] font-medium leading-[1.03] tracking-[-0.04em] text-primary"
+                  className="text-balance max-w-3xl font-editorial text-[clamp(2.5rem,4vw,4.15rem)] font-medium leading-[1.03] tracking-[-0.04em] text-primary"
                 >
-                  {hero.title}
+                  <RevealText text={hero.title} />
                 </h1>
               </div>
 
@@ -92,8 +93,8 @@ export function ResourcesPageContent() {
 
                       {/* Title */}
 
-                      <h2 className="max-w-md font-editorial text-[clamp(1.45rem,1.9vw,1.95rem)] font-medium leading-[1.14] tracking-[-0.03em] text-primary transition-colors duration-300 group-hover:text-secondary">
-                        {item.title}
+                      <h2 className="text-balance max-w-md font-editorial text-[clamp(1.45rem,1.9vw,1.95rem)] font-medium leading-[1.14] tracking-[-0.03em] text-primary transition-colors duration-300 group-hover:text-secondary">
+                        <RevealText text={item.title} />
                       </h2>
 
                       {/* Description */}
@@ -151,8 +152,8 @@ export function ResourcesPageContent() {
               {/* Heading */}
 
               <div className="col-span-12 lg:col-span-5">
-                <h2 className="max-w-xl font-editorial text-[clamp(2rem,3vw,3rem)] font-medium leading-[1.08] tracking-[-0.035em] text-primary">
-                  {references.title}
+                <h2 className="text-balance max-w-xl font-editorial text-[clamp(2rem,3vw,3rem)] font-medium leading-[1.08] tracking-[-0.035em] text-primary">
+                  <RevealText text={references.title} />
                 </h2>
               </div>
 
@@ -223,8 +224,8 @@ export function ResourcesPageContent() {
               {/* Heading */}
 
               <div>
-                <h2 className="max-w-2xl font-editorial text-[clamp(2rem,3vw,3.1rem)] font-medium leading-[1.08] tracking-[-0.035em] text-white">
-                  {media.title}
+                <h2 className="text-balance max-w-2xl font-editorial text-[clamp(2rem,3vw,3.1rem)] font-medium leading-[1.08] tracking-[-0.035em] text-white">
+                  <RevealText text={media.title} />
                 </h2>
               </div>
 
@@ -337,8 +338,8 @@ export function ResourcesPageContent() {
               {/* Content */}
 
               <div>
-                <h2 className="max-w-2xl font-editorial text-[clamp(1.9rem,2.8vw,2.9rem)] font-medium leading-[1.1] tracking-[-0.035em] text-primary">
-                  {availability.title}
+                <h2 className="text-balance max-w-2xl font-editorial text-[clamp(1.9rem,2.8vw,2.9rem)] font-medium leading-[1.1] tracking-[-0.035em] text-primary">
+                  <RevealText text={availability.title} />
                 </h2>
 
                 <p className="body-copy mt-5 max-w-xl">
