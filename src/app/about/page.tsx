@@ -9,7 +9,7 @@ export const metadata: Metadata = {
 
   title: "About",
   description:
-    "Learn about ClimateWatch, its institutional role, mission, research approach and climate-policy work across Pakistan.",
+    "About ClimateWatch Pakistan, a youth-led climate policy think tank: its mission, research approach and climate-policy work across Pakistan.",
 };
 
 export default function AboutPage() {

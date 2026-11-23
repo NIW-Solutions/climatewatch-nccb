@@ -10,7 +10,7 @@ export const metadata: Metadata = {
 
   title: "Terms of Use",
   description:
-    "Read the ClimateWatch Terms of Use covering website access, research materials, external links and acceptable use.",
+    "The ClimateWatch Pakistan Terms of Use covering website access, research materials, external links and acceptable use.",
 };
 
 export default function TermsPage() {

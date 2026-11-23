@@ -10,7 +10,7 @@ export const metadata: Metadata = {
   title: "Members, Advisors & Board",
 
   description:
-    "The people behind ClimateWatch: divisional leadership across climate policy, research and education, with our technical advisors and Board of Directors.",
+    "The people behind ClimateWatch Pakistan, the youth-led climate think tank: divisional leadership in climate policy, research and education, advisors and Board.",
 };
 
 export default function TeamPage() {

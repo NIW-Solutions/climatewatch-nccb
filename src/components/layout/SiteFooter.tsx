@@ -54,7 +54,7 @@ export function SiteFooter() {
             >
               <Image
                 src="/images/brand/climatewatch-logo-red.webp"
-                alt="ClimateWatch"
+                alt="ClimateWatch Pakistan"
                 width={280}
                 height={151}
                 className="h-auto w-[210px] object-contain"

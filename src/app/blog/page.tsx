@@ -10,7 +10,7 @@ export const metadata: Metadata = {
   title: "Blog",
 
   description:
-    "Climate commentary, explainers and field notes from the ClimateWatch team on climate science, policy, energy, community resilience and technology.",
+    "Climate commentary, explainers and field notes from ClimateWatch Pakistan on climate science, climate policy, energy, community resilience and technology.",
 };
 
 export default function BlogPage() {

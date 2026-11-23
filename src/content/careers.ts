@@ -53,7 +53,7 @@ export const careersContent = {
   meta: {
     title: "Careers",
     description:
-      "Open roles, internships and divisional lead positions at ClimateWatch, a youth-led climate think tank working across policy, research and education in Pakistan.",
+      "Open roles, internships and divisional lead positions at ClimateWatch Pakistan, a youth-led climate think tank working across policy, research and education in Pakistan.",
   },
 
   hero: {

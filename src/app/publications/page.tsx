@@ -9,7 +9,7 @@ export const metadata: Metadata = {
 
   title: "Publications",
   description:
-    "Browse ClimateWatch publications, climate-policy reports, research and commentary.",
+    "ClimateWatch Pakistan publications: climate policy briefs, policy reports, outcome texts and research from Pakistan's youth-led climate think tank.",
 };
 
 export default function PublicationsPage() {

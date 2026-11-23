@@ -9,7 +9,7 @@ export const metadata: Metadata = {
 
   title: "Projects",
   description:
-    "Explore ClimateWatch projects across climate education, community evidence, applied research and international climate-policy tracking.",
+    "ClimateWatch Pakistan projects across climate education, community evidence, applied research and international climate-policy tracking.",
 };
 
 export default function ProjectsPage() {

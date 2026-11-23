@@ -10,7 +10,7 @@ export const metadata: Metadata = {
   title: "Contact",
 
   description:
-    "Contact ClimateWatch for climate research, policy, programme, media, partnership and institutional enquiries.",
+    "Contact ClimateWatch Pakistan, the youth-led climate think tank, for climate research, policy, programme, media, partnership and institutional enquiries.",
 };
 
 export default function ContactPage() {

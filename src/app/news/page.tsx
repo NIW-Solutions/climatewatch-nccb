@@ -10,7 +10,7 @@ export const metadata: Metadata = {
 
   title: "News",
   description:
-    "Climate coverage from Gilgit-Baltistan, Chitral and Pakistan, UNFCCC negotiations and press briefings, youth climate spaces, and updates from ClimateWatch.",
+    "Climate news from ClimateWatch Pakistan: coverage from Gilgit-Baltistan, Chitral and Pakistan, UNFCCC negotiations, press briefings and youth climate spaces.",
 };
 
 /**

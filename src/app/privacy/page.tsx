@@ -10,7 +10,7 @@ export const metadata: Metadata = {
 
   title: "Privacy Policy",
   description:
-    "Read the ClimateWatch Privacy Policy and learn how information submitted through the website may be handled.",
+    "The ClimateWatch Pakistan Privacy Policy: how information submitted through the website may be handled.",
 };
 
 export default function PrivacyPage() {

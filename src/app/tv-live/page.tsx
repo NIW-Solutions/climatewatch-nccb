@@ -12,7 +12,7 @@ export const metadata: Metadata = {
   title: "TV Live",
 
   description:
-    "Live coverage of climate negotiations, field reporting from mountain communities, briefings and recorded conversations from ClimateWatch.",
+    "ClimateWatch Pakistan live: coverage of climate negotiations, field reporting from mountain communities, briefings and recorded conversations.",
 };
 
 /** Rebuilt hourly so new uploads appear without a deploy. */

@@ -226,7 +226,7 @@ export function SiteHeader() {
             >
               <Image
                 src="/images/brand/climatewatch-logo.webp"
-                alt="ClimateWatch"
+                alt="ClimateWatch Pakistan"
                 width={220}
                 height={72}
                 priority
