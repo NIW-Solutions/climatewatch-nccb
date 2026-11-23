@@ -37,3 +37,22 @@
 # the two drift apart.
 [[plugins]]
   package = "@netlify/plugin-nextjs"
+
+# The site moved to www.climatewatch.org.pk in November 2026. The old
+# domain stays attached to this project as an alias so that every existing
+# link, bookmark, search result and printed QR code (/cop31) keeps working,
+# and these rules send each one, path included, to the same page on the new
+# domain. 301 tells search engines the move is permanent, so the old
+# domain's rankings transfer. Keep climatewatch-nccb.org registered for as
+# long as these are needed.
+[[redirects]]
+  from = "https://climatewatch-nccb.org/*"
+  to = "https://www.climatewatch.org.pk/:splat"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "https://www.climatewatch-nccb.org/*"
+  to = "https://www.climatewatch.org.pk/:splat"
+  status = 301
+  force = true
