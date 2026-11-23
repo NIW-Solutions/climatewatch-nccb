@@ -160,7 +160,7 @@ export default function TwitterImage() {
                 "rgba(255,255,255,0.62)",
             }}
           >
-            climatewatch-nccb.org
+            climatewatch.org.pk
           </div>
         </div>
       </div>

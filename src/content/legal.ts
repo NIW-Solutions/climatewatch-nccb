@@ -26,7 +26,7 @@ export const privacyContent = {
       number: "02",
       title: "What this policy covers",
       paragraphs: [
-        "This policy applies to www.climatewatch-nccb.org and to the forms, newsletter signup and contact channels on it. It does not cover other organisations' websites you reach by following a link from here.",
+        "This policy applies to www.climatewatch.org.pk and to the forms, newsletter signup and contact channels on it. It does not cover other organisations' websites you reach by following a link from here.",
       ],
     },
 

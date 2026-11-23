@@ -54,7 +54,7 @@ export function EventCard({
             organizer: {
               "@type": "Organization",
               name: "ClimateWatch",
-              url: "https://www.climatewatch-nccb.org",
+              url: "https://www.climatewatch.org.pk",
             },
           }),
         }}

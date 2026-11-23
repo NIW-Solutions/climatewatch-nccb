@@ -36,7 +36,7 @@ function back(reason?: string) {
     new URL(
       url,
       process.env.SITE_URL ??
-        "https://www.climatewatch-nccb.org",
+        "https://www.climatewatch.org.pk",
     ),
     { status: 302 },
   );

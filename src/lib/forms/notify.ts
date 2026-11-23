@@ -46,7 +46,7 @@ const REGION =
   process.env.AWS_REGION;
 const SITE =
   process.env.SITE_URL?.replace(/\/$/, "") ??
-  "https://www.climatewatch-nccb.org";
+  "https://www.climatewatch.org.pk";
 
 let client: SESv2Client | null = null;
 

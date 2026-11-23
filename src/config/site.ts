@@ -7,7 +7,7 @@ export const siteConfig = {
   description:
     "A youth-led climate think tank advancing evidence-based climate policy, research, education and applied innovation across Pakistan.",
 
-  url: "https://www.climatewatch-nccb.org",
+  url: "https://www.climatewatch.org.pk",
 
   email: "info@climatewatch-nccb.org",
 

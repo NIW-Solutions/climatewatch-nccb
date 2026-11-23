@@ -32,7 +32,7 @@ export type FeedItem = {
 const REVALIDATE_SECONDS = 3600;
 
 const USER_AGENT =
-  "climatewatch-nccb/1.0 (+https://www.climatewatch-nccb.org)";
+  "climatewatch-nccb/1.0 (+https://www.climatewatch.org.pk)";
 
 /*
  * Both budgets are deliberately tight. This work runs inside Amplify's ISR

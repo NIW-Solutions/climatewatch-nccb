@@ -21,7 +21,7 @@ import { CognitoJwtVerifier } from "aws-jwt-verify";
  *   COGNITO_ISSUER      https://cognito-idp.<region>.amazonaws.com/<pool-id>
  *   COGNITO_CLIENT_ID   the app client id
  *   COGNITO_DOMAIN      https://<prefix>.auth.<region>.amazoncognito.com
- *   SITE_URL            https://www.climatewatch-nccb.org
+ *   SITE_URL            https://www.climatewatch.org.pk
  *
  *   COGNITO_CLIENT_SECRET   only if the app client was made with one
  *

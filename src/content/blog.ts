@@ -125,7 +125,7 @@ export const blogContent = {
           {
             text: "previous part",
             href:
-              "https://www.climatewatch-nccb.org/blog/the-carbon-league",
+              "https://www.climatewatch.org.pk/blog/the-carbon-league",
           },
           ", we discussed the economic tycoons who have contributed most to global emissions. In this one, we look at the countries that have contributed least to global emissions but have been affected most, across sectors of the economy, temperature, and disasters that are no longer natural. The countries most exposed to these changes are heavily concentrated in the Global South, particularly across South Asia, Sub-Saharan Africa, Central America, and low-lying island states. Comprehensive risk assessments and vulnerability datasets like the ",
           {

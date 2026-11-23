@@ -235,7 +235,7 @@ export default function OpenGraphImage() {
                   "rgba(255,255,255,0.62)",
               }}
             >
-              climatewatch-nccb.org
+              climatewatch.org.pk
             </div>
           </div>
         </div>

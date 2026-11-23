@@ -198,10 +198,10 @@ export default async function ProfilePage({
             name: profile.name,
             jobTitle: profile.role,
             description: profile.summary,
-            url: `https://www.climatewatch-nccb.org/team/${profile.slug}`,
+            url: `https://www.climatewatch.org.pk/team/${profile.slug}`,
             ...(profile.image
               ? {
-                  image: `https://www.climatewatch-nccb.org${profile.image}`,
+                  image: `https://www.climatewatch.org.pk${profile.image}`,
                 }
               : {}),
             ...(profile.linkedin
@@ -210,7 +210,7 @@ export default async function ProfilePage({
             affiliation: {
               "@type": "Organization",
               name: "ClimateWatch",
-              url: "https://www.climatewatch-nccb.org",
+              url: "https://www.climatewatch.org.pk",
             },
           }),
         }}
@@ -350,7 +350,7 @@ function StaffPage({
   person,
 }: Readonly<{ person: StaffEntry }>) {
   const site =
-    "https://www.climatewatch-nccb.org";
+    "https://www.climatewatch.org.pk";
 
   return (
     <main>
