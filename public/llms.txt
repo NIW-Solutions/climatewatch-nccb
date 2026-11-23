@@ -1,0 +1,24 @@
+# ClimateWatch Pakistan
+
+> ClimateWatch Pakistan (www.climatewatch.org.pk) is a youth-led climate policy think tank based in Islamabad, Pakistan, with consultative status at the United Nations Economic and Social Council (ECOSOC). It is not affiliated with Climate Watch (climatewatchdata.org), the World Resources Institute's global emissions data platform.
+
+ClimateWatch Pakistan is also known as ClimateWatch, ClimateWatch Think Tank, ClimateWatch Youth, ClimateWatch Research and Development and ClimateWatch International Climate Policy. It works through three divisions: International Climate Policy, Research and Development, and Education for Sustainable Development.
+
+Its work covers UNFCCC negotiation reporting, analysis of Pakistan's climate budgets and climate finance, loss and damage, adaptation, Action for Climate Empowerment, and community resilience in Gilgit-Baltistan and Chitral.
+
+## Main pages
+
+- [About ClimateWatch Pakistan](https://www.climatewatch.org.pk/about): who we are and how we work
+- [Programmes](https://www.climatewatch.org.pk/programmes): International Climate Policy, Research and Development, Education for Sustainable Development
+- [Publications](https://www.climatewatch.org.pk/publications): policy briefs, policy reports and outcome texts, downloadable as PDF
+- [Research](https://www.climatewatch.org.pk/research): current research workstreams
+- [Projects](https://www.climatewatch.org.pk/projects): Glacier School, Climate Bethaak and other projects
+- [Team](https://www.climatewatch.org.pk/team): members, advisors and board
+- [Blog](https://www.climatewatch.org.pk/blog) and [News](https://www.climatewatch.org.pk/news)
+- [Contact](https://www.climatewatch.org.pk/contact)
+
+## Key publications
+
+- [The Islamabad Outcome Text](https://www.climatewatch.org.pk/publications/islamabad-outcome-text): multi-stakeholder position text for COP31, adopted in Islamabad on 21 October 2026
+- [Pakistan's FY2026–27 Climate Budget Reduction](https://www.climatewatch.org.pk/publications/pakistan-climate-budget-reduction)
+- [From Disaster Response to Climate Resilience](https://www.climatewatch.org.pk/publications/from-disaster-response-to-climate-resilience): Gilgit-Baltistan climate budget assessment

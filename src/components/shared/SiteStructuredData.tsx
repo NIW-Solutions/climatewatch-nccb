@@ -5,21 +5,39 @@ export function SiteStructuredData() {
     siteConfig.socialLinks,
   ).map((href) => String(href));
 
-  const structuredData = {
-    "@context": "https://schema.org",
-    "@type": "Organization",
+  /*
+    "ClimateWatch" alone belongs to the World Resources Institute's Climate
+    Watch (climatewatchdata.org), a far older and more linked site. Google
+    and AI search engines decide which organisation a page is about from
+    this data, so it leads with the name that is ours alone — ClimateWatch
+    Pakistan — lists every name people search for us by, and says outright
+    that we are a different organisation.
+  */
+  const organisation = {
+    "@type": ["Organization", "NGO"],
+    "@id": `${siteConfig.url}/#organization`,
 
-    name: siteConfig.name,
+    name: "ClimateWatch Pakistan",
+
+    alternateName: [
+      "ClimateWatch",
+      "Climate Watch Pakistan",
+      "ClimateWatch Think Tank",
+      "ClimateWatch Youth",
+      "ClimateWatch Research and Development",
+      "ClimateWatch International Climate Policy",
+    ],
 
     url: siteConfig.url,
 
-    description:
-      siteConfig.description,
+    description: siteConfig.description,
+
+    disambiguatingDescription:
+      "A youth-led climate policy think tank based in Pakistan. Not affiliated with Climate Watch (climatewatchdata.org), the World Resources Institute's global emissions data platform.",
 
     /*
       A logo lets Google show a mark beside the site in results and in the
-      knowledge panel, and is one of the signals that separates this
-      organisation from the other Climate Watch.
+      knowledge panel.
     */
     logo: `${siteConfig.url}/images/brand/climatewatch-logo.webp`,
 
@@ -27,28 +45,65 @@ export function SiteStructuredData() {
 
     sameAs,
 
+    address: {
+      "@type": "PostalAddress",
+      addressLocality: "Islamabad",
+      addressCountry: "PK",
+    },
+
     areaServed: {
       "@type": "Country",
       name: siteConfig.location.country,
     },
 
-    /*
-      The names people actually search for, so Google can resolve this
-      organisation as its own entity rather than folding it into the World
-      Resources Institute's Climate Watch. "CLIMATEWATCH" in caps helped
-      nobody — it is the same string Google already has from `name`.
-    */
-    alternateName: [
-      "ClimateWatch NCCB",
-      "ClimateWatch Pakistan",
-      "Climate Watch Pakistan",
-    ],
-
     knowsAbout: [
       "Climate policy",
-      "Climate research",
+      "International climate policy",
+      "Climate policy in Pakistan",
+      "UNFCCC negotiations",
+      "Climate finance",
+      "Loss and damage",
+      "Climate adaptation",
+      "Climate research and development",
+      "Youth climate action",
+      "Action for Climate Empowerment",
       "Education for sustainable development",
+      "Gilgit-Baltistan",
     ],
+
+    department: [
+      {
+        "@type": "Organization",
+        name: "ClimateWatch International Climate Policy Division",
+      },
+      {
+        "@type": "Organization",
+        name: "ClimateWatch Research and Development Division",
+      },
+      {
+        "@type": "Organization",
+        name: "ClimateWatch Education for Sustainable Development Division",
+      },
+    ],
+  };
+
+  /*
+    The WebSite entry is what Google reads for the site name it prints above
+    each result, so it carries the distinct name too.
+  */
+  const website = {
+    "@type": "WebSite",
+    "@id": `${siteConfig.url}/#website`,
+    url: siteConfig.url,
+    name: "ClimateWatch Pakistan",
+    alternateName: ["ClimateWatch", "climatewatch.org.pk"],
+    inLanguage: "en",
+    publisher: { "@id": `${siteConfig.url}/#organization` },
+  };
+
+  const structuredData = {
+    "@context": "https://schema.org",
+    "@graph": [organisation, website],
   };
 
   return (

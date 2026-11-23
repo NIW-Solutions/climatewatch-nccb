@@ -44,7 +44,7 @@ export const metadata: Metadata = {
 
   title: {
     default: defaultTitle,
-    template: "%s | ClimateWatch",
+    template: "%s | ClimateWatch Pakistan",
   },
 
   description: siteConfig.description,
@@ -66,7 +66,7 @@ export const metadata: Metadata = {
 
     locale: "en_PK",
 
-    siteName: siteConfig.name,
+    siteName: "ClimateWatch Pakistan",
 
     title: defaultTitle,
 

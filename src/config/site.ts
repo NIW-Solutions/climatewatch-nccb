@@ -5,7 +5,7 @@ export const siteConfig = {
     "ClimateWatch — International Climate Policy & Research and Development",
 
   description:
-    "A youth-led climate think tank advancing evidence-based climate policy, research, education and applied innovation across Pakistan.",
+    "ClimateWatch Pakistan is a youth-led climate think tank advancing evidence-based climate policy, research and development, education and applied innovation across Pakistan.",
 
   url: "https://www.climatewatch.org.pk",
 
